@@ -1,0 +1,79 @@
+{
+  "fps": 30,
+  "bpm": 120,
+  "scenes": [
+    {
+      "id": "abertura",
+      "theme": "base",
+      "frames": 96,
+      "out": { "type": "blurDissolve", "token": "dissolve", "sfx": "whoosh" },
+      "cues": [
+        { "name": "orb", "t": 0.4, "sfx": "pop" },
+        { "name": "title", "t": 0.75, "sfx": "shimmer" },
+        { "name": "sub", "t": 1.4 }
+      ]
+    },
+    {
+      "id": "camadas",
+      "theme": "calmo",
+      "frames": 114,
+      "out": { "type": "radialReveal", "token": "fast", "sfx": "whoosh" },
+      "cues": [
+        { "name": "back", "t": 0.0 },
+        { "name": "card", "t": 0.3, "sfx": "soft" },
+        { "name": "caption", "t": 0.2 },
+        { "name": "swap1", "t": 0.4 },
+        { "name": "swap2", "t": 1.45, "sfx": "swish" },
+        { "name": "swap3", "t": 2.5, "sfx": "swish" }
+      ]
+    },
+    {
+      "id": "energia",
+      "theme": "vibrante",
+      "frames": 120,
+      "out": { "type": "radialReveal", "token": "fast", "sfx": "whoosh" },
+      "cues": [
+        { "name": "pattern", "t": 0.0 },
+        { "name": "title", "t": 0.15 },
+        { "name": "capsule", "t": 0.4, "sfx": "thud" },
+        { "name": "sub", "t": 1.2 },
+        { "name": "bloom1", "t": 1.86, "sfx": "bloom" },
+        { "name": "bloom2", "t": 2.36, "sfx": "bloom" },
+        { "name": "bloom3", "t": 2.86, "sfx": "bloom" }
+      ]
+    },
+    {
+      "id": "formas",
+      "theme": "vibrante",
+      "frames": 102,
+      "out": { "type": "blurDissolve", "token": "dissolve", "sfx": "whoosh" },
+      "cues": [
+        { "name": "orb", "t": 0.1, "sfx": "swish" },
+        { "name": "ring", "t": 0.53, "sfx": "pop" },
+        { "name": "capsule", "t": 0.57, "sfx": "thud" },
+        { "name": "text", "t": 1.1 }
+      ]
+    },
+    {
+      "id": "marca",
+      "theme": "base",
+      "frames": 96,
+      "out": { "type": "radialReveal", "token": "base", "sfx": "whoosh" },
+      "cues": [
+        { "name": "mark", "t": 0.15, "sfx": "draw" },
+        { "name": "word", "t": 0.93, "sfx": "impact" },
+        { "name": "tag", "t": 1.6 }
+      ]
+    },
+    {
+      "id": "creditos",
+      "theme": "base",
+      "frames": 126,
+      "cues": [
+        { "name": "label", "t": 0.25 },
+        { "name": "lib", "t": 0.4, "sfx": "shimmer" },
+        { "name": "chips", "t": 1.2 }
+      ]
+    }
+  ]
+}

@@ -9,6 +9,15 @@ Escreva uma cena uma vez e exporte em **9:16 (formato principal)**, **16:9** e *
 
 ![Demonstração no formato 9:16](docs/assets/demo-vertical-9x16.png)
 
+## Biblioteca de motion (`src/motion`) — novo
+
+Tokens de animação medidos nas referências, revelação de texto por letra/palavra, troca de textos com saída em desfoque,
+transições `radialReveal` e `blurDissolve`, entrada de objetos com peso, composições em camadas e temas **base**, **calmo** e **vibrante**.
+
+- Documentação: [docs/biblioteca-motion.md](docs/biblioteca-motion.md)
+- Demonstração: [docs/demo/demo-9x16.mp4](docs/demo/demo-9x16.mp4) · no Studio, **Biblioteca-Motion › Demo-9x16**
+- Trilha: `python3 scripts/gerar-trilha.py` (sintetizada a partir de `src/demo/timeline.json`)
+
 ## Começando
 
 Requisitos: Node.js 20.19+ ou 22.13+.

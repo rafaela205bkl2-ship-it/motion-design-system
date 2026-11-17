@@ -1,5 +1,7 @@
 import { Composition, Folder } from "remotion";
 import { DemoVideo } from "./DemoVideo";
+import { DemoReel } from "./demo/DemoReel";
+import { totalFrames } from "./demo/timeline";
 import { ExemploBasico } from "./examples/ExemploBasico";
 import { ExemploPresets } from "./examples/ExemploPresets";
 import { FeaturesScene } from "./scenes/FeaturesScene";
@@ -12,6 +14,34 @@ import { StatsScene } from "./scenes/StatsScene";
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Folder name="Biblioteca-Motion">
+        {/* Demonstração principal — 9:16 */}
+        <Composition
+          id="Demo-9x16"
+          component={DemoReel}
+          durationInFrames={totalFrames}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        {/* Prévias: a arquitetura é responsiva, o acabamento foi feito para 9:16 */}
+        <Composition
+          id="Demo-16x9-previa"
+          component={DemoReel}
+          durationInFrames={totalFrames}
+          fps={30}
+          width={1920}
+          height={1080}
+        />
+        <Composition
+          id="Demo-1x1-previa"
+          component={DemoReel}
+          durationInFrames={totalFrames}
+          fps={30}
+          width={1080}
+          height={1080}
+        />
+      </Folder>
       <Folder name="Video">
         {/* Formato principal */}
         <Composition
