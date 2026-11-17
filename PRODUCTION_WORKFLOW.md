@@ -64,6 +64,36 @@ visual: celular gira e pousa no centro   # nota de produção (não aparece no v
 
 O modelo completo, com instruções, está em `producoes/_modelo/roteiro.md`.
 
+## 1b. Fotos no Google Drive (grandes volumes)
+
+Para muitas fotos, **não** suba os arquivos para o repositório. O fluxo lê a pasta do Drive e só baixa os originais escolhidos:
+
+```bash
+npm run fotos -- inventario <id-da-pasta> --slug <slug>   # só cabeçalhos (64 KB/arquivo): formato, dimensões, orientação, tamanho
+npm run fotos -- miniaturas --slug <slug>                 # prévias do próprio Drive (~4% do tamanho dos originais)
+npm run fotos -- folhas --slug <slug>                     # folhas de contato numeradas (F001…) para curadoria
+# escreva producoes/<slug>/fotos/selecao.json (códigos + trecho + uso)
+npm run fotos -- storyboard --slug <slug>                 # prévia da seleção agrupada por trecho
+npm run fotos -- baixar --slug <slug> [--codigos F003,F031]  # originais byte a byte; confere tamanho e SHA-256
+```
+
+- **Acesso:** a pasta precisa estar como "qualquer pessoa com o link", e o ambiente precisa liberar `drive.google.com`, `drive.usercontent.google.com` e `lh3.googleusercontent.com`. O conector Google Drive, se estiver conectado, serve para consultar metadados pontuais. Downloads passam por HTTP direto para o disco, sem ocupar contexto.
+- **Somente leitura:** o fluxo só faz GET e nunca altera nem exclui nada no Drive.
+- **Fotos parecidas:** use uma por grupo. `producoes/<slug>/fotos/similaridade.json` agrupa as quase-duplicatas por hash perceptual; complete com a revisão visual.
+- **Baixa resolução:** fotos com menos de 2 MP (comuns quando passaram pelo WhatsApp) entram só em molduras pequenas.
+- **Versionamento:** `inventario.json` e `selecao.json` vão para o Git. Miniaturas, folhas e originais não vão (`.cache/` e `public/producoes/*/imagens/fotos/`).
+
+## 1c. Música enviada como vídeo
+
+1. **Extraia o áudio** e alinhe a letra ao áudio real:
+   ```bash
+   npm run alinhar-letra -- musica.mp4 letra.txt --modelo vosk-model-small-pt-0.3
+   ```
+   O comando devolve o tempo de cada palavra reconhecida.
+2. **Escolha o recorte** em vales de energia e alinhado à grade de batidas. Registre tudo em `producoes/<slug>/musica/analise.json`.
+3. **Não invente tempos:** frases não reconhecidas ficam marcadas como "não detectado" ou "inferido", com a regra usada.
+4. **Trilhas de terceiros** ficam em `public/producoes/<slug>/audio/` e não são versionadas.
+
 ## 2. Referências (opcional)
 
 - **Já cadastradas:** consulte `reference-library/CATALOGO.md` e cite os ids em `producoes/<slug>/referencias.md`.

@@ -287,6 +287,48 @@ export const catalog: CatalogEntry[] = [
     example:
       '<ObjectEnter motion="fall" delay={0.4}><MeuObjeto /></ObjectEnter>',
   },
+  // ------------------------------------------------------------ fotografia
+  {
+    name: "KenBurns",
+    kind: "componente",
+    file: "src/motion/media/Photo.tsx",
+    description:
+      "Foto que preenche o contêiner com aproximação/pan lento e foco (desfoque → nítido).",
+    props: [
+      "src",
+      "from{scale,x,y}",
+      "to{scale,x,y}",
+      "start",
+      "duration",
+      "easing",
+      "blurFrom",
+      "focus",
+      "fit",
+    ],
+    example:
+      '<KenBurns src={staticFile("f.jpg")} from={{scale: 1}} to={{scale: 1.12}} duration={8} />',
+  },
+  {
+    name: "PhotoFrame",
+    kind: "componente",
+    file: "src/motion/media/Photo.tsx",
+    description:
+      "Foto emoldurada (borda de papel, sombra, rotação, legenda) com movimento interno sutil.",
+    props: [
+      "src",
+      "width",
+      "ratio",
+      "border",
+      "bottomBorder",
+      "rotate",
+      "shadow",
+      "caption",
+      "drift",
+      "focus",
+    ],
+    example:
+      '<ObjectEnter motion="pop"><PhotoFrame src={src} width={420} ratio={0.75} rotate={-4} /></ObjectEnter>',
+  },
   // ------------------------------------------------------------ transições
   {
     name: "radialReveal",

@@ -1,0 +1,212 @@
+[
+ {
+  "codigo": "F001",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F001.jpg",
+  "bytes": 787326,
+  "confere_tamanho": true,
+  "sha256": "9f33f569169b63e30820d20595f9645de91922da4b466fdc0129d750689272c8"
+ },
+ {
+  "codigo": "F003",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F003.jpg",
+  "bytes": 1001309,
+  "confere_tamanho": true,
+  "sha256": "87d109e04dd6ac64b45e25209e57e3648ae2c815e1b8a46738bb8f8872d47cf3"
+ },
+ {
+  "codigo": "F007",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F007.jpg",
+  "bytes": 1337494,
+  "confere_tamanho": true,
+  "sha256": "f37ad8b85fa8ac58938b9287935bac6c6ab9d9bc3e1b1bb6f713bd78b78d2b1d"
+ },
+ {
+  "codigo": "F008",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F008.jpg",
+  "bytes": 162468,
+  "confere_tamanho": true,
+  "sha256": "a347d051d7edf776454a8ef6a266240c1f56877943e991dc60af2bcf3bc529d7"
+ },
+ {
+  "codigo": "F009",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F009.jpg",
+  "bytes": 1945271,
+  "confere_tamanho": true,
+  "sha256": "99bb5d7e21a7c44cd332d3fc7be8fff96daa58e61b8cbc567fc3561f11b3e08a"
+ },
+ {
+  "codigo": "F011",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F011.jpg",
+  "bytes": 860426,
+  "confere_tamanho": true,
+  "sha256": "c550d0e7fc2f217d8dd8d0600e53fc607e8d664b1440f0203fecfa83cd8451ea"
+ },
+ {
+  "codigo": "F012",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F012.jpg",
+  "bytes": 793788,
+  "confere_tamanho": true,
+  "sha256": "64929acfd646bdbf25c01af4680ecfc0a58da843f9fe8ef65e7f9fc1384c3203"
+ },
+ {
+  "codigo": "F014",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F014.jpg",
+  "bytes": 221809,
+  "confere_tamanho": true,
+  "sha256": "f5dd29f62df644588846a061c45ec4a4b7a0d65288e06c2f380985c9a25963c1"
+ },
+ {
+  "codigo": "F015",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F015.jpg",
+  "bytes": 883826,
+  "confere_tamanho": true,
+  "sha256": "581e35df5a225006f7a5d23e4dc1ddf4d83fd418d6eb8d397818f640dfec779e"
+ },
+ {
+  "codigo": "F016",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F016.jpg",
+  "bytes": 1701935,
+  "confere_tamanho": true,
+  "sha256": "e3ed23f122eefc4e2261327cd78516d2178e8d010fe88807dd33916b42950cdc"
+ },
+ {
+  "codigo": "F020",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F020.jpg",
+  "bytes": 1550821,
+  "confere_tamanho": true,
+  "sha256": "f5ad0ed96733a34c3eccc8b2b3949fb5016cca11212fea0d3dc074e78c515eab"
+ },
+ {
+  "codigo": "F021",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F021.jpg",
+  "bytes": 1356234,
+  "confere_tamanho": true,
+  "sha256": "1dc2d91c778517a9dd572b7fc7e7b995dd0db97b938f3af59788696711379be7"
+ },
+ {
+  "codigo": "F023",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F023.jpg",
+  "bytes": 234334,
+  "confere_tamanho": true,
+  "sha256": "0141f95220c6e90e1eea946cc586e9360309b3accae9cf0869ddc2568660e733"
+ },
+ {
+  "codigo": "F027",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F027.jpg",
+  "bytes": 1300406,
+  "confere_tamanho": true,
+  "sha256": "36a67b674e8bcb882f12a3abebbcdeb9df610a178062e541c2024cf2b664fc01"
+ },
+ {
+  "codigo": "F031",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F031.jpg",
+  "bytes": 1907053,
+  "confere_tamanho": true,
+  "sha256": "ba27824cb01aa70af802676181de4e8eeac203e2482fed4c112fe90dc0302d0d"
+ },
+ {
+  "codigo": "F034",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F034.jpg",
+  "bytes": 1159186,
+  "confere_tamanho": true,
+  "sha256": "91d3399b48bf27ad0150c7040fcf15f99208f45dc3469b6683c190a19ce8f034"
+ },
+ {
+  "codigo": "F036",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F036.jpg",
+  "bytes": 1654784,
+  "confere_tamanho": true,
+  "sha256": "234c18e3b3bd1f57a0355a437bf30f3a977fe46cf3c790e5e347280f132c2bdc"
+ },
+ {
+  "codigo": "F039",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F039.jpg",
+  "bytes": 1923799,
+  "confere_tamanho": true,
+  "sha256": "6b776626d0cae8b9a4348b616ad6b41646900655ce5285d8d0f34a28b0043a8d"
+ },
+ {
+  "codigo": "F040",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F040.jpg",
+  "bytes": 776104,
+  "confere_tamanho": true,
+  "sha256": "d9fd70bd74d673561a0dee34546df21092c7d0c62d4e253e446e2793aa3aa387"
+ },
+ {
+  "codigo": "F041",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F041.jpg",
+  "bytes": 163958,
+  "confere_tamanho": true,
+  "sha256": "dfd3a85a33e42d78442d03e7920a091c22440bfff8f67020b8b033deeecddd83"
+ },
+ {
+  "codigo": "F042",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F042.jpg",
+  "bytes": 1293209,
+  "confere_tamanho": true,
+  "sha256": "69ab69189275ec43b37aa501c3ddc0a3db56cda1095c72a60f86e6e08779fe09"
+ },
+ {
+  "codigo": "F047",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F047.jpg",
+  "bytes": 956490,
+  "confere_tamanho": true,
+  "sha256": "26a6c66b08d48943440454f2f3c7e36d8cec740b08876d1c1581627dcd6134f9"
+ },
+ {
+  "codigo": "F049",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F049.jpg",
+  "bytes": 1456248,
+  "confere_tamanho": true,
+  "sha256": "f518d93bf21fc9b77ccb7ce9266a21978287a8062e7cad58012c50044b4256f8"
+ },
+ {
+  "codigo": "F052",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F052.jpg",
+  "bytes": 1303969,
+  "confere_tamanho": true,
+  "sha256": "c6a8cf8ab59c9a55f2309c5bb24dffb1138cabaaf5724dc603d1a9db790f979f"
+ },
+ {
+  "codigo": "F054",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F054.jpg",
+  "bytes": 1301711,
+  "confere_tamanho": true,
+  "sha256": "a821069a33a48beb0a390bde1fd8a4e7ea1890cdc728fe953b736686199e7972"
+ },
+ {
+  "codigo": "F055",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F055.jpg",
+  "bytes": 1192406,
+  "confere_tamanho": true,
+  "sha256": "aa45a1576c3a801b6e05366fdcd1d481cc206a7b9d37b63b77e095bb26694849"
+ },
+ {
+  "codigo": "F058",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F058.jpg",
+  "bytes": 207568,
+  "confere_tamanho": true,
+  "sha256": "b5c71505610348a6b93d4095d7320689aad6d853405998ce6e86fe05635011d9"
+ },
+ {
+  "codigo": "F066",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F066.jpg",
+  "bytes": 1100979,
+  "confere_tamanho": true,
+  "sha256": "fcc53415274298662db46a83668bea530ee42cc7ce3ff2bc8922843653e00776"
+ },
+ {
+  "codigo": "F067",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F067.jpg",
+  "bytes": 1731764,
+  "confere_tamanho": true,
+  "sha256": "2a9b6ea46b2f5f3950fd89e990ec7617b7782003c4aa87a50f4e7b43df9a4fe5"
+ },
+ {
+  "codigo": "F069",
+  "arquivo": "public/producoes/despedida-universitaria/imagens/fotos/F069.jpg",
+  "bytes": 1297074,
+  "confere_tamanho": true,
+  "sha256": "b05caeb726e6584423cc264df8a69e8eabb779ac75ecc39e83647314c77622f7"
+ }
+]

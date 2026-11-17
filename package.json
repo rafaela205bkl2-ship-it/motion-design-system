@@ -38,7 +38,9 @@
     "catalogo": "tsx scripts/catalogo.ts",
     "validar": "eslint src && tsc && tsx scripts/catalogo.ts --validar",
     "trilha-demo": "python3 scripts/gerar-trilha.py",
-    "analisar-referencia": "python3 scripts/analisar-referencia.py"
+    "analisar-referencia": "python3 scripts/analisar-referencia.py",
+    "fotos": "python3 scripts/fotos-drive.py",
+    "alinhar-letra": "python3 scripts/alinhar-letra.py"
   },
   "allowScripts": {
     "esbuild": false

@@ -1,0 +1,398 @@
+[
+ {
+  "conf": 0.800936,
+  "end": 60.57,
+  "start": 60.12,
+  "word": "dias"
+ },
+ {
+  "conf": 0.933021,
+  "end": 61.26,
+  "start": 60.81,
+  "word": "melhores"
+ },
+ {
+  "conf": 0.734683,
+  "end": 67.56,
+  "start": 66.96145,
+  "word": "dias"
+ },
+ {
+  "conf": 0.54372,
+  "end": 67.679202,
+  "start": 67.618608,
+  "word": "de"
+ },
+ {
+  "conf": 0.997603,
+  "end": 68.31,
+  "start": 67.693755,
+  "word": "paz"
+ },
+ {
+  "conf": 0.608334,
+  "end": 69.839502,
+  "start": 69.18,
+  "word": "dias"
+ },
+ {
+  "conf": 0.634398,
+  "end": 73.08,
+  "start": 72.662871,
+  "word": "dias"
+ },
+ {
+  "conf": 0.998549,
+  "end": 73.23,
+  "start": 73.08,
+  "word": "que"
+ },
+ {
+  "conf": 1.0,
+  "end": 73.5,
+  "start": 73.23,
+  "word": "não"
+ },
+ {
+  "conf": 1.0,
+  "end": 74.49,
+  "start": 73.5,
+  "word": "deixaremos"
+ },
+ {
+  "conf": 1.0,
+  "end": 75.69,
+  "start": 75.36,
+  "word": "para"
+ },
+ {
+  "conf": 1.0,
+  "end": 76.29,
+  "start": 75.69,
+  "word": "trás"
+ },
+ {
+  "conf": 1.0,
+  "end": 85.79866,
+  "start": 85.2,
+  "word": "vivemos"
+ },
+ {
+  "conf": 0.988858,
+  "end": 86.61,
+  "start": 85.8,
+  "word": "esperando"
+ },
+ {
+  "conf": 0.962384,
+  "end": 87.63,
+  "start": 87.54,
+  "word": "o"
+ },
+ {
+  "conf": 0.980796,
+  "end": 87.969507,
+  "start": 87.63,
+  "word": "dia"
+ },
+ {
+  "conf": 0.567505,
+  "end": 88.26,
+  "start": 88.004319,
+  "word": "que"
+ },
+ {
+  "conf": 1.0,
+  "end": 90.63,
+  "start": 89.429583,
+  "word": "melhores"
+ },
+ {
+  "conf": 1.0,
+  "end": 95.16,
+  "start": 94.26,
+  "word": "melhores"
+ },
+ {
+  "conf": 0.993006,
+  "end": 95.25,
+  "start": 95.16,
+  "word": "no"
+ },
+ {
+  "conf": 1.0,
+  "end": 95.82,
+  "start": 95.25,
+  "word": "amor"
+ },
+ {
+  "conf": 1.0,
+  "end": 97.47,
+  "start": 96.63,
+  "word": "melhores"
+ },
+ {
+  "conf": 0.765127,
+  "end": 97.71,
+  "start": 97.47,
+  "word": "na"
+ },
+ {
+  "conf": 0.839393,
+  "end": 98.61,
+  "start": 97.71531,
+  "word": "dor"
+ },
+ {
+  "conf": 1.0,
+  "end": 102.09,
+  "start": 101.22,
+  "word": "melhores"
+ },
+ {
+  "conf": 0.947063,
+  "end": 118.17,
+  "start": 118.02,
+  "word": "que"
+ },
+ {
+  "conf": 0.981258,
+  "end": 118.89,
+  "start": 118.17,
+  "word": "seremos"
+ },
+ {
+  "conf": 1.0,
+  "end": 120.06,
+  "start": 119.64,
+  "word": "para"
+ },
+ {
+  "conf": 1.0,
+  "end": 121.2,
+  "start": 120.06,
+  "word": "sempre"
+ },
+ {
+  "conf": 0.792182,
+  "end": 123.33,
+  "start": 122.851377,
+  "word": "esperando"
+ },
+ {
+  "conf": 0.997298,
+  "end": 165.03,
+  "start": 164.311377,
+  "word": "esperando"
+ },
+ {
+  "conf": 0.97935,
+  "end": 166.68,
+  "start": 166.08,
+  "word": "dias"
+ },
+ {
+  "conf": 1.0,
+  "end": 167.67,
+  "start": 166.74,
+  "word": "melhores"
+ },
+ {
+  "conf": 0.518759,
+  "end": 173.577202,
+  "start": 173.344995,
+  "word": "de"
+ },
+ {
+  "conf": 1.0,
+  "end": 174.51,
+  "start": 173.803799,
+  "word": "paz"
+ },
+ {
+  "conf": 1.0,
+  "end": 175.95,
+  "start": 175.29,
+  "word": "dias"
+ },
+ {
+  "conf": 1.0,
+  "end": 176.16,
+  "start": 175.95,
+  "word": "a"
+ },
+ {
+  "conf": 1.0,
+  "end": 176.55,
+  "start": 176.16,
+  "word": "mais"
+ },
+ {
+  "conf": 0.982943,
+  "end": 179.19,
+  "start": 178.74,
+  "word": "dias"
+ },
+ {
+  "conf": 0.99569,
+  "end": 179.34,
+  "start": 179.190513,
+  "word": "que"
+ },
+ {
+  "conf": 1.0,
+  "end": 179.61,
+  "start": 179.34,
+  "word": "não"
+ },
+ {
+  "conf": 1.0,
+  "end": 180.48,
+  "start": 179.61,
+  "word": "deixaremos"
+ },
+ {
+  "conf": 1.0,
+  "end": 181.77,
+  "start": 181.5,
+  "word": "para"
+ },
+ {
+  "conf": 1.0,
+  "end": 182.52,
+  "start": 181.8,
+  "word": "trás"
+ },
+ {
+  "conf": 1.0,
+  "end": 191.94,
+  "start": 191.37,
+  "word": "vivemos"
+ },
+ {
+  "conf": 0.98669,
+  "end": 192.66,
+  "start": 191.94,
+  "word": "esperando"
+ },
+ {
+  "conf": 0.981547,
+  "end": 193.77,
+  "start": 193.68,
+  "word": "o"
+ },
+ {
+  "conf": 1.0,
+  "end": 194.158696,
+  "start": 193.77,
+  "word": "dia"
+ },
+ {
+  "conf": 0.956508,
+  "end": 194.22,
+  "start": 194.16,
+  "word": "em"
+ },
+ {
+  "conf": 0.904351,
+  "end": 194.46,
+  "start": 194.22,
+  "word": "que"
+ },
+ {
+  "conf": 1.0,
+  "end": 196.74,
+  "start": 195.6,
+  "word": "melhores"
+ },
+ {
+  "conf": 1.0,
+  "end": 201.299824,
+  "start": 200.4,
+  "word": "melhores"
+ },
+ {
+  "conf": 0.988622,
+  "end": 201.39,
+  "start": 201.3,
+  "word": "no"
+ },
+ {
+  "conf": 0.991723,
+  "end": 202.11,
+  "start": 201.39,
+  "word": "amor"
+ },
+ {
+  "conf": 1.0,
+  "end": 203.61,
+  "start": 202.8,
+  "word": "melhores"
+ },
+ {
+  "conf": 0.95299,
+  "end": 203.82,
+  "start": 203.64,
+  "word": "na"
+ },
+ {
+  "conf": 1.0,
+  "end": 204.78,
+  "start": 203.824233,
+  "word": "dor"
+ },
+ {
+  "conf": 0.981022,
+  "end": 226.17,
+  "start": 225.78,
+  "word": "para"
+ },
+ {
+  "conf": 0.947192,
+  "end": 226.86,
+  "start": 226.170103,
+  "word": "sempre"
+ },
+ {
+  "conf": 0.993368,
+  "end": 228.857109,
+  "start": 228.27,
+  "word": "vivemos"
+ },
+ {
+  "conf": 0.835677,
+  "end": 229.44,
+  "start": 228.87,
+  "word": "esperando"
+ },
+ {
+  "conf": 0.472085,
+  "end": 259.14,
+  "start": 258.93,
+  "word": "pra"
+ },
+ {
+  "conf": 0.549247,
+  "end": 259.71,
+  "start": 259.140264,
+  "word": "sempre"
+ },
+ {
+  "conf": 0.665221,
+  "end": 278.04,
+  "start": 277.620908,
+  "word": "sempre"
+ },
+ {
+  "conf": 0.435561,
+  "end": 305.34,
+  "start": 305.1,
+  "word": "pra"
+ },
+ {
+  "conf": 0.779061,
+  "end": 305.76,
+  "start": 305.34,
+  "word": "sempre"
+ }
+]

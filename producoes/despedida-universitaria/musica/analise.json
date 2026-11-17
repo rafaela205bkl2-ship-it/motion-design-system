@@ -1,0 +1,139 @@
+{
+ "fonte": "vídeo enviado: Jota_Quest_-_Dias_Melhores_Ac_stico.mp4 (317,8 s, AAC 44,1 kHz) — áudio extraído com ffmpeg",
+ "metodo": "Vosk (vosk-model-small-pt-0.3) com gramática restrita às frases da letra fornecida; energia RMS, fluxo espectral, autocorrelação de andamento. Só constam palavras efetivamente reconhecidas.",
+ "andamento_bpm": 103.4,
+ "batida_s": 0.58,
+ "grade_fase_s": 150.22,
+ "loudness_lufs": -11.2,
+ "recorte": {
+  "inicio_s": 160.08,
+  "fim_s": 259.84,
+  "duracao_s": 99.76,
+  "batidas": 172,
+  "compassos": 43,
+  "criterio": "limite de 1 min 40 s; início em vale de energia ~4 s antes de 'dias melhores'; fim em vale logo após 'pra sempre'; ambos na grade (150,22 + n·0,58 s)",
+  "arquivo": "public/producoes/despedida-universitaria/audio/trilha.wav (não versionado; fade-in 1,2 s, fade-out 0,8 s, −14 LUFS)"
+ },
+ "alinhamento_musica_s": [
+  {
+   "t": [
+    164.31,
+    167.67
+   ],
+   "frase": "(vivemos) esperando dias melhores"
+  },
+  {
+   "t": [
+    173.34,
+    176.55
+   ],
+   "frase": "dias de paz, dias a mais"
+  },
+  {
+   "t": [
+    178.74,
+    182.52
+   ],
+   "frase": "dias que não deixaremos para trás"
+  },
+  {
+   "t": [
+    191.37,
+    196.74
+   ],
+   "frase": "vivemos esperando o dia em que (seremos) melhores"
+  },
+  {
+   "t": [
+    200.4,
+    204.78
+   ],
+   "frase": "melhores no amor, melhores na dor"
+  },
+  {
+   "t": [
+    225.78,
+    226.86
+   ],
+   "frase": "para sempre"
+  },
+  {
+   "t": [
+    228.27,
+    229.44
+   ],
+   "frase": "vivemos esperando (repetição)"
+  },
+  {
+   "t": [
+    258.93,
+    259.71
+   ],
+   "frase": "pra sempre (confiança baixa)"
+  }
+ ],
+ "nao_detectado": [
+  "'melhores em tudo' — esperado após 204,8 s; confirmar ouvindo",
+  "palavras entre 230 e 258 s (há voz, presença 4–6/9, mas sem reconhecimento)"
+ ],
+ "intensidade": "energia sobe a partir de 216 s (baixo dobra a densidade); pico −6,9 dB em 256 s",
+ "alinhamento_recorte_s": [
+  {
+   "t": [
+    4.23,
+    7.59
+   ],
+   "frase": "(vivemos) esperando dias melhores"
+  },
+  {
+   "t": [
+    13.26,
+    16.47
+   ],
+   "frase": "dias de paz, dias a mais"
+  },
+  {
+   "t": [
+    18.66,
+    22.44
+   ],
+   "frase": "dias que não deixaremos para trás"
+  },
+  {
+   "t": [
+    31.29,
+    36.66
+   ],
+   "frase": "vivemos esperando o dia em que (seremos) melhores"
+  },
+  {
+   "t": [
+    40.32,
+    44.7
+   ],
+   "frase": "melhores no amor, melhores na dor"
+  },
+  {
+   "t": [
+    65.7,
+    66.78
+   ],
+   "frase": "para sempre"
+  },
+  {
+   "t": [
+    68.19,
+    69.36
+   ],
+   "frase": "vivemos esperando (repetição)"
+  },
+  {
+   "t": [
+    98.85,
+    99.63
+   ],
+   "frase": "pra sempre (confiança baixa)"
+  }
+ ],
+ "intensidade_recorte": "sobe a partir de 55,9 s (216 s na música)"
+}

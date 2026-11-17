@@ -201,6 +201,17 @@ Props: `from` (`top`, `bottom`, `left`, `right`, `none`), `distance`, `delay`, `
 - `blurDissolve`: a cena que sai desfoca e cresce, a que entra nasce desfocada. Com `through`, passa por uma cor (o fade para branco das referências).
 - `transitionFrames(fps, token)`: quadros da transição, para calcular a duração total.
 
+### Fotografia
+
+- `KenBurns`: a foto preenche o contêiner com aproximação ou pan lento (`from`/`to` com `scale`, `x`, `y`), desfoque inicial e ponto focal.
+- `PhotoFrame`: foto emoldurada (borda de papel, sombra, rotação, legenda) com movimento interno sutil. Recebe `ratio` (largura/altura), por exemplo a do inventário de fotos.
+
+```tsx
+<ObjectEnter motion="pop" delay={0.6}>
+  <PhotoFrame src={staticFile("producoes/x/imagens/fotos/F001.jpg")} width={380} ratio={0.75} rotate={-5} />
+</ObjectEnter>
+```
+
 ### Camadas
 
 | Componente | Função |

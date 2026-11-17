@@ -1,0 +1,48 @@
+{
+  "titulo": "Despedida Universitária — Dias Melhores",
+  "slug": "despedida-universitaria",
+  "fps": 30,
+  "estilo": "base",
+  "trilha": "audio/trilha.wav",
+  "cenas": [
+    {
+      "id": "cena-1",
+      "nome": "Trecho 1: expectativa",
+      "duracao": 13,
+      "transicao": "dissolve",
+      "texto": "Dias *melhores*",
+      "visual": "F003 → F031 em tela cheia, aproximação lenta, fade do preto; lettering em 6,00 s (\"dias\")"
+    },
+    {
+      "id": "cena-2",
+      "nome": "Trecho 2: nostalgia",
+      "duracao": 16.5333,
+      "transicao": "radial-suave",
+      "texto": "Dias que não deixaremos *para trás*",
+      "visual": "molduras entrando na batida; \"dias de paz\" 13,26 s; \"dias a mais\" 15,21 s; destaque afetivo em 18,66 s; \"para trás\" 21,42 s"
+    },
+    {
+      "id": "cena-3",
+      "nome": "Trecho 3: amadurecimento",
+      "duracao": 27.2,
+      "transicao": "fade-branco",
+      "texto": "Melhores *em tudo*",
+      "visual": "cortes por compasso; \"vivemos esperando\" 31,29; \"melhores\" 35,52; \"no amor\" 40,32; \"na dor\" 42,72; \"em tudo\" 45,12 (inferido)"
+    },
+    {
+      "id": "cena-4",
+      "nome": "Trecho 4: união",
+      "duracao": 12.2667,
+      "transicao": "radial-rapido",
+      "texto": "Para *sempre*",
+      "visual": "composição única de fotos de turma; \"para sempre\" em 65,70 s"
+    },
+    {
+      "id": "cena-5",
+      "nome": "Trechos 5 e 6: celebração e retorno",
+      "duracao": 31.7667,
+      "texto": "Dias melhores *pra sempre*",
+      "visual": "\"vivemos esperando\" 68,19 s; camadas de fotos e retorno de fotos já vistas; \"pra sempre\" 98,85 s"
+    }
+  ]
+}

@@ -30,3 +30,12 @@ npm-debug.log*
 .idea
 *.swp
 Thumbs.db
+
+# Cache de prévias (miniaturas, folhas de contato) — regenerável com `npm run fotos`
+.cache/
+# Originais de fotos baixados do Drive e trilhas de terceiros: não versionar
+# (direitos de imagem/autorais e tamanho). Reprodutível via selecao.json + `npm run fotos -- baixar`.
+public/producoes/*/imagens/fotos/
+public/producoes/*/audio/*.wav
+public/producoes/*/audio/*.mp3
+public/producoes/*/audio/*.m4a

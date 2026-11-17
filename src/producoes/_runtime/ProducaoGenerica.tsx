@@ -177,10 +177,12 @@ export const ProducaoGenerica: React.FC<{
   readonly timeline: TimelineProducao;
   /** Substituições: id da cena → componente próprio. */
   readonly cenas?: Record<string, React.FC<CenaProps>>;
-}> = ({ timeline: tl, cenas = {} }) => {
+  /** Tema próprio da produção (ex.: createTheme). Sobrescreve o estilo do roteiro em cenas e transições. */
+  readonly tema?: Theme;
+}> = ({ timeline: tl, cenas = {}, tema: temaProducao }) => {
   const items: React.ReactNode[] = [];
   tl.cenas.forEach((cena, i) => {
-    const tema = temaDoEstilo(cena.estilo ?? tl.estilo);
+    const tema = temaProducao ?? temaDoEstilo(cena.estilo ?? tl.estilo);
     const Comp = cenas[cena.id] ?? CenaGenerica;
     items.push(
       <TransitionSeries.Sequence
@@ -193,7 +195,8 @@ export const ProducaoGenerica: React.FC<{
     );
     const t = cena.transicao ?? "dissolve";
     if (i < tl.cenas.length - 1 && t !== "corte") {
-      const next = temaDoEstilo(tl.cenas[i + 1].estilo ?? tl.estilo);
+      const next =
+        temaProducao ?? temaDoEstilo(tl.cenas[i + 1].estilo ?? tl.estilo);
       const tr = transitionPreset(t, {
         fps: tl.fps,
         ringColor: next.palette.accent,

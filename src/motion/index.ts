@@ -53,6 +53,14 @@ export type {
   EnterFrom,
 } from "./object/ObjectEnter";
 
+// Fotografia
+export { KenBurns, PhotoFrame } from "./media/Photo";
+export type {
+  KenBurnsProps,
+  PhotoFrameProps,
+  CameraState,
+} from "./media/Photo";
+
 // Transições
 export { radialReveal } from "./transitions/radialReveal";
 export type { RadialRevealProps } from "./transitions/radialReveal";

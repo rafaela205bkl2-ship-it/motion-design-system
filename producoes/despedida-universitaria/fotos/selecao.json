@@ -1,0 +1,233 @@
+{
+ "status": "preliminar — sem fotos muito parecidas; aguardando aprovação",
+ "regras": "uma foto por grupo de quase-duplicatas (maior resolução); 1,2 MP só em molduras pequenas; T6 reutiliza fotos já apresentadas",
+ "descartadas_duplicatas": {
+  "F001": [
+   "F004",
+   "F029"
+  ],
+  "F003": [
+   "F050"
+  ],
+  "F031": [
+   "F005",
+   "F046"
+  ],
+  "F007": [
+   "F057"
+  ],
+  "F008": [
+   "F024"
+  ],
+  "F009": [
+   "F018",
+   "F019",
+   "F048"
+  ],
+  "F011": [
+   "F038"
+  ],
+  "F012": [
+   "F045"
+  ],
+  "F015": [
+   "F060"
+  ],
+  "F016": [
+   "F017"
+  ],
+  "F020": [
+   "F033"
+  ],
+  "F021": [
+   "F028",
+   "F032",
+   "F053",
+   "F056"
+  ],
+  "F058": [
+   "F022"
+  ],
+  "F023": [
+   "F026"
+  ],
+  "F042": [
+   "F063"
+  ],
+  "F036": [
+   "F064"
+  ],
+  "F054": [
+   "F068"
+  ]
+ },
+ "descartadas_outras": {
+  "F065": "já é uma colagem, 1,9 MP",
+  "F051": "HEIC sem dimensões lidas; reavaliar se necessário"
+ },
+ "fotos": [
+  {
+   "codigo": "F003",
+   "uso": "tela cheia",
+   "nota": "sala/corredor: plano de abertura",
+   "trecho": "T1 · 0–16 s · expectativa (abertura)"
+  },
+  {
+   "codigo": "F031",
+   "uso": "tela cheia",
+   "nota": "turma estudando: o começo",
+   "trecho": "T1 · 0–16 s · expectativa (abertura)"
+  },
+  {
+   "codigo": "F001",
+   "uso": "moldura",
+   "trecho": "T2 · 16–34 s · nostalgia e amizade"
+  },
+  {
+   "codigo": "F012",
+   "uso": "moldura",
+   "trecho": "T2 · 16–34 s · nostalgia e amizade"
+  },
+  {
+   "codigo": "F011",
+   "uso": "moldura",
+   "trecho": "T2 · 16–34 s · nostalgia e amizade"
+  },
+  {
+   "codigo": "F007",
+   "uso": "moldura larga",
+   "trecho": "T2 · 16–34 s · nostalgia e amizade"
+  },
+  {
+   "codigo": "F034",
+   "uso": "moldura larga",
+   "trecho": "T2 · 16–34 s · nostalgia e amizade"
+  },
+  {
+   "codigo": "F040",
+   "uso": "destaque",
+   "nota": "'não deixaremos para trás' (21,6–25,3 s)",
+   "trecho": "T2 · 16–34 s · nostalgia e amizade"
+  },
+  {
+   "codigo": "F047",
+   "uso": "destaque",
+   "nota": "'não deixaremos para trás'",
+   "trecho": "T2 · 16–34 s · nostalgia e amizade"
+  },
+  {
+   "codigo": "F015",
+   "uso": "destaque",
+   "trecho": "T2 · 16–34 s · nostalgia e amizade"
+  },
+  {
+   "codigo": "F020",
+   "uso": "moldura",
+   "trecho": "T3 · 34–68 s · amadurecimento"
+  },
+  {
+   "codigo": "F039",
+   "uso": "moldura",
+   "trecho": "T3 · 34–68 s · amadurecimento"
+  },
+  {
+   "codigo": "F049",
+   "uso": "tela cheia",
+   "trecho": "T3 · 34–68 s · amadurecimento"
+  },
+  {
+   "codigo": "F052",
+   "uso": "moldura",
+   "trecho": "T3 · 34–68 s · amadurecimento"
+  },
+  {
+   "codigo": "F066",
+   "uso": "moldura",
+   "trecho": "T3 · 34–68 s · amadurecimento"
+  },
+  {
+   "codigo": "F067",
+   "uso": "moldura",
+   "trecho": "T3 · 34–68 s · amadurecimento"
+  },
+  {
+   "codigo": "F042",
+   "uso": "coletiva",
+   "trecho": "T3 · 34–68 s · amadurecimento"
+  },
+  {
+   "codigo": "F069",
+   "uso": "coletiva",
+   "trecho": "T3 · 34–68 s · amadurecimento"
+  },
+  {
+   "codigo": "F036",
+   "uso": "coletiva",
+   "trecho": "T3 · 34–68 s · amadurecimento"
+  },
+  {
+   "codigo": "F009",
+   "uso": "tela cheia",
+   "nota": "turma com decoração",
+   "trecho": "T4 · ~64–71 s · para sempre (união)"
+  },
+  {
+   "codigo": "F054",
+   "uso": "tela cheia",
+   "trecho": "T4 · ~64–71 s · para sempre (união)"
+  },
+  {
+   "codigo": "F021",
+   "uso": "moldura larga",
+   "trecho": "T4 · ~64–71 s · para sempre (união)"
+  },
+  {
+   "codigo": "F055",
+   "uso": "destaque",
+   "nota": "abraço/dupla",
+   "trecho": "T4 · ~64–71 s · para sempre (união)"
+  },
+  {
+   "codigo": "F027",
+   "uso": "moldura larga",
+   "trecho": "T5/T6 · 71–107 s · celebração e retorno"
+  },
+  {
+   "codigo": "F023",
+   "uso": "moldura pequena",
+   "nota": "1,2 MP",
+   "trecho": "T5/T6 · 71–107 s · celebração e retorno"
+  },
+  {
+   "codigo": "F041",
+   "uso": "moldura pequena",
+   "nota": "1,2 MP",
+   "trecho": "T5/T6 · 71–107 s · celebração e retorno"
+  },
+  {
+   "codigo": "F058",
+   "uso": "moldura pequena",
+   "nota": "1,2 MP",
+   "trecho": "T5/T6 · 71–107 s · celebração e retorno"
+  },
+  {
+   "codigo": "F014",
+   "uso": "moldura pequena",
+   "nota": "1,2 MP",
+   "trecho": "T5/T6 · 71–107 s · celebração e retorno"
+  },
+  {
+   "codigo": "F008",
+   "uso": "moldura pequena",
+   "nota": "1,2 MP",
+   "trecho": "T5/T6 · 71–107 s · celebração e retorno"
+  },
+  {
+   "codigo": "F016",
+   "uso": "tela cheia",
+   "nota": "turma posada: clímax 'pra sempre'",
+   "trecho": "T5/T6 · 71–107 s · celebração e retorno"
+  }
+ ],
+ "criterio_parecidas": "Só uma foto por grupo de fotos muito parecidas: união dos grupos do hash perceptual (similaridade.json) com a revisão visual das folhas de contato."
+}

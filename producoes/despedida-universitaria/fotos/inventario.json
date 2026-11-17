@@ -1,0 +1,1104 @@
+{
+ "pasta_drive": "1Nwx6H1u9FOqEodn0CvpdlbA2S_qVed4v",
+ "gerado_em": "2026-11-17T06:11:57+00:00",
+ "total_itens": 69,
+ "imagens": [
+  {
+   "id": "1u98r3IgeorbKg6LCBwNSGpm6Y7hXdbZY",
+   "nome": "008fa9ff-876d-4e91-bbe1-afbd62b9bc12.jpg",
+   "pasta": "",
+   "bytes": 787326,
+   "formato": "jpeg",
+   "largura": 2316,
+   "altura": 3088,
+   "exibicao": {
+    "largura": 2316,
+    "altura": 3088
+   },
+   "orientacao": "retrato",
+   "megapixels": 7.2,
+   "codigo": "F001"
+  },
+  {
+   "id": "18oVVy8SDaZTXKv0aNmDBeSseqck4hKV-",
+   "nome": "0204660f-00e8-4612-a32a-a5637e626694.jpg",
+   "pasta": "",
+   "bytes": 143629,
+   "formato": "jpeg",
+   "largura": 960,
+   "altura": 1280,
+   "exibicao": {
+    "largura": 960,
+    "altura": 1280
+   },
+   "orientacao": "retrato",
+   "megapixels": 1.2,
+   "codigo": "F002"
+  },
+  {
+   "id": "1d4uC0bpqf1fR4vox5_q8XyvV6vdHOQqy",
+   "nome": "0fd1b7fc-0efe-49c2-bf97-2aea3449b7a9.jpg",
+   "pasta": "",
+   "bytes": 1001309,
+   "formato": "jpeg",
+   "largura": 3024,
+   "altura": 4032,
+   "exibicao": {
+    "largura": 3024,
+    "altura": 4032
+   },
+   "orientacao": "retrato",
+   "megapixels": 12.2,
+   "codigo": "F003"
+  },
+  {
+   "id": "1yiZw7QBIzUrYS3_o22uUmLMFNWZvPpuS",
+   "nome": "11ba5a01-60f7-4687-a7e9-6233ecb92e16.jpg",
+   "pasta": "",
+   "bytes": 776665,
+   "formato": "jpeg",
+   "largura": 2316,
+   "altura": 3088,
+   "exibicao": {
+    "largura": 2316,
+    "altura": 3088
+   },
+   "orientacao": "retrato",
+   "megapixels": 7.2,
+   "codigo": "F004"
+  },
+  {
+   "id": "1qmvwySo1GJctYsU-A2PtpugstYLGKFsU",
+   "nome": "142b0a7b-d36a-4a2e-8c1e-e3b635e21e35.jpg",
+   "pasta": "",
+   "bytes": 2325008,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F005"
+  },
+  {
+   "id": "1I3sC9pa7MDdqlxVjddupuVLZFscxl9pS",
+   "nome": "14a4858f-fd81-4d06-ae92-cb3ba192cc92.jpg",
+   "pasta": "",
+   "bytes": 122079,
+   "formato": "jpeg",
+   "largura": 960,
+   "altura": 1280,
+   "exibicao": {
+    "largura": 960,
+    "altura": 1280
+   },
+   "orientacao": "retrato",
+   "megapixels": 1.2,
+   "codigo": "F006"
+  },
+  {
+   "id": "111Nzomuh_Vs79gyw0XDDOPDrzntOFA6i",
+   "nome": "157189f1-fd07-42d5-a084-631c13d75828.jpg",
+   "pasta": "",
+   "bytes": 1337494,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F007"
+  },
+  {
+   "id": "1vnN-Cwnnc_VZ0mDXm-bSySXWY6m4cXAJ",
+   "nome": "15dd6948-a871-4da8-b434-26d3ea14c6d6.jpg",
+   "pasta": "",
+   "bytes": 162468,
+   "formato": "jpeg",
+   "largura": 1280,
+   "altura": 960,
+   "exibicao": {
+    "largura": 1280,
+    "altura": 960
+   },
+   "orientacao": "paisagem",
+   "megapixels": 1.2,
+   "codigo": "F008"
+  },
+  {
+   "id": "1Wc9NaYSpvJgL-MMbqJPA1OTwYhvJ2-_a",
+   "nome": "16c7b736-52a6-43b2-a10a-c691d87153f0.jpg",
+   "pasta": "",
+   "bytes": 1945271,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F009"
+  },
+  {
+   "id": "162h0o6NoZ82PEregHA2IpJb6wZU3V2E6",
+   "nome": "1a0e0021-8e72-42df-abed-c41657adc250.jpg",
+   "pasta": "",
+   "bytes": 163878,
+   "formato": "jpeg",
+   "largura": 960,
+   "altura": 1280,
+   "exibicao": {
+    "largura": 960,
+    "altura": 1280
+   },
+   "orientacao": "retrato",
+   "megapixels": 1.2,
+   "codigo": "F010"
+  },
+  {
+   "id": "1EUUoMIcin6f-jiLR14ew508GyILXAnGT",
+   "nome": "1cc4c3ff-32b7-44e5-b881-403ef73257d0.jpg",
+   "pasta": "",
+   "bytes": 860426,
+   "formato": "jpeg",
+   "largura": 2316,
+   "altura": 3088,
+   "exibicao": {
+    "largura": 2316,
+    "altura": 3088
+   },
+   "orientacao": "retrato",
+   "megapixels": 7.2,
+   "codigo": "F011"
+  },
+  {
+   "id": "1TpipdZlryMyi66bBskkpqZ0qMEtdMWjW",
+   "nome": "1e357069-6393-4d87-9927-5c400f58e912.jpg",
+   "pasta": "",
+   "bytes": 793788,
+   "formato": "jpeg",
+   "largura": 2316,
+   "altura": 3088,
+   "exibicao": {
+    "largura": 2316,
+    "altura": 3088
+   },
+   "orientacao": "retrato",
+   "megapixels": 7.2,
+   "codigo": "F012"
+  },
+  {
+   "id": "1gXNDmeJhG1pj25dZmo2DFFkIdtWXm3Dw",
+   "nome": "20811545-9c85-4998-bf48-32be040a9c92.jpg",
+   "pasta": "",
+   "bytes": 187259,
+   "formato": "jpeg",
+   "largura": 960,
+   "altura": 1280,
+   "exibicao": {
+    "largura": 960,
+    "altura": 1280
+   },
+   "orientacao": "retrato",
+   "megapixels": 1.2,
+   "codigo": "F013"
+  },
+  {
+   "id": "1FxJDIS824TbXqtkNG02Myxcd2Od7Djr8",
+   "nome": "20aa3a0e-c353-4488-9d3f-838d34be3976.jpg",
+   "pasta": "",
+   "bytes": 221809,
+   "formato": "jpeg",
+   "largura": 1280,
+   "altura": 960,
+   "exibicao": {
+    "largura": 1280,
+    "altura": 960
+   },
+   "orientacao": "paisagem",
+   "megapixels": 1.2,
+   "codigo": "F014"
+  },
+  {
+   "id": "1-T3Y3TVfTxiNQ2vLw49mNcntBfgTncb_",
+   "nome": "2131fef7-2c19-4149-b27f-5a7969ac1bb6.jpg",
+   "pasta": "",
+   "bytes": 883826,
+   "formato": "jpeg",
+   "largura": 2316,
+   "altura": 3088,
+   "exibicao": {
+    "largura": 2316,
+    "altura": 3088
+   },
+   "orientacao": "retrato",
+   "megapixels": 7.2,
+   "codigo": "F015"
+  },
+  {
+   "id": "1ONycmJh-x_yaiHsiGvP3u-c_Z7MZQoVn",
+   "nome": "26b92bd4-4f61-4a04-b9c6-0da227597296.jpg",
+   "pasta": "",
+   "bytes": 1701935,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F016"
+  },
+  {
+   "id": "11PUxjWJ2XUcDEayZW6tyVrluj7lSDghR",
+   "nome": "27655554-e154-471d-be8e-37802d0b4d6e.jpg",
+   "pasta": "",
+   "bytes": 1765848,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F017"
+  },
+  {
+   "id": "12uZU4IWU6qzUsPO1KprpFTd2UQ3QevaG",
+   "nome": "2bc5de91-1d45-4e3e-9451-5fd789827fbf.jpg",
+   "pasta": "",
+   "bytes": 1984963,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F018"
+  },
+  {
+   "id": "1fnvsf7VOJ8vVqj2qVi0dj-PNFnslTmvi",
+   "nome": "2eda9840-87ea-44c9-be32-48212b3c76a3.jpg",
+   "pasta": "",
+   "bytes": 1927832,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F019"
+  },
+  {
+   "id": "1iRRMrxkh_ufuDJqX2oc_JD2dPk8atAmj",
+   "nome": "2fc18a66-11b8-4594-af87-6a5de6c100d6.jpg",
+   "pasta": "",
+   "bytes": 1550821,
+   "formato": "jpeg",
+   "largura": 3024,
+   "altura": 4032,
+   "exibicao": {
+    "largura": 3024,
+    "altura": 4032
+   },
+   "orientacao": "retrato",
+   "megapixels": 12.2,
+   "codigo": "F020"
+  },
+  {
+   "id": "1B8NjLMTTmuWt3AfxXPRmVJnyfw80kwlL",
+   "nome": "3ade7652-f564-4393-bcee-416bc8ff5510.jpg",
+   "pasta": "",
+   "bytes": 1356234,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F021"
+  },
+  {
+   "id": "1wKetgGoBxV9wvscNiOuqyL8jROb6yXUW",
+   "nome": "4330518b-54c1-43de-8b84-13d68acf90b9.jpg",
+   "pasta": "",
+   "bytes": 211074,
+   "formato": "jpeg",
+   "largura": 1280,
+   "altura": 960,
+   "exibicao": {
+    "largura": 1280,
+    "altura": 960
+   },
+   "orientacao": "paisagem",
+   "megapixels": 1.2,
+   "codigo": "F022"
+  },
+  {
+   "id": "1T_4bIUAlLwrrNCncY62i_HIg2OWaxAo_",
+   "nome": "44b2da35-1cf8-422c-b8d5-4d43c4ca6ede.jpg",
+   "pasta": "",
+   "bytes": 234334,
+   "formato": "jpeg",
+   "largura": 1280,
+   "altura": 960,
+   "exibicao": {
+    "largura": 1280,
+    "altura": 960
+   },
+   "orientacao": "paisagem",
+   "megapixels": 1.2,
+   "codigo": "F023"
+  },
+  {
+   "id": "15O3hmdv2PmePGauMcbWjzJL-DjfH6sET",
+   "nome": "44c44dfc-46d1-4d8b-be9e-167184302c98.jpg",
+   "pasta": "",
+   "bytes": 162246,
+   "formato": "jpeg",
+   "largura": 1280,
+   "altura": 960,
+   "exibicao": {
+    "largura": 1280,
+    "altura": 960
+   },
+   "orientacao": "paisagem",
+   "megapixels": 1.2,
+   "codigo": "F024"
+  },
+  {
+   "id": "13QiieoRLIJGu7k_dmu6BDCecS6cCjIS0",
+   "nome": "4acab00a-937f-4335-929b-15caedf8a22d.jpg",
+   "pasta": "",
+   "bytes": 181228,
+   "formato": "jpeg",
+   "largura": 960,
+   "altura": 1280,
+   "exibicao": {
+    "largura": 960,
+    "altura": 1280
+   },
+   "orientacao": "retrato",
+   "megapixels": 1.2,
+   "codigo": "F025"
+  },
+  {
+   "id": "1kTS9yl1IFwmCaElpoukuodxWFmf7IRZ8",
+   "nome": "4e3cce22-06df-4ed8-894c-4412565d8710.jpg",
+   "pasta": "",
+   "bytes": 220985,
+   "formato": "jpeg",
+   "largura": 1280,
+   "altura": 960,
+   "exibicao": {
+    "largura": 1280,
+    "altura": 960
+   },
+   "orientacao": "paisagem",
+   "megapixels": 1.2,
+   "codigo": "F026"
+  },
+  {
+   "id": "1SSUCrAyZuTZYm_RJA1J2-pjmuxD9wRqu",
+   "nome": "4ee984f3-3e10-4a28-8c6a-243092568a8c.jpg",
+   "pasta": "",
+   "bytes": 1300406,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F027"
+  },
+  {
+   "id": "1Pmwxc_HjhYxcNsz1_iA1Y7WnCGCDAvuf",
+   "nome": "503190ad-372b-4d74-be42-8cf2bd5ad7f3.jpg",
+   "pasta": "",
+   "bytes": 1326917,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F028"
+  },
+  {
+   "id": "13RheXzU_xxB-R6tMpxQDt1lsM1pb-xIs",
+   "nome": "50b27895-b84f-4be7-a010-f1fc27c8140c.jpg",
+   "pasta": "",
+   "bytes": 795593,
+   "formato": "jpeg",
+   "largura": 2316,
+   "altura": 3088,
+   "exibicao": {
+    "largura": 2316,
+    "altura": 3088
+   },
+   "orientacao": "retrato",
+   "megapixels": 7.2,
+   "codigo": "F029"
+  },
+  {
+   "id": "1jumoehIeTi090S6hw1Hzz61wngUFWaHd",
+   "nome": "516d6bbd-5fa1-4ea4-825d-4490e35ef4cb.jpg",
+   "pasta": "",
+   "bytes": 153749,
+   "formato": "jpeg",
+   "largura": 960,
+   "altura": 1280,
+   "exibicao": {
+    "largura": 960,
+    "altura": 1280
+   },
+   "orientacao": "retrato",
+   "megapixels": 1.2,
+   "codigo": "F030"
+  },
+  {
+   "id": "12UhdGdqmXKejOhid4zvPoHlCNjJTKV41",
+   "nome": "52a71c93-ca12-4065-8805-59c3c5fd5008.jpg",
+   "pasta": "",
+   "bytes": 1907053,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F031"
+  },
+  {
+   "id": "1jyoTBkvvu6odXmfT2Zn8hju0LOgcs83f",
+   "nome": "52fa7cba-1882-4d2e-8af9-b4375231bf3b.jpg",
+   "pasta": "",
+   "bytes": 1365341,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F032"
+  },
+  {
+   "id": "15GGNgXiLN9lZhrI3Ujx55BXkdQiiUwKi",
+   "nome": "53d1d242-5543-4bb2-a37a-6b45aa81a680.jpg",
+   "pasta": "",
+   "bytes": 1490411,
+   "formato": "jpeg",
+   "largura": 3024,
+   "altura": 4032,
+   "exibicao": {
+    "largura": 3024,
+    "altura": 4032
+   },
+   "orientacao": "retrato",
+   "megapixels": 12.2,
+   "codigo": "F033"
+  },
+  {
+   "id": "1Hisf8FknBSJBRVWwkAoTAt8VLvsEXcge",
+   "nome": "59000ee0-fc3e-4bd5-ba2d-dcacfe87b41d.jpg",
+   "pasta": "",
+   "bytes": 1159186,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F034"
+  },
+  {
+   "id": "12aqH6nPeacNDs4wQVuLRm9-JMRb9f0bT",
+   "nome": "5a462099-eda8-4ae3-9e2e-8f9b6b917c2e.jpg",
+   "pasta": "",
+   "bytes": 116905,
+   "formato": "jpeg",
+   "largura": 960,
+   "altura": 1280,
+   "exibicao": {
+    "largura": 960,
+    "altura": 1280
+   },
+   "orientacao": "retrato",
+   "megapixels": 1.2,
+   "codigo": "F035"
+  },
+  {
+   "id": "1YfrtBLdjVNbyb8ygUZ9eBWiKsg3KULFx",
+   "nome": "6487a2fd-f3e7-4a20-b94d-be06d21ae779.jpg",
+   "pasta": "",
+   "bytes": 1654784,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F036"
+  },
+  {
+   "id": "1ife08zpQu85xJYXA9OZkqqBuaqCMmM4c",
+   "nome": "66a29360-8963-41ae-bcc4-3adaa10d89aa.jpg",
+   "pasta": "",
+   "bytes": 99220,
+   "formato": "jpeg",
+   "largura": 960,
+   "altura": 1280,
+   "exibicao": {
+    "largura": 960,
+    "altura": 1280
+   },
+   "orientacao": "retrato",
+   "megapixels": 1.2,
+   "codigo": "F037"
+  },
+  {
+   "id": "1t3FPdQDZjzcq52xZNVuzlJMzwX-v570O",
+   "nome": "6ffd5c69-7623-4dc2-955a-701fc5e1cd84.jpg",
+   "pasta": "",
+   "bytes": 854661,
+   "formato": "jpeg",
+   "largura": 2316,
+   "altura": 3088,
+   "exibicao": {
+    "largura": 2316,
+    "altura": 3088
+   },
+   "orientacao": "retrato",
+   "megapixels": 7.2,
+   "codigo": "F038"
+  },
+  {
+   "id": "1ctICSz8vWBKjIH3-haxAZMQbcSRnha7x",
+   "nome": "76e5d064-649e-4c62-a695-d9f8f8334c57.jpg",
+   "pasta": "",
+   "bytes": 1923799,
+   "formato": "jpeg",
+   "largura": 3024,
+   "altura": 4032,
+   "exibicao": {
+    "largura": 3024,
+    "altura": 4032
+   },
+   "orientacao": "retrato",
+   "megapixels": 12.2,
+   "codigo": "F039"
+  },
+  {
+   "id": "16o4_ujr4UAvBXbux1kl1s8kw6UXkl-Yq",
+   "nome": "80a9af70-69df-4fbb-9704-6a6e7e5d73d9.jpg",
+   "pasta": "",
+   "bytes": 776104,
+   "formato": "jpeg",
+   "largura": 2316,
+   "altura": 3088,
+   "exibicao": {
+    "largura": 2316,
+    "altura": 3088
+   },
+   "orientacao": "retrato",
+   "megapixels": 7.2,
+   "codigo": "F040"
+  },
+  {
+   "id": "1ETtUuq_Gd0Ivr9Qzga9bbJLL7dlqDWzz",
+   "nome": "811a5cce-636f-4275-8117-c316a1b4d4b9.jpg",
+   "pasta": "",
+   "bytes": 163958,
+   "formato": "jpeg",
+   "largura": 1280,
+   "altura": 960,
+   "exibicao": {
+    "largura": 1280,
+    "altura": 960
+   },
+   "orientacao": "paisagem",
+   "megapixels": 1.2,
+   "codigo": "F041"
+  },
+  {
+   "id": "10bIoyjeVvGtbfUbhnzkQsdyjwqRYQZdG",
+   "nome": "83172a8f-76bd-4802-953a-4301d0b82805.jpg",
+   "pasta": "",
+   "bytes": 1293209,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F042"
+  },
+  {
+   "id": "1GhstowmZnEw5D0nA0BvyeMtOqWKSccCq",
+   "nome": "873c8d50-7d6f-477a-baf6-8c4200645dba.jpg",
+   "pasta": "",
+   "bytes": 207038,
+   "formato": "jpeg",
+   "largura": 960,
+   "altura": 1280,
+   "exibicao": {
+    "largura": 960,
+    "altura": 1280
+   },
+   "orientacao": "retrato",
+   "megapixels": 1.2,
+   "codigo": "F043"
+  },
+  {
+   "id": "1MwsTDHRFHhnBZb1kCuGGHRGpEjnO3_1q",
+   "nome": "8e2196fd-bef8-4b94-9ad8-514f4dae1fef.jpg",
+   "pasta": "",
+   "bytes": 244248,
+   "formato": "jpeg",
+   "largura": 960,
+   "altura": 1280,
+   "exibicao": {
+    "largura": 960,
+    "altura": 1280
+   },
+   "orientacao": "retrato",
+   "megapixels": 1.2,
+   "codigo": "F044"
+  },
+  {
+   "id": "1w-SbHxif1tbUqoXzsuJiil5AIFSMKl8t",
+   "nome": "91c6f82b-f37a-4aa4-a9e7-7cbfabea7473.jpg",
+   "pasta": "",
+   "bytes": 774167,
+   "formato": "jpeg",
+   "largura": 2316,
+   "altura": 3088,
+   "exibicao": {
+    "largura": 2316,
+    "altura": 3088
+   },
+   "orientacao": "retrato",
+   "megapixels": 7.2,
+   "codigo": "F045"
+  },
+  {
+   "id": "1y7SlH238H2JwtBtpcH8QqpGu5it5RXEg",
+   "nome": "94fc262b-9f43-4baf-a3fe-368c6a240fa1.jpg",
+   "pasta": "",
+   "bytes": 2020412,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F046"
+  },
+  {
+   "id": "1LSq9CxDpoTp6N7VJUgVmTkkknz9r401R",
+   "nome": "956dccc9-b3c5-479b-b567-57cb19e5c905.jpg",
+   "pasta": "",
+   "bytes": 956490,
+   "formato": "jpeg",
+   "largura": 2316,
+   "altura": 3088,
+   "exibicao": {
+    "largura": 2316,
+    "altura": 3088
+   },
+   "orientacao": "retrato",
+   "megapixels": 7.2,
+   "codigo": "F047"
+  },
+  {
+   "id": "1hLeqTf7_wPrFBZVckPin-_Pgg26Pxf76",
+   "nome": "97c39d2a-b43c-45cf-b9b4-1115230e5385.jpg",
+   "pasta": "",
+   "bytes": 1912766,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F048"
+  },
+  {
+   "id": "1Q5Pff4-PeBZOC4i_e9D4o7NfDtcrDj2A",
+   "nome": "9b50e0a5-744f-4851-b573-beeb6591613a.jpg",
+   "pasta": "",
+   "bytes": 1456248,
+   "formato": "jpeg",
+   "largura": 3024,
+   "altura": 4032,
+   "exibicao": {
+    "largura": 3024,
+    "altura": 4032
+   },
+   "orientacao": "retrato",
+   "megapixels": 12.2,
+   "codigo": "F049"
+  },
+  {
+   "id": "1VH1X5RBiSMcVAJauMTAhU5kQC5vNz3Ca",
+   "nome": "9d7b2070-6fb3-41cd-99af-40e2b1997412.jpg",
+   "pasta": "",
+   "bytes": 1024117,
+   "formato": "jpeg",
+   "largura": 3024,
+   "altura": 4032,
+   "exibicao": {
+    "largura": 3024,
+    "altura": 4032
+   },
+   "orientacao": "retrato",
+   "megapixels": 12.2,
+   "codigo": "F050"
+  },
+  {
+   "id": "1w-DN4Ng3PZV0A7jCYRMaxtCRI0wcQZkS",
+   "nome": "IMG_4190.HEIC",
+   "pasta": "",
+   "bytes": 1639072,
+   "formato": "heic",
+   "codigo": "F051"
+  },
+  {
+   "id": "1w1CqTbYZ-zq03fEDVW8u5nrEpW0K7Jfp",
+   "nome": "a81457f2-0539-4547-a2c2-2256bc7160eb.jpg",
+   "pasta": "",
+   "bytes": 1303969,
+   "formato": "jpeg",
+   "largura": 3024,
+   "altura": 4032,
+   "exibicao": {
+    "largura": 3024,
+    "altura": 4032
+   },
+   "orientacao": "retrato",
+   "megapixels": 12.2,
+   "codigo": "F052"
+  },
+  {
+   "id": "1IEeyAnJQyM6L_TxGPva-8jzEU1Iz17E-",
+   "nome": "adcceffe-b4b2-479a-afce-c4922531c14f.jpg",
+   "pasta": "",
+   "bytes": 1429932,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F053"
+  },
+  {
+   "id": "1odwzpeorGgpJ62NI4a_WE80ZZxVhkenz",
+   "nome": "bb455062-a2f1-4573-b5fd-3b315533cd67.jpg",
+   "pasta": "",
+   "bytes": 1301711,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F054"
+  },
+  {
+   "id": "1wUaXEuVzfpmD17Q84BBzOTiRL0HmdsQS",
+   "nome": "bba024ad-4aea-45df-a4c2-8900a0c64e2a.jpg",
+   "pasta": "",
+   "bytes": 1192406,
+   "formato": "jpeg",
+   "largura": 3024,
+   "altura": 4032,
+   "exibicao": {
+    "largura": 3024,
+    "altura": 4032
+   },
+   "orientacao": "retrato",
+   "megapixels": 12.2,
+   "codigo": "F055"
+  },
+  {
+   "id": "1oPlwaHbR4gac7x2-Ffnb4i8yE2v2LAxX",
+   "nome": "c1689100-0129-4175-accb-b1b2ca79c8ba.jpg",
+   "pasta": "",
+   "bytes": 1370342,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F056"
+  },
+  {
+   "id": "1WjCL9ER37zuIumMWL98mbecIfUf-wn78",
+   "nome": "c992f732-2149-4616-88a1-9b199c1fd5b5.jpg",
+   "pasta": "",
+   "bytes": 1258056,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F057"
+  },
+  {
+   "id": "1HYauxoGaZBs7zHup1J-KvLC4HelVJNRl",
+   "nome": "d599a71d-c6a9-4085-b0b1-002237b554d9.jpg",
+   "pasta": "",
+   "bytes": 207568,
+   "formato": "jpeg",
+   "largura": 1280,
+   "altura": 960,
+   "exibicao": {
+    "largura": 1280,
+    "altura": 960
+   },
+   "orientacao": "paisagem",
+   "megapixels": 1.2,
+   "codigo": "F058"
+  },
+  {
+   "id": "1wJgmleG2b0CB7ufS6zoq1cMgzxFKYO5A",
+   "nome": "d7569665-96c0-457c-abdc-d49b4baafd45.jpg",
+   "pasta": "",
+   "bytes": 164803,
+   "formato": "jpeg",
+   "largura": 960,
+   "altura": 1280,
+   "exibicao": {
+    "largura": 960,
+    "altura": 1280
+   },
+   "orientacao": "retrato",
+   "megapixels": 1.2,
+   "codigo": "F059"
+  },
+  {
+   "id": "1Nulp9s-ky5_B313d89lXD25w8YUqzHlH",
+   "nome": "d99824ac-f21f-4b1b-9d88-3b130819e208.jpg",
+   "pasta": "",
+   "bytes": 876806,
+   "formato": "jpeg",
+   "largura": 2316,
+   "altura": 3088,
+   "exibicao": {
+    "largura": 2316,
+    "altura": 3088
+   },
+   "orientacao": "retrato",
+   "megapixels": 7.2,
+   "codigo": "F060"
+  },
+  {
+   "id": "1GW82GO5ywS8P-_bdtHVUr-XW-_EG9PvF",
+   "nome": "dafeded1-0058-46a3-8bef-e5ccf6b3eb72.jpg",
+   "pasta": "",
+   "bytes": 210868,
+   "formato": "jpeg",
+   "largura": 960,
+   "altura": 1280,
+   "exibicao": {
+    "largura": 960,
+    "altura": 1280
+   },
+   "orientacao": "retrato",
+   "megapixels": 1.2,
+   "codigo": "F061"
+  },
+  {
+   "id": "1QnRj8jYchkHHkS38Y2uCIynJJ50E5CtD",
+   "nome": "e400017a-8a96-43e7-8e2c-89dc23957eb1.jpg",
+   "pasta": "",
+   "bytes": 207417,
+   "formato": "jpeg",
+   "largura": 960,
+   "altura": 1280,
+   "exibicao": {
+    "largura": 960,
+    "altura": 1280
+   },
+   "orientacao": "retrato",
+   "megapixels": 1.2,
+   "codigo": "F062"
+  },
+  {
+   "id": "1ymh62PlBfOVCEaNzj3-UYjRo7TGr-sir",
+   "nome": "e43a9191-f5cc-4311-8602-9c0d84ae2f03.jpg",
+   "pasta": "",
+   "bytes": 1285991,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F063"
+  },
+  {
+   "id": "1eM2ak-Ie3GR0ZLxC_qiQ7vM-jFDG8RL6",
+   "nome": "e58f09fa-30ff-4c8b-a28e-5dcef38ab475.jpg",
+   "pasta": "",
+   "bytes": 1695470,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F064"
+  },
+  {
+   "id": "1iXwWpy9_WWnKDSVeZNqb5ezjfGcwfF7D",
+   "nome": "e63050ef-7d52-419f-91c4-c2dcb4db1e37.jpg",
+   "pasta": "",
+   "bytes": 366737,
+   "formato": "jpeg",
+   "largura": 1200,
+   "altura": 1600,
+   "exibicao": {
+    "largura": 1200,
+    "altura": 1600
+   },
+   "orientacao": "retrato",
+   "megapixels": 1.9,
+   "codigo": "F065"
+  },
+  {
+   "id": "1kFa-xU55vQI-MlbDKwjRgEf8a94BiOGx",
+   "nome": "efe3cf44-9528-4be3-b976-69604d08982c.jpg",
+   "pasta": "",
+   "bytes": 1100979,
+   "formato": "jpeg",
+   "largura": 3024,
+   "altura": 4032,
+   "exibicao": {
+    "largura": 3024,
+    "altura": 4032
+   },
+   "orientacao": "retrato",
+   "megapixels": 12.2,
+   "codigo": "F066"
+  },
+  {
+   "id": "1oGL8O-v3FzNW5HunqTCaSTlYmaA68DFV",
+   "nome": "f1d3ecaa-c3fc-4d17-a0b6-e3a02eff186b.jpg",
+   "pasta": "",
+   "bytes": 1731764,
+   "formato": "jpeg",
+   "largura": 3024,
+   "altura": 4032,
+   "exibicao": {
+    "largura": 3024,
+    "altura": 4032
+   },
+   "orientacao": "retrato",
+   "megapixels": 12.2,
+   "codigo": "F067"
+  },
+  {
+   "id": "1eGD0WezK7K2djM8bYyFG9ICy5oZ_EnNj",
+   "nome": "f70d5a9f-e572-4dc0-8412-312fd34f2500.jpg",
+   "pasta": "",
+   "bytes": 1220222,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F068"
+  },
+  {
+   "id": "1QlVhr7MPaS_uWQAhwGBjbRfU3Ov-WjwH",
+   "nome": "ff2b4f59-25cf-495a-94fe-c3fa92f237c3.jpg",
+   "pasta": "",
+   "bytes": 1297074,
+   "formato": "jpeg",
+   "largura": 4032,
+   "altura": 3024,
+   "exibicao": {
+    "largura": 4032,
+    "altura": 3024
+   },
+   "orientacao": "paisagem",
+   "megapixels": 12.2,
+   "codigo": "F069"
+  }
+ ],
+ "outros_arquivos": []
+}
