@@ -1,7 +1,7 @@
 ---
 titulo: Despedida Universitária — Dias Melhores
 estilo: base
-formatos: 9x16
+formatos: 9x16, 16x9
 trilha: audio/trilha.wav
 ---
 

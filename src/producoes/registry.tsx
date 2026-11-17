@@ -24,6 +24,14 @@ export const Producoes: React.FC = () => {
         width={1080}
         height={1920}
       />
+      <Composition
+        id="despedida-universitaria-16x9"
+        component={PDespedidaUniversitaria}
+        durationInFrames={DDespedidaUniversitaria}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
       {/* </composicoes-producoes> */}
     </Folder>
   );

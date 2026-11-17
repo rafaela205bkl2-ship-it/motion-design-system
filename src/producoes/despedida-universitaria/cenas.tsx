@@ -25,6 +25,7 @@ import {
   TextSwap,
   createTheme,
   progressAt,
+  useLayout,
   vibrantTheme,
 } from "../../motion";
 import inventario from "../../../producoes/despedida-universitaria/fotos/inventario.json";
@@ -132,6 +133,9 @@ const Papel: React.FC<{ glowY?: number }> = ({ glowY = 0.45 }) => (
   />
 );
 
+/** Telão (16:9) ou vertical (9:16). */
+const useH = () => useLayout().isHorizontal;
+
 const sombraTexto = "0 6px 30px rgba(0,0,0,0.45)";
 
 /* ------------------------------------------------------------------ */
@@ -192,12 +196,24 @@ export const Cena1: React.FC<CenaProps> = () => (
 /* ------------------------------------------------------------------ */
 /* CENA 2 — "Dias de paz, dias a mais / … não deixaremos para trás"    */
 /* ------------------------------------------------------------------ */
+const MOLDURAS_2_H = [
+  { c: "F001", x: 0.15, y: 0.56, w: 300, r: -6 },
+  { c: "F012", x: 0.35, y: 0.62, w: 300, r: 5 },
+  { c: "F011", x: 0.64, y: 0.6, w: 290, r: 4 },
+  { c: "F007", x: 0.85, y: 0.55, w: 400, r: -4 },
+  { c: "F034", x: 0.5, y: 0.8, w: 420, r: 2 },
+];
 const MOLDURAS_2 = [
   { c: "F001", x: 0.28, y: 0.42, w: 360, r: -6 },
   { c: "F012", x: 0.72, y: 0.4, w: 360, r: 5 },
   { c: "F011", x: 0.3, y: 0.67, w: 350, r: 4 },
   { c: "F007", x: 0.7, y: 0.64, w: 470, r: -4 },
   { c: "F034", x: 0.5, y: 0.85, w: 500, r: 2 },
+];
+const DESTAQUE_2_H = [
+  { c: "F040", x: 0.27, y: 0.6, w: 360, r: -4, t: L(1, 18.66) },
+  { c: "F047", x: 0.73, y: 0.6, w: 360, r: 4, t: batida(1, 34) },
+  { c: "F015", x: 0.5, y: 0.64, w: 400, r: -1.5, t: L(1, 21.42) },
 ];
 const DESTAQUE_2 = [
   { c: "F040", x: 0.31, y: 0.47, w: 470, r: -4, t: L(1, 18.66) },
@@ -221,7 +237,7 @@ export const Cena2: React.FC<CenaProps> = () => {
             scale: String(1 - recua * 0.05),
           }}
         >
-          {MOLDURAS_2.map((m, i) => (
+          {(useH() ? MOLDURAS_2_H : MOLDURAS_2).map((m, i) => (
             <Pos key={m.c} x={m.x} y={m.y}>
               <ObjectEnter
                 motion="pop"
@@ -241,7 +257,7 @@ export const Cena2: React.FC<CenaProps> = () => {
           ))}
         </AbsoluteFill>
         {/* "não deixaremos para trás": fotos de maior valor afetivo, em destaque */}
-        {DESTAQUE_2.map((m) => (
+        {(useH() ? DESTAQUE_2_H : DESTAQUE_2).map((m) => (
           <Pos key={m.c} x={m.x} y={m.y}>
             <ObjectEnter
               motion="fall"
@@ -262,7 +278,7 @@ export const Cena2: React.FC<CenaProps> = () => {
             </ObjectEnter>
           </Pos>
         ))}
-        <Pos y={0.135} z={5}>
+        <Pos y={useH() ? 0.15 : 0.135} z={5}>
           <TextSwap
             items={[
               { text: "Dias de *paz*,", at: L(1, 13.26) },
@@ -274,7 +290,7 @@ export const Cena2: React.FC<CenaProps> = () => {
             color={P.ink}
           />
         </Pos>
-        <Pos y={0.12} z={5}>
+        <Pos y={useH() ? 0.17 : 0.12} z={5}>
           <TextReveal
             text="Dias que não deixaremos"
             by="word"
@@ -369,12 +385,20 @@ export const Cena3: React.FC<CenaProps> = () => {
         <Janela de={tudo - 0.2} ate={tudo + 4.64}>
           <AbsoluteFill>
             <Papel glowY={0.5} />
-            {[
-              { c: "F067", x: 0.26, y: 0.26, w: 380, r: -7 },
-              { c: "F036", x: 0.72, y: 0.24, w: 460, r: 5 },
-              { c: "F042", x: 0.3, y: 0.76, w: 460, r: 4 },
-              { c: "F069", x: 0.73, y: 0.78, w: 440, r: -5 },
-            ].map((m, k) => (
+            {(useH()
+              ? [
+                  { c: "F067", x: 0.16, y: 0.3, w: 290, r: -7 },
+                  { c: "F036", x: 0.83, y: 0.27, w: 380, r: 5 },
+                  { c: "F042", x: 0.18, y: 0.76, w: 380, r: 4 },
+                  { c: "F069", x: 0.82, y: 0.76, w: 370, r: -5 },
+                ]
+              : [
+                  { c: "F067", x: 0.26, y: 0.26, w: 380, r: -7 },
+                  { c: "F036", x: 0.72, y: 0.24, w: 460, r: 5 },
+                  { c: "F042", x: 0.3, y: 0.76, w: 460, r: 4 },
+                  { c: "F069", x: 0.73, y: 0.78, w: 440, r: -5 },
+                ]
+            ).map((m, k) => (
               <Pos key={m.c} x={m.x} y={m.y}>
                 <ObjectEnter
                   motion="pop"
@@ -424,6 +448,7 @@ export const Cena3: React.FC<CenaProps> = () => {
 export const Cena4: React.FC<CenaProps> = () => {
   const f = useCurrentFrame();
   const { fps } = useVideoConfig();
+  const h = useH();
   const pausa = progressAt(f, fps, L(3, 65.7) - 1.2, 1.0, "camera");
   return (
     <MotionProvider theme={temaDespedida}>
@@ -435,7 +460,7 @@ export const Cena4: React.FC<CenaProps> = () => {
             scale: String(1 + pausa * 0.03),
           }}
         >
-          <Pos y={0.36}>
+          <Pos x={useH() ? 0.4 : 0.5} y={useH() ? 0.44 : 0.36}>
             <ObjectEnter
               motion="rise"
               from="bottom"
@@ -445,7 +470,7 @@ export const Cena4: React.FC<CenaProps> = () => {
             >
               <PhotoFrame
                 src={foto("F009")}
-                width={880}
+                width={useH() ? 740 : 880}
                 ratio={ratio("F009")}
                 rotate={-1.5}
                 border={18}
@@ -458,28 +483,41 @@ export const Cena4: React.FC<CenaProps> = () => {
             { c: "F054", x: 0.29, y: 0.64, w: 450, r: -5, n: 99 },
             { c: "F021", x: 0.72, y: 0.66, w: 450, r: 4, n: 101 },
             { c: "F055", x: 0.83, y: 0.17, w: 260, r: 7, n: 103 },
-          ].map((m) => (
-            <Pos key={m.c} x={m.x} y={m.y}>
-              <ObjectEnter
-                motion="pop"
-                delay={batida(3, m.n)}
-                rotateFrom={m.r * 3}
-                rotate={m.r}
-                float={6}
-                floatPeriod={4}
-              >
-                <PhotoFrame
-                  src={foto(m.c)}
-                  width={m.w}
-                  ratio={ratio(m.c)}
-                  start={batida(3, m.n)}
-                />
-              </ObjectEnter>
-            </Pos>
-          ))}
+          ]
+            .map((m, i) =>
+              h
+                ? {
+                    ...m,
+                    ...[
+                      { x: 0.82, y: 0.3, w: 380 },
+                      { x: 0.82, y: 0.71, w: 380 },
+                      { x: 0.09, y: 0.24, w: 220 },
+                    ][i],
+                  }
+                : m,
+            )
+            .map((m) => (
+              <Pos key={m.c} x={m.x} y={m.y}>
+                <ObjectEnter
+                  motion="pop"
+                  delay={batida(3, m.n)}
+                  rotateFrom={m.r * 3}
+                  rotate={m.r}
+                  float={6}
+                  floatPeriod={4}
+                >
+                  <PhotoFrame
+                    src={foto(m.c)}
+                    width={m.w}
+                    ratio={ratio(m.c)}
+                    start={batida(3, m.n)}
+                  />
+                </ObjectEnter>
+              </Pos>
+            ))}
         </AbsoluteFill>
         {/* "para" 65,70 s · "sempre" 66,09 s */}
-        <Pos y={0.84} z={5}>
+        <Pos y={useH() ? 0.9 : 0.84} z={5}>
           <TextReveal
             text="Para *sempre*"
             by="char"
@@ -501,6 +539,17 @@ export const Cena4: React.FC<CenaProps> = () => {
 /* ------------------------------------------------------------------ */
 /* CENA 5 — "Dias melhores pra sempre" + retorno (68,0 – 99,76 s)       */
 /* ------------------------------------------------------------------ */
+const CASCATA_H = [
+  { c: "F027", x: 0.14, y: 0.3, w: 360, r: -6 },
+  { c: "F023", x: 0.33, y: 0.24, w: 280, r: 5 },
+  { c: "F001", x: 0.67, y: 0.27, w: 250, r: -4 },
+  { c: "F041", x: 0.86, y: 0.31, w: 300, r: 6 },
+  { c: "F058", x: 0.5, y: 0.2, w: 280, r: -2 },
+  { c: "F040", x: 0.17, y: 0.75, w: 250, r: 4 },
+  { c: "F014", x: 0.84, y: 0.75, w: 300, r: -5 },
+  { c: "F008", x: 0.37, y: 0.79, w: 300, r: 3 },
+  { c: "F012", x: 0.63, y: 0.79, w: 240, r: -3 },
+];
 const CASCATA = [
   { c: "F027", x: 0.3, y: 0.3, w: 430, r: -6 },
   { c: "F023", x: 0.74, y: 0.26, w: 330, r: 5 },
@@ -579,7 +628,7 @@ export const Cena5: React.FC<CenaProps> = () => {
               opacity={0.1}
               color={P.accent}
             />
-            {CASCATA.map((m, k) => (
+            {(useH() ? CASCATA_H : CASCATA).map((m, k) => (
               <Pos key={m.c} x={m.x} y={m.y}>
                 <ObjectEnter
                   motion="pop"
@@ -637,17 +686,17 @@ export const Cena5: React.FC<CenaProps> = () => {
             />
             <Faixa
               fotos={PAREDE.slice(0, 5)}
-              y={0.3}
+              y={useH() ? 0.25 : 0.3}
               dir={1}
               de={b1}
-              altura={430}
+              altura={useH() ? 330 : 430}
             />
             <Faixa
               fotos={PAREDE.slice(5)}
-              y={0.72}
+              y={useH() ? 0.76 : 0.72}
               dir={-1}
               de={b1}
-              altura={430}
+              altura={useH() ? 330 : 430}
             />
             <Pos y={0.51} z={5}>
               <TextReveal
@@ -689,7 +738,7 @@ export const Cena5: React.FC<CenaProps> = () => {
               >
                 <PhotoFrame
                   src={foto("F016")}
-                  width={960}
+                  width={useH() ? 1110 : 960}
                   ratio={ratio("F016")}
                   border={16}
                   shadow={0.55}
@@ -700,17 +749,17 @@ export const Cena5: React.FC<CenaProps> = () => {
             {[
               {
                 c: "F009",
-                x: 0.24,
-                y: 0.2,
-                w: 400,
+                x: useH() ? 0.09 : 0.24,
+                y: useH() ? 0.22 : 0.2,
+                w: useH() ? 300 : 400,
                 r: -6,
                 d: b2 + 2 * COMPASSO,
               },
               {
                 c: "F054",
-                x: 0.76,
-                y: 0.22,
-                w: 400,
+                x: useH() ? 0.91 : 0.76,
+                y: useH() ? 0.24 : 0.22,
+                w: useH() ? 300 : 400,
                 r: 5,
                 d: b2 + 2 * COMPASSO + BATIDA,
               },
