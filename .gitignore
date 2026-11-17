@@ -5,3 +5,28 @@ dist
 
 # Ignore the output video from Git but not videos you import into src/.
 out
+
+# Builds e renders gerados (imagens de demonstração versionadas ficam em docs/assets)
+build
+# Vídeos soltos na raiz (renders avulsos). Mídia em public/ e src/ continua versionada.
+/*.mp4
+/*.mov
+/*.webm
+
+# Caches e logs
+.cache
+node_modules/.cache
+*.log
+npm-debug.log*
+*.tsbuildinfo
+
+# Variáveis de ambiente
+.env.*
+!.env.example
+
+# Editores e sistema
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.swp
+Thumbs.db

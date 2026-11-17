@@ -1,7 +1,7 @@
 {
-  "name": "video-responsivo",
+  "name": "motion-design-library",
   "version": "1.0.0",
-  "description": "My Remotion video",
+  "description": "Biblioteca de motion design responsiva em Remotion: 9:16, 16:9 e 1:1 com o mesmo código",
   "repository": {},
   "license": "UNLICENSED",
   "engines": {
@@ -10,6 +10,8 @@
   "private": true,
   "dependencies": {
     "@remotion/cli": "4.0.544",
+    "@remotion/google-fonts": "4.0.544",
+    "@remotion/transitions": "4.0.544",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "remotion": "4.0.544"
@@ -26,7 +28,10 @@
     "dev": "remotion studio",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
-    "lint": "eslint src && tsc"
+    "lint": "eslint src && tsc",
+    "render:vertical": "remotion render Vertical-9x16 out/vertical-9x16.mp4",
+    "render:horizontal": "remotion render Horizontal-16x9 out/horizontal-16x9.mp4",
+    "render:quadrado": "remotion render Quadrado-1x1 out/quadrado-1x1.mp4"
   },
   "allowScripts": {
     "esbuild": false
