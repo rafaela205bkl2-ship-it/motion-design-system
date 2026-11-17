@@ -18,6 +18,23 @@ export {
 } from "./MotionProvider";
 export type { TimeValue } from "./MotionProvider";
 
+// Presets nomeados
+export {
+  textPresets,
+  objectPresets,
+  transitionPreset,
+  TRANSITION_PRESETS,
+} from "./presets";
+export type {
+  TextPresetName,
+  ObjectPresetName,
+  TransitionPresetName,
+} from "./presets";
+
+// Catálogo consultável (o que existe e como usar)
+export { catalog } from "./catalog";
+export type { CatalogEntry } from "./catalog";
+
 // Texto
 export { TextReveal, getRevealDuration } from "./text/TextReveal";
 export type {

@@ -1,0 +1,23 @@
+{
+  "arquivo": "0cb9469f-snapinsta-1794885266728.mp4",
+  "conteiner": "mov,mp4,m4a,3gp,3g2,mj2",
+  "duracao_s": 26.473,
+  "tamanho_bytes": 2771322,
+  "video": {
+    "codec": "h264",
+    "perfil": "High",
+    "largura": 720,
+    "altura": 1280,
+    "fps": 30.0,
+    "pix_fmt": "yuv420p",
+    "bitrate": "761390"
+  },
+  "audio": {
+    "codec": "aac",
+    "perfil": "HE-AAC",
+    "taxa": "48000",
+    "canais": 2,
+    "bitrate": "72394"
+  },
+  "decodificacao_ok": true
+}

@@ -9,6 +9,26 @@ Escreva uma cena uma vez e exporte em **9:16 (formato principal)**, **16:9** e *
 
 ![Demonstração no formato 9:16](docs/assets/demo-vertical-9x16.png)
 
+## Documentação — por onde começar
+
+| Documento | Para quê |
+| --- | --- |
+| [PRODUCTION_WORKFLOW.md](PRODUCTION_WORKFLOW.md) | iniciar uma produção a partir de um roteiro (passo a passo + comando de exemplo) |
+| [MASTER_STYLE_GUIDE.md](MASTER_STYLE_GUIDE.md) | regras da identidade: tempo, curvas, tipografia, composição, estilos, áudio, formatos |
+| [docs/biblioteca-motion.md](docs/biblioteca-motion.md) | referência técnica da biblioteca `src/motion` |
+| [docs/estendendo-a-biblioteca.md](docs/estendendo-a-biblioteca.md) | adicionar componentes, presets, transições e temas |
+| [reference-library/README.md](reference-library/README.md) | cadastrar e analisar referências audiovisuais |
+| [CLAUDE.md](CLAUDE.md) | instruções para sessões de IA (consultar a biblioteca, não reconstruir) |
+
+Comandos principais:
+
+```bash
+npm run catalogo          # o que existe na biblioteca
+npm run nova-producao -- --nome "Minha peça" --roteiro roteiro.md --formatos 9x16 --estilo calmo
+npm run validar           # eslint + tsc + catálogo
+npm run analisar-referencia -- video.mp4 --id ref-003-descricao-9x16
+```
+
 ## Biblioteca de motion (`src/motion`) — novo
 
 Tokens de animação medidos nas referências, revelação de texto por letra/palavra, troca de textos com saída em desfoque,

@@ -1,11 +1,19 @@
 # Biblioteca de motion (`src/motion`)
 
-Biblioteca de motion design construída a partir dos padrões **recorrentes** das duas referências
-([análise](referencias/analise-referencias.md)). Tudo é importado de um único ponto:
+Biblioteca de motion design construída a partir dos padrões **recorrentes** das referências
+([análise](referencias/analise-referencias.md), [reference-library](../reference-library/README.md)).
+Tudo é importado de um único ponto, `src/motion/index.ts` (use o caminho relativo a partir do seu arquivo):
 
 ```tsx
-import {MotionProvider, TextReveal, TextSwap, ObjectEnter, radialReveal, blurDissolve, motionTiming, Layer, Backdrop} from './motion';
+import {MotionProvider, TextReveal, TextSwap, ObjectEnter, radialReveal, blurDissolve, motionTiming, Layer, Backdrop, textPresets} from './motion';
 ```
+
+**Documentos relacionados:**
+
+- [MASTER_STYLE_GUIDE.md](../MASTER_STYLE_GUIDE.md): as regras da identidade (o quê).
+- [PRODUCTION_WORKFLOW.md](../PRODUCTION_WORKFLOW.md): do roteiro ao vídeo (o processo).
+- [estendendo-a-biblioteca.md](estendendo-a-biblioteca.md): como adicionar componentes, presets, transições e temas.
+- **Catálogo consultável:** `npm run catalogo` (fonte: `src/motion/catalog.ts`).
 
 ![Demonstração](demo/demo-9x16-folha.png)
 
@@ -15,7 +23,7 @@ No Studio: **Biblioteca-Motion › Demo-9x16**.
 ## Princípios
 
 1. **Tempo em segundos, espaço em pixels de design.** Durações viram quadros no uso (funcionam em qualquer fps). Distâncias e desfoques usam a base de 1080 px no lado menor, convertida por `px()`, então a mesma animação tem o mesmo peso em 9:16, 16:9 e 1:1.
-2. **Tokens com origem medida.** Cada valor padrão vem de uma medição das referências (tabela abaixo).
+2. **Tokens com origem declarada.** As **durações** e a **sobra** vêm de medições das referências (tabela abaixo). O desfoque, as distâncias e o escalonamento foram calibrados visualmente na demonstração, porque as referências filmadas não permitem medi-los com precisão.
 3. **Tudo configurável por instância.** Duração, intensidade, direção, escala e velocidade podem ser trocadas em cada componente sem mexer nos tokens.
 4. **Temas trocam valores, não comportamento.** Base, calmo e vibrante usam as mesmas peças.
 
@@ -25,16 +33,23 @@ No Studio: **Biblioteca-Motion › Demo-9x16**.
 src/motion/
   tokens.ts            durações, escalonamento, desfoque, distâncias, sobra
   easing.ts            curvas nomeadas + mola com sobra controlada
-  themes.ts            base, calmo, vibrante (paleta, fontes, perfil de movimento)
+  themes.ts            base, calmo, vibrante + createTheme() e blendThemes()
+  presets.ts           presets nomeados de texto, objeto e transição
+  catalog.ts           catálogo consultável (validado contra index.ts)
   MotionProvider.tsx   contexto de tema + useMotion() + useProgress()
   text/                TextReveal, TextSwap
   object/              ObjectEnter
   transitions/         radialReveal, blurDissolve, motionTiming
   layers/              Layer, Backdrop, KineticType, ColorBloom
   index.ts             ponto único de importação
-src/demo/              demonstração (objetos originais, cenas, timeline.json)
-scripts/gerar-trilha.py  trilha sintetizada a partir da timeline
+src/producoes/          produções: _runtime/ (roteiro → animatic) + uma pasta por produção
+src/demo/               demonstração (objetos originais, cenas, timeline.json)
+src/lib/layout.ts       useLayout, px(), pick(), área segura (compartilhado)
+src/lib/components/     biblioteca v1 (legado: não use em produções novas)
+scripts/                nova-producao, catalogo, analisar-referencia, gerar-trilha
 ```
+
+> **v1 × v2:** `src/lib/components` (Title, Paragraph, Counter… e as cenas antigas em `src/scenes`) é a primeira versão, mantida para não quebrar as composições antigas da pasta **Video**. Produções novas usam **só `src/motion`**. Contadores e cards de dados da v1 ainda não têm equivalente na v2 (veja as pendências).
 
 ## Tokens
 
@@ -82,6 +97,45 @@ A **mola com sobra controlada** (`overshootProgress`) encontra por busca binári
 ```
 
 Os provedores podem ser aninhados: cada cena pode ter o próprio tema.
+
+### Combinar e derivar temas
+
+```tsx
+// ritmo intermediário entre calmo e vibrante, com a paleta do calmo
+const misto = blendThemes("calmo", "vibrante", {motion: 0.5, palette: 0});
+// tema de marca derivado do calmo (carregue fontes novas com @remotion/google-fonts antes de usar)
+const marca = createTheme("calmo", {palette: {accent: "#0FA3B1"}});
+<MotionProvider theme={misto}>…</MotionProvider>
+```
+
+`blendThemes` interpola velocidade, intensidade, sobra e pausas (`motion` de 0 a 1) e mistura cada cor (`palette` de 0 a 1). No roteiro, `estilo: misto` equivale a `blendThemes("calmo", "vibrante", {motion: 0.5, palette: 0})`. Quando usar cada estilo está no MASTER_STYLE_GUIDE §6.
+
+## Presets
+
+Combinações prontas, escolhidas por nome (`src/motion/presets.ts`). Qualquer prop passada depois sobrescreve o preset.
+
+| Grupo | Nomes |
+| --- | --- |
+| `textPresets` | `titulo`, `impacto`, `frase`, `suave`, `rotulo`, `reverso` |
+| `objectPresets` | `queda`, `pop`, `deslizeEsquerda`, `deslizeDireita`, `subida`, `flutuante` |
+| `transitionPreset(nome, {fps, origin, ringColor, through})` | `radial-rapido`, `radial-suave`, `dissolve`, `fade-branco` |
+
+```tsx
+<TextReveal {...textPresets.impacto} text="Energia" delay={0.2} />
+<ObjectEnter {...objectPresets.queda} delay={0.4}><MeuObjeto /></ObjectEnter>
+const t = transitionPreset("radial-rapido", {fps, origin: [0.5, 0.6], ringColor: "#FFC531"});
+<TransitionSeries.Transition presentation={t.presentation} timing={t.timing} />
+```
+
+## Animações próprias com os tokens
+
+Para algo que não é coberto pelos componentes, use os hooks. Assim o resultado respeita o tema, a velocidade e o formato:
+
+```tsx
+const m = useMotion();                       // tokens já escalados pelo tema
+const p = useProgress({start: 0.5, duration: m.dur("enter"), easing: "enterStrong"});
+<div style={{translate: `0px ${(1 - p) * m.dist("text")}px`, filter: `blur(${(1 - p) * m.blur("reveal")}px)`}} />
+```
 
 ## Componentes
 
@@ -178,6 +232,10 @@ Para regenerar a trilha depois de mudar a linha do tempo:
 python3 scripts/gerar-trilha.py
 ```
 
+## Produções a partir de roteiro
+
+`src/producoes/_runtime/ProducaoGenerica.tsx` transforma o `timeline.json` de um roteiro num animatic usando só esta biblioteca: textos com `textPresets`, imagens com `objectPresets.flutuante`, vídeos como fundo, transições com `transitionPreset` e a trilha. Cada cena pode ser trocada por um componente próprio. O processo completo está no [PRODUCTION_WORKFLOW.md](../PRODUCTION_WORKFLOW.md).
+
 ## Verificação feita
 
 - `tsc` e `eslint` sem erros.
@@ -188,9 +246,21 @@ python3 scripts/gerar-trilha.py
   - queda curta demais (a mola chegava ao alvo em 7 quadros);
   - efeito sonoro de pouso 100 ms fora do bumbo.
 - Sincronia confirmada no arquivo final, por detecção de ataques no áudio.
+- Etapa de preparação para reutilização:
+  - `npm run validar` sem erros (eslint, tsc e catálogo);
+  - teste negativo: um export sem entrada no catálogo faz a validação falhar;
+  - `nova-producao` testado numa cópia do repositório: criação, aviso de material ausente, ressincronização e recusa de sobrescrever;
+  - animatic renderizado em 9:16, 16:9 e 1:1;
+  - substituição de cena por componente próprio;
+  - os exemplos de código do workflow e do guia de extensão compilam.
 
 ## Limitações conhecidas
 
-- **Formatos:** 16:9 e 1:1 funcionam como prévia (*Demo-16x9-previa*, *Demo-1x1-previa*). Em "Energia", o espaço entre título e cápsula é uma fração da altura, então nos formatos baixos a cápsula cobre mais o título. O ajuste fino desses formatos é o próximo passo.
+- **Formatos:**
+  - a biblioteca e o animatic de produção funcionam em 9:16, 16:9 e 1:1;
+  - a **demonstração** só tem acabamento em 9:16. Em 16:9 e 1:1 ela é prévia, e na cena "Energia" a cápsula cobre o título, porque o espaço entre os dois é uma fração da altura;
+  - a tabela completa está no PRODUCTION_WORKFLOW §8.
+- **Componentes candidatos** (observados nas referências, ainda não implementados): contador odômetro, campo digitado com cursor, barras em onda, lista com item ativo, anéis concêntricos do contorno, partículas, wipe em pinceladas e transformação de formas.
+- **Trilha:** `scripts/gerar-trilha.py` é específico da demonstração; ainda não há gerador de trilha para produções.
 - **Tempo de render:** ~330 s para 20 s de vídeo neste ambiente (4 CPUs, sem GPU), por causa dos filtros de desfoque e da granulação. Use `--concurrency` adequado à máquina e, se precisar, `grain={0}`.
 - **Edição no Studio:** os componentes são React tipado, com props editáveis no código. Ainda não estão registrados como `Interactive` para edição visual no Studio.

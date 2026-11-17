@@ -2,6 +2,7 @@ import { Composition, Folder } from "remotion";
 import { DemoVideo } from "./DemoVideo";
 import { DemoReel } from "./demo/DemoReel";
 import { totalFrames } from "./demo/timeline";
+import { Producoes } from "./producoes/registry";
 import { ExemploBasico } from "./examples/ExemploBasico";
 import { ExemploPresets } from "./examples/ExemploPresets";
 import { FeaturesScene } from "./scenes/FeaturesScene";
@@ -14,6 +15,7 @@ import { StatsScene } from "./scenes/StatsScene";
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Producoes />
       <Folder name="Biblioteca-Motion">
         {/* Demonstração principal — 9:16 */}
         <Composition

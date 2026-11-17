@@ -127,3 +127,98 @@ export const themes = {
   vibrante: vibrantTheme,
 } as const;
 export type ThemeName = keyof typeof themes;
+
+/* ------------------------------------------------------------------ */
+/* Criação e combinação de temas                                       */
+/* ------------------------------------------------------------------ */
+
+type ThemeOverrides = {
+  name?: Theme["name"];
+  palette?: Partial<Palette>;
+  fonts?: Partial<Theme["fonts"]>;
+  weights?: Partial<Theme["weights"]>;
+  displayTracking?: string;
+  motion?: Partial<MotionProfile>;
+};
+
+/**
+ * Cria um tema a partir de outro, trocando só o necessário.
+ *
+ *   const marca = createTheme("calmo", { palette: { accent: "#0A7" } });
+ */
+export const createTheme = (
+  base: ThemeName | Theme,
+  overrides: ThemeOverrides = {},
+): Theme => {
+  const b = typeof base === "string" ? themes[base] : base;
+  return {
+    name: overrides.name ?? b.name,
+    palette: { ...b.palette, ...overrides.palette },
+    fonts: { ...b.fonts, ...overrides.fonts },
+    weights: { ...b.weights, ...overrides.weights },
+    displayTracking: overrides.displayTracking ?? b.displayTracking,
+    motion: { ...b.motion, ...overrides.motion },
+  };
+};
+
+const hexToRgb = (hex: string): [number, number, number] | null => {
+  const m = /^#?([0-9a-f]{6})$/i.exec(hex.trim());
+  if (!m) return null;
+  const n = parseInt(m[1], 16);
+  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+};
+
+/** Mistura duas cores hexadecimais (t = 0 → a, t = 1 → b). Retorna hex. */
+export const mixHex = (a: string, b: string, t: number): string => {
+  const ca = hexToRgb(a);
+  const cb = hexToRgb(b);
+  if (!ca || !cb) return t < 0.5 ? a : b;
+  const c = ca.map((v, i) => Math.round(v + (cb[i] - v) * t));
+  return `#${c.map((v) => v.toString(16).padStart(2, "0")).join("")}`;
+};
+
+const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
+
+/**
+ * Combina dois temas — por exemplo, o ritmo do vibrante com a paleta do calmo.
+ *
+ *   blendThemes("calmo", "vibrante", { motion: 0.5, palette: 0 })
+ *
+ * - `motion`: 0 = movimento de A, 1 = de B, valores intermediários interpolam
+ *   velocidade, intensidade, sobra e pausas.
+ * - `palette`: 0 = cores de A, 1 = de B, intermediários misturam cada cor.
+ * - `fonts`: de qual tema vêm as fontes.
+ */
+export const blendThemes = (
+  a: ThemeName | Theme,
+  b: ThemeName | Theme,
+  opts: { motion?: number; palette?: number; fonts?: "a" | "b" } = {},
+): Theme => {
+  const A = typeof a === "string" ? themes[a] : a;
+  const B = typeof b === "string" ? themes[b] : b;
+  const tm = opts.motion ?? 0.5;
+  const tp = opts.palette ?? 0;
+  const pick = (opts.fonts ?? (tp < 0.5 ? "a" : "b")) === "a" ? A : B;
+  const keys = Object.keys(A.palette) as (keyof Palette)[];
+  const palette = {} as Palette;
+  for (const k of keys) {
+    if (k === "spectrum") {
+      palette.spectrum = tp < 0.5 ? A.palette.spectrum : B.palette.spectrum;
+    } else {
+      palette[k] = mixHex(A.palette[k], B.palette[k], tp);
+    }
+  }
+  return {
+    name: tm < 0.5 ? A.name : B.name,
+    palette,
+    fonts: pick.fonts,
+    weights: pick.weights,
+    displayTracking: pick.displayTracking,
+    motion: {
+      speed: lerp(A.motion.speed, B.motion.speed, tm),
+      intensity: lerp(A.motion.intensity, B.motion.intensity, tm),
+      overshoot: lerp(A.motion.overshoot, B.motion.overshoot, tm),
+      holdScale: lerp(A.motion.holdScale, B.motion.holdScale, tm),
+    },
+  };
+};

@@ -23,6 +23,7 @@
     "@types/web": "0.0.166",
     "eslint": "10.12.0",
     "prettier": "3.8.1",
+    "tsx": "^4.19.2",
     "typescript": "5.9.3"
   },
   "scripts": {
@@ -32,7 +33,12 @@
     "lint": "eslint src && tsc",
     "render:vertical": "remotion render Vertical-9x16 out/vertical-9x16.mp4",
     "render:horizontal": "remotion render Horizontal-16x9 out/horizontal-16x9.mp4",
-    "render:quadrado": "remotion render Quadrado-1x1 out/quadrado-1x1.mp4"
+    "render:quadrado": "remotion render Quadrado-1x1 out/quadrado-1x1.mp4",
+    "nova-producao": "node scripts/nova-producao.mjs",
+    "catalogo": "tsx scripts/catalogo.ts",
+    "validar": "eslint src && tsc && tsx scripts/catalogo.ts --validar",
+    "trilha-demo": "python3 scripts/gerar-trilha.py",
+    "analisar-referencia": "python3 scripts/analisar-referencia.py"
   },
   "allowScripts": {
     "esbuild": false
