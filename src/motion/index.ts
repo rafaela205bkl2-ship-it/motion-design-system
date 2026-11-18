@@ -44,6 +44,14 @@ export type {
 } from "./text/TextReveal";
 export { TextSwap } from "./text/TextSwap";
 export type { TextSwapProps, TextSwapItem } from "./text/TextSwap";
+export { RollingNumber } from "./text/RollingNumber";
+export type { RollingNumberProps } from "./text/RollingNumber";
+
+// 3D (CSS)
+export { Stage3D, Plane3D } from "./three/Stage3D";
+export type { Stage3DProps, Plane3DProps } from "./three/Stage3D";
+export { DepthType } from "./three/DepthType";
+export type { DepthTypeProps } from "./three/DepthType";
 
 // Objetos
 export { ObjectEnter } from "./object/ObjectEnter";
@@ -52,6 +60,8 @@ export type {
   ObjectMotion,
   EnterFrom,
 } from "./object/ObjectEnter";
+export { FootageCard } from "./object/FootageCard";
+export type { FootageCardProps } from "./object/FootageCard";
 
 // Transições
 export { radialReveal } from "./transitions/radialReveal";
@@ -69,6 +79,14 @@ export { KineticType } from "./layers/KineticType";
 export type { KineticTypeProps } from "./layers/KineticType";
 export { ColorBloom } from "./layers/ColorBloom";
 export type { ColorBloomProps, BloomStep } from "./layers/ColorBloom";
+export { Particles, particleShapes, seeded } from "./layers/Particles";
+export type { ParticlesProps, Point } from "./layers/Particles";
+export { CameraMove } from "./layers/CameraMove";
+export type { CameraMoveProps, CameraState } from "./layers/CameraMove";
+export { FilmLook, CrtReveal } from "./layers/FilmLook";
+export type { FilmLookProps, CrtRevealProps } from "./layers/FilmLook";
+export { LightSweep } from "./layers/LightSweep";
+export type { LightSweepProps } from "./layers/LightSweep";
 
 // Layout responsivo (da base existente)
 export { useLayout, getFormat, FORMATS } from "../lib/layout";

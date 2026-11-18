@@ -177,10 +177,13 @@ export const ProducaoGenerica: React.FC<{
   readonly timeline: TimelineProducao;
   /** Substituições: id da cena → componente próprio. */
   readonly cenas?: Record<string, React.FC<CenaProps>>;
-}> = ({ timeline: tl, cenas = {} }) => {
+  /** Temas próprios da produção por estilo (ex.: { vibrante: meuTema }). Também definem a cor do anel das transições. */
+  readonly temas?: Partial<Record<Estilo, Theme>>;
+}> = ({ timeline: tl, cenas = {}, temas = {} }) => {
   const items: React.ReactNode[] = [];
+  const temaDe = (e: Estilo) => temas[e] ?? temaDoEstilo(e);
   tl.cenas.forEach((cena, i) => {
-    const tema = temaDoEstilo(cena.estilo ?? tl.estilo);
+    const tema = temaDe(cena.estilo ?? tl.estilo);
     const Comp = cenas[cena.id] ?? CenaGenerica;
     items.push(
       <TransitionSeries.Sequence
@@ -193,7 +196,7 @@ export const ProducaoGenerica: React.FC<{
     );
     const t = cena.transicao ?? "dissolve";
     if (i < tl.cenas.length - 1 && t !== "corte") {
-      const next = temaDoEstilo(tl.cenas[i + 1].estilo ?? tl.estilo);
+      const next = temaDe(tl.cenas[i + 1].estilo ?? tl.estilo);
       const tr = transitionPreset(t, {
         fps: tl.fps,
         ringColor: next.palette.accent,

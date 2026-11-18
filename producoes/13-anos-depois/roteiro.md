@@ -2,7 +2,7 @@
 titulo: 13 Anos Depois
 estilo: calmo
 formatos: 9x16
-trilha:
+trilha: audio/trilha.wav
 ---
 
 <!--
@@ -129,34 +129,34 @@ visual: montagem rápida em cartões: veículos, praia, cidade à noite
 
 ## Cena 17 — Quanto tempo
 duração: 4
-estilo: calmo
+estilo: misto
 transição: dissolve
 texto: quanto *tempo* passou
 visual: ritmo cai; cartões de 2013 e 2026 lado a lado
 
 ## Cena 18 — Última vez
 duração: 4
-estilo: calmo
+estilo: misto
 transição: fade-branco
 texto: desde a última vez\nque estivemos *aqui*.
 
 ## Cena 19 — 13 anos
 duração: 4
-estilo: calmo
+estilo: misto
 transição: dissolve
 texto: Treze anos *depois*.
 visual: silêncio; número 13 em 3D gira devagar
 
 ## Cena 20 — Continua
 duração: 4
-estilo: calmo
+estilo: misto
 transição: radial-suave
 texto: Amanhã, a história *continua*.
 visual: versão pós-lançamento: "A história continua."
 
 ## Cena 21 — Encerramento
 duração: 5
-estilo: calmo
+estilo: misto
 texto: GRAND THEFT AUTO VI
 apoio: 19.11.2026
 visual: nome em tipografia própria (não o logotipo oficial); aviso "produção de fã, não oficial"

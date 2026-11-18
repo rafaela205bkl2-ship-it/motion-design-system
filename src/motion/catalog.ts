@@ -401,4 +401,99 @@ export const catalog: CatalogEntry[] = [
     file: "src/motion/catalog.ts",
     description: "Este catálogo.",
   },
+
+  // ------------------------------------------------------------ 3D, partículas e cinema (produção 13-anos-depois)
+  {
+    name: "Stage3D",
+    kind: "camada",
+    file: "src/motion/three/Stage3D.tsx",
+    description:
+      "Palco 3D em CSS: perspectiva + câmera (cameraZ/X/Y, rotateX/Y/Z). Anime os números na cena. filter/overflow dentro achatam o 3D.",
+    props: ["perspective", "cameraZ", "cameraX", "cameraY", "rotateX", "rotateY", "originX", "originY"],
+    example: "<Stage3D cameraZ={z}><Plane3D z={-400}>…</Plane3D></Stage3D>",
+  },
+  {
+    name: "Plane3D",
+    kind: "camada",
+    file: "src/motion/three/Stage3D.tsx",
+    description: "Plano centrado no palco, posicionado em x/y/z (px de design) com rotações e escala.",
+    props: ["x", "y", "z", "rotateX", "rotateY", "rotateZ", "scale", "opacity"],
+  },
+  {
+    name: "DepthType",
+    kind: "componente",
+    file: "src/motion/three/DepthType.tsx",
+    description:
+      "Tipografia com volume: texto extrudado em camadas, laterais em degradê e brilho opcional na face.",
+    props: ["text", "size", "depth", "layers", "color", "sideLight", "sideDark", "rotateX", "rotateY", "sheen", "outline"],
+    example: '<DepthType text="2013" size={420} depth={90} rotateY={-18} />',
+  },
+  {
+    name: "RollingNumber",
+    kind: "componente",
+    file: "src/motion/text/RollingNumber.tsx",
+    description:
+      "Odômetro entre uma sequência de valores (ref-001, 23 s). Funciona em 3D (sem overflow) e aceita renderDigit.",
+    props: ["values", "times", "duration", "stagger", "easing", "size", "renderDigit"],
+    example: "<RollingNumber values={[2013, 2018]} times={[0.5]} size={300} />",
+  },
+  {
+    name: "FootageCard",
+    kind: "componente",
+    file: "src/motion/object/FootageCard.tsx",
+    description:
+      "Cartão em perspectiva com conteúdo dentro (vídeo, imagem, cenário), borda luminosa, sombra, véu e brilho.",
+    props: ["width", "height", "radius", "edge", "tiltX", "tiltY", "rotate", "sheen", "shadow", "scrim", "caption"],
+  },
+  {
+    name: "Particles",
+    kind: "camada",
+    file: "src/motion/layers/Particles.tsx",
+    description:
+      "Partículas determinísticas que viajam de uma forma para outra (elemento vira transição).",
+    props: ["from", "to", "progress", "start", "duration", "spread", "swirl", "size", "colors", "twinkle", "drift", "seed"],
+    example: "<Particles from={particleShapes.scatter(300)} to={particleShapes.disc(300)} start={0.5} />",
+  },
+  {
+    name: "particleShapes",
+    kind: "utilitário",
+    file: "src/motion/layers/Particles.tsx",
+    description: "Formas prontas para Particles: scatter, disc, ring, line (pontos normalizados 0–1).",
+  },
+  {
+    name: "seeded",
+    kind: "utilitário",
+    file: "src/motion/layers/Particles.tsx",
+    description: "Gerador pseudoaleatório determinístico (mesmo resultado em todo render).",
+  },
+  {
+    name: "CameraMove",
+    kind: "camada",
+    file: "src/motion/layers/CameraMove.tsx",
+    description:
+      "Câmera sobre uma placa: avanço/recuo, deriva e rotação entre dois estados. Texto dentro acompanha a câmera; em outro CameraMove, parallax.",
+    props: ["from", "to", "delay", "duration", "easing", "speed", "intensity", "originX", "originY"],
+    example: "<CameraMove to={{ scale: 1.08, x: -20 }} duration={4}>…</CameraMove>",
+  },
+  {
+    name: "FilmLook",
+    kind: "camada",
+    file: "src/motion/layers/FilmLook.tsx",
+    description: "Textura de TV/filme antigo: linhas de varredura, granulação, vinheta, tremulação e tom.",
+    props: ["intensity", "scanlines", "grain", "vignette", "flicker", "tint"],
+  },
+  {
+    name: "CrtReveal",
+    kind: "transição",
+    file: "src/motion/layers/FilmLook.tsx",
+    description: "A cena liga como TV de tubo: ponto → linha horizontal → tela cheia, com clarão.",
+    props: ["delay", "duration", "speed", "flash"],
+  },
+  {
+    name: "LightSweep",
+    kind: "camada",
+    file: "src/motion/layers/LightSweep.tsx",
+    description: "Faixa de luz que atravessa a tela ou um cartão uma vez (screen).",
+    props: ["delay", "duration", "angle", "width", "color", "direction"],
+  },
 ];

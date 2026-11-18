@@ -3,7 +3,7 @@
   "slug": "13-anos-depois",
   "fps": 30,
   "estilo": "calmo",
-  "trilha": null,
+  "trilha": "audio/trilha.wav",
   "cenas": [
     {
       "id": "cena-1",
@@ -157,7 +157,7 @@
       "id": "cena-17",
       "nome": "Quanto tempo",
       "duracao": 4,
-      "estilo": "calmo",
+      "estilo": "misto",
       "transicao": "dissolve",
       "texto": "quanto *tempo* passou",
       "visual": "ritmo cai; cartões de 2013 e 2026 lado a lado"
@@ -166,7 +166,7 @@
       "id": "cena-18",
       "nome": "Última vez",
       "duracao": 4,
-      "estilo": "calmo",
+      "estilo": "misto",
       "transicao": "fade-branco",
       "texto": "desde a última vez\nque estivemos *aqui*."
     },
@@ -174,7 +174,7 @@
       "id": "cena-19",
       "nome": "13 anos",
       "duracao": 4,
-      "estilo": "calmo",
+      "estilo": "misto",
       "transicao": "dissolve",
       "texto": "Treze anos *depois*.",
       "visual": "silêncio; número 13 em 3D gira devagar"
@@ -183,7 +183,7 @@
       "id": "cena-20",
       "nome": "Continua",
       "duracao": 4,
-      "estilo": "calmo",
+      "estilo": "misto",
       "transicao": "radial-suave",
       "texto": "Amanhã, a história *continua*.",
       "visual": "versão pós-lançamento: \"A história continua.\""
@@ -192,7 +192,7 @@
       "id": "cena-21",
       "nome": "Encerramento",
       "duracao": 5,
-      "estilo": "calmo",
+      "estilo": "misto",
       "texto": "GRAND THEFT AUTO VI",
       "apoio": "19.11.2026",
       "visual": "nome em tipografia própria (não o logotipo oficial); aviso \"produção de fã, não oficial\""
