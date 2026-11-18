@@ -34,3 +34,6 @@ Thumbs.db
 # stems regeneráveis por scripts/gerar-trilha-13-anos.py
 public/producoes/13-anos-depois/audio/musica.wav
 public/producoes/13-anos-depois/audio/efeitos.wav
+
+# originais de vídeos convertidos por scripts/materiais.mjs
+_originais/

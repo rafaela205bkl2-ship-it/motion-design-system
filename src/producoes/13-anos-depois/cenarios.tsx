@@ -9,43 +9,48 @@ import { Video } from "@remotion/media";
 import React, { useMemo } from "react";
 import { AbsoluteFill, Img, staticFile, useCurrentFrame } from "remotion";
 import { seeded } from "../../motion";
+import materiaisGerados from "./materiais.gerado.json";
 
 /* ------------------------------------------------------------------ */
 /* Placas reais (opcional)                                             */
 /* ------------------------------------------------------------------ */
 
-/** Arquivo em public/producoes/13-anos-depois/ para cada placa, ou null para o cenário procedural. */
-export const PLACAS: Record<string, string | null> = {
-  "cidade-2013": null,
-  "colinas-2013": null,
-  "praia-2013": null,
-  "por-do-sol": null,
-  "praia-nova": null,
-  "cidade-noite": null,
-  estrada: null,
-  helicoptero: null,
-  // cartões da cena 12 (imagem; sem arquivo, o cartão mostra só o nome)
-  "cartao-jason": null,
-  "cartao-lucia": null,
-};
+/**
+ * Materiais da usuária: gerado por `npm run materiais` a partir das pastas em
+ * public/producoes/13-anos-depois/materiais/ (veja materiais.config.json). Não edite à mão.
+ */
+type Material = { arquivo: string; tipo: "imagem" | "video"; enquadramento?: string };
+const GERADO = materiaisGerados as { espacos: Record<string, Material>; listas: Record<string, Material[]> };
 
-/** Enquadramento (object-position) de cada placa de imagem, ex.: "70% 35%". */
-export const ENQUADRAMENTO: Record<string, string> = {
-  "cartao-jason": "50% 40%",
-  "cartao-lucia": "50% 40%",
+/** Arquivo de cada espaço, ou null para o cenário procedural. */
+export const PLACAS: Record<string, string | null> = Object.fromEntries(
+  Object.entries(GERADO.espacos).map(([k, v]) => [k, v.arquivo]),
+);
+
+/** Enquadramento (object-position) de cada espaço de imagem. */
+export const ENQUADRAMENTO: Record<string, string> = Object.fromEntries(
+  Object.entries(GERADO.espacos).map(([k, v]) => [k, v.enquadramento ?? "50% 50%"]),
+);
+
+/** Listas de materiais (ex.: gameplay para a montagem da cena 16). */
+export const LISTAS: Record<string, Material[]> = GERADO.listas ?? {};
+
+/** Mostra um material (imagem ou vídeo) preenchendo o quadro. */
+export const Midia: React.FC<{ readonly material: Material }> = ({ material }) => {
+  const src = staticFile(`producoes/13-anos-depois/${material.arquivo}`);
+  return material.tipo === "video" ? (
+    <Video src={src} muted objectFit="cover" style={{ width: "100%", height: "100%" }} />
+  ) : (
+    <Img src={src} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: material.enquadramento ?? "50% 50%" }} />
+  );
 };
 
 export const Placa: React.FC<{ readonly slot: string; readonly children: React.ReactNode }> = ({ slot, children }) => {
-  const f = PLACAS[slot];
-  if (!f) return <>{children}</>;
-  const src = staticFile(`producoes/13-anos-depois/${f}`);
+  const m = GERADO.espacos[slot];
+  if (!m) return <>{children}</>;
   return (
     <AbsoluteFill>
-      {f.endsWith(".mp4") ? (
-        <Video src={src} muted objectFit="cover" style={{ width: "100%", height: "100%" }} />
-      ) : (
-        <Img src={src} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: ENQUADRAMENTO[slot] ?? "50% 50%" }} />
-      )}
+      <Midia material={m} />
     </AbsoluteFill>
   );
 };

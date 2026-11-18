@@ -27,6 +27,7 @@
     "typescript": "5.9.3"
   },
   "scripts": {
+    "predev": "node scripts/materiais.mjs",
     "dev": "remotion studio",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
@@ -38,7 +39,10 @@
     "catalogo": "tsx scripts/catalogo.ts",
     "validar": "eslint src && tsc && tsx scripts/catalogo.ts --validar",
     "trilha-demo": "python3 scripts/gerar-trilha.py",
-    "analisar-referencia": "python3 scripts/analisar-referencia.py"
+    "analisar-referencia": "python3 scripts/analisar-referencia.py",
+    "materiais": "node scripts/materiais.mjs",
+    "render:13-anos-depois": "node scripts/materiais.mjs 13-anos-depois && remotion render 13-anos-depois-9x16 out/13-anos-depois-9x16.mp4 --codec=h264 --crf=18",
+    "render:13-anos-depois-pos": "node scripts/materiais.mjs 13-anos-depois && remotion render 13-anos-depois-9x16 out/13-anos-depois-9x16-pos.mp4 --codec=h264 --crf=18 --props='{\"posLancamento\":true}'"
   },
   "allowScripts": {
     "esbuild": false

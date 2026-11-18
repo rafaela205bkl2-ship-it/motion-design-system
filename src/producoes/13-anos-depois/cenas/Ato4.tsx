@@ -3,7 +3,7 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import { Backdrop, CameraMove, FootageCard, MotionProvider, Plane3D, Stage3D, useLayout } from "../../../motion";
 import type { CenaProps } from "../../_runtime/ProducaoGenerica";
-import { CidadeNoite, Estrada, PorDoSol, Praia } from "../cenarios";
+import { CidadeNoite, Estrada, LISTAS, Midia, PorDoSol, Praia } from "../cenarios";
 import { Frase, kf, useT } from "../kit";
 import { COR } from "../tema";
 
@@ -60,7 +60,10 @@ export const C15ViceCity: React.FC<CenaProps> = ({ tema }) => {
 /** Cena 16: cartões atravessam um palco 3D em direção à câmera. */
 export const C16Perceber: React.FC<CenaProps> = ({ tema }) => {
   const t = useT();
-  const cartoes = [<CidadeNoite key="a" />, <Estrada key="b" />, <PorDoSol key="c" />, <Praia key="d" clima="nova" />, <CidadeNoite key="e" helicoptero />];
+  const padrao = [<CidadeNoite key="a" />, <Estrada key="b" />, <PorDoSol key="c" />, <Praia key="d" clima="nova" />, <CidadeNoite key="e" helicoptero />];
+  // gameplay da usuária (pasta materiais/gameplay) substitui os cenários, em ordem alfabética
+  const gameplay = LISTAS.gameplay ?? [];
+  const cartoes = padrao.map((c, i) => (gameplay[i] ? <Midia key={`g${i}`} material={gameplay[i]} /> : c));
   return (
     <MotionProvider theme={tema}>
       <Backdrop glows={[{ x: 0.5, y: 0.55, size: 1300, color: COR.rosa, opacity: 0.3 }]} grain={0.12} />

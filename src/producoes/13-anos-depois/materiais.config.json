@@ -1,0 +1,18 @@
+{
+  "descricao": "Pastas de public/producoes/13-anos-depois/materiais/ e o espaço do vídeo que cada uma alimenta. Rode: npm run materiais",
+  "espacos": {
+    "personagens/jason": { "espaco": "cartao-jason", "tipos": "imagem", "enquadramento": "50% 35%", "cena": "12 (cartão 01)" },
+    "personagens/lucia": { "espaco": "cartao-lucia", "tipos": "imagem", "enquadramento": "50% 35%", "cena": "12 (cartão 02)" },
+    "cenarios/01-cidade-2013": { "espaco": "cidade-2013", "tipos": "qualquer", "cena": "1, 2, 6, 17" },
+    "cenarios/02-colinas-2013": { "espaco": "colinas-2013", "tipos": "qualquer", "cena": "3, 6" },
+    "cenarios/03-praia-2013": { "espaco": "praia-2013", "tipos": "qualquer", "cena": "4, 6" },
+    "cenarios/04-por-do-sol": { "espaco": "por-do-sol", "tipos": "qualquer", "cena": "10, 11, 16, 17" },
+    "cenarios/05-praia-nova": { "espaco": "praia-nova", "tipos": "qualquer", "cena": "11, 16" },
+    "cenarios/06-cidade-noite": { "espaco": "cidade-noite", "tipos": "qualquer", "cena": "13, 16" },
+    "cenarios/07-estrada": { "espaco": "estrada", "tipos": "qualquer", "cena": "14, 16" },
+    "cenarios/08-helicoptero": { "espaco": "helicoptero", "tipos": "qualquer", "cena": "15, 16" }
+  },
+  "listas": {
+    "gameplay": { "lista": "gameplay", "tipos": "qualquer", "maximo": 5, "cena": "16 (montagem em cartões, em ordem alfabética)" }
+  }
+}

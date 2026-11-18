@@ -41,20 +41,19 @@ regeneráveis).
   por ser trabalho autoral de terceiros com marcas da Rockstar.
 - **Sem locução:** nenhum serviço de voz disponível; o tempo está reservado para inserir depois.
 
-## Como trocar um cenário por material real
+## Como adicionar seus materiais (sem código)
 
-1. Coloque o arquivo em `public/producoes/13-anos-depois/videos/` (MP4 H.264) ou `imagens/`.
-2. Em `cenarios.tsx`, aponte o slot em `PLACAS` (ex.: `"por-do-sol": "videos/vice-city-sunset.mp4"`).
-3. Renderize de novo. Textos e animações continuam iguais.
-
-**Cartões de Jason e Lucia (cena 12):** coloque as imagens em `imagens/` e preencha
-`"cartao-jason"` e `"cartao-lucia"` em `PLACAS`. Ajuste o recorte de cada cartão em `ENQUADRAMENTO`
-(ex.: com uma imagem única dos dois, `"cartao-jason": "72% 35%"` e `"cartao-lucia": "25% 40%"`).
-O nome continua por cima, em tipografia própria.
+Arraste os arquivos para `public/producoes/13-anos-depois/materiais/` (pastas e formatos em `LEIA-ME.md`
+dentro dela) e rode `npm run materiais`. O comando renomeia, converte vídeos para MP4 H.264 e escreve
+`src/producoes/13-anos-depois/materiais.gerado.json`, que as cenas leem. `npm run dev` faz isso sozinho ao abrir
+o Studio, e `npm run materiais -- --watch` integra a cada arquivo novo.
 
 ## Render
 
 ```bash
-npx remotion render 13-anos-depois-9x16 out/13-anos-depois-9x16.mp4 --codec=h264 --crf=18
-npx remotion render 13-anos-depois-9x16 out/13-anos-depois-9x16-pos.mp4 --codec=h264 --crf=18 --props='{"posLancamento":true}'
+npm run render:13-anos-depois
+```
+
+```bash
+npm run render:13-anos-depois-pos
 ```
