@@ -11,7 +11,9 @@ import {
   MissionCard,
   VolumetricLight,
   DepthType,
+  FloatingShapes,
   FootageCard,
+  KineticWord,
   LightSweep,
   MotionProvider,
   Particles,
@@ -61,7 +63,10 @@ export const C10Renasce: React.FC<CenaProps> = ({ tema }) => {
       <Particles from={ORIGEM} to={DESTINO} start={0.15} duration={2.1} spread={0.4} swirl={160} size={[4, 11]} colors={[COR.laranja, COR.rosa, "#FFE08A"]} opacity={kf(t, [2.4, 3.4], [1, 0.25])} />
       <AbsoluteFill style={{ background: "linear-gradient(to bottom, rgba(11,10,16,0.55), rgba(11,10,16,0) 35%)" }} />
       <Grade highlights="#FF9A6B" shadows="#2A1745" amount={0.4} vignette={0.45} />
-      <Frase texto="Uma cidade *renasce*." topo={380} size={124} delay={2.0} color={COR.creme} highlightColor={COR.rosa} />
+      <Frase serif texto="Uma cidade" topo={330} size={96} delay={1.9} color={COR.creme} />
+      <AbsoluteFill style={{ alignItems: "center", paddingTop: 450 }}>
+        <KineticWord text="*renasce.*" size={230} delay={2.15} highlight={COR.rosa} />
+      </AbsoluteFill>
     </MotionProvider>
   );
 };
@@ -76,7 +81,14 @@ export const C11NovasHistorias: React.FC<CenaProps> = ({ tema }) => {
       <PorDoSol />
       <AbsoluteFill style={{ clipPath: `inset(0 0 0 ${revela}%)` }}>
         <CameraMove from={{ scale: 1.12 }} to={{ scale: 1.03 }} duration={3}>
-          <RuaArtDeco cam={kf(t, [0, 3], [-120, 140], "camera")} />
+          <RuaArtDeco
+            cam={kf(t, [0, 3], [-120, 140], "camera")}
+            atras={
+              <AbsoluteFill style={{ alignItems: "center", paddingTop: 250 }}>
+                <KineticWord text="VICE" size={430} delay={0.55} stagger={0.07} duration={0.8} color={COR.rosa} tracking="-0.05em" />
+              </AbsoluteFill>
+            }
+          />
           <VolumetricLight x={780} y={1060} direction={0} spread={300} rays={20} color="rgba(255,214,170,0.5)" intensity={0.55} reach={1500} />
           <Atmosphere color="#FFC49A" density={0.4} from={0.55} to={0.75} drift={30} seed={14} />
         </CameraMove>
@@ -87,8 +99,8 @@ export const C11NovasHistorias: React.FC<CenaProps> = ({ tema }) => {
           <FootageCard width={300} height={1500} radius={60} background={`linear-gradient(180deg, ${COR.rosa}, ${COR.laranja})`} shadow={0.8} sheen={0.5} />
         </Plane3D>
       </Stage3D>
-      <AbsoluteFill style={{ background: "linear-gradient(to bottom, rgba(11,10,16,0.5), rgba(11,10,16,0) 32%)" }} />
-      <Frase texto="Novas histórias *começam*." topo={360} size={116} delay={1.15} color={COR.creme} highlightColor={COR.creme} />
+      <AbsoluteFill style={{ background: "linear-gradient(to bottom, transparent 52%, rgba(11,10,16,0.62) 60%, rgba(11,10,16,0.62) 72%, transparent 80%)" }} />
+      <Frase texto="Novas histórias *começam*." topo={1150} size={116} delay={1.15} color={COR.creme} highlightColor={COR.creme} />
       <AbsoluteFill style={{ justifyContent: "flex-start", paddingLeft: 80, paddingTop: 650 }}>
         <MissionCard label="Capítulo 01" title="Uma nova cidade" delay={1.5} accent={COR.rosa} width={600} progress={0.15} />
       </AbsoluteFill>
@@ -130,6 +142,16 @@ export const C12JasonLucia: React.FC<CenaProps> = ({ tema }) => {
       <Backdrop glows={[{ x: 0.3, y: 0.55, size: 1100, color: COR.laranja, opacity: 0.35 }, { x: 0.75, y: 0.45, size: 1100, color: COR.rosa, opacity: 0.35 }]} grain={0.12} />
       <Frase texto="*Jason* e *Lucia*" topo={330} size={124} delay={0.2} color={COR.creme} highlightColor={COR.rosa} />
       <Stage3D perspective={1400}>
+        <FloatingShapes
+          enter="scale"
+          shapes={[
+            { kind: "ring", x: -420, y: -260, z: -200, size: 120, color: COR.laranja, delay: 0.9, spin: 50 },
+            { kind: "disc", x: 420, y: 330, z: 260, size: 110, color: COR.rosa, delay: 1.0, spin: 80 },
+            { kind: "pill", x: 20, y: -330, z: 320, size: 80, color: COR.creme, delay: 1.1, rz: 30 },
+            { kind: "cube", x: -420, y: 300, z: 180, size: 90, color: "#7B4BD6", delay: 1.2 },
+            { kind: "tile", x: 430, y: -200, z: -260, size: 100, color: COR.oceano, delay: 1.3 },
+          ]}
+        />
         <Plane3D x={-230 - (1 - a) * 600} y={60} rotateY={95 * (1 - a) + 10} rotateZ={-3 * a} opacity={kf(t, [0.15, 0.4], [0, 1])}>
           <div style={{ fontFamily: tema.fonts.display }}>
             <FootageCard width={420} height={640} radius={36} edge="rgba(255,240,220,0.5)" sheen={kf(t, [1.6, 2.5], [0, 1])} shadow={0.8}>

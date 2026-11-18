@@ -547,4 +547,30 @@ export const catalog: CatalogEntry[] = [
     description: "Moldura de visor: cantos, REC piscando, contador de tempo e rótulo de local, na área segura.",
     props: ["label", "sublabel", "delay", "color", "accent", "clockFrom", "rec"],
   },
+
+  // ------------------------------------------------------------ linguagem publicitária (13-anos-depois v3)
+  {
+    name: "FloatingShapes",
+    kind: "componente",
+    file: "src/motion/three/FloatingShapes.tsx",
+    description:
+      "Formas 3D flutuando (cube, disc, ring, pill, tile) com volume, sombra, entrada com sobra e flutuação (ref-001, 8–22 s). Use em Stage3D; z>0 passa na frente.",
+    props: ["shapes", "speed", "float", "enter", "duration", "exitAt", "overshoot", "shadow"],
+    example: '<FloatingShapes shapes={[{ kind: "cube", x: -300, y: -200, z: 120, color: "#FF5C8A" }]} />',
+  },
+  {
+    name: "KineticWord",
+    kind: "componente",
+    file: "src/motion/text/KineticWord.tsx",
+    description:
+      "Tipografia de impacto: letras enormes virando em 3D com escala e sobra, linhas empilhadas, saída voando para a câmera.",
+    props: ["text", "size", "delay", "stagger", "duration", "exitAt", "color", "highlight", "flip", "align"],
+    example: '<KineticWord text={"A MAIOR\\n*VIAGEM*"} size={240} delay={0.2} />',
+  },
+  {
+    name: "backOut",
+    kind: "utilitário",
+    file: "src/motion/easing.ts",
+    description: "Curva com sobra a partir de progresso 0–1: backOut(p, 0.05). Sobra ≤ 7%.",
+  },
 ];

@@ -5,6 +5,8 @@ import {
   Backdrop,
   DepthType,
   FilmLook,
+  FloatingShapes,
+  KineticWord,
   FootageCard,
   MotionProvider,
   Particles,
@@ -83,6 +85,19 @@ export const C19TrezeAnos: React.FC<CenaProps> = ({ tema }) => {
           <DepthType text="13" size={540} depth={140} layers={20} color={COR.creme} sideLight={COR.laranja} sideDark="#1A1F3A" sheen={kf(t, [1.4, 2.6], [0, 1])} sheenColor="rgba(255,210,170,0.8)" />
         </Plane3D>
       </Stage3D>
+      <Stage3D perspective={1400}>
+        <FloatingShapes
+          enter="scale"
+          duration={0.9}
+          float={24}
+          shapes={[
+            { kind: "ring", x: -360, y: -420, z: 240, size: 130, color: COR.laranja, delay: 0.6, spin: 30 },
+            { kind: "disc", x: 380, y: -40, z: -220, size: 120, color: COR.oceano, delay: 0.8, spin: 45 },
+            { kind: "pill", x: -320, y: 120, z: -160, size: 80, color: COR.creme, delay: 1.0, rz: 20 },
+            { kind: "cube", x: 330, y: -520, z: 120, size: 80, color: COR.laranja, delay: 1.2 },
+          ]}
+        />
+      </Stage3D>
       <Frase texto="Treze anos *depois*." topo={1330} size={108} delay={1.0} color={COR.creme} highlightColor={COR.laranja} />
     </MotionProvider>
   );
@@ -93,7 +108,9 @@ export const C20Continua: React.FC<CenaProps> = ({ tema }) => (
   <MotionProvider theme={tema}>
     <Noite />
     {posLancamento() ? null : <Frase serif texto="Amanhã," topo={720} size={100} delay={0.2} color={COR.creme} />}
-    <Frase texto="A história *continua*." topo={850} size={100} delay={0.6} color={COR.creme} highlightColor={COR.laranja} />
+    <AbsoluteFill style={{ alignItems: "center", paddingTop: 850 }}>
+      <KineticWord text={"A história\n*continua.*"} size={150} delay={0.6} stagger={0.04} color={COR.creme} highlight={COR.laranja} />
+    </AbsoluteFill>
   </MotionProvider>
 );
 

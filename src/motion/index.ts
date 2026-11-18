@@ -6,6 +6,7 @@ export {
   easings,
   resolveEasing,
   overshootProgress,
+  backOut,
   dampingForOvershoot,
 } from "./easing";
 export type { EasingName, EasingInput } from "./easing";
@@ -46,12 +47,16 @@ export { TextSwap } from "./text/TextSwap";
 export type { TextSwapProps, TextSwapItem } from "./text/TextSwap";
 export { RollingNumber } from "./text/RollingNumber";
 export type { RollingNumberProps } from "./text/RollingNumber";
+export { KineticWord } from "./text/KineticWord";
+export type { KineticWordProps } from "./text/KineticWord";
 
 // 3D (CSS)
 export { Stage3D, Plane3D } from "./three/Stage3D";
 export type { Stage3DProps, Plane3DProps } from "./three/Stage3D";
 export { DepthType } from "./three/DepthType";
 export type { DepthTypeProps } from "./three/DepthType";
+export { FloatingShapes } from "./three/FloatingShapes";
+export type { FloatingShapesProps, FloatingShape, ShapeKind } from "./three/FloatingShapes";
 
 // Objetos
 export { ObjectEnter } from "./object/ObjectEnter";

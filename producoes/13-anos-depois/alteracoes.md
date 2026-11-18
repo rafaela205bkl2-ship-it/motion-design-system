@@ -92,3 +92,28 @@ Foco: realismo cinematográfico e linguagem de trailer de jogo, sobre a mesma es
 **Referências de estilo** (fotos enviadas pela usuária, usadas só como referência e fora do vídeo):
 céu lilás e rosa com sol baixo, prédios art déco claros com janelas em faixa, palmeiras, carro clássico em
 primeiro plano e luz de fim de tarde.
+
+# Alterações — versão 3 (18/11/2026): camada de linguagem publicitária
+
+Inspirada na ref-001 (vídeo da Nubank): tipografia grande e cinética, objetos 3D flutuando ao redor do
+conteúdo e elementos que atravessam a composição. Mesmas 21 cenas, mesmos tempos e mesma trilha.
+
+**Biblioteca:**
+
+| Componente | Arquivo | Para quê |
+| --- | --- | --- |
+| `FloatingShapes` | `three/FloatingShapes.tsx` | cubos, moedas, anéis, pílulas e placas 3D flutuando, na frente ou atrás do conteúdo |
+| `KineticWord` | `text/KineticWord.tsx` | palavras enormes que viram letra por letra em 3D e saem voando para a câmera |
+| `backOut` | `easing.ts` | curva com sobra a partir de um progresso 0–1 |
+
+**Correção:** `RollingNumber` não sobrepõe mais os dígitos no meio da rolagem.
+
+**Onde a nova linguagem entra:**
+- Cenas 5, 7 e 8: formas 3D em volta dos anos e dos comentários, no fundo creme (o respiro da ref-001).
+- Cena 10: "renasce." em tipografia de impacto.
+- Cena 11: "VICE" gigante atrás da cidade; os prédios e as palmeiras passam na frente das letras.
+- Cena 12: formas orbitando os cartões de personagem, umas na frente, outras atrás.
+- Cena 14: "TALVEZ A MAIOR VIAGEM" ocupa a tela e voa para a câmera no fim.
+- Cena 16: formas acompanham os cartões da montagem.
+- Cena 19: formas orbitam o "13".
+- Cena 20: "A história continua." com letras virando em 3D.

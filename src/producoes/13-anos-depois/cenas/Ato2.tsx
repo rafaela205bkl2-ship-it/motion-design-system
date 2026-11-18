@@ -4,6 +4,7 @@ import { AbsoluteFill } from "remotion";
 import {
   Backdrop,
   DepthType,
+  FloatingShapes,
   FootageCard,
   Layer,
   MotionProvider,
@@ -29,6 +30,14 @@ const Ano: React.FC<{ readonly de: number; readonly para: number; readonly em: n
   />
 );
 
+const FORMAS_ANO = [
+  { kind: "cube" as const, x: -330, y: -420, z: 80, size: 120, color: COR.oceano, delay: 0.1 },
+  { kind: "disc" as const, x: 340, y: -360, z: 160, size: 130, color: COR.laranja, delay: 0.18, spin: 60 },
+  { kind: "pill" as const, x: 330, y: 560, z: 60, size: 90, color: COR.rosa, delay: 0.26, rz: -20 },
+  { kind: "tile" as const, x: -330, y: 590, z: -120, size: 110, color: "#7B4BD6", delay: 0.34 },
+  { kind: "ring" as const, x: -60, y: -560, z: -260, size: 100, color: COR.laranja, delay: 0.42, spin: 40 },
+];
+
 const Fundo: React.FC = () => (
   <Backdrop
     glows={[
@@ -49,6 +58,7 @@ export const C5Ano2018: React.FC<CenaProps> = ({ tema }) => {
         <Plane3D y={-60} rotateY={kf(t, [0, 3], [-16, -6])} rotateX={kf(t, [0, 3], [12, 6])} scale={kf(t, [0, 0.5], [0.92, 1], "enterStrong")}>
           <Ano de={2013} para={2018} em={0.4} />
         </Plane3D>
+        <FloatingShapes shapes={FORMAS_ANO} enter="scale" />
       </Stage3D>
       <Frase serif texto="Os anos passaram." topo={1230} size={84} delay={0.9} color="#1A1420" />
     </MotionProvider>
@@ -140,6 +150,18 @@ export const C7Quando: React.FC<CenaProps> = ({ tema }) => {
           })}
         </Layer>
       ))}
+      <Stage3D perspective={1300}>
+        <FloatingShapes
+          enter="below"
+          duration={0.9}
+          shapes={[
+            { kind: "pill", x: -340, y: 80, z: 220, size: 80, color: COR.rosa, delay: 0.2, rz: 25 },
+            { kind: "cube", x: 360, y: -60, z: 140, size: 90, color: COR.oceano, delay: 0.3 },
+            { kind: "disc", x: 300, y: 620, z: -80, size: 110, color: COR.laranja, delay: 0.4, spin: 70 },
+            { kind: "tile", x: -300, y: -640, z: -160, size: 100, color: "#7B4BD6", delay: 0.5 },
+          ]}
+        />
+      </Stage3D>
       <Frase texto="*Quando* vamos voltar?" topo={790} size={124} delay={1.0} color="#1A1420" />
     </MotionProvider>
   );
@@ -155,6 +177,7 @@ export const C8Ano2026: React.FC<CenaProps> = ({ tema }) => {
         <Plane3D y={-40} z={kf(t, [2.0, 3.2], [0, -900], "exit")} rotateY={kf(t, [0, 3], [-12, 4])} rotateX={8} opacity={kf(t, [2.3, 3.2], [1, 0])}>
           <Ano de={2022} para={2026} em={0.35} tamanho={320} />
         </Plane3D>
+        <FloatingShapes shapes={FORMAS_ANO.map((f) => ({ ...f, x: f.x * 1.05, y: f.y * 0.95 }))} enter="scale" exitAt={2.0} />
       </Stage3D>
       <AbsoluteFill style={{ background: COR.noite, opacity: kf(t, [2.2, 3.3], [0, 1]) }} />
       <PontoDeLuz raio={kf(t, [2.7, 3.7], [0, 22], "enterStrong")} cor={COR.laranja} />

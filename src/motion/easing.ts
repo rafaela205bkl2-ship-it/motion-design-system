@@ -104,3 +104,16 @@ export const overshootProgress = ({
     },
   });
 };
+
+/**
+ * Curva com sobra a partir de um progresso 0–1 (easeOutBack ajustado).
+ * `amount` ≈ sobra máxima como fração do valor final (0,05 = 5%). Respeite o limite de 7%.
+ */
+export const backOut = (p: number, amount = 0.04) => {
+  if (p <= 0) return 0;
+  if (p >= 1) return 1;
+  const c1 = amount * 17;
+  const c3 = c1 + 1;
+  const q = p - 1;
+  return 1 + c3 * q * q * q + c1 * q * q;
+};

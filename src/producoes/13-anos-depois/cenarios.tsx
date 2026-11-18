@@ -498,7 +498,7 @@ const FACHADAS: Fachada[] = [
  * Rua art déco ao entardecer, em camadas. `cam` desloca a câmera (px de design):
  * cada camada anda proporcionalmente à sua profundidade, como numa câmera real.
  */
-export const RuaArtDeco: React.FC<{ readonly cam?: number; readonly carro?: boolean; readonly noite?: number }> = ({ cam = 0, carro = true, noite = 0 }) => {
+export const RuaArtDeco: React.FC<{ readonly cam?: number; readonly carro?: boolean; readonly noite?: number; readonly atras?: React.ReactNode }> = ({ cam = 0, carro = true, noite = 0, atras }) => {
   const frame = useCurrentFrame();
   const camada = (d: number): React.CSSProperties => ({ transform: `translateX(${-cam * d}px)` });
   const sway = Math.sin(frame / 32) * 5;
@@ -534,6 +534,8 @@ export const RuaArtDeco: React.FC<{ readonly cam?: number; readonly carro?: bool
             <Skyline seed={91} base={1180} hMin={90} hMax={300} cor="#C49AC8" opacidade={0.55} />
           </Svg>
         </AbsoluteFill>
+        {/* conteúdo entre o horizonte e as fachadas (ex.: palavra gigante atrás da cidade) */}
+        {atras ? <AbsoluteFill style={camada(0.25)}>{atras}</AbsoluteFill> : null}
         {/* fachadas art déco */}
         <AbsoluteFill style={camada(0.35)}>
           <Svg>

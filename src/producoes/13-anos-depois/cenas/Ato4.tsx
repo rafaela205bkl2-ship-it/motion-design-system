@@ -1,7 +1,7 @@
 /** Ato 4 — A nova era (cenas 14–16). O ritmo sobe: estrada, helicóptero, montagem em cartões. */
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { Atmosphere, Backdrop, CameraMove, FootageCard, Grade, HudFrame, HudRadar, MissionCard, MotionProvider, Plane3D, RollingNumber, Stage3D, VolumetricLight, useLayout } from "../../../motion";
+import { Atmosphere, Backdrop, CameraMove, FloatingShapes, FootageCard, KineticWord, Grade, HudFrame, HudRadar, MissionCard, MotionProvider, Plane3D, RollingNumber, Stage3D, VolumetricLight, useLayout } from "../../../motion";
 import type { CenaProps } from "../../_runtime/ProducaoGenerica";
 import { CidadeNoite, Estrada, LISTAS, Midia, PorDoSol, RuaArtDeco } from "../cenarios";
 import { Frase, kf, useT } from "../kit";
@@ -18,7 +18,9 @@ export const C14Talvez: React.FC<CenaProps> = ({ tema }) => {
         <Estrada />
         <Atmosphere color="#FF6F6A" density={0.4} from={0.4} to={0.55} drift={60} seed={18} />
         <AbsoluteFill style={{ background: "linear-gradient(to bottom, rgba(11,10,16,0.55), rgba(11,10,16,0) 45%)" }} />
-        <Frase texto="Talvez a maior viagem" topo={520} size={124} delay={0.1} color={COR.creme} />
+        <AbsoluteFill style={{ alignItems: "center", paddingTop: 380 }}>
+          <KineticWord text={"TALVEZ\nA MAIOR\n*VIAGEM*"} size={200} delay={0.05} stagger={0.03} exitAt={2.15} color={COR.creme} highlight={COR.rosa} lineHeight={0.86} />
+        </AbsoluteFill>
       </CameraMove>
       <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "flex-start", padding: "0 0 300px 90px" }}>
         <HudRadar size={240} delay={0.25} accent={COR.rosa} />
@@ -84,6 +86,16 @@ export const C16Perceber: React.FC<CenaProps> = ({ tema }) => {
     <MotionProvider theme={tema}>
       <Backdrop glows={[{ x: 0.5, y: 0.55, size: 1300, color: COR.rosa, opacity: 0.3 }]} grain={0.12} />
       <Stage3D perspective={1100}>
+        <FloatingShapes
+          enter="below"
+          duration={0.8}
+          shapes={[
+            { kind: "tile", x: -380, y: 300, z: 300, size: 90, color: COR.rosa, delay: 0.3 },
+            { kind: "ring", x: 390, y: -260, z: 200, size: 110, color: COR.laranja, delay: 0.6, spin: 60 },
+            { kind: "pill", x: 360, y: 520, z: 120, size: 70, color: COR.creme, delay: 0.9, rz: -30 },
+            { kind: "cube", x: -360, y: -380, z: -200, size: 80, color: "#7B4BD6", delay: 1.2 },
+          ]}
+        />
         {cartoes.map((c, i) => {
           const s = 0.15 + i * 0.55;
           const z = kf(t, [s, s + 1.25], [-2600, 900], "linear");

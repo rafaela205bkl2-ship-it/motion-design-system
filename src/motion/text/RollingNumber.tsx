@@ -79,7 +79,8 @@ export const RollingNumber: React.FC<RollingNumberProps> = ({
       const digit = (((base + k) % 10) + 10) % 10;
       const offset = k - frac; // 0 = no lugar
       const op = Math.max(0, 1 - Math.abs(offset) * 1.6);
-      if (op <= 0.001) return null;
+      // o dígito k = 0 sempre fica no fluxo (relativo) e dá a largura da coluna, mesmo invisível
+      if (op <= 0.001 && k !== 0) return null;
       return (
         <div
           key={k}
