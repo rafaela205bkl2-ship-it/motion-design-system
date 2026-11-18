@@ -92,6 +92,13 @@
       "skillPath": "plugin/skills/how-it-works/SKILL.md",
       "computedHash": "eb059548a77f80d5a159862184e0a8edd372c462a203114a8ad76a92d64d7546"
     },
+    "impeccable": {
+      "source": "pbakaus/impeccable",
+      "commit": "d41d9860b0094dcb68030657da63461212835aaa",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/impeccable/SKILL.md",
+      "computedHash": "077889e9782761360c17acbc2522af320d0dd0f928b09cd90884fa304f443a34"
+    },
     "knowledge-agent": {
       "source": "thedotmack/claude-mem",
       "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",

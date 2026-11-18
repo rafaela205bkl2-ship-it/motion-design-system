@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-18T00:00:00Z",
+  "title": "Design System: Motion Design System",
+  "extensions": {
+    "colorMeta": {
+      "cobalt": { "role": "primary", "displayName": "Cobalto Elétrico", "canonical": "#3654F5" },
+      "petrol": { "role": "primary", "displayName": "Azul-Petróleo", "canonical": "#1F6E8C" },
+      "saffron": { "role": "primary", "displayName": "Açafrão", "canonical": "#FFC531" },
+      "coral": { "role": "secondary", "displayName": "Coral Quente", "canonical": "#FF6A47" },
+      "paper": { "role": "neutral", "displayName": "Papel Quente", "canonical": "#F3F0EA" },
+      "ink": { "role": "neutral", "displayName": "Tinta", "canonical": "#16141B" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Título principal, até 2 linhas no 9:16." },
+      "label": { "displayName": "Label", "purpose": "Sobretítulo em caixa alta, até 4 palavras." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "micro", "value": "0.1s", "purpose": "Saída de texto/objeto (3 q a 30 fps)." },
+      { "name": "fast", "value": "0.167s", "purpose": "Radial rápido (5 q)." },
+      { "name": "swap", "value": "0.2s", "purpose": "Troca de texto (6 q)." },
+      { "name": "base", "value": "0.233s", "purpose": "Radial suave (7 q)." },
+      { "name": "dissolve", "value": "0.3s", "purpose": "Dissolve com desfoque (9 q)." },
+      { "name": "reveal", "value": "0.333s", "purpose": "Revelação por letra/palavra (10 q)." },
+      { "name": "enter", "value": "0.533s", "purpose": "Entrada de objeto (16 q)." },
+      { "name": "enter-ease", "value": "cubic-bezier(0.33, 1, 0.68, 1)", "purpose": "easeOutCubic, entradas." },
+      { "name": "exit-ease", "value": "cubic-bezier(0.32, 0, 0.67, 0)", "purpose": "easeInCubic, saídas." },
+      { "name": "wipe-smooth", "value": "cubic-bezier(0.37, 0, 0.63, 1)", "purpose": "easeInOutSine, radial suave e dissolve." }
+    ],
+    "breakpoints": [
+      { "name": "vertical-9x16", "value": "1080x1920" },
+      { "name": "horizontal-16x9", "value": "1920x1080" },
+      { "name": "square-1x1", "value": "1080x1080" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Título com destaque",
+      "kind": "custom",
+      "refersTo": "title",
+      "description": "Título display com uma expressão no acento do tema.",
+      "html": "<div class=\"ds-title\">Comece <span class=\"ds-hl\">hoje</span>.</div>",
+      "css": ".ds-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 56px; letter-spacing: -0.035em; line-height: 1.02; color: #16141B; background: radial-gradient(ellipse at 50% 45%, #C9D2FF 0%, #F3F0EA 60%); padding: 48px; text-align: center; } .ds-hl { color: #3654F5; }"
+    },
+    {
+      "name": "Sobretítulo",
+      "kind": "chip",
+      "refersTo": "kicker",
+      "description": "Rótulo em caixa alta acima do título.",
+      "html": "<div class=\"ds-kicker\">NOVO RECURSO</div>",
+      "css": ".ds-kicker { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.25em; text-transform: uppercase; color: #6F6B77; }"
+    },
+    {
+      "name": "Cartão final",
+      "kind": "card",
+      "refersTo": "end-card",
+      "description": "Cor sólida com assinatura ou CTA, parado por 3–5 s.",
+      "html": "<div class=\"ds-endcard\">Comece hoje.</div>",
+      "css": ".ds-endcard { background: #3654F5; color: #FFFFFF; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 48px; letter-spacing: -0.035em; padding: 72px 48px; text-align: center; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "A Revelação Calma",
+    "overview": "Tudo chega à tela emergindo, não aparecendo: desfoque para nitidez, dissolves e aberturas radiais, uma ideia por quadro. Três temperamentos (Base, Calmo, Vibrante) sobre a mesma gramática de tempo.",
+    "keyCharacteristics": [
+      "Entradas por desfoque + opacidade; saídas sempre mais curtas que entradas.",
+      "Uma ideia por cena, composição centralizada, no máximo 3 objetos principais.",
+      "Fundo nunca liso: brilho radial suave + granulação leve.",
+      "Títulos pesados (800) com espaçamento negativo; uma única palavra de destaque em cor.",
+      "Continuidade: no máximo um corte seco por peça."
+    ],
+    "rules": [
+      { "name": "The One Highlight Rule", "body": "No máximo uma expressão em cor de destaque por título.", "section": "colors" },
+      { "name": "The Destaque Legível Rule", "body": "Texto sobre o fundo precisa de contraste de pelo menos 3:1.", "section": "colors" },
+      { "name": "The Blur Is Depth Rule", "body": "Para afastar algo, desfoque e reduza; não adicione sombra.", "section": "elevation" }
+    ],
+    "dos": ["Do importar de src/motion e consultar npm run catalogo antes de criar qualquer peça."],
+    "donts": ["Don't usar CSS transition/animation nem background-image com URL."]
+  }
+}
