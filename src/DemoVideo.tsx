@@ -11,6 +11,7 @@ import { FeaturesScene } from "./scenes/FeaturesScene";
 import { IntroScene } from "./scenes/IntroScene";
 import { OutroScene } from "./scenes/OutroScene";
 import { StatsScene } from "./scenes/StatsScene";
+import { theme } from "./lib/theme";
 
 /**
  * Vídeo de demonstração. O MESMO componente é registrado em 9:16, 16:9 e 1:1
@@ -33,7 +34,7 @@ export const DemoVideo = () => {
           kicker="Lançamento"
           title="Seu produto, *em movimento*"
           subtitle="Uma biblioteca de animações que se adapta a qualquer formato."
-          style={{ backgroundColor: "#0B0B1A" }}
+          style={{ backgroundColor: theme.background }}
         />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
@@ -55,7 +56,7 @@ export const DemoVideo = () => {
           f3Icon="🎨"
           f3Title="Editável"
           f3Text="Ajuste textos e cores no Studio"
-          style={{ backgroundColor: "#0B0B1A" }}
+          style={{ backgroundColor: theme.background }}
         />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
@@ -77,7 +78,7 @@ export const DemoVideo = () => {
           s3Value={24}
           s3Suffix="h"
           s3Label="para publicar"
-          style={{ backgroundColor: "#0B0B1A" }}
+          style={{ backgroundColor: theme.background }}
         />
       </TransitionSeries.Sequence>
       <TransitionSeries.Transition
@@ -92,7 +93,7 @@ export const DemoVideo = () => {
           title="Comece *hoje*"
           cta="Saiba mais"
           handle="@seuperfil"
-          style={{ backgroundColor: "#0B0B1A" }}
+          style={{ backgroundColor: theme.background }}
         />
       </TransitionSeries.Sequence>
     </TransitionSeries>

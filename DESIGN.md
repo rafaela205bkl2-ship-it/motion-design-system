@@ -18,7 +18,7 @@ colors:
   flare: "#FF4F2E"
   cream: "#FFF3E4"
   ember-ink: "#17110E"
-  ember-brown: "#5E4A40"
+  ember-brown: "#43271C"
   saffron: "#FFC531"
   ultramarine: "#2A3FE0"
   peach-glow: "#FF9A6B"
@@ -118,7 +118,7 @@ Cada tema é uma paleta fechada de papel, tinta e dois acentos; não se misturam
 ### Primary
 - **Cobalto Elétrico** (cobalt): acento do tema Base. Palavra de destaque nos títulos, anel das transições radiais, cartão final.
 - **Azul-Petróleo** (petrol): acento do tema Calmo, nos mesmos papéis.
-- **Açafrão** (saffron): acento do tema Vibrante. Ver a regra do Destaque Legível antes de usá-lo como cor de texto.
+- **Açafrão** (saffron): acento do tema Vibrante para formas, anéis e ciclos de cor. Sobre a Labareda, a palavra de destaque vai em Branco (surface), não em Açafrão.
 
 ### Secondary
 - **Coral Quente** (coral): segundo acento do Base. Formas, ciclos de cor e anéis; não é cor de texto sobre o papel.
@@ -138,7 +138,7 @@ Cada tema é uma paleta fechada de papel, tinta e dois acentos; não se misturam
 ### Named Rules
 **The One Highlight Rule.** No máximo uma expressão em cor de destaque por título, marcada com `*asteriscos*` no roteiro.
 
-**The Destaque Legível Rule.** Texto sobre o fundo precisa de contraste de pelo menos 3:1 (títulos ≥ 24 px de design contam como texto grande). Tinta, Grafite, Ardósia, Cobalto e Petróleo passam nos seus fundos. Coral, Petróleo Claro, Açafrão, Ultramar e Marrom Brasa não passam sobre os próprios fundos: ficam para formas, anéis e superfícies, ou para texto sobre o Creme. No Vibrante, o destaque sobre a Labareda vai em Tinta Brasa ou sobre uma superfície Creme.
+**The Destaque Legível Rule.** Texto sobre o fundo precisa de contraste de pelo menos 3:1 (títulos ≥ 24 px de design contam como texto grande). Tinta, Grafite, Ardósia, Cobalto e Petróleo passam nos seus fundos. Marrom Brasa e Branco também passam sobre a Labareda. Coral, Petróleo Claro, Açafrão e Ultramar não passam sobre os próprios fundos: ficam para formas, anéis e superfícies. No código, a cor da palavra de destaque é `palette.highlight` (Cobalto, Petróleo e Branco).
 
 **The Closed Palette Rule.** Cores novas entram por `createTheme(...)`, nunca como hex solto num componente.
 
@@ -189,7 +189,7 @@ Formas simples e cheias, sem contorno: círculos (os brilhos de fundo e as abert
 ### Título com revelação (`TextReveal`)
 - **Character:** decidido e limpo.
 - **Comportamento:** cada letra ou palavra entra com opacidade, desfoque de 18 px e subida de 38 px, em 10 quadros (a 30 fps), escalonada 0,03 s (letra) ou 0,075 s (palavra), curva easeOutCubic (easeOutExpo nos títulos grandes).
-- **Destaque:** a expressão entre asteriscos usa o acento do tema.
+- **Destaque:** a expressão entre asteriscos usa `palette.highlight` (Cobalto no Base, Petróleo no Calmo, Branco no Vibrante).
 
 ### Troca de texto (`TextSwap`)
 - O texto antigo se desfaz em 3 quadros; o novo só nasce depois, em 6 quadros. Os dois nunca são legíveis juntos.
@@ -223,4 +223,5 @@ Formas simples e cheias, sem contorno: círculos (os brilhos de fundo e as abert
 - **Don't** usar `linear` ou easing de entrada (ease-in) para algo que aparece, nem molas com sobra acima de 7%.
 - **Don't** pôr mais de 2 linhas de título no 9:16 nem mais de 3 objetos principais por cena.
 - **Don't** usar mais de um corte seco por peça.
+- **Don't** copiar o visual escuro da v1 (`src/lib/theme.ts`: fundo `#0B0B1A`, roxo, fonte Inter). Ele existe só para as composições antigas.
 - **Don't** reproduzir marcas, logotipos, produtos, textos ou trilhas das referências.

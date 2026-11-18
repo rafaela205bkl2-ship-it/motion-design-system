@@ -65,7 +65,8 @@ Os valores estão em quadros a 30 fps. No código são definidos em segundos (`d
 | Créditos/legendas | 36 | 500 | — |
 
 - **Hierarquia:** título grande + linha secundária pequena. Frases curtas terminadas em ponto ("Comece hoje.").
-- **Destaque:** palavras-chave entre `*asteriscos*` na cor de destaque. No máximo uma expressão por título.
+- **Destaque:** palavras-chave entre `*asteriscos*` na cor `highlight` do tema (cobalto no base, petróleo no calmo, branco no vibrante). No máximo uma expressão por título.
+- **Contraste:** texto sobre o fundo precisa de pelo menos 3:1. Acentos que não chegam a isso (coral, petróleo claro, açafrão sobre a labareda) ficam para formas, anéis e superfícies.
 - **Fontes por tema:** Plus Jakarta Sans (base), Manrope (calmo) e Bricolage Grotesque (vibrante), com espaçamento negativo nos títulos (−0,03 a −0,04 em).
 
 ## 5. Composição

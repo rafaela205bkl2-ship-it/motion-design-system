@@ -240,7 +240,7 @@ export const TextReveal: React.FC<TextRevealProps> = ({
           translate: `${x}px ${y}px`,
           scale: String(scale),
           rotate: rotate ? `${rotate}deg` : undefined,
-          color: u.highlight ? (highlightColor ?? m.palette.accent) : undefined,
+          color: u.highlight ? (highlightColor ?? m.palette.highlight) : undefined,
           willChange: "opacity, filter, translate",
         }}
       >

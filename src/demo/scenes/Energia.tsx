@@ -99,7 +99,7 @@ export const Energia = () => {
               delay={cue("energia", "sub")}
               size={72}
               color={p.ink}
-              highlightColor={p.surface}
+              highlightColor={p.highlight}
             />
           </At>
         </Layer>

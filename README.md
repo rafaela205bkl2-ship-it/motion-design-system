@@ -115,7 +115,7 @@ Para usar outro formato, registre o mesmo componente com outras dimensões em `s
 | `GlowBackground`, `Orb` | Fundo animado e elemento visual |
 | `useEntrance()` | 8 presets de entrada: `fade`, `fade-up`, `fade-down`, `slide-left`, `slide-right`, `scale`, `pop`, `blur` |
 
-Os componentes de texto e dados aceitam `delay` (segundos) e `preset`, e são editáveis no Studio. Cores e fonte ficam em `src/lib/theme.ts`.
+Os componentes de texto e dados aceitam `delay` (segundos) e `preset`, e são editáveis no Studio. Cores e fonte da v1 ficam em `src/lib/theme.ts` (legado; a identidade atual está em `src/motion/themes.ts` e no `DESIGN.md`).
 
 ## Estrutura
 

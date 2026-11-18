@@ -28,6 +28,11 @@ export type Palette = {
   accent: string;
   /** Destaque secundário. */
   accent2: string;
+  /**
+   * Cor das palavras de destaque em texto (`*asteriscos*`).
+   * Precisa de contraste ≥ 3:1 sobre `background` (texto grande, WCAG).
+   */
+  highlight: string;
   /** Brilho suave de fundo. */
   glow: string;
   /** Sequência de cores para ciclos e conjuntos. */
@@ -68,6 +73,7 @@ export const baseTheme: Theme = {
     muted: "#6F6B77",
     accent: "#3654F5",
     accent2: "#FF6A47",
+    highlight: "#3654F5",
     glow: "#C9D2FF",
     spectrum: ["#3654F5", "#FF6A47", "#16141B", "#9AA8FF"],
   },
@@ -90,6 +96,7 @@ export const calmTheme: Theme = {
     muted: "#5D7282",
     accent: "#1F6E8C",
     accent2: "#7FB3C8",
+    highlight: "#1F6E8C",
     glow: "#BFDCE8",
     spectrum: ["#1F6E8C", "#4F93AE", "#7FB3C8", "#B5D3DF"],
   },
@@ -109,9 +116,11 @@ export const vibrantTheme: Theme = {
     background: "#FF4F2E",
     surface: "#FFF3E4",
     ink: "#17110E",
-    muted: "#5E4A40",
+    muted: "#43271C",
     accent: "#FFC531",
     accent2: "#2A3FE0",
+    // Açafrão sobre a Labareda dá 2,07:1; branco dá 3,28:1.
+    highlight: "#FFFFFF",
     glow: "#FF9A6B",
     spectrum: ["#FF4F2E", "#FFC531", "#16B3A3", "#2A3FE0", "#F45BA6"],
   },

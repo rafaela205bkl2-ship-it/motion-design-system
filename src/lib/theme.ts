@@ -5,7 +5,13 @@ const { fontFamily } = loadFont("normal", {
   subsets: ["latin", "latin-ext"],
 });
 
-/** Paleta e tipografia padrão. Troque aqui para mudar a identidade de todo o vídeo. */
+/**
+ * Tema da biblioteca v1 (legado), usado só pelas composições antigas das pastas
+ * "Video" e "Cenas" (src/scenes, src/lib/components).
+ *
+ * @deprecated Não faz parte da identidade atual (DESIGN.md, MASTER_STYLE_GUIDE.md).
+ * Produções novas usam os temas de `src/motion` (base, calmo, vibrante).
+ */
 export const theme = {
   fontFamily,
   background: "#0B0B1A",

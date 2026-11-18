@@ -9,6 +9,7 @@ import { FeaturesScene } from "./scenes/FeaturesScene";
 import { IntroScene } from "./scenes/IntroScene";
 import { OutroScene } from "./scenes/OutroScene";
 import { StatsScene } from "./scenes/StatsScene";
+import { theme } from "./lib/theme";
 
 // Duração total: 4 + 4,5 + 4 + 3,5 s = 480 quadros, menos as transições (18 + 18 + 15) = 429.
 
@@ -85,7 +86,7 @@ export const RemotionRoot: React.FC = () => {
             title: "Seu produto, *em movimento*",
             subtitle:
               "Uma biblioteca de animações que se adapta a qualquer formato.",
-            style: { backgroundColor: "#0B0B1A" },
+            style: { backgroundColor: theme.background },
           }}
         />
         <Composition
@@ -106,7 +107,7 @@ export const RemotionRoot: React.FC = () => {
             f3Icon: "🎨",
             f3Title: "Editável",
             f3Text: "Ajuste textos e cores no Studio",
-            style: { backgroundColor: "#0B0B1A" },
+            style: { backgroundColor: theme.background },
           }}
         />
         <Composition
@@ -127,7 +128,7 @@ export const RemotionRoot: React.FC = () => {
             s3Value: 24,
             s3Suffix: "h",
             s3Label: "para publicar",
-            style: { backgroundColor: "#0B0B1A" },
+            style: { backgroundColor: theme.background },
           }}
         />
         <Composition
@@ -141,7 +142,7 @@ export const RemotionRoot: React.FC = () => {
             title: "Comece *hoje*",
             cta: "Saiba mais",
             handle: "@seuperfil",
-            style: { backgroundColor: "#0B0B1A" },
+            style: { backgroundColor: theme.background },
           }}
         />
       </Folder>
