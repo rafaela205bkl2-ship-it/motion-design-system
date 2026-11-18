@@ -19,7 +19,7 @@
 > Talvez seja perceber quanto tempo passou desde a última vez que estivemos aqui.
 >
 > **Cena 05 — O momento chegou**
-> Treze anos depois... amanhã, a história continua.
+> Treze anos depois... hoje, a história continua.
 > *(pós-lançamento: "Treze anos depois... a história continua.")*
 
 Na tela, o texto é quebrado nas 21 batidas do `roteiro.md`. A locução, se houver, entra em `audio/locucao.wav`

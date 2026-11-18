@@ -107,7 +107,7 @@ export const C19TrezeAnos: React.FC<CenaProps> = ({ tema }) => {
 export const C20Continua: React.FC<CenaProps> = ({ tema }) => (
   <MotionProvider theme={tema}>
     <Noite />
-    {posLancamento() ? null : <Frase serif texto="Amanhã," topo={720} size={100} delay={0.2} color={COR.creme} />}
+    {posLancamento() ? null : <Frase serif texto="Hoje," topo={720} size={100} delay={0.2} color={COR.creme} />}
     <AbsoluteFill style={{ alignItems: "center", paddingTop: 850 }}>
       <KineticWord text={"A história\n*continua.*"} size={150} delay={0.6} stagger={0.04} color={COR.creme} highlight={COR.laranja} />
     </AbsoluteFill>

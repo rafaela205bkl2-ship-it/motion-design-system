@@ -151,7 +151,7 @@ visual: silêncio; número 13 em 3D gira devagar
 duração: 4
 estilo: misto
 transição: radial-suave
-texto: Amanhã, a história *continua*.
+texto: Hoje, a história *continua*.
 visual: versão pós-lançamento: "A história continua."
 
 ## Cena 21 — Encerramento

@@ -66,11 +66,11 @@ Texto principal entre ~22% e ~70% da altura.
 | 17 | 49,0–53,0 | "quanto *tempo* passou" | cartão de 2013 e cartão de 2026 lado a lado | ritmo cai; câmera recua devagar |
 | 18 | 53,0–57,0 | "desde a última vez que estivemos *aqui*." | fade para creme | — |
 | 19 | 57,0–61,0 | "Treze anos *depois*." | noite | silêncio; "13" em 3D gira devagar |
-| 20 | 61,0–65,0 | pré-lançamento: "Amanhã, a história *continua*." · pós: "A história *continua*." | noite | — |
+| 20 | 61,0–65,0 | versão publicada: "Hoje, a história *continua*." · pós: "A história *continua*." | noite | — |
 | 21 | 65,0–70,0 | GRAND THEFT AUTO VI · 19.11.2026 · "produção de fã, não oficial" | noite, brilho laranja | título em tipografia própria, composição 3D sóbria; data parada |
 
 **Encerramento em duas versões** (uma propriedade da composição, sem refazer animação):
-- **Antes de 19/11/2026:** "Amanhã, a história continua."
+- **Versão publicada (pedido da usuária):** "Hoje, a história continua."
 - **A partir de 19/11/2026:** "A história continua." e a data vira referência ("Desde 19.11.2026").
 
 ## Câmera
