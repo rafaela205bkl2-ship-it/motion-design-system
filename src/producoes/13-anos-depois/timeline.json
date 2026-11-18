@@ -1,0 +1,201 @@
+{
+  "titulo": "13 Anos Depois",
+  "slug": "13-anos-depois",
+  "fps": 30,
+  "estilo": "calmo",
+  "trilha": null,
+  "cenas": [
+    {
+      "id": "cena-1",
+      "nome": "TV liga",
+      "duracao": 1.5,
+      "transicao": "corte",
+      "visual": "tela preta; linha horizontal de TV de tubo se abre; chiado curto"
+    },
+    {
+      "id": "cena-2",
+      "nome": "2013",
+      "duracao": 3.5,
+      "transicao": "dissolve",
+      "texto": "*2013*",
+      "apoio": "Uma geração inteira encontrou um novo mundo.",
+      "video": "videos/gta5-los-santos-por-do-sol.mp4",
+      "visual": "número 3D gigante em primeiro plano; câmera avança devagar; carro cruza ao fundo (placa GTA V)"
+    },
+    {
+      "id": "cena-3",
+      "nome": "Diferente",
+      "duracao": 2.5,
+      "transicao": "dissolve",
+      "texto": "Tudo parecia *diferente*.",
+      "video": "videos/gta5-vinewood-dia.mp4",
+      "visual": "grão de VHS leve; palavra surge em profundidade e passa pela câmera"
+    },
+    {
+      "id": "cena-4",
+      "nome": "Outros planos",
+      "duracao": 2.5,
+      "transicao": "dissolve",
+      "texto": "Outros sonhos.\nOutros *planos*.",
+      "apoio": "E muito tempo pela frente.",
+      "video": "videos/gta5-praia-vespucci.mp4"
+    },
+    {
+      "id": "cena-5",
+      "nome": "2018",
+      "duracao": 3,
+      "estilo": "base",
+      "transicao": "radial-suave",
+      "texto": "*2018*",
+      "apoio": "Os anos passaram.",
+      "visual": "odômetro gira 2013 → 2018; dígitos se desmontam em cartões"
+    },
+    {
+      "id": "cena-6",
+      "nome": "2022",
+      "duracao": 3,
+      "estilo": "base",
+      "transicao": "radial-suave",
+      "texto": "*2022*",
+      "apoio": "Novos consoles. Novas fases da vida.",
+      "visual": "cartões com cenas de GTA V empilham e viram como fotos antigas"
+    },
+    {
+      "id": "cena-7",
+      "nome": "A pergunta",
+      "duracao": 4,
+      "estilo": "base",
+      "transicao": "dissolve",
+      "texto": "*Quando* vamos voltar?",
+      "visual": "cartões de comentário genéricos (escritos por nós) flutuam em profundidade"
+    },
+    {
+      "id": "cena-8",
+      "nome": "2026",
+      "duracao": 4,
+      "estilo": "base",
+      "transicao": "corte",
+      "texto": "*2026*",
+      "visual": "odômetro trava em 2026; o \"0\" vira o sol que vai abrir Vice City"
+    },
+    {
+      "id": "cena-9",
+      "nome": "Silêncio",
+      "duracao": 2,
+      "estilo": "vibrante",
+      "transicao": "radial-rapido",
+      "texto": "Então, o *silêncio* acabou.",
+      "visual": "tela quase preta, trilha some; um ponto de luz no centro"
+    },
+    {
+      "id": "cena-10",
+      "nome": "Renasce",
+      "duracao": 4,
+      "estilo": "vibrante",
+      "transicao": "dissolve",
+      "texto": "Uma cidade *renasce*.",
+      "video": "videos/gta6-vice-city-por-do-sol.mp4",
+      "visual": "Los Santos se desfaz em partículas que viram o pôr do sol de Vice City"
+    },
+    {
+      "id": "cena-11",
+      "nome": "Novas histórias",
+      "duracao": 3,
+      "estilo": "vibrante",
+      "transicao": "radial-suave",
+      "texto": "Novas histórias *começam*.",
+      "video": "videos/gta6-praia.mp4"
+    },
+    {
+      "id": "cena-12",
+      "nome": "Jason e Lucia",
+      "duracao": 4,
+      "estilo": "vibrante",
+      "transicao": "radial-suave",
+      "texto": "*Jason* e *Lucia*",
+      "apoio": "Prestes a nos levar para um novo mundo.",
+      "visual": "dois cartões 3D com os personagens (imagens oficiais) entram girando e se encaixam"
+    },
+    {
+      "id": "cena-13",
+      "nome": "Além",
+      "duracao": 3,
+      "estilo": "vibrante",
+      "transicao": "radial-rapido",
+      "texto": "Além de tudo que *conhecemos*.",
+      "video": "videos/gta6-vice-city-noite.mp4"
+    },
+    {
+      "id": "cena-14",
+      "nome": "Talvez",
+      "duracao": 2.5,
+      "estilo": "vibrante",
+      "transicao": "corte",
+      "texto": "Talvez a maior viagem",
+      "video": "videos/gta6-carro-perseguicao.mp4",
+      "visual": "ritmo sobe; palavra presa ao movimento da câmera"
+    },
+    {
+      "id": "cena-15",
+      "nome": "Vice City",
+      "duracao": 3,
+      "estilo": "vibrante",
+      "transicao": "corte",
+      "texto": "não seja por *Vice City*.",
+      "video": "videos/gta6-helicoptero.mp4"
+    },
+    {
+      "id": "cena-16",
+      "nome": "Perceber",
+      "duracao": 3.5,
+      "estilo": "vibrante",
+      "transicao": "radial-rapido",
+      "texto": "Talvez seja perceber",
+      "visual": "montagem rápida em cartões: veículos, praia, cidade à noite"
+    },
+    {
+      "id": "cena-17",
+      "nome": "Quanto tempo",
+      "duracao": 4,
+      "estilo": "calmo",
+      "transicao": "dissolve",
+      "texto": "quanto *tempo* passou",
+      "visual": "ritmo cai; cartões de 2013 e 2026 lado a lado"
+    },
+    {
+      "id": "cena-18",
+      "nome": "Última vez",
+      "duracao": 4,
+      "estilo": "calmo",
+      "transicao": "fade-branco",
+      "texto": "desde a última vez\nque estivemos *aqui*."
+    },
+    {
+      "id": "cena-19",
+      "nome": "13 anos",
+      "duracao": 4,
+      "estilo": "calmo",
+      "transicao": "dissolve",
+      "texto": "Treze anos *depois*.",
+      "visual": "silêncio; número 13 em 3D gira devagar"
+    },
+    {
+      "id": "cena-20",
+      "nome": "Continua",
+      "duracao": 4,
+      "estilo": "calmo",
+      "transicao": "radial-suave",
+      "texto": "Amanhã, a história *continua*.",
+      "visual": "versão pós-lançamento: \"A história continua.\""
+    },
+    {
+      "id": "cena-21",
+      "nome": "Encerramento",
+      "duracao": 5,
+      "estilo": "calmo",
+      "texto": "GRAND THEFT AUTO VI",
+      "apoio": "19.11.2026",
+      "visual": "nome em tipografia própria (não o logotipo oficial); aviso \"produção de fã, não oficial\""
+    }
+  ]
+}
