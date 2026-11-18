@@ -2,8 +2,14 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import {
+  Atmosphere,
   Backdrop,
   CameraMove,
+  Grade,
+  HudFrame,
+  LensFlare,
+  MissionCard,
+  VolumetricLight,
   DepthType,
   FootageCard,
   LightSweep,
@@ -15,7 +21,7 @@ import {
   useLayout,
 } from "../../../motion";
 import type { CenaProps } from "../../_runtime/ProducaoGenerica";
-import { CidadeNoite, PLACAS, Placa, PorDoSol, Praia } from "../cenarios";
+import { CidadeNoite, PLACAS, Placa, PorDoSol, RuaArtDeco } from "../cenarios";
 import { Frase, PontoDeLuz, kf, useT } from "../kit";
 import { COR } from "../tema";
 
@@ -47,10 +53,14 @@ export const C10Renasce: React.FC<CenaProps> = ({ tema }) => {
       <AbsoluteFill style={{ opacity: kf(t, [0.9, 2.4], [0, 1]) }}>
         <CameraMove from={{ scale: 1.18 }} to={{ scale: 1.02 }} duration={4} originY={0.52}>
           <PorDoSol sol={kf(t, [1.2, 2.6], [0, 1])} />
+          <Atmosphere color="#FF9A6B" density={0.5} from={0.55} to={0.7} drift={26} seed={12} />
+          <VolumetricLight x={540} y={1000} direction={0} spread={320} rays={22} color="rgba(255,190,140,0.55)" intensity={kf(t, [1.8, 3.0], [0, 0.7])} reach={1500} />
         </CameraMove>
       </AbsoluteFill>
+      <LensFlare x={540} y={kf(t, [0, 4], [1040, 990])} intensity={kf(t, [1.6, 2.8], [0, 0.6])} color="#FFD08A" />
       <Particles from={ORIGEM} to={DESTINO} start={0.15} duration={2.1} spread={0.4} swirl={160} size={[4, 11]} colors={[COR.laranja, COR.rosa, "#FFE08A"]} opacity={kf(t, [2.4, 3.4], [1, 0.25])} />
       <AbsoluteFill style={{ background: "linear-gradient(to bottom, rgba(11,10,16,0.55), rgba(11,10,16,0) 35%)" }} />
+      <Grade highlights="#FF9A6B" shadows="#2A1745" amount={0.4} vignette={0.45} />
       <Frase texto="Uma cidade *renasce*." topo={380} size={124} delay={2.0} color={COR.creme} highlightColor={COR.rosa} />
     </MotionProvider>
   );
@@ -65,9 +75,12 @@ export const C11NovasHistorias: React.FC<CenaProps> = ({ tema }) => {
     <MotionProvider theme={tema}>
       <PorDoSol />
       <AbsoluteFill style={{ clipPath: `inset(0 0 0 ${revela}%)` }}>
-        <CameraMove from={{ scale: 1.1 }} to={{ scale: 1.02 }} duration={3}>
-          <Praia clima="nova" />
+        <CameraMove from={{ scale: 1.12 }} to={{ scale: 1.03 }} duration={3}>
+          <RuaArtDeco cam={kf(t, [0, 3], [-120, 140], "camera")} />
+          <VolumetricLight x={780} y={1060} direction={0} spread={300} rays={20} color="rgba(255,214,170,0.5)" intensity={0.55} reach={1500} />
+          <Atmosphere color="#FFC49A" density={0.4} from={0.55} to={0.75} drift={30} seed={14} />
         </CameraMove>
+        <LensFlare x={kf(t, [0, 3], [700, 900])} y={1060} intensity={0.5} />
       </AbsoluteFill>
       <Stage3D>
         <Plane3D x={cx} rotateY={kf(t, [0.15, 1.3], [-25, 25])} opacity={kf(t, [0.1, 0.2, 1.2, 1.35], [0, 1, 1, 0])}>
@@ -76,6 +89,10 @@ export const C11NovasHistorias: React.FC<CenaProps> = ({ tema }) => {
       </Stage3D>
       <AbsoluteFill style={{ background: "linear-gradient(to bottom, rgba(11,10,16,0.5), rgba(11,10,16,0) 32%)" }} />
       <Frase texto="Novas histórias *começam*." topo={360} size={116} delay={1.15} color={COR.creme} highlightColor={COR.creme} />
+      <AbsoluteFill style={{ justifyContent: "flex-start", paddingLeft: 80, paddingTop: 650 }}>
+        <MissionCard label="Capítulo 01" title="Uma nova cidade" delay={1.5} accent={COR.rosa} width={600} progress={0.15} />
+      </AbsoluteFill>
+      <Grade highlights="#FFC49A" shadows="#3A2A65" amount={0.35} vignette={0.4} />
     </MotionProvider>
   );
 };
@@ -94,10 +111,10 @@ const CartaoNome: React.FC<{ readonly nome: string; readonly numero: string; rea
     );
   }
   return (
-    <AbsoluteFill style={{ background: `linear-gradient(170deg, ${cores[0]} 0%, ${cores[1]} 55%, ${cores[2]} 100%)` }}>
-      <div style={{ position: "absolute", left: "50%", top: "38%", width: px(300), height: px(300), marginLeft: px(-150), marginTop: px(-150), borderRadius: "50%", background: "radial-gradient(circle, rgba(255,230,170,0.95), rgba(255,140,90,0.0) 70%)" }} />
-      <div style={{ position: "absolute", left: 0, right: 0, top: "58%", height: px(3), background: "rgba(255,240,220,0.6)" }} />
-      <div style={{ position: "absolute", left: px(36), top: px(32), fontFamily: "inherit", fontSize: px(30), fontWeight: 700, letterSpacing: "0.2em", color: "rgba(255,245,230,0.85)" }}>{numero}</div>
+    <AbsoluteFill>
+      <RuaArtDeco cam={numero === "01" ? -220 : 260} carro={numero === "01"} />
+      <AbsoluteFill style={{ background: `linear-gradient(170deg, ${cores[0]}AA 0%, ${cores[1]}55 50%, ${cores[2]}EE 100%)` }} />
+      <div style={{ position: "absolute", left: px(36), top: px(32), fontFamily: "inherit", fontSize: px(24), fontWeight: 700, letterSpacing: "0.22em", color: "rgba(255,245,230,0.9)" }}>PERSONAGEM {numero}</div>
       <div style={{ position: "absolute", left: 0, right: 0, bottom: px(48), textAlign: "center", fontFamily: "inherit", fontSize: px(92), fontWeight: 800, letterSpacing: "-0.03em", color: COR.creme }}>{nome}</div>
     </AbsoluteFill>
   );
@@ -140,6 +157,9 @@ export const C13Alem: React.FC<CenaProps> = ({ tema }) => {
     <MotionProvider theme={tema}>
       <CameraMove from={{ scale: 1.0 }} to={{ scale: 1.1, y: 30 }} duration={3}>
         <CidadeNoite />
+        <Atmosphere color="#7B4BD6" density={0.45} from={0.5} to={0.75} drift={22} seed={16} />
+        <VolumetricLight x={260} y={1300} direction={kf(t, [0, 3], [-20, 10])} spread={14} rays={2} color="rgba(220,200,255,0.5)" intensity={0.6} reach={1500} softness={10} seed={4} />
+        <VolumetricLight x={860} y={1300} direction={kf(t, [0, 3], [25, -5])} spread={14} rays={2} color="rgba(255,190,220,0.45)" intensity={0.55} reach={1500} softness={10} seed={8} />
       </CameraMove>
       <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 42%, rgba(11,10,16,0.55), rgba(11,10,16,0) 60%)" }} />
       <Frase serif texto="Além de tudo que" topo={600} size={88} delay={0.1} color={COR.creme} />
@@ -149,6 +169,8 @@ export const C13Alem: React.FC<CenaProps> = ({ tema }) => {
         </Plane3D>
       </Stage3D>
       <LightSweep delay={1.5} duration={0.9} color="rgba(255,190,150,0.25)" />
+      <HudFrame label="VICE CITY" sublabel="23:14 · AO VIVO" delay={0.2} rec />
+      <Grade highlights="#B06AD0" shadows="#0B0A1A" amount={0.4} vignette={0.5} />
     </MotionProvider>
   );
 };

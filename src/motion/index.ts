@@ -87,6 +87,22 @@ export { FilmLook, CrtReveal } from "./layers/FilmLook";
 export type { FilmLookProps, CrtRevealProps } from "./layers/FilmLook";
 export { LightSweep } from "./layers/LightSweep";
 export type { LightSweepProps } from "./layers/LightSweep";
+export { VolumetricLight } from "./layers/VolumetricLight";
+export type { VolumetricLightProps } from "./layers/VolumetricLight";
+export { Atmosphere } from "./layers/Atmosphere";
+export type { AtmosphereProps } from "./layers/Atmosphere";
+export { LensFlare } from "./layers/LensFlare";
+export type { LensFlareProps } from "./layers/LensFlare";
+export { Grade } from "./layers/Grade";
+export type { GradeProps } from "./layers/Grade";
+
+// Interface de jogo (HUD)
+export { HudRadar } from "./hud/HudRadar";
+export type { HudRadarProps } from "./hud/HudRadar";
+export { MissionCard } from "./hud/MissionCard";
+export type { MissionCardProps } from "./hud/MissionCard";
+export { HudFrame } from "./hud/HudFrame";
+export type { HudFrameProps } from "./hud/HudFrame";
 
 // Layout responsivo (da base existente)
 export { useLayout, getFormat, FORMATS } from "../lib/layout";

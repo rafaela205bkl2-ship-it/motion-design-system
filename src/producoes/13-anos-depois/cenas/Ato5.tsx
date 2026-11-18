@@ -14,7 +14,7 @@ import {
   useLayout,
 } from "../../../motion";
 import type { CenaProps } from "../../_runtime/ProducaoGenerica";
-import { CidadeAntiga, PorDoSol } from "../cenarios";
+import { CidadeAntiga, RuaArtDeco } from "../cenarios";
 import { Frase, kf, useT } from "../kit";
 import { COR, SERIF } from "../tema";
 
@@ -51,7 +51,7 @@ export const C17QuantoTempo: React.FC<CenaProps> = ({ tema }) => {
         <Plane3D x={225} y={-60} rotateY={-10} rotateZ={2} opacity={kf(t, [0.25, 0.65], [0, 1])}>
           <div style={{ fontFamily: tema.fonts.display }}>
             <FootageCard width={420} height={600} radius={30} shadow={0.8} scrim={0.8} caption={<Etiqueta texto="2026" />}>
-              <PorDoSol />
+              <RuaArtDeco cam={120} />
             </FootageCard>
           </div>
         </Plane3D>

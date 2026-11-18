@@ -64,7 +64,7 @@ const H = 1920;
 
 const Svg: React.FC<{ readonly children: React.ReactNode }> = ({ children }) => (
   <AbsoluteFill>
-    <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+    <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid slice" width="100%" height="100%" style={{ overflow: "visible" }}>
       {children}
     </svg>
   </AbsoluteFill>
@@ -407,6 +407,182 @@ export const Estrada: React.FC = () => {
           return <rect key={i} x={x - (lado > 0 ? 0 : len)} y={y} width={len} height={3 + z * 10} rx={4} fill={lado > 0 ? "#FF3B4A" : "#FFF1D6"} opacity={0.85} />;
         })}
       </Svg>
+    </Placa>
+  );
+};
+
+/* ------------------------------------------------------------------ */
+/* Rua art déco (v2): cenário em camadas para parallax real            */
+/* ------------------------------------------------------------------ */
+
+/** Gaivotas genéricas batendo asas. */
+const Gaivotas: React.FC<{ readonly frame: number; readonly n?: number; readonly cor?: string }> = ({ frame, n = 5, cor = "#4A3A6A" }) => {
+  const r = seeded(77);
+  return (
+    <g fill="none" stroke={cor} strokeWidth={3} strokeLinecap="round">
+      {Array.from({ length: n }, (_, i) => {
+        const x0 = r() * 900;
+        const y = 380 + r() * 420;
+        const v = 1.2 + r() * 1.4;
+        const s = 0.6 + r() * 0.8;
+        const x = ((x0 + frame * v) % 1300) - 110;
+        const flap = Math.sin(frame / 4 + i * 2) * 10 * s;
+        return <path key={i} d={`M ${x - 18 * s} ${y + flap} Q ${x - 8 * s} ${y - 6 * s} ${x} ${y} Q ${x + 8 * s} ${y - 6 * s} ${x + 18 * s} ${y + flap}`} />;
+      })}
+    </g>
+  );
+};
+
+type Fachada = { x: number; w: number; h: number; cor: string; raio: number; aleta: boolean };
+
+/** Prédio art déco genérico: cantos arredondados, faixas de janela, aleta vertical e marquise. */
+const Predio: React.FC<{ readonly f: Fachada; readonly base: number; readonly luz: string; readonly sombra: string }> = ({ f, base, luz, sombra }) => {
+  const topo = base - f.h;
+  const faixas = Math.floor((f.h - 120) / 70);
+  return (
+    <g>
+      <rect x={f.x} y={topo} width={f.w} height={f.h + 10} rx={f.raio} fill={f.cor} />
+      <rect x={f.x + f.w * 0.62} y={topo} width={f.w * 0.38} height={f.h + 10} rx={f.raio} fill={sombra} opacity={0.35} />
+      {Array.from({ length: faixas }, (_, i) => (
+        <rect key={i} x={f.x + 18} y={topo + 60 + i * 70} width={f.w - 36} height={26} rx={13} fill="#3B2E5A" opacity={0.55} />
+      ))}
+      {Array.from({ length: faixas }, (_, i) => (
+        <rect key={`l${i}`} x={f.x + 18} y={topo + 60 + i * 70} width={(f.w - 36) * 0.35} height={26} rx={13} fill={luz} opacity={0.35} />
+      ))}
+      {f.aleta ? (
+        <g>
+          <rect x={f.x + f.w * 0.42} y={topo - 90} width={34} height={f.h * 0.75 + 90} rx={6} fill={f.cor} />
+          <rect x={f.x + f.w * 0.42 + 8} y={topo - 70} width={18} height={f.h * 0.6} rx={4} fill={luz} opacity={0.5} />
+        </g>
+      ) : null}
+      <rect x={f.x - 10} y={base - 150} width={f.w + 20} height={22} rx={6} fill={sombra} opacity={0.6} />
+    </g>
+  );
+};
+
+/** Carro clássico genérico em silhueta (sedã longo dos anos 70, sem modelo real). */
+export const CarroClassico: React.FC<{ readonly x: number; readonly y: number; readonly escala?: number; readonly cor?: string; readonly brilho?: string }> = ({
+  x,
+  y,
+  escala = 1,
+  cor = "#2B2140",
+  brilho = "#FFC9A0",
+}) => (
+  <g transform={`translate(${x} ${y}) scale(${escala})`}>
+    <ellipse cx={330} cy={150} rx={360} ry={26} fill="#120C1E" opacity={0.55} />
+    <path d="M 10 110 Q 12 80 60 74 L 190 64 Q 230 20 300 16 L 430 16 Q 480 18 520 62 L 640 72 Q 680 78 684 108 L 684 128 Q 684 140 670 140 L 24 140 Q 10 140 10 128 Z" fill={cor} />
+    <path d="M 214 64 Q 246 30 300 28 L 420 28 Q 462 30 496 64 Z" fill="#4E3F6E" opacity={0.85} />
+    <path d="M 300 28 L 300 64 M 400 28 L 404 64" stroke={cor} strokeWidth={8} />
+    <path d="M 40 96 L 660 96" stroke={brilho} strokeWidth={3} opacity={0.65} />
+    <path d="M 220 60 Q 250 30 300 26" stroke={brilho} strokeWidth={3} fill="none" opacity={0.8} />
+    <rect x={656} y={98} width={26} height={12} rx={4} fill="#FFE9C4" />
+    <rect x={12} y={100} width={18} height={12} rx={4} fill="#FF4A5A" />
+    {[140, 540].map((cx) => (
+      <g key={cx}>
+        <circle cx={cx} cy={138} r={44} fill="#0E0A16" />
+        <circle cx={cx} cy={138} r={22} fill="#7C7090" />
+        <circle cx={cx} cy={138} r={8} fill="#D9CFE6" />
+      </g>
+    ))}
+  </g>
+);
+
+const FACHADAS: Fachada[] = [
+  { x: -60, w: 330, h: 640, cor: "#F2DCE6", raio: 40, aleta: true },
+  { x: 290, w: 260, h: 520, cor: "#E4D6F0", raio: 26, aleta: false },
+  { x: 570, w: 380, h: 760, cor: "#F6E4DA", raio: 60, aleta: true },
+  { x: 970, w: 260, h: 560, cor: "#DCE3F2", raio: 30, aleta: false },
+];
+
+/**
+ * Rua art déco ao entardecer, em camadas. `cam` desloca a câmera (px de design):
+ * cada camada anda proporcionalmente à sua profundidade, como numa câmera real.
+ */
+export const RuaArtDeco: React.FC<{ readonly cam?: number; readonly carro?: boolean; readonly noite?: number }> = ({ cam = 0, carro = true, noite = 0 }) => {
+  const frame = useCurrentFrame();
+  const camada = (d: number): React.CSSProperties => ({ transform: `translateX(${-cam * d}px)` });
+  const sway = Math.sin(frame / 32) * 5;
+  return (
+    <Placa slot="praia-nova">
+      <AbsoluteFill>
+        {/* céu */}
+        <Svg>
+          <defs>
+            <linearGradient id="rd-ceu" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#4B3F86" />
+              <stop offset="0.32" stopColor="#9C6FB4" />
+              <stop offset="0.5" stopColor="#E99AAE" />
+              <stop offset="0.6" stopColor="#FFC49A" />
+            </linearGradient>
+            <radialGradient id="rd-sol">
+              <stop offset="0" stopColor="#FFF0D0" />
+              <stop offset="0.3" stopColor="#FFD3A0" stopOpacity="0.9" />
+              <stop offset="1" stopColor="#FFB08A" stopOpacity="0" />
+            </radialGradient>
+          </defs>
+          <rect width={W} height={H} fill="url(#rd-ceu)" />
+          <circle cx={780} cy={1060} r={430} fill="url(#rd-sol)" />
+          <circle cx={780} cy={1060} r={92} fill="#FFF1D8" />
+          {Array.from({ length: 6 }, (_, i) => (
+            <ellipse key={i} cx={((i * 260 + frame * 0.6) % 1500) - 200} cy={300 + i * 95} rx={260} ry={16} fill="#F7C8D8" opacity={0.25} />
+          ))}
+          <Gaivotas frame={frame} />
+        </Svg>
+        {/* prédios distantes */}
+        <AbsoluteFill style={camada(0.15)}>
+          <Svg>
+            <Skyline seed={91} base={1180} hMin={90} hMax={300} cor="#C49AC8" opacidade={0.55} />
+          </Svg>
+        </AbsoluteFill>
+        {/* fachadas art déco */}
+        <AbsoluteFill style={camada(0.35)}>
+          <Svg>
+            {FACHADAS.map((f, i) => (
+              <Predio key={i} f={f} base={1330} luz="#FFD9B8" sombra="#8E6FA8" />
+            ))}
+          </Svg>
+        </AbsoluteFill>
+        {/* palmeiras do meio */}
+        <AbsoluteFill style={camada(0.6)}>
+          <Svg>
+            <Palmeira x={240} base={1390} altura={760} inclina={0.12} cor="#5B3F72" balanco={sway} />
+            <Palmeira x={700} base={1400} altura={880} inclina={-0.1} cor="#4E3566" balanco={-sway} />
+            <Palmeira x={1020} base={1390} altura={700} inclina={0.18} cor="#5B3F72" balanco={sway * 0.7} />
+          </Svg>
+        </AbsoluteFill>
+        {/* rua com reflexo molhado */}
+        <AbsoluteFill style={camada(0.75)}>
+          <Svg>
+            <defs>
+              <linearGradient id="rd-rua" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stopColor="#B88AAE" />
+                <stop offset="1" stopColor="#3A2A55" />
+              </linearGradient>
+            </defs>
+            <rect x={-300} y={1330} width={W + 600} height={60} fill="#E9C6CF" />
+            <rect x={-300} y={1390} width={W + 600} height={H - 1390} fill="url(#rd-rua)" />
+            <rect x={760} y={1395} width={40} height={420} fill="#FFE0B8" opacity={0.35} />
+            <rect x={740} y={1395} width={80} height={240} fill="#FFE0B8" opacity={0.15} />
+            {Array.from({ length: 7 }, (_, i) => (
+              <rect key={i} x={-200 + i * 220 + ((frame * 0) % 1)} y={1600} width={110} height={10} rx={5} fill="#F4E9DA" opacity={0.4} />
+            ))}
+          </Svg>
+        </AbsoluteFill>
+        {carro ? (
+          <AbsoluteFill style={camada(1.0)}>
+            <Svg>
+              <CarroClassico x={160} y={1430} escala={1.1} />
+            </Svg>
+          </AbsoluteFill>
+        ) : null}
+        {/* folhas em primeiro plano, desfocadas (profundidade de campo) */}
+        <AbsoluteFill style={{ ...camada(1.4), filter: "blur(10px)" }}>
+          <Svg>
+            <Palmeira x={-120} base={760} altura={500} inclina={0.6} cor="#1E1430" balanco={sway * 1.4} />
+          </Svg>
+        </AbsoluteFill>
+        {noite > 0 ? <AbsoluteFill style={{ background: "#120A24", opacity: noite * 0.6, mixBlendMode: "multiply" }} /> : null}
+      </AbsoluteFill>
     </Placa>
   );
 };

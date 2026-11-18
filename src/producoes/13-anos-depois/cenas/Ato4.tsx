@@ -1,9 +1,9 @@
 /** Ato 4 — A nova era (cenas 14–16). O ritmo sobe: estrada, helicóptero, montagem em cartões. */
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { Backdrop, CameraMove, FootageCard, MotionProvider, Plane3D, Stage3D, useLayout } from "../../../motion";
+import { Atmosphere, Backdrop, CameraMove, FootageCard, Grade, HudFrame, HudRadar, MissionCard, MotionProvider, Plane3D, RollingNumber, Stage3D, VolumetricLight, useLayout } from "../../../motion";
 import type { CenaProps } from "../../_runtime/ProducaoGenerica";
-import { CidadeNoite, Estrada, LISTAS, Midia, PorDoSol, Praia } from "../cenarios";
+import { CidadeNoite, Estrada, LISTAS, Midia, PorDoSol, RuaArtDeco } from "../cenarios";
 import { Frase, kf, useT } from "../kit";
 import { COR } from "../tema";
 
@@ -16,9 +16,20 @@ export const C14Talvez: React.FC<CenaProps> = ({ tema }) => {
     <MotionProvider theme={tema}>
       <CameraMove from={{ scale: 1.06, x: sx, y: sy }} to={{ scale: 1.14, x: sx, y: sy }} duration={2.5}>
         <Estrada />
+        <Atmosphere color="#FF6F6A" density={0.4} from={0.4} to={0.55} drift={60} seed={18} />
         <AbsoluteFill style={{ background: "linear-gradient(to bottom, rgba(11,10,16,0.55), rgba(11,10,16,0) 45%)" }} />
         <Frase texto="Talvez a maior viagem" topo={520} size={124} delay={0.1} color={COR.creme} />
       </CameraMove>
+      <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "flex-start", padding: "0 0 300px 90px" }}>
+        <HudRadar size={240} delay={0.25} accent={COR.rosa} />
+      </AbsoluteFill>
+      <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "flex-end", padding: "0 110px 330px 0", fontFamily: tema.fonts.display, color: COR.creme }}>
+        <div style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
+          <RollingNumber values={[0, 186]} times={[0.3]} duration={1.6} stagger={0.08} size={110} digits={3} color={COR.creme} easing="camera" />
+          <span style={{ fontSize: 34, fontWeight: 700, letterSpacing: "0.12em", opacity: 0.8 }}>KM/H</span>
+        </div>
+      </AbsoluteFill>
+      <Grade highlights="#FF6F6A" shadows="#120A24" amount={0.4} vignette={0.55} />
     </MotionProvider>
   );
 };
@@ -31,10 +42,15 @@ export const C15ViceCity: React.FC<CenaProps> = ({ tema }) => {
     <MotionProvider theme={tema}>
       <CameraMove from={{ scale: 1.02 }} to={{ scale: 1.1, x: -40 }} duration={3}>
         <CidadeNoite helicoptero />
+        <Atmosphere color="#7B4BD6" density={0.4} from={0.45} to={0.7} drift={24} seed={20} />
+        {/* mesmo trajeto do helicóptero do cenário (cenarios.tsx): x = 160 + 3,2 por quadro */}
+        <VolumetricLight x={160 + t * 30 * 3.2} y={520 + Math.sin((t * 30) / 25) * 18} direction={180 + Math.sin((t * 30) / 30) * 12} spread={22} rays={3} color="rgba(255,244,220,0.6)" intensity={0.65} reach={900} softness={8} seed={2} />
       </CameraMove>
       <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 40%, rgba(11,10,16,0.5), rgba(11,10,16,0) 60%)" }} />
+      <HudFrame label="AÉREO · SETOR 4" sublabel="RASTREANDO" delay={0.1} clockFrom={83640} />
       <Frase serif texto="não seja por" topo={640} size={88} delay={0.05} color={COR.creme} />
       <Frase texto="*Vice City*." topo={750} size={160} delay={0.3} color={COR.creme} highlightColor={COR.rosa} />
+      <Grade highlights="#B06AD0" shadows="#0B0A1A" amount={0.35} vignette={0.5} />
       {[0, 1, 2].map((i) => {
         const p = kf(t, [2.1 + i * 0.12, 2.95], [0, 1], "wipe");
         if (p <= 0) return null;
@@ -60,7 +76,7 @@ export const C15ViceCity: React.FC<CenaProps> = ({ tema }) => {
 /** Cena 16: cartões atravessam um palco 3D em direção à câmera. */
 export const C16Perceber: React.FC<CenaProps> = ({ tema }) => {
   const t = useT();
-  const padrao = [<CidadeNoite key="a" />, <Estrada key="b" />, <PorDoSol key="c" />, <Praia key="d" clima="nova" />, <CidadeNoite key="e" helicoptero />];
+  const padrao = [<RuaArtDeco key="a" cam={-200} />, <Estrada key="b" />, <PorDoSol key="c" />, <RuaArtDeco key="d" cam={260} noite={0.8} />, <CidadeNoite key="e" helicoptero />];
   // gameplay da usuária (pasta materiais/gameplay) substitui os cenários, em ordem alfabética
   const gameplay = LISTAS.gameplay ?? [];
   const cartoes = padrao.map((c, i) => (gameplay[i] ? <Midia key={`g${i}`} material={gameplay[i]} /> : c));
@@ -83,6 +99,10 @@ export const C16Perceber: React.FC<CenaProps> = ({ tema }) => {
         })}
       </Stage3D>
       <Frase texto="Talvez seja perceber" topo={250} size={110} delay={0.1} color={COR.creme} />
+      <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "flex-end", paddingRight: 80, paddingBottom: 300 }}>
+        <MissionCard label="Explorar" title="Tudo o que mudou" delay={0.6} from="right" accent={COR.laranja} width={560} progress={0.8} />
+      </AbsoluteFill>
+      <Grade highlights="#FF9A6B" shadows="#1A0F2E" amount={0.3} vignette={0.5} />
     </MotionProvider>
   );
 };

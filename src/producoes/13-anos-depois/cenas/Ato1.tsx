@@ -1,7 +1,7 @@
 /** Ato 1 — O tempo passou (cenas 1–4). Memória: 2013, cor quente e lavada, textura de TV. */
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { CameraMove, CrtReveal, DepthType, FilmLook, MotionProvider, Plane3D, Stage3D } from "../../../motion";
+import { Atmosphere, CameraMove, CrtReveal, DepthType, FilmLook, Grade, LensFlare, MotionProvider, Plane3D, Stage3D, VolumetricLight } from "../../../motion";
 import type { CenaProps } from "../../_runtime/ProducaoGenerica";
 import { CidadeAntiga, Colinas, Praia } from "../cenarios";
 import { Frase, kf, useT } from "../kit";
@@ -29,12 +29,16 @@ export const C2Ano2013: React.FC<CenaProps> = ({ tema }) => {
     <MotionProvider theme={tema}>
       <CameraMove from={{ scale: 1.0 }} to={{ scale: 1.1, y: -20 }} duration={3.5} originY={0.6}>
         <CidadeAntiga />
+        <VolumetricLight x={620} y={1060} direction={0} spread={300} rays={18} color="rgba(255,214,160,0.5)" intensity={0.55} reach={1500} />
       </CameraMove>
+      <Atmosphere color="#F2C28B" density={0.45} from={0.5} to={0.78} drift={30} seed={5} />
       <Stage3D perspective={1300}>
         <Plane3D y={20} z={z} rotateY={rotY} rotateX={rotX} opacity={kf(t, [0, 0.35], [0, 1])}>
           <DepthType text="2013" size={360} depth={110} layers={18} color={COR.creme} sideLight="#D98E62" sideDark="#3A2833" sheen={kf(t, [1.4, 2.6], [0, 1])} sheenColor="rgba(255,236,200,0.9)" />
         </Plane3D>
       </Stage3D>
+      <LensFlare x={kf(t, [0, 3.5], [620, 650])} y={1060} intensity={0.55} color="#FFE2B0" />
+      <Grade highlights="#FFC28A" shadows="#3A2440" amount={0.45} vignette={0.5} />
       <FilmLook {...filme} />
       <Frase serif texto="Uma geração inteira encontrou um novo mundo." topo={1330} size={58} delay={1.3} color={COR.creme} maxWidth={760} />
     </MotionProvider>
@@ -49,6 +53,8 @@ export const C3Diferente: React.FC<CenaProps> = ({ tema }) => {
     <MotionProvider theme={tema}>
       <CameraMove from={{ scale: 1.04 }} to={{ scale: 1.12, x: -30 }} duration={2.5}>
         <Colinas />
+        <Atmosphere color="#F3E2C7" density={0.55} from={0.5} to={0.72} drift={40} seed={8} />
+        <VolumetricLight x={260} y={560} direction={150} spread={90} rays={10} color="rgba(255,246,220,0.45)" intensity={0.5} reach={1600} />
       </CameraMove>
       <AbsoluteFill style={{ background: "linear-gradient(to bottom, rgba(26,18,24,0.15) 15%, rgba(26,18,24,0.62) 30%, rgba(26,18,24,0.5) 52%, rgba(26,18,24,0.1) 70%, rgba(26,18,24,0.45))" }} />
       <Frase serif texto="Tudo parecia" topo={600} size={96} delay={0.05} color={COR.creme} />
@@ -67,6 +73,8 @@ export const C4OutrosPlanos: React.FC<CenaProps> = ({ tema }) => (
   <MotionProvider theme={tema}>
     <CameraMove from={{ scale: 1.05, x: 30 }} to={{ scale: 1.12, x: -50 }} duration={2.5}>
       <Praia clima="memoria" />
+      <VolumetricLight x={820} y={520} direction={210} spread={110} rays={12} color="rgba(255,248,232,0.45)" intensity={0.5} reach={1700} />
+      <Atmosphere color="#EDE3CC" density={0.35} from={0.52} to={0.7} drift={34} seed={6} />
       <AbsoluteFill style={{ background: "linear-gradient(to bottom, rgba(26,18,24,0.2) 15%, rgba(26,18,24,0.66) 28%, rgba(26,18,24,0.5) 45%, rgba(26,18,24,0.05) 60%)" }} />
       <Frase serif texto="Outros sonhos." topo={560} size={100} delay={0.05} color={COR.creme} />
       <Frase texto="Outros *planos*." topo={690} size={128} delay={0.45} color={COR.creme} highlightColor={COR.ambar} />

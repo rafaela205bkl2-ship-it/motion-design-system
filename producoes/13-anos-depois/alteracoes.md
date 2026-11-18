@@ -57,3 +57,38 @@ npm run render:13-anos-depois
 ```bash
 npm run render:13-anos-depois-pos
 ```
+
+# Alterações — versão 2 (18/11/2026)
+
+Foco: realismo cinematográfico e linguagem de trailer de jogo, sobre a mesma estrutura da v1
+(mesmas 21 cenas, mesmos tempos, mesma trilha).
+
+**Biblioteca (`src/motion`, registrados no catálogo):**
+
+| Componente | Arquivo | Para quê |
+| --- | --- | --- |
+| `VolumetricLight` | `layers/VolumetricLight.tsx` | raios de luz a partir do sol ou de holofotes |
+| `Atmosphere` | `layers/Atmosphere.tsx` | névoa procedural em movimento, em faixas e camadas |
+| `LensFlare` | `layers/LensFlare.tsx` | reflexo de lente com risco anamórfico e fantasmas |
+| `Grade` | `layers/Grade.tsx` | correção de cor por ato (split toning, bloom, vinheta) |
+| `HudRadar` | `hud/HudRadar.tsx` | radar de jogo genérico com varredura e rota |
+| `MissionCard` | `hud/MissionCard.tsx` | cartão de missão com barra de progresso |
+| `HudFrame` | `hud/HudFrame.tsx` | moldura de visor: cantos, REC, contador e local |
+
+**Produção:**
+- `RuaArtDeco` (em `cenarios.tsx`): rua art déco ao entardecer em seis camadas (céu com gaivotas, prédios
+  distantes, fachadas, palmeiras, rua molhada com reflexo, carro clássico genérico e folhas desfocadas em
+  primeiro plano). A câmera desloca cada camada conforme a profundidade: paralaxe real, não imagem parada.
+- Cenas 2–4: raios de sol, névoa e reflexo de lente sobre 2013.
+- Cena 10: luz volumétrica e reflexo de lente quando o sol nasce.
+- Cena 11: a rua art déco é revelada com paralaxe e um cartão de missão ("Capítulo 01").
+- Cena 12: cartões de personagem com a rua art déco ao fundo (sem figuras de personagens).
+- Cena 13: névoa e holofotes varrendo a cidade, com moldura de visor.
+- Cena 14: radar e velocímetro rolando até 186 km/h.
+- Cena 15: holofote volumétrico seguindo o helicóptero e moldura de visor.
+- Cena 16: montagem com a rua art déco e cartão de missão.
+- Cena 17: cartão de 2026 com a rua art déco.
+
+**Referências de estilo** (fotos enviadas pela usuária, usadas só como referência e fora do vídeo):
+céu lilás e rosa com sol baixo, prédios art déco claros com janelas em faixa, palmeiras, carro clássico em
+primeiro plano e luz de fim de tarde.

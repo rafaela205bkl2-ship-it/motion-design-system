@@ -496,4 +496,55 @@ export const catalog: CatalogEntry[] = [
     description: "Faixa de luz que atravessa a tela ou um cartão uma vez (screen).",
     props: ["delay", "duration", "angle", "width", "color", "direction"],
   },
+
+  // ------------------------------------------------------------ luz, atmosfera e HUD (13-anos-depois v2)
+  {
+    name: "VolumetricLight",
+    kind: "camada",
+    file: "src/motion/layers/VolumetricLight.tsx",
+    description: "Raios de luz volumétrica a partir de uma fonte (sol, holofote), com leque, alcance e oscilação.",
+    props: ["x", "y", "direction", "spread", "rays", "color", "intensity", "reach", "sway", "softness"],
+  },
+  {
+    name: "Atmosphere",
+    kind: "camada",
+    file: "src/motion/layers/Atmosphere.tsx",
+    description: "Névoa procedural em movimento numa faixa da tela; empilhe camadas com drift diferente para parallax.",
+    props: ["color", "density", "from", "to", "drift", "scale", "seed", "blend"],
+  },
+  {
+    name: "LensFlare",
+    kind: "camada",
+    file: "src/motion/layers/LensFlare.tsx",
+    description: "Reflexo de lente: brilho, risco anamórfico e fantasmas alinhados com o centro.",
+    props: ["x", "y", "color", "streakColor", "intensity", "streak", "ghosts"],
+  },
+  {
+    name: "Grade",
+    kind: "camada",
+    file: "src/motion/layers/Grade.tsx",
+    description: "Correção de cor por cima da cena: split toning, bloom simulado e vinheta.",
+    props: ["highlights", "shadows", "amount", "vignette", "bloom", "bloomX", "bloomY"],
+  },
+  {
+    name: "HudRadar",
+    kind: "componente",
+    file: "src/motion/hud/HudRadar.tsx",
+    description: "Radar circular de jogo genérico: anéis, varredura, pontos, rota que se desenha e marcador.",
+    props: ["size", "delay", "color", "accent", "spin", "blips", "label"],
+  },
+  {
+    name: "MissionCard",
+    kind: "componente",
+    file: "src/motion/hud/MissionCard.tsx",
+    description: "Cartão de missão: rótulo, título e barra de progresso; entra com máscara e sai com desfoque.",
+    props: ["label", "title", "delay", "exitAt", "accent", "width", "from", "progress"],
+  },
+  {
+    name: "HudFrame",
+    kind: "camada",
+    file: "src/motion/hud/HudFrame.tsx",
+    description: "Moldura de visor: cantos, REC piscando, contador de tempo e rótulo de local, na área segura.",
+    props: ["label", "sublabel", "delay", "color", "accent", "clockFrom", "rec"],
+  },
 ];
