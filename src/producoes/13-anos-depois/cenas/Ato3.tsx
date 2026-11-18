@@ -15,7 +15,7 @@ import {
   useLayout,
 } from "../../../motion";
 import type { CenaProps } from "../../_runtime/ProducaoGenerica";
-import { CidadeNoite, PorDoSol, Praia } from "../cenarios";
+import { CidadeNoite, PLACAS, Placa, PorDoSol, Praia } from "../cenarios";
 import { Frase, PontoDeLuz, kf, useT } from "../kit";
 import { COR } from "../tema";
 
@@ -81,8 +81,18 @@ export const C11NovasHistorias: React.FC<CenaProps> = ({ tema }) => {
 };
 
 /** Conteúdo abstrato de um cartão de personagem: luz, horizonte e o nome. Nenhuma figura. */
-const CartaoNome: React.FC<{ readonly nome: string; readonly numero: string; readonly cores: [string, string, string] }> = ({ nome, numero, cores }) => {
+const CartaoNome: React.FC<{ readonly nome: string; readonly numero: string; readonly cores: [string, string, string]; readonly slot: string }> = ({ nome, numero, cores, slot }) => {
   const { px } = useLayout();
+  if (PLACAS[slot]) {
+    // placa fornecida pela usuária: imagem + nome por cima
+    return (
+      <AbsoluteFill>
+        <Placa slot={slot}>{null}</Placa>
+        <AbsoluteFill style={{ background: "linear-gradient(to top, rgba(11,10,16,0.85) 0%, rgba(11,10,16,0) 45%)" }} />
+        <div style={{ position: "absolute", left: 0, right: 0, bottom: px(48), textAlign: "center", fontFamily: "inherit", fontSize: px(92), fontWeight: 800, letterSpacing: "-0.03em", color: COR.creme }}>{nome}</div>
+      </AbsoluteFill>
+    );
+  }
   return (
     <AbsoluteFill style={{ background: `linear-gradient(170deg, ${cores[0]} 0%, ${cores[1]} 55%, ${cores[2]} 100%)` }}>
       <div style={{ position: "absolute", left: "50%", top: "38%", width: px(300), height: px(300), marginLeft: px(-150), marginTop: px(-150), borderRadius: "50%", background: "radial-gradient(circle, rgba(255,230,170,0.95), rgba(255,140,90,0.0) 70%)" }} />
@@ -106,14 +116,14 @@ export const C12JasonLucia: React.FC<CenaProps> = ({ tema }) => {
         <Plane3D x={-230 - (1 - a) * 600} y={60} rotateY={95 * (1 - a) + 10} rotateZ={-3 * a} opacity={kf(t, [0.15, 0.4], [0, 1])}>
           <div style={{ fontFamily: tema.fonts.display }}>
             <FootageCard width={420} height={640} radius={36} edge="rgba(255,240,220,0.5)" sheen={kf(t, [1.6, 2.5], [0, 1])} shadow={0.8}>
-              <CartaoNome nome="Jason" numero="01" cores={["#3A1B52", COR.laranja, "#2A1745"]} />
+              <CartaoNome slot="cartao-jason" nome="Jason" numero="01" cores={["#3A1B52", COR.laranja, "#2A1745"]} />
             </FootageCard>
           </div>
         </Plane3D>
         <Plane3D x={230 + (1 - b) * 600} y={60} rotateY={-95 * (1 - b) - 10} rotateZ={3 * b} opacity={kf(t, [0.45, 0.7], [0, 1])}>
           <div style={{ fontFamily: tema.fonts.display }}>
             <FootageCard width={420} height={640} radius={36} edge="rgba(255,240,220,0.5)" sheen={kf(t, [1.8, 2.7], [0, 1])} shadow={0.8}>
-              <CartaoNome nome="Lucia" numero="02" cores={["#1D2C56", COR.rosa, "#3A1B52"]} />
+              <CartaoNome slot="cartao-lucia" nome="Lucia" numero="02" cores={["#1D2C56", COR.rosa, "#3A1B52"]} />
             </FootageCard>
           </div>
         </Plane3D>

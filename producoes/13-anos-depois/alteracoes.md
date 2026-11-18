@@ -47,6 +47,11 @@ regeneráveis).
 2. Em `cenarios.tsx`, aponte o slot em `PLACAS` (ex.: `"por-do-sol": "videos/vice-city-sunset.mp4"`).
 3. Renderize de novo. Textos e animações continuam iguais.
 
+**Cartões de Jason e Lucia (cena 12):** coloque as imagens em `imagens/` e preencha
+`"cartao-jason"` e `"cartao-lucia"` em `PLACAS`. Ajuste o recorte de cada cartão em `ENQUADRAMENTO`
+(ex.: com uma imagem única dos dois, `"cartao-jason": "72% 35%"` e `"cartao-lucia": "25% 40%"`).
+O nome continua por cima, em tipografia própria.
+
 ## Render
 
 ```bash

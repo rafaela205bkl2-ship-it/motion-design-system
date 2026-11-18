@@ -24,6 +24,15 @@ export const PLACAS: Record<string, string | null> = {
   "cidade-noite": null,
   estrada: null,
   helicoptero: null,
+  // cartões da cena 12 (imagem; sem arquivo, o cartão mostra só o nome)
+  "cartao-jason": null,
+  "cartao-lucia": null,
+};
+
+/** Enquadramento (object-position) de cada placa de imagem, ex.: "70% 35%". */
+export const ENQUADRAMENTO: Record<string, string> = {
+  "cartao-jason": "50% 40%",
+  "cartao-lucia": "50% 40%",
 };
 
 export const Placa: React.FC<{ readonly slot: string; readonly children: React.ReactNode }> = ({ slot, children }) => {
@@ -35,7 +44,7 @@ export const Placa: React.FC<{ readonly slot: string; readonly children: React.R
       {f.endsWith(".mp4") ? (
         <Video src={src} muted objectFit="cover" style={{ width: "100%", height: "100%" }} />
       ) : (
-        <Img src={src} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <Img src={src} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: ENQUADRAMENTO[slot] ?? "50% 50%" }} />
       )}
     </AbsoluteFill>
   );
