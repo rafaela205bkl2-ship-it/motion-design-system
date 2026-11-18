@@ -1,0 +1,229 @@
+{
+  "version": 2,
+  "skills": {
+    "Agent Cost Report": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/agent-cost-report/SKILL.md",
+      "computedHash": "f991e77e31fcfad04aed85297230c15a8d70a860ae12bad99e7836fb45a2d814"
+    },
+    "babysit": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/babysit/SKILL.md",
+      "computedHash": "407cb3f1ddfb19e3f841e9353393f9f08e63708c369d2270967aec1952ae7836"
+    },
+    "backup-setup": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/backup-setup/SKILL.md",
+      "computedHash": "9c69435fcf8f3614afed5bf6911ab3a811a0d0cafd46132d4cd58704824bfecd"
+    },
+    "build": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/build/SKILL.md",
+      "computedHash": "005afbc5fceca5d35be1f8bccfe10e8610e35b4a32e27433636c4fac6293ca60"
+    },
+    "build-and-release": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/build-and-release/SKILL.md",
+      "computedHash": "af754b5f1dfc0ac4f0e33f52209bde8326c5e7fb4d3d1d629b77e882abd0bb08"
+    },
+    "ccs-align": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/ccs-align/SKILL.md",
+      "computedHash": "78e8652d8e8b6d9e477a8f27aa78fe745ed557485fbac4e2574704397bb585dd"
+    },
+    "childhood": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/childhood/SKILL.md",
+      "computedHash": "b0e8fe1e4566aca1a546a931d8106fcf49d83965aa49af9179962e7b9d198677"
+    },
+    "cloud-sync": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/cloud-sync/SKILL.md",
+      "computedHash": "355d33cf7be4bc3fc575457ee961ae0a4df760c661fa45265d4776b61e836ef0"
+    },
+    "community-sweep": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/community-sweep/SKILL.md",
+      "computedHash": "4f894587c80d7b3df48427c52e03cf8428b76d2a69dfceb864bdadac7c2731d8"
+    },
+    "design-is": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/design-is/SKILL.md",
+      "computedHash": "922a541a777b5a1f9ae8b733cdc504106625d6bf21d8490d51f72d4e96b40850"
+    },
+    "do": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/do/SKILL.md",
+      "computedHash": "4e2b51239a8c93681b77082d6bd516cde0c268a8a395b4ffc4f4385c94a46a1f"
+    },
+    "handoff": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/handoff/SKILL.md",
+      "computedHash": "47d7554158445b2469fed73e6402c8f0752d5e24eaf84b112850a12cb3c10c48"
+    },
+    "how-it-works": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/how-it-works/SKILL.md",
+      "computedHash": "eb059548a77f80d5a159862184e0a8edd372c462a203114a8ad76a92d64d7546"
+    },
+    "knowledge-agent": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/knowledge-agent/SKILL.md",
+      "computedHash": "3425e562e1e6817e0c70f19691d77a37846bb7990e390b6ca803dbfb80abb0de"
+    },
+    "learn-codebase": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/learn-codebase/SKILL.md",
+      "computedHash": "0dd06e52864fa37dda04718f7b14e99a52c22d59bb3bd4fd25fdbe48a96d045b"
+    },
+    "make-plan": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/make-plan/SKILL.md",
+      "computedHash": "c76ca979e4a429b5265d005fb124683b019f0cd92c697eee66d9228c53ed8f86"
+    },
+    "mem-search": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/mem-search/SKILL.md",
+      "computedHash": "65e79f9c473a80f8116f4b3de94c679cfe503580a63af2a1b298d348f9f17a34"
+    },
+    "mem-setup": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "cowork/skills/mem-setup/SKILL.md",
+      "computedHash": "fcd9b891dc6b80acb4bba9820366243087d83a0d63b4ae64f5038e03a90bb067"
+    },
+    "mode-creator": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/mode-creator/SKILL.md",
+      "computedHash": "f555f0569217e8f20ce1d3d9403d0902e72060aa592915524710b574d05d198f"
+    },
+    "oh-my-issues": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/oh-my-issues/SKILL.md",
+      "computedHash": "86c15a9e1a52f7b6ca8cfbfef1546eec1850dda234864b24a9233ad939d6b8eb"
+    },
+    "owner-goals": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/owner-goals/SKILL.md",
+      "computedHash": "affddf6b17b823e4f9f19fb74eab727fa538ccbf89a61101d9276bf051ea3434"
+    },
+    "pathfinder": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/pathfinder/SKILL.md",
+      "computedHash": "cbd848af3f3a9cf73e44c55b6175bca1c67db2458645b5f554a4d12cc925a5f2"
+    },
+    "release": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/release/SKILL.md",
+      "computedHash": "0f428347abc0a42e0837abe5bc8f87ca6251c7eedb74d757bdea5734507a7bec"
+    },
+    "request-progress": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/request-progress/SKILL.md",
+      "computedHash": "63111620b38d0a4974685937301adbcf3d9653a81d7d047d685769d812119beb"
+    },
+    "screenpipe": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/screenpipe/SKILL.md",
+      "computedHash": "c37ee62a5fafc1ce342543e545647879ce8d16af75405be33e5020507feca864"
+    },
+    "smart-explore": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/smart-explore/SKILL.md",
+      "computedHash": "094a6320da6b471e3750b9f7735f7582daa1d732c445d7dea1a59a28b2718075"
+    },
+    "standup": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/standup/SKILL.md",
+      "computedHash": "ab64daa7894e1a05d493881b849ce11d75c4ab9fa1c2c423b9f61f8acc486281"
+    },
+    "timeline-report": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/timeline-report/SKILL.md",
+      "computedHash": "150edfb2b4275abcda962d7f3231a187c73782a5bc0e6e783e70a66e0fed330f"
+    },
+    "version-bump": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/version-bump/SKILL.md",
+      "computedHash": "4c48096dc5401871b64637c3a35716373cc937767116b57594a2d07578508588"
+    },
+    "weekly-digests": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/weekly-digests/SKILL.md",
+      "computedHash": "bc6315d83812c79f4bcde07775fd9869a8ac503784c997e66fb25cca9800d003"
+    },
+    "what-the": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/what-the/SKILL.md",
+      "computedHash": "658b9de124cd93af770da5af19080f43c4d445996b8332b1aea391b60a9093e1"
+    },
+    "wowerpoint": {
+      "source": "thedotmack/claude-mem",
+      "commit": "cc4dbf5beb4bd98623e0b842e6617115f4e74631",
+      "sourceType": "github",
+      "skillPath": "plugin/skills/wowerpoint/SKILL.md",
+      "computedHash": "ec1b616957d9fad1a48ebb0375af8ae894c91f84bb56f9c203bf60166d656df2"
+    }
+  }
+}
