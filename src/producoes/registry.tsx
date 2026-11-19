@@ -7,6 +7,7 @@ import React from "react";
 import { Composition, Folder } from "remotion";
 // <importacoes-producoes>
 import { DURACAO as D13AnosDepois, Producao as P13AnosDepois } from "./13-anos-depois/Producao";
+import { DURACAO as DVigilia, Producao as PVigilia } from "./vigilia/Producao";
 // </importacoes-producoes>
 
 export const Producoes: React.FC = () => {
@@ -14,6 +15,7 @@ export const Producoes: React.FC = () => {
     <Folder name="Producoes">
       {/* <composicoes-producoes> */}
       <Composition id="13-anos-depois-9x16" component={P13AnosDepois} durationInFrames={D13AnosDepois} fps={30} width={1080} height={1920} />
+      <Composition id="vigilia-9x16" component={PVigilia} durationInFrames={DVigilia} fps={30} width={1080} height={1920} />
       {/* </composicoes-producoes> */}
     </Folder>
   );

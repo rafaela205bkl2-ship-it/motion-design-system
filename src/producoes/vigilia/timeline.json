@@ -1,0 +1,15 @@
+{
+  "titulo": "Vigília",
+  "slug": "vigilia",
+  "fps": 30,
+  "estilo": "calmo",
+  "trilha": "audio/trilha.wav",
+  "cenas": [
+    {
+      "id": "cena-1",
+      "nome": "Cartaz animado",
+      "duracao": 15,
+      "visual": "a arte \"Vigília\" ganha vida no estilo da ref-003: estouro de luz, revelação por desfoque em camadas, título 3D, riscos de luz, faíscas, câmera 3D lenta e estouro final que fecha o loop"
+    }
+  ]
+}

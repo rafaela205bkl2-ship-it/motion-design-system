@@ -42,8 +42,9 @@ Categorias: texto · elementos · transições · câmera · efeitos · easing �
 ## Mapeamento para a biblioteca
 | Padrão observado | Já existe? (componente/preset/token) | Ação |
 | --- | --- | --- |
-| estouro de luz | parcial — `LightSweep`, `LensFlare` | avaliar componente de vazamento de luz |
-| risco de luz desenhado | não | candidato a novo componente |
+| estouro de luz | **implementado** — `LightLeak` | usado em vigilia |
+| risco de luz desenhado | **implementado** — `LightStreak` | usado em vigilia |
+| faíscas subindo em fluxo contínuo | **implementado** — `Embers` | usado em vigilia |
 | revelação por desfoque | sim — `blurDissolve` | nenhuma |
 | faíscas/poeira, grão | sim — `Particles`, `FilmLook` | nenhuma |
 | grade quente | sim — `Grade` | nenhuma |

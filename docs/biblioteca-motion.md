@@ -209,6 +209,9 @@ Props: `from` (`top`, `bottom`, `left`, `right`, `none`), `distance`, `delay`, `
 | `Backdrop` | fundo: cor, brilhos radiais em movimento lento, vinheta e granulação procedural |
 | `KineticType` | padrão tipográfico em fileiras alternadas (vazado nas ímpares) |
 | `ColorBloom` | ciclo de cores dentro da cena, por expansões radiais |
+| `LightLeak` | estouro de luz quente que lava a tela e recua, com manchas de cor (ref-003): abre, fecha ou reinicia um ciclo |
+| `LightStreak` | risco de luz desenhado: fios paralelos com cabeça brilhante e cauda que se apaga (ref-003); entre camadas, passa atrás/na frente |
+| `Embers` | faíscas e poeira subindo em fluxo contínuo e cíclico, com cintilação e partículas fora de foco (ref-003) |
 
 ```tsx
 <AbsoluteFill>

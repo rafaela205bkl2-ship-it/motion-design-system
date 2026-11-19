@@ -100,6 +100,12 @@ export { LensFlare } from "./layers/LensFlare";
 export type { LensFlareProps } from "./layers/LensFlare";
 export { Grade } from "./layers/Grade";
 export type { GradeProps } from "./layers/Grade";
+export { LightLeak } from "./layers/LightLeak";
+export type { LightLeakProps } from "./layers/LightLeak";
+export { LightStreak } from "./layers/LightStreak";
+export type { LightStreakProps } from "./layers/LightStreak";
+export { Embers } from "./layers/Embers";
+export type { EmbersProps } from "./layers/Embers";
 
 // Interface de jogo (HUD)
 export { HudRadar } from "./hud/HudRadar";

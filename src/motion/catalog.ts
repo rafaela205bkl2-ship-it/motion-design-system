@@ -497,6 +497,32 @@ export const catalog: CatalogEntry[] = [
     props: ["delay", "duration", "angle", "width", "color", "direction"],
   },
 
+  // ------------------------------------------------------------ cartaz animado (ref-003, produção vigilia)
+  {
+    name: "LightLeak",
+    kind: "camada",
+    file: "src/motion/layers/LightLeak.tsx",
+    description: "Estouro de luz quente que lava a tela e recua, com manchas de cor atravessando (ref-003, 0–0,4 s e a cada ~14 s). Abre, fecha ou reinicia um ciclo.",
+    props: ["at", "rise", "fall", "flash", "colors", "intensity", "angle", "speed"],
+    example: "<LightLeak at={0.12} fall={0.5} />",
+  },
+  {
+    name: "LightStreak",
+    kind: "camada",
+    file: "src/motion/layers/LightStreak.tsx",
+    description: "Risco de luz desenhado: fios paralelos percorrem um caminho suave com cabeça brilhante e cauda que se apaga (ref-003, 0,4–1,3 s; 4,5 s…). Ponha entre camadas para passar atrás/na frente.",
+    props: ["points", "delay", "duration", "easing", "trail", "strands", "gap", "width", "color", "core", "glow"],
+    example: "<LightStreak points={[[-0.1, 0.7], [0.4, 0.5], [1.1, 0.6]]} delay={1} />",
+  },
+  {
+    name: "Embers",
+    kind: "camada",
+    file: "src/motion/layers/Embers.tsx",
+    description: "Faíscas e poeira subindo em fluxo contínuo e cíclico, com cintilação, balanço e partículas fora de foco (ref-003, peça inteira).",
+    props: ["count", "from", "top", "rise", "sway", "wind", "size", "colors", "bokeh", "seed"],
+    example: "<Embers count={80} top={0.3} />",
+  },
+
   // ------------------------------------------------------------ luz, atmosfera e HUD (13-anos-depois v2)
   {
     name: "VolumetricLight",
