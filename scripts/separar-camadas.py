@@ -107,9 +107,12 @@ fade = fade * fade * (3 - 2 * fade)
 grupo_a = grupo * fade
 frente_a = np.minimum(frente, grupo) * fade
 
-# Atrás: a fileira da frente vira uma sombra (aparece como profundidade quando a frente se desloca).
-sombra = gauss(art, 6) * 0.42
-tras_rgb = art * (1 - frente[..., None]) + sombra * frente[..., None]
+# Atrás: perto do contorno da fileira da frente ficam os pixels originais (sem emenda visível
+# quando os planos se deslocam); só o miolo escurece em sombra, para dar profundidade.
+miolo = np.array(Image.fromarray((frente * 255).astype(np.uint8)).filter(ImageFilter.MinFilter(31))) / 255.0
+miolo = gauss(miolo.astype(np.float32), 8)
+sombra = gauss(art, 6) * 0.5
+tras_rgb = art * (1 - miolo[..., None]) + sombra * miolo[..., None]
 bb = [0, max(0, int(min(y for _, y in p["grupo"])) - 4), W, int(p["esmaecerAte"]) + 2]
 save_rgba("pessoas-tras.png", tras_rgb, grupo_a, bb)
 bf = [0, max(0, int(min(y for _, y in p["frente"])) - 4), W, int(p["esmaecerAte"]) + 2]
