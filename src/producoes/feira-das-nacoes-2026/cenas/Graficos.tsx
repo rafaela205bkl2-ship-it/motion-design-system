@@ -597,10 +597,11 @@ export const IlhasIndonesia: React.FC<{ readonly dur: number }> = ({ dur }) => {
 /* ------------------------------------------------------------------ */
 
 export const Encerramento: React.FC = () => {
-  const { px, pick } = useLayout();
+  const { px } = useLayout();
   const m = useMotion();
   const frame = useCurrentFrame();
   const fundo = progressAt(frame, m.fps, 0.35, 0.4, "enter");
+  const divisor = progressAt(frame, m.fps, 0.7, m.dur(0.6), "enterStrong");
   return (
     <AbsoluteFill>
       <ColorBloom
@@ -612,85 +613,128 @@ export const Encerramento: React.FC = () => {
         <Backdrop
           color={ROXO}
           glows={[
-            { x: 0.3, y: 0.5, size: 1100, color: "#6B3DF2", opacity: 0.65 },
-            { x: 0.75, y: 0.75, size: 900, color: "#F7BE3A", opacity: 0.14 },
+            { x: 0.5, y: 0.38, size: 1300, color: "#6B3DF2", opacity: 0.6 },
+            { x: 0.5, y: 0.85, size: 900, color: "#F7BE3A", opacity: 0.12 },
           ]}
           grain={0.12}
         />
       </AbsoluteFill>
       <AbsoluteFill
         style={{
-          flexDirection: pick({ vertical: "column", horizontal: "row" }),
+          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          gap: px(100),
+          gap: px(18),
         }}
       >
-        <LogoAssembleia largura={760} delay={0.3} />
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            gap: px(16),
-            maxWidth: px(940),
+            alignItems: "center",
+            gap: px(70),
+            marginBottom: px(16),
           }}
         >
-          <TextReveal
-            {...textPresets.impacto}
-            text={"Feira das\n*Nações* 2026"}
-            size={150}
-            delay={1.0}
-            align="left"
-            lineHeight={0.98}
+          <LogoAnimada logo={LOGO_AD} largura={600} delay={0.3} />
+          <div
+            style={{
+              width: px(4),
+              height: px(340),
+              borderRadius: px(2),
+              background: `linear-gradient(to bottom, rgba(247,190,58,0), ${m.palette.accent}, rgba(247,190,58,0))`,
+              transform: `scaleY(${divisor})`,
+              opacity: divisor,
+            }}
           />
-          <TextReveal
-            {...textPresets.frase}
-            text={TEXTOS.versiculo}
-            size={46}
-            delay={1.7}
-            color={m.palette.ink}
-            align="left"
-            maxWidth={920}
-          />
-          <TextReveal
-            {...textPresets.rotulo}
-            text={TEXTOS.referencia}
-            size={26}
-            delay={2.2}
-            color={m.palette.muted}
-            align="left"
-          />
+          <LogoAnimada logo={LOGO_SEMADESAL} largura={580} delay={0.45} />
         </div>
+        <TextReveal
+          {...textPresets.impacto}
+          text="Feira das *Nações* 2026"
+          size={104}
+          delay={1.1}
+        />
+        <TextReveal
+          {...textPresets.frase}
+          text={TEXTOS.versiculo}
+          size={42}
+          delay={1.7}
+          color={m.palette.ink}
+          maxWidth={1400}
+        />
+        <TextReveal
+          {...textPresets.rotulo}
+          text={TEXTOS.referencia}
+          size={26}
+          delay={2.2}
+          color={m.palette.muted}
+        />
       </AbsoluteFill>
     </AbsoluteFill>
   );
 };
 
 /* ------------------------------------------------------------------ */
-/* Logo da Assembleia de Deus (remasterizada para a identidade roxa)   */
+/* Logos animadas (Assembleia de Deus e SEMADESAL)                     */
 /* ------------------------------------------------------------------ */
 
 /**
- * Logo em camadas (extraídas do arquivo enviado pela produção): livro e
- * textos recoloridos (branco/dourado) para o fundo roxo; a chama-pomba mantém
- * o degradê original. A pomba entra voando em arco até pousar no livro, batendo
- * a asa; depois a asa "respira" devagar.
+ * Logos em camadas, extraídas dos arquivos enviados pela produção e
+ * remasterizadas para a identidade roxa: livro, globo e nomes em branco,
+ * textos menores em dourado, pomba no degradê de fogo da logo da Assembleia.
+ * As duas recebem o MESMO movimento: a base (livro/globo) sobe com desfoque,
+ * a pomba entra voando em arco até pousar no livro batendo a asa, a asa
+ * passa a "respirar" devagar e os textos entram em sequência.
  */
-const LOGO_W = 2000;
-const LOGO_H = 1639;
-/** Base da asa (pivô do bater), em fração da imagem. */
-const PIVO_ASA = "55% 49%";
+type LogoCamadas = {
+  /** Proporção da imagem (largura / altura). */
+  readonly proporcao: number;
+  /** Camadas que sobem com desfoque (livro, globo). */
+  readonly base: string[];
+  readonly corpo: string;
+  readonly asa: string;
+  /** Textos, na ordem de entrada. */
+  readonly textos: string[];
+  /** Base da asa (pivô do bater) e centro do voo, em % da imagem. */
+  readonly pivoAsa: string;
+  readonly centroVoo: string;
+  /** Área do brilho atrás da pomba, em % da imagem. */
+  readonly brilho: { left: string; top: string; width: string; height: string };
+};
 
-export const LogoAssembleia: React.FC<{
+const LOGO_AD: LogoCamadas = {
+  proporcao: 2000 / 1639,
+  base: ["logo-livro"],
+  corpo: "logo-corpo",
+  asa: "logo-asa",
+  textos: ["logo-texto-igreja", "logo-texto-assembleia", "logo-texto-salvador"],
+  pivoAsa: "55% 49%",
+  centroVoo: "55% 55%",
+  brilho: { left: "30%", top: "-5%", width: "50%", height: "65%" },
+};
+
+const LOGO_SEMADESAL: LogoCamadas = {
+  proporcao: 1,
+  base: ["semadesal-globo", "semadesal-livro"],
+  corpo: "semadesal-corpo",
+  asa: "semadesal-asa",
+  textos: ["semadesal-arco", "semadesal-nome"],
+  pivoAsa: "53% 60%",
+  centroVoo: "52% 58%",
+  brilho: { left: "33%", top: "20%", width: "38%", height: "48%" },
+};
+
+export const LogoAnimada: React.FC<{
+  readonly logo: LogoCamadas;
   readonly largura: number;
   readonly delay?: number;
-}> = ({ largura, delay = 0 }) => {
+}> = ({ logo, largura, delay = 0 }) => {
   const { px } = useLayout();
   const m = useMotion();
   const frame = useCurrentFrame();
   const t = frame / m.fps - delay;
   const W = px(largura);
-  const H = (W * LOGO_H) / LOGO_W;
+  const H = W / logo.proporcao;
   const img = (n: string) =>
     staticFile(`producoes/feira-das-nacoes-2026/imagens/${n}.png`);
   const camada: React.CSSProperties = {
@@ -700,8 +744,8 @@ export const LogoAssembleia: React.FC<{
     height: "100%",
   };
 
-  // livro: sobe com desfoque
-  const livro = progressAt(frame, m.fps, delay, m.dur(0.6), "enterStrong");
+  // base (livro/globo): sobe com desfoque
+  const base = progressAt(frame, m.fps, delay, m.dur(0.6), "enterStrong");
   // voo da pomba: arco da esquerda/baixo até o pouso
   const voo = progressAt(frame, m.fps, delay + 0.15, m.dur(1.1), "enterStrong");
   const vx = (1 - voo) * -0.42 * W;
@@ -740,48 +784,48 @@ export const LogoAssembleia: React.FC<{
       <div
         style={{
           position: "absolute",
-          left: "30%",
-          top: "-5%",
-          width: "50%",
-          height: "65%",
+          ...logo.brilho,
           borderRadius: "50%",
           background:
             "radial-gradient(circle, rgba(247,150,40,0.45) 0%, rgba(247,150,40,0) 65%)",
           opacity: brilho,
         }}
       />
-      <Img
-        src={img("logo-livro")}
-        style={{
-          ...camada,
-          opacity: livro,
-          transform: `translateY(${(1 - livro) * px(40)}px) scale(${0.92 + 0.08 * livro})`,
-          filter:
-            livro < 1 ? `blur(${m.blur("object") * (1 - livro)}px)` : undefined,
-        }}
-      />
+      {logo.base.map((n) => (
+        <Img
+          key={n}
+          src={img(n)}
+          style={{
+            ...camada,
+            opacity: base,
+            transform: `translateY(${(1 - base) * px(40)}px) scale(${0.92 + 0.08 * base})`,
+            filter:
+              base < 1 ? `blur(${m.blur("object") * (1 - base)}px)` : undefined,
+          }}
+        />
+      ))}
       <div
         style={{
           ...camada,
           opacity: Math.min(1, voo * 2.5),
           transform: `translate(${vx}px, ${vy}px) rotate(${vr}deg) scale(${vs})`,
-          transformOrigin: "55% 55%",
+          transformOrigin: logo.centroVoo,
           filter: voo < 1 ? `blur(${m.blur(10) * (1 - voo)}px)` : undefined,
         }}
       >
-        <Img src={img("logo-corpo")} style={camada} />
+        <Img src={img(logo.corpo)} style={camada} />
         <Img
-          src={img("logo-asa")}
+          src={img(logo.asa)}
           style={{
             ...camada,
             transform: `rotate(${bater}deg) scaleY(${escalaAsa})`,
-            transformOrigin: PIVO_ASA,
+            transformOrigin: logo.pivoAsa,
           }}
         />
       </div>
-      <Img src={img("logo-texto-igreja")} style={texto(0.75)} />
-      <Img src={img("logo-texto-assembleia")} style={texto(0.85)} />
-      <Img src={img("logo-texto-salvador")} style={texto(0.95)} />
+      {logo.textos.map((n, i) => (
+        <Img key={n} src={img(n)} style={texto(0.75 + i * 0.1)} />
+      ))}
     </div>
   );
 };
