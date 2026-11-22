@@ -44,9 +44,15 @@ export type {
 } from "./text/TextReveal";
 export { TextSwap } from "./text/TextSwap";
 export type { TextSwapProps, TextSwapItem } from "./text/TextSwap";
+export { CountUp } from "./text/CountUp";
+export type { CountUpProps } from "./text/CountUp";
+export { WordCaption } from "./text/WordCaption";
+export type { WordCaptionProps, CaptionWord } from "./text/WordCaption";
 
 // Objetos
 export { ObjectEnter } from "./object/ObjectEnter";
+export { Globe3D } from "./object/Globe3D";
+export type { Globe3DProps, GlobeMarker } from "./object/Globe3D";
 export type {
   ObjectEnterProps,
   ObjectMotion,
@@ -69,6 +75,8 @@ export { KineticType } from "./layers/KineticType";
 export type { KineticTypeProps } from "./layers/KineticType";
 export { ColorBloom } from "./layers/ColorBloom";
 export type { ColorBloomProps, BloomStep } from "./layers/ColorBloom";
+export { StripeBand } from "./layers/StripeBand";
+export type { StripeBandProps, Stripe } from "./layers/StripeBand";
 
 // Layout responsivo (da base existente)
 export { useLayout, getFormat, FORMATS } from "../lib/layout";

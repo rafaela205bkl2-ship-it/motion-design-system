@@ -209,6 +209,22 @@ Props: `from` (`top`, `bottom`, `left`, `right`, `none`), `distance`, `delay`, `
 | `Backdrop` | fundo: cor, brilhos radiais em movimento lento, vinheta e granulação procedural |
 | `KineticType` | padrão tipográfico em fileiras alternadas (vazado nas ímpares) |
 | `ColorBloom` | ciclo de cores dentro da cena, por expansões radiais |
+| `StripeBand` | faixas de cor escalonadas (ex.: cores de bandeira) que deslizam; com `coverAt`, cobrem um corte e se abrem (ref-003) |
+
+### Componentes adicionados na Feira das Nações 2026
+
+| Componente | Função | Origem |
+| --- | --- | --- |
+| `Globe3D` | globo 3D em linhas (projeção ortográfica em SVG), girando, com inclinação e marcadores lat/lon | ref-004, 16–17 s |
+| `CountUp` | número que conta até o valor final, formatação pt-BR, prefixo/sufixo, `grouping={false}` para anos | ref-004, 23–25 s; ref-001 |
+| `WordCaption` | legenda sincronizada a tempos de transcrição: blocos curtos, palavras ainda não ditas esmaecidas, palavra falada em destaque, `*destaque*` permanente | ref-004, 1,0–1,5 s |
+
+```tsx
+<StripeBand coverAt={1} stripes={[{ color: "#006847" }, { color: "#FFFFFF" }, { color: "#CE1126" }]} skew={-10} />
+<Globe3D size={520} spin={40} markers={[{ lat: -14, lon: -51, at: 0.8 }]} />
+<CountUp value={17000} prefix="+" size={120} />
+<WordCaption words={[{ text: "Feira", start: 0.2, end: 0.5 }, { text: "*Nações*", start: 0.5, end: 0.9 }]} />
+```
 
 ```tsx
 <AbsoluteFill>

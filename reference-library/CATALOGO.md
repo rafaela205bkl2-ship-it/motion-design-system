@@ -6,6 +6,8 @@
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ref-001-app-financeiro-16x9 | 16:9 | 35,6 s | ~105 (baixa confiança) | calmo | gravação de tela | interface, monocromático, trocas com desfoque, contador, logotipo em traço | [ficha](ref-001-app-financeiro-16x9/ficha.md) |
 | ref-002-produto-vibrante-9x16 | 9:16 | 26,5 s | ~131 | vibrante | gravação de tela | produto herói, ciclos de cor radiais, padrão tipográfico, texto atrás do objeto | [ficha](ref-002-produto-vibrante-9x16/ficha.md) |
+| ref-003-abertura-faixas-16x9 | 16:9 | 44,7 s | — | vibrante | gravação de tela | faixas escalonadas sobre o corte, palavra única sobre o vídeo, fileiras de texto | [ficha](ref-003-abertura-faixas-16x9/ficha.md) |
+| ref-004-anuncio-3d-roxo-9x16 | 16:9 em 9:16 | 35,6 s | ~105 | calmo/misto | filmado de monitor | objetos 3D em órbita, contador com barras, inundação de cor + cartão final | [ficha](ref-004-anuncio-3d-roxo-9x16/ficha.md) |
 
 ## Padrões recorrentes consolidados
 

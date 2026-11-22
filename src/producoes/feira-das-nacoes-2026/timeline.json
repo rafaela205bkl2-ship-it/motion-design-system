@@ -1,0 +1,113 @@
+{
+  "titulo": "Feira das Nações 2026",
+  "slug": "feira-das-nacoes-2026",
+  "fps": 30,
+  "estilo": "vibrante",
+  "trilha": null,
+  "cenas": [
+    {
+      "id": "cena-1",
+      "nome": "Abertura",
+      "duracao": 3.23,
+      "transicao": "corte",
+      "rotulo": "Assembleia de Deus",
+      "texto": "Feira das *Nações*",
+      "apoio": "2026",
+      "visual": "globo 3D dourado gira; título entra sobre o painel do evento (0–3,2 s)"
+    },
+    {
+      "id": "cena-2",
+      "nome": "Cabo Verde",
+      "duracao": 3.54,
+      "transicao": "corte",
+      "rotulo": "Estande",
+      "texto": "Cabo Verde",
+      "visual": "etiqueta com a bandeira de Cabo Verde (painel \"Cabo Verde\" visível no quadro)"
+    },
+    {
+      "id": "cena-3",
+      "nome": "Um só povo",
+      "duracao": 3.4,
+      "transicao": "corte",
+      "texto": "Muitas nações.\n*Um só povo.*",
+      "visual": "tipografia cinética central sobre a multidão"
+    },
+    {
+      "id": "cena-4",
+      "nome": "Palavra pastoral",
+      "duracao": 18.1,
+      "transicao": "corte",
+      "rotulo": "Palavra pastoral",
+      "texto": "Pastor",
+      "visual": "lower third + legenda sincronizada; carrossel 3D de bandeiras em \"outras nações\" (25,3 s)"
+    },
+    {
+      "id": "cena-5",
+      "nome": "México",
+      "duracao": 8.03,
+      "transicao": "corte",
+      "rotulo": "Estande",
+      "texto": "México",
+      "visual": "faixas verde/branco/vermelho no corte de 28,27 s; etiqueta; \"Sabores da cultura\" em 32 s"
+    },
+    {
+      "id": "cena-6",
+      "nome": "Israel",
+      "duracao": 4.47,
+      "transicao": "corte",
+      "rotulo": "Estande",
+      "texto": "Israel",
+      "visual": "faixas azul/branco; estrela de Davi traçada em linha dourada"
+    },
+    {
+      "id": "cena-7",
+      "nome": "Missões",
+      "duracao": 9.5,
+      "transicao": "corte",
+      "rotulo": "Missões",
+      "texto": "Shlichut Israel",
+      "visual": "lower third + legenda; destaque \"países perseguidos\" e \"missionários\""
+    },
+    {
+      "id": "cena-8",
+      "nome": "Croácia",
+      "duracao": 2.43,
+      "transicao": "corte",
+      "texto": "Croácia",
+      "visual": "faixa xadrez vermelho/branco no corte de 50,27 s"
+    },
+    {
+      "id": "cena-9",
+      "nome": "Indonésia",
+      "duracao": 3.6,
+      "transicao": "corte",
+      "texto": "Indonésia",
+      "apoio": "+17.000 ilhas",
+      "visual": "faixas vermelho/branco; contador de ilhas (dado do painel do estande)"
+    },
+    {
+      "id": "cena-10",
+      "nome": "Portugal",
+      "duracao": 5.03,
+      "transicao": "corte",
+      "texto": "Portugal",
+      "visual": "faixas verde/vermelho; a etiqueta troca para Cuba em 59,3 s (bandeira na parede)"
+    },
+    {
+      "id": "cena-11",
+      "nome": "Gâmbia",
+      "duracao": 3.94,
+      "transicao": "corte",
+      "texto": "Gâmbia",
+      "visual": "faixas vermelho/azul/verde"
+    },
+    {
+      "id": "cena-12",
+      "nome": "Encerramento",
+      "duracao": 5,
+      "texto": "Feira das *Nações* 2026",
+      "apoio": "\"Ide por todo o mundo e pregai o evangelho.\" Marcos 16:15",
+      "visual": "cor do evento cobre o último quadro; globo 3D com marcadores dos países; parado 3 s"
+    }
+  ]
+}

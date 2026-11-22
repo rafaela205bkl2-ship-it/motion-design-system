@@ -171,6 +171,8 @@ Quando o animatic aprovado precisa de uma cena mais elaborada:
    npx remotion render <slug>-9x16 out/<slug>-9x16.mp4
    ```
    Repita para cada formato registrado. Em máquinas sem GPU, use `--concurrency=4 --timeout=120000`.
+   Em sessões na nuvem com proxy HTTPS que intercepta TLS, as fontes do Google só carregam se o Chrome do Remotion usar o proxy
+   (por padrão ele o ignora): acrescente `--chromium-flags='{"no-proxy-server":false,"proxy-server":"http://127.0.0.1:<porta>","proxy-bypass-list":"<-loopback>;localhost;127.0.0.1"}'`.
 4. **Checklist visual** (do MASTER_STYLE_GUIDE):
    - nada fora da área segura;
    - nunca dois textos legíveis no mesmo lugar;
@@ -179,6 +181,13 @@ Quando o animatic aprovado precisa de uma cena mais elaborada:
    - final parado de 3–5 s.
 
 A pasta `out/` não é versionada.
+
+### Reedição de um vídeo já editado
+
+Quando a base é um vídeo pronto (sem projeto editável), siga o modelo de `src/producoes/feira-das-nacoes-2026/`:
+as cenas do roteiro têm a duração exata entre os cortes do original (`transição: corte`), o vídeo entra como camada de
+fundo com o áudio original e os grafismos são `<Sequence>` por cima, nos tempos medidos (detecção de cena + transcrição
+com tempo por palavra). Vídeos grandes ficam fora do git; documente como baixá-los em `producoes/<slug>/materiais.md`.
 
 ## 8. Formatos: o que funciona hoje
 

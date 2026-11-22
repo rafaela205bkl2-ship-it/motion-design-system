@@ -373,6 +373,86 @@ export const catalog: CatalogEntry[] = [
     description: "Ciclo de cores dentro da cena por expansões radiais.",
     props: ["steps[{color, at}]", "origin", "duration", "easing", "softness"],
   },
+  {
+    name: "StripeBand",
+    kind: "camada",
+    file: "src/motion/layers/StripeBand.tsx",
+    description:
+      "Faixas de cor escalonadas (ex.: cores de bandeira) que entram deslizando; com coverAt viram transição que cobre um corte e se abre (ref-003).",
+    props: [
+      "stripes[{color, pattern, color2, weight}]",
+      "orientation",
+      "from",
+      "delay",
+      "coverAt",
+      "hold",
+      "exitAt",
+      "duration",
+      "stagger",
+      "skew",
+    ],
+    example:
+      '<StripeBand coverAt={28.27} stripes={[{color:"#006847"},{color:"#FFF"},{color:"#CE1126"}]} />',
+  },
+  {
+    name: "CountUp",
+    kind: "componente",
+    file: "src/motion/text/CountUp.tsx",
+    description:
+      "Número que conta até o valor final com formatação pt-BR, prefixo/sufixo e entrada com desfoque (ref-004, ref-001).",
+    props: [
+      "value",
+      "from",
+      "delay",
+      "duration",
+      "easing",
+      "decimals",
+      "prefix",
+      "suffix",
+      "size",
+      "color",
+    ],
+    example: '<CountUp value={17000} prefix="+" delay={0.4} size={120} />',
+  },
+  {
+    name: "WordCaption",
+    kind: "componente",
+    file: "src/motion/text/WordCaption.tsx",
+    description:
+      "Legenda sincronizada palavra a palavra a partir de tempos de transcrição; blocos curtos, palavra falada destacada, *destaque* permanente.",
+    props: [
+      "words[{text, start, end}]",
+      "maxWords",
+      "pauseBreak",
+      "size",
+      "activeColor",
+      "highlightColor",
+      "background",
+      "maxWidth",
+    ],
+    example: '<WordCaption words={[{text: "Feira", start: 0.2, end: 0.5}]} />',
+  },
+  {
+    name: "Globe3D",
+    kind: "componente",
+    file: "src/motion/object/Globe3D.tsx",
+    description:
+      "Globo 3D em linhas (projeção ortográfica, SVG) girando, com inclinação, marcadores lat/lon e entrada com desfoque (ref-004).",
+    props: [
+      "size",
+      "color",
+      "strokeWidth",
+      "step",
+      "spin",
+      "startLon",
+      "tilt",
+      "markers[{lat, lon, color, at}]",
+      "delay",
+      "glow",
+    ],
+    example:
+      "<Globe3D size={600} spin={20} markers={[{ lat: -14, lon: -51 }]} />",
+  },
   // ------------------------------------------------------------ layout
   {
     name: "useLayout",

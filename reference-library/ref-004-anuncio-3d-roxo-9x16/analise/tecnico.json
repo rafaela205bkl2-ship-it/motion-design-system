@@ -1,0 +1,23 @@
+{
+  "arquivo": "ref2.mp4",
+  "conteiner": "mov,mp4,m4a,3gp,3g2,mj2",
+  "duracao_s": 35.617,
+  "tamanho_bytes": 2974582,
+  "video": {
+    "codec": "h264",
+    "perfil": "High",
+    "largura": 720,
+    "altura": 1280,
+    "fps": 30.0,
+    "pix_fmt": "yuv420p",
+    "bitrate": "595828"
+  },
+  "audio": {
+    "codec": "aac",
+    "perfil": "HE-AAC",
+    "taxa": "44100",
+    "canais": 2,
+    "bitrate": "67414"
+  },
+  "decodificacao_ok": true
+}
