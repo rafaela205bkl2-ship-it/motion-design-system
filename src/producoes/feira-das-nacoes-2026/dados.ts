@@ -27,8 +27,8 @@ export const DURACAO_ENCERRAMENTO = 5;
 
 /** Textos editáveis (nomes a confirmar com a produção). */
 export const TEXTOS = {
-  pastor: { rotulo: "Palavra pastoral", nome: "Assembleia de Deus" },
-  missoes: { rotulo: "Missões", nome: "Shlichut Israel" },
+  pastor: { rotulo: "Pastor", nome: "Gerson Soares" },
+  missoes: { rotulo: "Repórter", nome: "César Maju" },
   versiculo: "“Ide por todo o mundo e pregai o evangelho.”",
   referencia: "Marcos 16:15",
 };

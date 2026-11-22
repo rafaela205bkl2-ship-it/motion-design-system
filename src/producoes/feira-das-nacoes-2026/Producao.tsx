@@ -194,7 +194,7 @@ export const Producao: React.FC = () => {
 
         {/* Cena 12 — encerramento */}
         <Em de={encerra} ate={DURACAO / FPS} nome="Encerramento">
-          <Encerramento paises={TODOS} />
+          <Encerramento />
         </Em>
         {/* ambiência da abertura reaproveitada sob o cartão final, com fade */}
         <Sequence from={f(fimVideo - 0.2)} name="Áudio do encerramento">
