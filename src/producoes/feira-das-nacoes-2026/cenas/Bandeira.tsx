@@ -156,27 +156,11 @@ const desenho: Record<PaisId, React.ReactNode> = {
       <rect x={11.4} y={8.6} width={1.2} height={3} fill="#003399" />
     </>
   ),
-  cuba: (
+  nigeria: (
     <>
-      {[0, 1, 2, 3, 4].map((i) => (
-        <rect
-          key={i}
-          y={i * 4}
-          width={30}
-          height={4}
-          fill={i % 2 === 0 ? "#002A8F" : "#FFFFFF"}
-        />
-      ))}
-      <polygon points="0,0 13,10 0,20" fill="#CF142B" />
-      <Estrela cx={4.4} cy={10} r={2.4} fill="#FFFFFF" />
-    </>
-  ),
-  gambia: (
-    <>
-      <rect width={30} height={6.3} fill="#CE1126" />
-      <rect y={6.3} width={30} height={7.4} fill="#FFFFFF" />
-      <rect y={7.35} width={30} height={5.3} fill="#0C1C8C" />
-      <rect y={13.7} width={30} height={6.3} fill="#3A7728" />
+      <rect width={10} height={20} fill="#008751" />
+      <rect x={10} width={10} height={20} fill="#FFFFFF" />
+      <rect x={20} width={10} height={20} fill="#008751" />
     </>
   ),
 };

@@ -78,13 +78,13 @@ visual: faixas vermelho/branco; contador de ilhas (dado do painel do estande)
 duração: 5,03
 transição: corte
 texto: Portugal
-visual: faixas verde/vermelho; a etiqueta troca para Cuba em 59,3 s (bandeira na parede)
+visual: faixas verde/vermelho; etiqueta Portugal até 61,1 s (pedido da produção: Cuba → Portugal)
 
-## Cena 11 — Gâmbia
+## Cena 11 — Nigéria
 duração: 3,94
 transição: corte
-texto: Gâmbia
-visual: faixas vermelho/azul/verde
+texto: Nigéria
+visual: faixas verde/branco/verde (pedido da produção: Gâmbia → Nigéria)
 
 ## Cena 12 — Encerramento
 duração: 5

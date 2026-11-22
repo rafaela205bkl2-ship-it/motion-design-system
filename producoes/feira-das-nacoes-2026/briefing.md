@@ -16,7 +16,7 @@ A pasta do Drive não continha projeto editável (Premiere/AE/DaVinci/CapCut) ne
 ## Estilo
 - Estilo: vibrante, com a paleta do painel do evento: roxo profundo `#1A0E4F`, violeta `#6B3DF2` e dourado `#F7BE3A` (tema `temaFeira` em `src/producoes/feira-das-nacoes-2026/dados.ts`).
 - Motion "3D": globo em linhas girando (`Globe3D`), cartões de bandeira que giram em perspectiva, carrossel 3D de bandeiras.
-- Bandeiras: só as que aparecem no quadro, com o tempo (Turquia, Brasil, Cabo Verde, México, Israel, Croácia, Indonésia, Portugal, Cuba e Gâmbia).
+- Bandeiras: só as que aparecem no quadro, com o tempo (Turquia, Brasil, Cabo Verde, México, Israel, Croácia, Indonésia, Portugal e Nigéria). A pedido da produção, a Cuba virou Portugal e a Gâmbia virou Nigéria.
 
 ## Áudio
 - Áudio original do vídeo (falas + ambiente). Sob o cartão final, a ambiência da abertura é reaproveitada com fade.

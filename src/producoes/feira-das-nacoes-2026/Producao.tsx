@@ -84,12 +84,13 @@ const TODOS: PaisId[] = [
   "croacia",
   "indonesia",
   "portugal",
-  "cuba",
-  "gambia",
+  "nigeria",
   "turquia",
 ];
 
-const video = staticFile(`producoes/${timeline.slug}/videos/oficial.mp4`);
+const video = staticFile(
+  `producoes/${timeline.slug}/videos/oficial-tratado.mp4`,
+);
 
 export const Producao: React.FC = () => {
   const fimVideo = DURACAO_VIDEO;

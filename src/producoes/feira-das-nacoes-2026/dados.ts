@@ -42,8 +42,7 @@ export type PaisId =
   | "croacia"
   | "indonesia"
   | "portugal"
-  | "cuba"
-  | "gambia";
+  | "nigeria";
 
 export type Pais = {
   nome: string;
@@ -136,31 +135,12 @@ export const PAISES: Record<PaisId, Pais> = {
     lat: 39,
     lon: -8,
   },
-  cuba: {
-    nome: "Cuba",
-    faixas: [
-      { color: "#002A8F" },
-      { color: "#FFFFFF" },
-      { color: "#002A8F" },
-      { color: "#FFFFFF" },
-      { color: "#002A8F" },
-    ],
-    orientacao: "horizontal",
-    lat: 22,
-    lon: -80,
-  },
-  gambia: {
-    nome: "Gâmbia",
-    faixas: [
-      { color: "#CE1126", weight: 6 },
-      { color: "#FFFFFF", weight: 1 },
-      { color: "#0C1C8C", weight: 4 },
-      { color: "#FFFFFF", weight: 1 },
-      { color: "#3A7728", weight: 6 },
-    ],
-    orientacao: "horizontal",
-    lat: 13.4,
-    lon: -15.3,
+  nigeria: {
+    nome: "Nigéria",
+    faixas: [{ color: "#008751" }, { color: "#FFFFFF" }, { color: "#008751" }],
+    orientacao: "vertical",
+    lat: 9,
+    lon: 8,
   },
 };
 
@@ -175,7 +155,7 @@ export const TRANSICOES: {
   { pais: "croacia", corte: 50.27, de: "left" },
   { pais: "indonesia", corte: 52.7, de: "right" },
   { pais: "portugal", corte: 56.3, de: "left" },
-  { pais: "gambia", corte: 61.33, de: "right" },
+  { pais: "nigeria", corte: 61.33, de: "right" },
 ];
 
 /** Etiquetas de país: [início, fim] em segundos do vídeo. */
@@ -190,9 +170,8 @@ export const ETIQUETAS: {
   { pais: "israel", de: 36.6, ate: 40.5, rotulo: "Estande" },
   { pais: "croacia", de: 50.55, ate: 52.45 },
   { pais: "indonesia", de: 53.0, ate: 56.05 },
-  { pais: "portugal", de: 56.6, ate: 59.2, rotulo: "Apresentação" },
-  { pais: "cuba", de: 59.45, ate: 61.1 },
-  { pais: "gambia", de: 61.6, ate: 64.9 },
+  { pais: "portugal", de: 56.6, ate: 61.1, rotulo: "Apresentação" },
+  { pais: "nigeria", de: 61.6, ate: 64.9 },
 ];
 
 const w = (list: [string, number, number][]): CaptionWord[] =>
