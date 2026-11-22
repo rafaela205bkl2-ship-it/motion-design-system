@@ -30,7 +30,8 @@ A pasta do Drive não continha projeto editável (Premiere/AE/DaVinci/CapCut) ne
 - Lower thirds: **Pastor — Gerson Soares** e **Repórter — César Maju** (`TEXTOS` em `dados.ts`).
 - Encerramento: logo da Igreja Evangélica Assembleia de Deus em Salvador (arquivo enviado pela produção), separada em camadas
   em `public/producoes/feira-das-nacoes-2026/imagens/logo-*.png`: livro e textos recoloridos (branco/dourado) para o fundo roxo,
-  chama-pomba com o degradê original; a pomba entra voando e bate a asa (`LogoAssembleia` em `cenas/Graficos.tsx`).
+  chama-pomba com o degradê original. Ao lado, a logo da SEMADESAL (`semadesal-*.png`), no mesmo tratamento; as duas
+  recebem o mesmo movimento: a pomba entra voando e bate a asa (`LogoAnimada` em `cenas/Graficos.tsx`).
 
 ## A confirmar
 - Transcrição do trecho "Assembleia de Deus, Sede Paralela" (o áudio soa como "Igreja de Deus, sede paralela").
