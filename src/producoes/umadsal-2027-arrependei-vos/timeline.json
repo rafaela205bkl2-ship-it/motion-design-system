@@ -1,0 +1,164 @@
+{
+  "titulo": "UMADSAL 2027 Arrependei-vos",
+  "slug": "umadsal-2027-arrependei-vos",
+  "fps": 30,
+  "estilo": "base",
+  "trilha": "audio/filme-mix.wav",
+  "cenas": [
+    {
+      "id": "cena-1",
+      "nome": "Escuridão",
+      "duracao": 5,
+      "transicao": "corte",
+      "visual": "tela preta; poeira suspensa num feixe de luz que nasce devagar; drone grave"
+    },
+    {
+      "id": "cena-2",
+      "nome": "Identificação",
+      "duracao": 4,
+      "transicao": "corte",
+      "texto": "UMADSAL 2027",
+      "visual": "tipografia da identidade (grotesca itálica, espaçamento largo), luz varre o texto"
+    },
+    {
+      "id": "cena-3",
+      "nome": "Silêncio",
+      "duracao": 2,
+      "transicao": "corte",
+      "visual": "preto; crescendo de cordas; lampejos de 2 quadros do lettering"
+    },
+    {
+      "id": "cena-4",
+      "nome": "Arrependei-vos",
+      "duracao": 8.8,
+      "transicao": "corte",
+      "imagem": "imagens/lettering-arrependei-vos.png",
+      "visual": "impacto (tímpano, gongo); lettering oficial com halo de luz, brasas subindo"
+    },
+    {
+      "id": "cena-5",
+      "nome": "Impérios",
+      "duracao": 10.2,
+      "transicao": "corte",
+      "imagem": "imagens/escola-de-atenas.jpg",
+      "visual": "Rafael, A Escola de Atenas; grua descendo pela arquitetura até os filósofos"
+    },
+    {
+      "id": "cena-6",
+      "nome": "Arte, ciência e história",
+      "duracao": 7.5,
+      "transicao": "corte",
+      "imagem": "imagens/homem-vitruviano.jpg",
+      "visual": "substituições rápidas de detalhes (Vitruviano, manuscrito, Atenas) a cada batida"
+    },
+    {
+      "id": "cena-7",
+      "nome": "Michelangelo",
+      "duracao": 16,
+      "transicao": "corte",
+      "imagem": "imagens/criacao-de-adao.jpg",
+      "visual": "travelling pelo braço de Adão até o vão entre os dedos"
+    },
+    {
+      "id": "cena-8",
+      "nome": "Interrompida",
+      "duracao": 4.5,
+      "transicao": "corte",
+      "visual": "a imagem se parte ao meio no vão dos dedos; rachadura; silêncio"
+    },
+    {
+      "id": "cena-9",
+      "nome": "Éden",
+      "duracao": 8,
+      "transicao": "corte",
+      "imagem": "imagens/expulsao-michelangelo.jpg",
+      "visual": "Expulsão (Michelangelo e Masaccio), grade azul-noite, pulsação de tímpano"
+    },
+    {
+      "id": "cena-10",
+      "nome": "Deus nunca deixou de chamar",
+      "duracao": 6,
+      "transicao": "corte",
+      "texto": "UMA GERAÇÃO.",
+      "visual": "a mão do Criador volta em luz dourada"
+    },
+    {
+      "id": "cena-11",
+      "nome": "A geração",
+      "duracao": 12,
+      "transicao": "corte",
+      "visual": "montagem rítmica de rostos das pinturas, ostinato de cordas"
+    },
+    {
+      "id": "cena-12",
+      "nome": "Não é sobre",
+      "duracao": 19.5,
+      "transicao": "corte",
+      "texto": "APARÊNCIAS / ENTREGA.",
+      "apoio": "CONVENIÊNCIA / RENÚNCIA. · DIANTE DOS HOMENS / DIANTE DE DEUS.",
+      "visual": "tipografia cinética; a primeira palavra é riscada e a segunda nasce em vermelho"
+    },
+    {
+      "id": "cena-13",
+      "nome": "O chamado ecoa",
+      "duracao": 4.5,
+      "transicao": "corte",
+      "visual": "match cut da mão pintada para a mão gravada da camisa 2027"
+    },
+    {
+      "id": "cena-14",
+      "nome": "Voltar",
+      "duracao": 8,
+      "transicao": "corte",
+      "imagem": "imagens/filho-prodigo.jpg",
+      "visual": "Rembrandt, o Retorno do Filho Pródigo; mãos do pai, luz dourada"
+    },
+    {
+      "id": "cena-15",
+      "nome": "É tempo",
+      "duracao": 12.5,
+      "transicao": "corte",
+      "texto": "VOLTAR. RECONHECER. ARREPENDER.",
+      "visual": "detalhes da identidade (gravura, estrelas, paleta, lettering) em revelações progressivas"
+    },
+    {
+      "id": "cena-16",
+      "nome": "Revelação",
+      "duracao": 8,
+      "transicao": "corte",
+      "imagem": "imagens/lettering-arrependei-vos.png",
+      "visual": "clímax; da escuridão para a luz; lettering oficial construído linha a linha"
+    },
+    {
+      "id": "cena-17",
+      "nome": "Atos 3:19",
+      "duracao": 8,
+      "transicao": "corte",
+      "texto": "ATOS 3:19",
+      "visual": "versículo oficial da camisa, palavra por palavra"
+    },
+    {
+      "id": "cena-18",
+      "nome": "A camisa",
+      "duracao": 8,
+      "transicao": "corte",
+      "imagem": "imagens/camisas-2027.jpg",
+      "visual": "estampa em macro, grua pela estampa, abertura até as duas camisas"
+    },
+    {
+      "id": "cena-19",
+      "nome": "Umadsal",
+      "duracao": 6,
+      "transicao": "corte",
+      "imagem": "imagens/umadsal-logo.png",
+      "visual": "símbolo oficial sobre papel preto, logotipo completo e 2027"
+    },
+    {
+      "id": "cena-20",
+      "nome": "Assinatura",
+      "duracao": 11.5,
+      "texto": "O CHAMADO PARA VOLTAR AO PRINCÍPIO.",
+      "visual": "cartão final em luz: lettering oficial e assinatura; acorde maior final"
+    }
+  ]
+}

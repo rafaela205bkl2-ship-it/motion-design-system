@@ -373,6 +373,134 @@ export const catalog: CatalogEntry[] = [
     description: "Ciclo de cores dentro da cena por expansões radiais.",
     props: ["steps[{color, at}]", "origin", "duration", "easing", "softness"],
   },
+  // ------------------------------------------------------------ cinema
+  {
+    name: "keyframeAt",
+    kind: "utilitário",
+    file: "src/motion/cinema/keyframes.ts",
+    description:
+      "Valor de uma propriedade em quadros-chave (segundos), com curva por trecho.",
+    props: ["keys", "prop", "t", "fallback", "easing"],
+    example: 'keyframeAt([{ t: 0, x: 0.2 }, { t: 4, x: 0.8 }], "x", t, 0.5)',
+  },
+  {
+    name: "CameraPlate",
+    kind: "camada",
+    file: "src/motion/cinema/CameraPlate.tsx",
+    description:
+      "Câmera virtual sobre imagem fixa: pan, zoom, giro, foco e brilho por quadros-chave (ponto focal em fração da imagem).",
+    props: [
+      "src",
+      "size",
+      "keys[{t, x, y, zoom, rotate, blur, brightness, opacity}]",
+      "easing",
+      "clamp",
+      "filter",
+      "speed",
+    ],
+    example:
+      '<CameraPlate src={staticFile("x.jpg")} size={[3600, 2400]} keys={[{ t: 0, x: 0.3, zoom: 1.4 }, { t: 6, x: 0.6, zoom: 1.1 }]} />',
+  },
+  {
+    name: "FilmLook",
+    kind: "camada",
+    file: "src/motion/cinema/FilmLook.tsx",
+    description:
+      "Acabamento de película sobre a cena: grão vivo, vinheta, flicker, gate weave, tingimento e letterbox animável.",
+    props: [
+      "grain",
+      "vignette",
+      "flicker",
+      "weave",
+      "tint",
+      "tintStrength",
+      "letterbox",
+      "ratio",
+    ],
+    example: "<FilmLook grain={0.16} letterbox={1}>{cena}</FilmLook>",
+  },
+  {
+    name: "LightRays",
+    kind: "camada",
+    file: "src/motion/cinema/LightRays.tsx",
+    description:
+      "Raios de luz (god rays) a partir de um ponto: feixes irregulares, giro lento, queda por distância.",
+    props: [
+      "origin",
+      "color",
+      "intensity",
+      "rays",
+      "spread",
+      "direction",
+      "reach",
+      "spin",
+      "softness",
+      "delay",
+      "fadeIn",
+    ],
+    example:
+      "<LightRays origin={[0.8, -0.1]} direction={200} spread={60} intensity={0.45} />",
+  },
+  {
+    name: "Particles",
+    kind: "camada",
+    file: "src/motion/cinema/Particles.tsx",
+    description:
+      "Partículas determinísticas: poeira num feixe de luz, brasas subindo, pó dourado.",
+    props: [
+      "count",
+      "color",
+      "size",
+      "speed",
+      "angle",
+      "wobble",
+      "opacity",
+      "twinkle",
+      "area",
+      "glow",
+      "delay",
+      "fadeIn",
+    ],
+    example: '<Particles count={50} angle={-90} speed={30} color="#FFB36B" />',
+  },
+  {
+    name: "Shine",
+    kind: "componente",
+    file: "src/motion/cinema/Shine.tsx",
+    description:
+      "Faixa de luz que varre um elemento respeitando a forma dele (texto, logotipo, lettering).",
+    props: ["at", "duration", "angle", "width", "intensity", "easing"],
+    example: "<Shine at={1.2}><Img src={logo} /></Shine>",
+  },
+  {
+    name: "MaskReveal",
+    kind: "componente",
+    file: "src/motion/cinema/MaskReveal.tsx",
+    description:
+      "Revelação por máscara de borda suave numa direção (ou do centro), com desfoque inicial opcional.",
+    props: ["at", "duration", "direction", "softness", "easing", "blurFrom"],
+    example:
+      '<MaskReveal at={0.5} direction="right"><Img src={logo} /></MaskReveal>',
+  },
+  {
+    name: "Flash",
+    kind: "camada",
+    file: "src/motion/cinema/Flash.tsx",
+    description:
+      "Clarão de tela inteira em instantes definidos (impactos, cortes de trailer).",
+    props: ["at[]", "color", "attack", "decay", "peak", "blend"],
+    example: "<Flash at={[11, 128.5]} decay={0.6} />",
+  },
+  {
+    name: "TextStrike",
+    kind: "componente",
+    file: "src/motion/cinema/TextStrike.tsx",
+    description:
+      "Risco que atravessa um texto num instante, esmaecendo o que foi riscado.",
+    props: ["at", "duration", "color", "thickness", "y", "extend", "dimTo"],
+    example:
+      '<TextStrike at={1.6}><TextReveal text="APARÊNCIAS" /></TextStrike>',
+  },
   // ------------------------------------------------------------ layout
   {
     name: "useLayout",

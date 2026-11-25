@@ -219,6 +219,28 @@ Props: `from` (`top`, `bottom`, `left`, `right`, `none`), `distance`, `delay`, `
 </AbsoluteFill>
 ```
 
+### Cinema (`src/motion/cinema/`)
+
+Recursos para filmes, trailers e lançamentos de marca. Nasceram do filme UMADSAL 2027 e das referências ref-003/ref-004.
+
+| Componente | Para quê | Exemplo |
+| --- | --- | --- |
+| `CameraPlate` | câmera virtual sobre imagem fixa: pan, zoom, giro, foco e brilho por quadros-chave em segundos (ponto focal em fração da imagem) | `<CameraPlate src={img} size={[3600, 2400]} keys={[{ t: 0, x: 0.3, zoom: 1.4 }, { t: 6, x: 0.6, zoom: 1.1 }]} />` |
+| `FilmLook` | acabamento de película: grão vivo, vinheta, flicker, gate weave, tingimento e letterbox animável | `<FilmLook letterbox={1} grain={0.15}>{cena}</FilmLook>` |
+| `LightRays` | raios de luz (god rays) a partir de um ponto, com leque, alcance e giro | `<LightRays origin={[0.8, -0.2]} direction={210} spread={40} />` |
+| `Particles` | poeira num feixe de luz, brasas, pó dourado (determinístico) | `<Particles angle={-90} speed={40} color="#FF8A3D" />` |
+| `Shine` | faixa de luz que varre um elemento respeitando a forma dele | `<Shine at={1.2}><Img src={logo} /></Shine>` |
+| `MaskReveal` | revelação por máscara de borda suave (direção ou centro), com desfoque inicial | `<MaskReveal at={0.5} direction="down" blurFrom={10}>…</MaskReveal>` |
+| `Flash` | clarão de tela inteira em instantes definidos | `<Flash at={[11, 128.5]} decay={0.6} />` |
+| `TextStrike` | risco que atravessa um texto e o esmaece ("não é isto…") | `<TextStrike at={1.6}><TextReveal text="APARÊNCIAS" /></TextStrike>` |
+| `keyframeAt` | interpolação de quadros-chave em segundos, com curva por trecho | `keyframeAt(keys, "x", t, 0.5)` |
+
+**Montagem em tempo absoluto:** para peças longas sincronizadas com música, veja o padrão `Plano` + `cues.json`
+em `src/producoes/umadsal-2027-arrependei-vos/tempo.tsx`.
+
+**Render sem acesso direto à internet:** o Chrome do Remotion é aberto com `--no-proxy-server` e não baixa Google Fonts
+atrás de proxy. Nesse caso, passe um `--browser-executable` que repasse o proxy ao Chrome, ou use fontes locais.
+
 ## Demonstração e trilha
 
 - **Linha do tempo única:** `src/demo/timeline.json` define cenas, transições e marcações. As cenas leem os tempos por `cue('energia', 'capsule')`, e `scripts/gerar-trilha.py` lê o mesmo arquivo para posicionar os efeitos sonoros.

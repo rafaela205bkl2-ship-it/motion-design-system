@@ -30,3 +30,7 @@ npm-debug.log*
 .idea
 *.swp
 Thumbs.db
+
+# Mix sem compressão da trilha (regerável; os stems em FLAC ficam versionados)
+public/producoes/*/audio/*.wav
+.stills.mjs

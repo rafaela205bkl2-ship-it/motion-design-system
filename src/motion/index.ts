@@ -73,3 +73,23 @@ export type { ColorBloomProps, BloomStep } from "./layers/ColorBloom";
 // Layout responsivo (da base existente)
 export { useLayout, getFormat, FORMATS } from "../lib/layout";
 export type { FormatName, PerFormat } from "../lib/layout";
+
+// Cinema (filmes, trailers, lançamentos de marca)
+export { keyframeAt } from "./cinema/keyframes";
+export type { Keyframe } from "./cinema/keyframes";
+export { CameraPlate } from "./cinema/CameraPlate";
+export type { CameraPlateProps, CameraKey } from "./cinema/CameraPlate";
+export { FilmLook } from "./cinema/FilmLook";
+export type { FilmLookProps } from "./cinema/FilmLook";
+export { LightRays } from "./cinema/LightRays";
+export type { LightRaysProps } from "./cinema/LightRays";
+export { Particles } from "./cinema/Particles";
+export type { ParticlesProps } from "./cinema/Particles";
+export { Shine } from "./cinema/Shine";
+export type { ShineProps } from "./cinema/Shine";
+export { MaskReveal } from "./cinema/MaskReveal";
+export type { MaskRevealProps } from "./cinema/MaskReveal";
+export { Flash } from "./cinema/Flash";
+export type { FlashProps } from "./cinema/Flash";
+export { TextStrike } from "./cinema/TextStrike";
+export type { TextStrikeProps } from "./cinema/TextStrike";
