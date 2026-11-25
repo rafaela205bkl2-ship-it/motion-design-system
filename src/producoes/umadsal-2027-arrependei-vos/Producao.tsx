@@ -1,7 +1,8 @@
 /**
  * Produção "umadsal-2027-arrependei-vos" — filme de lançamento da identidade UMADSAL 2027.
- * Criada com `npm run nova-producao`; as cenas do animatic foram substituídas por cenas próprias
- * (cenas/Ato1–4.tsx), feitas com a biblioteca src/motion.
+ * Versão 2: 60 s, 120 BPM, montagem dinâmica no estilo das referências ref-003 e ref-004.
+ * Criada com `npm run nova-producao`; as cenas foram substituídas por cenas próprias (cenas/Blocos.tsx),
+ * feitas com a biblioteca src/motion.
  *
  * Montagem em tempo absoluto: cues.json é a fonte única (vídeo + trilha).
  * A narração NÃO está aqui: as janelas para ela estão em cues.json → "narracao"
@@ -9,27 +10,18 @@
  */
 import { Audio } from "@remotion/media";
 import React from "react";
+import { AbsoluteFill } from "remotion";
+import { FilmLook, MotionProvider, PaletteWipe } from "../../motion";
 import {
-  AbsoluteFill,
-  interpolate,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
-import { FilmLook, MotionProvider } from "../../motion";
-import { Abertura, Arrependei } from "./cenas/Ato1";
-import {
-  ArteCiencia,
-  Chamar,
-  Eden,
-  Geracao,
-  Imperios,
+  Abertura,
+  Chamado,
   Interrompida,
-  Michelangelo,
-  NaoESobre,
-  TituloGeracao,
-} from "./cenas/Ato2";
-import { ETempo, Ecoa, Voltar } from "./cenas/Ato3";
-import { Assinatura, Camisa, Revelacao, Umadsal } from "./cenas/Ato4";
+  Maos,
+  Objetos,
+  Pares,
+  Revelacao,
+  Tempo,
+} from "./cenas/Blocos";
 import { COR, TRILHA, tema } from "./marca";
 import { CUES, HIT, Plano } from "./tempo";
 
@@ -37,93 +29,56 @@ export const DURACAO = Math.round(CUES.duracao * CUES.fps);
 
 const Filme: React.FC = () => (
   <AbsoluteFill style={{ background: COR.preto }}>
-    {/* ATO 1 — O CHAMADO */}
-    <Plano de={0} ate={11} nome="abertura">
+    <Plano de={0} ate={6.4} nome="abertura">
       <Abertura />
     </Plano>
-    <Plano de={HIT.arrependei} ate={19.9} sai={1.1} nome="arrependei">
-      <Arrependei />
+    <Plano de={HIT.objetos} ate={14.4} nome="objetos">
+      <Objetos />
     </Plano>
-    {/* ATO 2 — A MENSAGEM */}
-    <Plano de={19.8} ate={30.6} entra={1.2} nome="imperios">
-      <Imperios />
+    <Plano de={HIT.maos} ate={HIT.interrompida} nome="maos">
+      <Maos />
     </Plano>
-    <Plano de={30} ate={38.4} nome="arte-ciencia">
-      <ArteCiencia />
-    </Plano>
-    <Plano de={37.5} ate={53.7} entra={0.9} nome="michelangelo">
-      <Michelangelo />
-    </Plano>
-    <Plano de={53.5} ate={58} entra={0.15} nome="interrompida">
+    <Plano de={HIT.interrompida} ate={HIT.chamado} nome="interrompida">
       <Interrompida />
     </Plano>
-    <Plano de={58} ate={66.4} entra={0.6} nome="eden">
-      <Eden />
+    <Plano de={HIT.chamado} ate={34.3} nome="chamado">
+      <Chamado />
     </Plano>
-    <Plano de={66} ate={72.6} entra={0.4} nome="chamar">
-      <Chamar />
+    <Plano de={HIT.par1a} ate={HIT.tempo1} nome="pares">
+      <Pares />
     </Plano>
-    <Plano de={72} ate={84.6} nome="geracao">
-      <Geracao />
+    <Plano de={HIT.tempo1} ate={HIT.climax} nome="tempo">
+      <Tempo />
     </Plano>
-    <Plano de={84} ate={103.8} entra={0.8} nome="nao-e-sobre">
-      <NaoESobre />
-    </Plano>
-    <Plano de={70.4} ate={74.6} nome="titulo-geracao">
-      <TituloGeracao />
-    </Plano>
-    {/* ATO 3 — A IDENTIDADE */}
-    <Plano de={103.5} ate={108.6} entra={0.6} nome="ecoa">
-      <Ecoa />
-    </Plano>
-    <Plano de={108} ate={116.4} entra={1.0} nome="voltar">
-      <Voltar />
-    </Plano>
-    <Plano de={116} ate={HIT.corteClimax} nome="e-tempo">
-      <ETempo />
-    </Plano>
-    {/* ATO 4 — A REVELAÇÃO */}
-    <Plano de={HIT.climax} ate={144.5} nome="revelacao">
+    <Plano de={HIT.climax} ate={CUES.duracao} sai={0.6} nome="revelacao">
       <Revelacao />
     </Plano>
-    <Plano de={HIT.camisa} ate={152.6} nome="camisa">
-      <Camisa />
-    </Plano>
-    <Plano de={HIT.logo} ate={158.9} sai={0.7} nome="umadsal">
-      <Umadsal />
-    </Plano>
-    <Plano de={158.7} ate={170} entra={0.8} sai={1.4} nome="assinatura">
-      <Assinatura />
-    </Plano>
+    {/* transições com as cores oficiais do PDF */}
+    <PaletteWipe
+      at={HIT.objetos}
+      colors={[COR.ouro, COR.vinho, COR.navy]}
+      duration={0.6}
+    />
+    <PaletteWipe
+      at={HIT.maos}
+      colors={[COR.navy, COR.ouro, COR.creme]}
+      duration={0.6}
+      direction="left"
+    />
+    <PaletteWipe
+      at={HIT.par1a}
+      colors={[COR.vinho, COR.ouro, COR.creme]}
+      duration={0.5}
+      direction="up"
+    />
   </AbsoluteFill>
 );
 
-const Master: React.FC = () => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const t = frame / fps;
-  // a tela se abre no clímax: fim do letterbox 2,39:1
-  const lb = interpolate(t, [HIT.climax, HIT.climax + 0.9], [1, 0], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-  const luz = 1 - lb; // ato 4: menos grão e vinheta (marca limpa)
-  return (
-    <FilmLook
-      letterbox={lb}
-      grain={0.15 - 0.08 * luz}
-      vignette={0.48 - 0.24 * luz}
-      flicker={0.022 * (1 - luz)}
-      weave={0.7 - 0.4 * luz}
-    >
-      <Filme />
-    </FilmLook>
-  );
-};
-
 export const Producao = () => (
   <MotionProvider theme={tema}>
-    <Master />
+    <FilmLook grain={0.12} vignette={0.3} flicker={0.01} weave={0.4}>
+      <Filme />
+    </FilmLook>
     <Audio src={TRILHA} />
   </MotionProvider>
 );

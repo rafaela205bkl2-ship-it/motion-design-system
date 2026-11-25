@@ -42,6 +42,8 @@ export type CameraPlateProps = {
   readonly filter?: string;
   /** Multiplica a velocidade de todos os quadros-chave. */
   readonly speed?: number;
+  /** Tamanho do quadro da câmera em px de design [largura, altura] (padrão: a tela inteira). Para mosaicos e janelas. */
+  readonly viewport?: readonly [number, number];
   readonly style?: React.CSSProperties;
   readonly children?: React.ReactNode;
 };
@@ -54,12 +56,15 @@ export const CameraPlate: React.FC<CameraPlateProps> = ({
   clamp = true,
   filter,
   speed = 1,
+  viewport,
   style,
   children,
 }) => {
   const frame = useCurrentFrame();
-  const { width: W, height: H } = useVideoConfig();
+  const video = useVideoConfig();
   const m = useMotion();
+  const W = viewport ? m.px(viewport[0]) : video.width;
+  const H = viewport ? m.px(viewport[1]) : video.height;
   const t = (frame / m.fps) * speed;
   const [iw, ih] = size;
   const k = (p: string, d: number) =>

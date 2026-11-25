@@ -501,6 +501,38 @@ export const catalog: CatalogEntry[] = [
     example:
       '<TextStrike at={1.6}><TextReveal text="APARÊNCIAS" /></TextStrike>',
   },
+  {
+    name: "PaletteWipe",
+    kind: "transição",
+    file: "src/motion/cinema/PaletteWipe.tsx",
+    description:
+      "Faixas com as cores da paleta atravessam a tela, cobrem o quadro em `at` e revelam a próxima cena.",
+    props: ["at", "colors[]", "duration", "direction", "stagger", "easing"],
+    example:
+      '<PaletteWipe at={6} colors={["#CB8E16", "#4E0000", "#13273F"]} />',
+  },
+  {
+    name: "TechBox",
+    kind: "componente",
+    file: "src/motion/cinema/TechBox.tsx",
+    description:
+      "Caixa técnica de detecção que se desenha, com marcas nos cantos e rótulo (estilo ref-004).",
+    props: [
+      "x",
+      "y",
+      "w",
+      "h",
+      "at",
+      "duration",
+      "exitAt",
+      "color",
+      "stroke",
+      "label",
+      "font",
+    ],
+    example:
+      '<TechBox x={300} y={380} w={340} h={200} at={1} label="FIG. 01" />',
+  },
   // ------------------------------------------------------------ layout
   {
     name: "useLayout",

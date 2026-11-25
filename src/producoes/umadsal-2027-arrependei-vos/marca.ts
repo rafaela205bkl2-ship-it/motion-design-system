@@ -113,4 +113,83 @@ export const IMG = {
   },
 };
 
+/** Objetos recortados (The Met Open Access, CC0) e fragmentos das pinturas/estampa. Créditos: objetos/creditos.json */
+export const OBJ = {
+  ampulheta: {
+    src: asset("objetos/ampulheta.png"),
+    size: [554, 1661] as const,
+  },
+  "astrolabio-1462": {
+    src: asset("objetos/astrolabio-1462.png"),
+    size: [931, 1271] as const,
+  },
+  "astrolabio-1654": {
+    src: asset("objetos/astrolabio-1654.png"),
+    size: [833, 1239] as const,
+  },
+  "cabeca-marmore": {
+    src: asset("objetos/cabeca-marmore.png"),
+    size: [858, 1253] as const,
+  },
+  "calice-1230": {
+    src: asset("objetos/calice-1230.png"),
+    size: [1018, 1351] as const,
+  },
+  "calice-1400": {
+    src: asset("objetos/calice-1400.png"),
+    size: [1014, 1431] as const,
+  },
+  "calice-1460": {
+    src: asset("objetos/calice-1460.png"),
+    size: [761, 1496] as const,
+  },
+  "elmo-1535": {
+    src: asset("objetos/elmo-1535.png"),
+    size: [1300, 1375] as const,
+  },
+  "elmo-1550": {
+    src: asset("objetos/elmo-1550.png"),
+    size: [1400, 1362] as const,
+  },
+  "elmo-dourado": {
+    src: asset("objetos/elmo-dourado.png"),
+    size: [1135, 1336] as const,
+  },
+  "espada-1400": {
+    src: asset("objetos/espada-1400.png"),
+    size: [363, 1519] as const,
+  },
+  "globo-celeste": {
+    src: asset("objetos/globo-celeste.png"),
+    size: [894, 1069] as const,
+  },
+  "gravura-mao-criador": {
+    src: asset("objetos/gravura-mao-criador.png"),
+    size: [264, 290] as const,
+  },
+  "gravura-mao-humana": {
+    src: asset("objetos/gravura-mao-humana.png"),
+    size: [327, 331] as const,
+  },
+  lira: { src: asset("objetos/lira.png"), size: [719, 1750] as const },
+  "mao-adao": { src: asset("objetos/mao-adao.png"), size: [432, 202] as const },
+  "mao-criador": {
+    src: asset("objetos/mao-criador.png"),
+    size: [292, 161] as const,
+  },
+  "medalha-1749": {
+    src: asset("objetos/medalha-1749.png"),
+    size: [894, 905] as const,
+  },
+  "moeda-ouro": {
+    src: asset("objetos/moeda-ouro.png"),
+    size: [764, 715] as const,
+  },
+  "relogio-1565": {
+    src: asset("objetos/relogio-1565.png"),
+    size: [574, 974] as const,
+  },
+};
+export type ObjNome = keyof typeof OBJ;
+
 export const TRILHA = asset("audio/filme-mix.mp3");

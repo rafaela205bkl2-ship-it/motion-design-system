@@ -1,5 +1,5 @@
 """
-Trilha original do filme UMADSAL 2027 | ARREPENDEI-VOS.
+Trilha original do filme UMADSAL 2027 | ARREPENDEI-VOS (versão 2: 60 s, 120 BPM).
 
 Composição em código + sampler próprio (numpy/scipy) tocando amostras orquestrais REAIS
 da biblioteca Versilian Community Sample Library (VSCO-2-CE, licença CC0 / domínio público).
@@ -402,214 +402,222 @@ def impact(t, big=True, key="D"):
     sub_boom(t, gain=0.9 if big else 0.6)
 
 
-# ================================================================== PARTITURA
+# ================================================================== PARTITURA (versão 2 — 60 s, 120 BPM)
 print("compondo…")
 H = HIT
+B = 60 / CUES["bpm"]  # 0,5 s por batida; compasso de 4 batidas = 2 s
 
-# ---------------------------------------------------------- ATO 1 — O CHAMADO (0–19,8)
-# A ordem importa: tudo o que soa ANTES de um silêncio estratégico é escrito antes do cut().
-drone(0, H["corteSilencio"], gain=0.10, att=6)
-room_tone(0, 11, 0.03)
-note(CB, 0.0, H["corteSilencio"], 38, 0.35, att=5.5, rel=0.1)
-note(VC, 1.0, H["corteSilencio"] - 1.0, 50, 0.3, att=5.0, rel=0.1, pan=0.3)
-note(VLN, 3.0, H["corteSilencio"] - 3.0, 81, 0.15, att=3.5, rel=0.1, pan=-0.3, gain=0.5)
-# "UMADSAL 2027": harpa grave + violino solo
-for m, dt in [(38, 0.0), (45, 0.07), (50, 0.14)]:
-    note(HARP, H["identificacao"] + dt, 3.0, m, 0.35, 0.003, 2.0, bus="harpa", pan=-0.3)
-note(SOLO, H["identificacao"], 3.8, 74, 0.35, att=1.4, rel=1.2, bus="solo")
-# crescendo para o corte
-t0 = 8.4
+
+def tick(t, gain=0.06):
+    """Entrada de objeto: um 'swish' curto, como os da ref-003."""
+    whoosh(t + 0.05, 0.28, gain)
+
+
+def stab(t, vel=1.0):
+    note(CB_SPIC, t, 0.3, 38, vel, 0.002, 0.3, pan=0.3)
+    note(VC_SPIC, t, 0.3, 50, vel, 0.002, 0.3, pan=0.35)
+
+
+def groove(t0, t1, dyn="f", gain=0.6):
+    """Padrão de percussão épica por compasso: 1, 1e¾, 2, 3."""
+    t = t0
+    while t < t1 - 1e-6:
+        for dt, d in ((0, dyn), (0.75, "p"), (1.0, "mp"), (1.5, "p")):
+            if t + dt < t1:
+                bd(t + dt, d, gain)
+        t += 4 * B
+
+
+def glitch(t0, t1, gain=0.12):
+    """Gagueira digital: rajadas curtas de ruído filtrado em semicolcheias."""
+    t = t0
+    while t < t1:
+        if rng.random() < 0.7:
+            n = int(rng.uniform(0.03, 0.09) * SR)
+            x = rng.standard_normal((n, 2)).astype(np.float32)
+            f = rng.uniform(800, 5000)
+            sos = signal.butter(2, [f * 0.6, min(f * 1.6, SR / 2 - 100)], "bandpass", fs=SR, output="sos")
+            x = signal.sosfilt(sos, x, axis=0) * np.hanning(n)[:, None]
+            add("sfx", t, x.astype(np.float32), gain * rng.uniform(0.4, 1.0))
+        t += B / 4
+
+
+# ---------------------------------------------------------- ABERTURA (0–6)
+drone(0, H["corteAbertura"], gain=0.1, att=1.5)
+room_tone(0, 3.6, 0.03)
+note(CB, 0.0, H["corteAbertura"], 38, 0.35, att=1.5, rel=0.05)
+note(VC, 0.3, H["corteAbertura"] - 0.3, 50, 0.3, att=1.2, rel=0.05, pan=0.3)
+for m, dt in [(38, 0.0), (45, 0.06), (50, 0.12)]:
+    note(HARP, H["nome"] + dt, 2.0, m, 0.35, 0.003, 1.2, bus="harpa", pan=-0.3)
+note(SOLO, H["nome"], 1.6, 74, 0.35, att=0.4, rel=0.4, bus="solo")
+for k in range(4):  # relógio: o tempo correndo
+    note(VLN_SPIC, 0.5 + k * B, 0.15, 86, 0.25, 0.002, 0.1, pan=-0.2)
+t, k = H["strobe"], 0
+while t < H["corteAbertura"] - 0.01:  # strobe em semicolcheias
+    v = 0.3 + 0.6 * (t - H["strobe"]) / (H["corteAbertura"] - H["strobe"])
+    note(VLN_SPIC, t, 0.1, 86 if k % 2 else 81, v, 0.002, 0.08, pan=-0.3)
+    note(VC_SPIC, t, 0.1, 50, v, 0.002, 0.08, pan=0.3)
+    if k % 2 == 0:
+        tick(t, 0.05)
+    t += B / 4
+    k += 1
 for m in (74, 75, 81):
-    note(VLN_TREM, t0, H["corteSilencio"] - t0, m, 0.6, 0.3, 0.05, (0.05, 1.0, 2.2), pan=-0.3)
-note(VC_TREM, t0, H["corteSilencio"] - t0, 50, 0.6, 0.3, 0.05, (0.05, 1.0, 2.2), pan=0.3)
-one(TIMP_ROLL[0], t0, 0.5, semis=TIMP_ROLL[1], length=H["corteSilencio"] - t0)
-one(GONG, 0, 0.5, bus="sfx", reverse=True, end_at=H["corteSilencio"])
-noise_riser(t0, H["corteSilencio"], 0.3)
-cut(H["corteSilencio"], H["arrependei"] - 0.004)
+    note(VLN_TREM, H["strobe"], H["corteAbertura"] - H["strobe"], m, 0.6, 0.2, 0.03, (0.1, 1.0, 2.0), pan=-0.3)
+one(TIMP_ROLL[0], H["strobe"], 0.5, semis=TIMP_ROLL[1], length=H["corteAbertura"] - H["strobe"])
+one(GONG, 0, 0.45, bus="sfx", reverse=True, end_at=H["corteAbertura"])
+noise_riser(H["strobe"], H["corteAbertura"], 0.3)
+cut(H["corteAbertura"], H["arrependei"] - 0.004)
 
-# IMPACTO: ARREPENDEI-VOS
 T = H["arrependei"]
 impact(T, True, "D")
-for m in (38, 50):
-    note(CB_SPIC if m < 45 else VC_SPIC, T, 0.3, m, 1.0, 0.002, 0.3, pan=0.3)
-note(CB, T, 7.5, 38, 0.8, 0.02, 2.0, (1.0, 0.25))
-for m in (50, 57):
-    note(VC, T, 7.5, m, 0.75, 0.03, 2.0, (1.0, 0.25), pan=0.35)
-for m in (53, 57):
-    note(VLA, T, 7.5, m, 0.6, 0.05, 2.0, (1.0, 0.25), pan=0.1)
+stab(T)
+pad("Dm", T, 2.4, 0.8, 0.02, 0.6, cresc=(1.0, 0.35))
 for m in (81, 86):
-    note(VLN_TREM, T, 7.0, m, 0.85, 0.02, 2.0, (1.0, 0.08), pan=-0.35)
-whoosh(19.4, 1.8, 0.18)
+    note(VLN_TREM, T, 2.3, m, 0.8, 0.02, 0.6, (1.0, 0.2), pan=-0.35)
 
-# ---------------------------------------------------------- ATO 2 — A MENSAGEM
-# Impérios / arte, ciência e história (20–36): coral de cordas + harpa-alaúde
-progression([("Dm", 20, 4), ("Bb", 24, 4), ("Gm", 28, 4), ("Asus", 32, 2), ("A", 34, 2)], 0.28, 1.6,
-            voices=("cb", "vc", "vla"))
-progression([("Gm", 28, 4), ("Asus", 32, 2), ("A", 34, 2)], 0.2, 2.0, voices=("vln",))
-for ch, t, d in [("Dm", 21, 3), ("Bb", 24, 4), ("Gm", 28, 4), ("Asus", 32, 2), ("A", 34, 2)]:
-    harp(ch, t, d, 0.5, 0.26)
-one(TIMP_ROLL[0], 34.0, 0.25, semis=TIMP_ROLL[1], length=2.0)
+# ---------------------------------------------------------- OBJETOS (6–14): ostinato + um objeto por batida
+SEQ = [("Dm", 6), ("Bb", 8), ("Gm", 10), ("Asus", 12), ("A", 13)]
+for ch, t in SEQ:
+    d = 2 if t < 12 else 1
+    v = 0.45 + 0.03 * (t - 6)
+    ostinato("A" if ch == "Asus" else ch, t, d, v, VC_SPIC, 12, pan=0.3)
+    if t >= 8:
+        ostinato("A" if ch == "Asus" else ch, t, d, v * 0.85, VLA_SPIC, 24, pan=0.05, gain=0.8)
+    pad(ch, t, d + 0.15, 0.32, 0.15, 0.4, ("cb", "vla", "vln"))
+groove(6, 14, "f", 0.55)
+for o in CUES["objetos"]:
+    tick(o["t"])
+for k in ("ciencia", "historia"):
+    timp(H[k], "D", 0.8, 0.8)
+    one(CRASH_MP, H[k], 0.12)
+impact(H["transcende"], False, "A")
+note(SOLO, H["transcende"], 1.9, 81, 0.6, 0.05, 0.4, bus="solo")
+note(VLN, H["transcende"] + 1.0, 1.0, 85, 0.5, 0.05, 0.4, pan=-0.3)
+noise_riser(13.3, 14.0, 0.15)
 
-# Michelangelo (36–52,5): o tema "O Chamado"
-progression([("Dm", 36, 4), ("Bb", 40, 4), ("F", 44, 4), ("Asus", 48, 2), ("A", 50, 2.5)], 0.3, 0.8)
-for ch, t, d in [("Dm", 36, 4), ("Bb", 40, 4), ("F", 44, 4), ("Asus", 48, 2), ("A", 50, 2.5)]:
-    harp(ch, t, d, 0.5, 0.22, 12)
-THEME = [(0, 1, 69), (1, 2, 74), (3, 1, 76), (4, 3, 77), (7, 0.5, 76), (7.5, 0.5, 74),
-         (8, 2, 72), (10, 1, 69), (11, 1, 72), (12, 2, 74), (14, 2.5, 73)]
-melody([(36 + t, d, m) for t, d, m in THEME], SOLO, 0.5, double=(VLN, 0, 0.22))
-melody([(44, 2, 57), (46, 1, 53), (47, 1, 52), (48, 2, 50), (50, 2.5, 52)], VC, 0.4, "cordas", 0.35)
+# ---------------------------------------------------------- MÃOS (14–24): tema "O Chamado" no tempo do filme
+for ch, t in [("Dm", 14), ("Bb", 16), ("F", 18), ("C", 20), ("Dm", 22)]:
+    pad(ch, t, 2.15, 0.28, 0.3, 0.6)
+    harp(ch, t, 2.0, B / 2, 0.22, 12)
+    ostinato(ch, t, 2.0, 0.28, VC_SPIC, 12, step=B, pan=0.3)
+THEME2 = [(14.5, 0.5, 69), (15.0, 1.0, 74), (16.0, 0.5, 76), (16.5, 1.5, 77), (18.0, 0.25, 76), (18.25, 0.25, 74),
+          (18.5, 1.0, 72), (19.5, 0.5, 69), (20.0, 0.5, 72), (20.5, 1.0, 76), (21.5, 0.5, 74)]
+melody(THEME2, SOLO, 0.55, double=(VLN, 0, 0.25))
+for t in (H["caixas"], H["caixas"] + 0.25):
+    note(HARP, t, 1.0, 93, 0.35, 0.002, 0.6, bus="harpa", pan=0.3)
+for i in range(4):
+    note(HARP, H["diagrama"] + i * 0.2, 1.0, 88 + i * 2, 0.3, 0.002, 0.6, bus="harpa", pan=-0.2 + 0.15 * i)
+whoosh(H["espelho"], 0.6, 0.1)
+timp(H["espelho"], "D", 0.4, 0.5)
+for k, ch in (("deus", "Bb"), ("humanidade", "F")):
+    impact(H[k], False, "D" if k == "deus" else "A")
+    stab(H[k])
+    pad(ch, H[k], 1.2, 0.6, 0.02, 0.5)
+noise_riser(23.4, 24.0, 0.15)
 
-# Interrompida (52,5–58): esvazia, violino sozinho, rachadura, silêncio
-note(CB, 52.5, 4.0, 38, 0.35, 0.3, 0.3, (1.0, 0.2))
-note(VC, 52.5, 4.0, 50, 0.3, 0.3, 0.3, (1.0, 0.2), pan=0.35)
-note(SOLO, 52.6, 3.9, 86, 0.32, 0.6, 0.2, (1.0, 0.3), bus="solo")
-cut(H["rachadura"] - 0.1, H["rachadura"] - 0.002, 58.0)
+# ---------------------------------------------------------- INTERROMPIDA (24–28): dissonância, falha, rachadura, silêncio
+T = H["interrompida"]
+for inst, ms, pan in ((VC_TREM, (38, 39), 0.35), (VLA_TREM, (57, 58), 0.1), (VLN_TREM, (74, 75), -0.35)):
+    for m in ms:
+        note(inst, T, H["rachadura"] - T, m, 0.5, 0.05, 0.05, (0.5, 1.0, 1.5), pan=pan)
+for t in (24.0, 25.0, 26.0):
+    timp(t, "D", 0.55, 0.6)
+    timp(t + 0.3, "D", 0.35, 0.4)
+glitch(24.3, 26.9, 0.13)
+cut(H["rachadura"] - 0.05, H["rachadura"] - 0.002, H["chamado"])
 crack(H["rachadura"])
-room_tone(57.0, 66.5, 0.03)
+room_tone(27.0, 28.3, 0.03)
 
-# Éden (58–66): trêmulo grave em segunda menor, pulsação de tímpano
-note(CB, 58, 8.0, 38, 0.4, 1.5, 0.4, (0.6, 1.0))
-note(VC_TREM, 58, 8.0, 38, 0.35, 1.0, 0.4, (0.5, 1.0), pan=0.35)
-note(VC_TREM, 59, 7.0, 39, 0.3, 1.5, 0.4, (0.4, 0.9), pan=0.4)
-for m in (57, 58):
-    note(VLA_TREM, 60, 6.0, m, 0.25, 2.0, 0.4, (0.3, 0.8), pan=0.1)
-for t in (58.0, 60.0, 62.0, 64.0):
-    timp(t, "D", 0.45, 0.6)
-    timp(t + 0.3, "D", 0.3, 0.4)
-note(VLN, 63.5, 2.5, 69, 0.3, 2.0, 0.2, (0.2, 1.0, 1.6), pan=-0.3)
-
-# Deus nunca deixou de chamar (66–72): luz — Si bemol e Fá maiores
-T = H["luzVolta"]
-progression([("Bb", T, 3), ("F", T + 3, 3)], 0.4, 0.6, cresc_last=(1.0, 0.85))
+# ---------------------------------------------------------- CHAMADO (28–34): luz dourada → mosaico → "uma geração"
+T = H["chamado"]
+one(CRASH_MP, 0, 0.12, bus="sfx", reverse=True, end_at=T)
+pad("Bb", T, 2.6, 0.45, 0.25, 0.5)
+pad("F", 30.5, 2.1, 0.45, 0.2, 0.5)
 for i, m in enumerate([46, 53, 58, 62, 65, 70, 74, 77, 82, 86]):
-    note(HARP, T + i * 0.07, 3.0, m, 0.35, 0.003, 2.0, bus="harpa", pan=-0.4)
-melody([(66.5, 1, 69), (67.5, 1.5, 74), (69, 1, 76), (70, 1.2, 77), (71.2, 0.8, 76)], SOLO, 0.5, double=(VLN, 0, 0.2))
-one(CRASH_MP, T, 0.12, bus="sfx", reverse=True, end_at=T)
+    note(HARP, T + i * 0.06, 2.5, m, 0.35, 0.003, 1.5, bus="harpa", pan=-0.4)
+note(SOLO, T + 0.2, 2.2, 81, 0.5, 0.2, 0.3, bus="solo")
+note(SOLO, H["mosaico"], 1.9, 86, 0.55, 0.1, 0.3, bus="solo")
+for ch, t, d in (("F", 30.5, 1.5), ("C", 32.0, 0.5)):
+    ostinato(ch, t, d, 0.6, VC_SPIC, 12, pan=0.3)
+    ostinato(ch, t, d, 0.55, VLA_SPIC, 24, pan=0.05, gain=0.8)
+    ostinato(ch, t, d, 0.5, VLN_SPIC, 36, pan=-0.3, gain=0.6)
+groove(30.5, 32.5, "f", 0.6)
+impact(H["geracao"], False, "D")
+stab(H["geracao"])
+pad("Dm", H["geracao"], 1.6, 0.7, 0.02, 0.4, cresc=(1.0, 0.6))
 
-# A geração (72–104): ostinato de spiccato que cresce
-T = H["ostinato"]
-SEQ = [("Dm", 72), ("Bb", 76), ("F", 80), ("C", 84), ("Dm", 88), ("Bb", 92), ("F", 96), ("Gm", 100), ("A", 102)]
-for i, (ch, t) in enumerate(SEQ):
-    d = 4 if ch != "Gm" and ch != "A" else 2
-    if t == 100:
-        d = 2
-    v = 0.45 + 0.4 * (t - 72) / 30
-    ostinato(ch, t, d if t < 102 else 1.0, v, VC_SPIC, 12, pan=0.3)
-    if t >= 80:
-        ostinato(ch, t, d if t < 102 else 1.0, v * 0.9, VLA_SPIC, 24, pan=0.05, gain=0.8)
-    if t >= 88:
-        ostinato(ch, t, d if t < 102 else 1.0, v * 0.8, VLN_SPIC, 36, pan=-0.3, gain=0.6)
-    pad(ch, t, d + 0.2, 0.25 + 0.2 * (t - 72) / 30, 0.5, 1.0, ("cb", "vla") if t < 88 else ("cb", "vc", "vla", "vln"))
-    if t >= 80:
-        bd(t, "mp" if t < 88 else "f", 0.7)
-    if t >= 88:
-        for dt in (1.5, 2.0, 3.0, 3.5):
-            if t + dt < 103:
-                bd(t + dt, "p" if dt != 3.0 else "mp", 0.55)
-        timp(t, "D" if ch in ("Dm", "Bb", "Gm") else "A", 0.8, 0.8)
-one(CRASH_MP, 88, 0.25)
-# tema no alto
-melody([(88 + t, d, m) for t, d, m in THEME[:7]], SOLO, 0.62, double=(VLN, 0, 0.32))
-melody([(96, 2, 84), (98, 1, 86), (99, 1, 81), (100, 2, 86), (102, 1.5, 85)], SOLO, 0.66, double=(VLN, -12, 0.35))
-# acentos dos pares de palavras
-for k in ("par1", "par2", "par3"):
-    t = H[k]
-    timp(t, "D", 0.95, 0.9)
-    note(CB_SPIC, t, 0.3, 38, 1.0, 0.002, 0.3, pan=0.3)
-    note(VC_SPIC, t, 0.3, 50, 1.0, 0.002, 0.3, pan=0.35)
-    whoosh(t - 0.55, 0.9, 0.12)
-note(VLN, 102.5, 4.0, 86, 0.3, 0.6, 1.5, (1.0, 0.4), pan=-0.3)
-whoosh(103.4, 1.6, 0.12)
+# ---------------------------------------------------------- PARES (34–41): tensão → resposta
+for pa, pr, pb, chA, chB in (("par1a", "risco1", "par1b", "Dm", "Bb"), ("par2a", "risco2", "par2b", "Gm", "C")):
+    pad(chA, H[pa], H[pb] - H[pa] + 0.1, 0.35, 0.1, 0.2, ("cb", "vc", "vla"))
+    ostinato(chA if chA != "Gm" else "Gm", H[pa], H[pb] - H[pa], 0.4, VC_SPIC, 12, step=B / 2, pan=0.3)
+    one(TIMP_ROLL[0], H[pr] - 0.6, 0.45, semis=TIMP_ROLL[1], length=H[pb] - H[pr] + 0.6)
+    whoosh(H[pr] + 0.1, 0.45, 0.14)
+    impact(H[pb], False, "D" if chB == "Bb" else "A")
+    stab(H[pb])
+    pad(chB, H[pb], 1.7, 0.75, 0.02, 0.3, cresc=(1.0, 0.5))
+    note(SOLO, H[pb], 1.6, 86 if chB == "Bb" else 84, 0.65, 0.05, 0.3, bus="solo")
+    ostinato(chB, H[pb], 1.75, 0.6, VC_SPIC, 12, pan=0.3)
+    ostinato(chB, H[pb], 1.75, 0.55, VLA_SPIC, 24, pan=0.05, gain=0.8)
+    groove(H[pb], H[pb] + 1.75, "f", 0.55)
 
-# ---------------------------------------------------------- ATO 3 — A IDENTIDADE
-# O chamado ecoa / voltar (103,5–116): tema com eco, harpa
-progression([("Dm", 104, 4), ("Bb", 108, 4), ("F", 112, 4)], 0.27, 1.5)
-for ch, t, d in [("Bb", 108, 4), ("F", 112, 4)]:
-    harp(ch, t, d, 0.5, 0.24, 12)
-ECO = [(104.5, 1, 69), (105.5, 2, 74), (107.5, 1, 76), (108.5, 3, 77), (111.5, 0.5, 76), (112, 0.5, 74), (112.5, 2, 72), (114.5, 1, 69), (115.5, 1, 72)]
-melody(ECO, SOLO, 0.48)
-melody([(t + 0.75, d, m) for t, d, m in ECO], SOLO, 0.25, pan=0.35, gain=0.45)
-melody([(t + 1.5, d, m) for t, d, m in ECO], SOLO, 0.18, pan=-0.4, gain=0.25)
-
-# É tempo (116–128,5): três impactos e crescendo
-progression([("Dm", 116, 1)], 0.3, 0.6)
+# ---------------------------------------------------------- É TEMPO (41–48): ampulheta, três golpes, rajada, silêncio
 for k, ch, m in (("tempo1", "Dm", 81), ("tempo2", "Bb", 84), ("tempo3", "Gm", 86)):
     t = H[k]
-    timp(t, "D", 0.95, 1.0)
-    bd(t, "ff", 0.85)
-    sub_boom(t, gain=0.45)
-    for mm in (38, 50):
-        note(CB_SPIC if mm < 45 else VC_SPIC, t, 0.3, mm, 1.0, 0.002, 0.3, pan=0.3)
-    pad(ch, t, 3.0, 0.45, 0.06, 0.6)
-    note(SOLO, t, 3.0, m, 0.6, 0.1, 0.4, bus="solo")
-t0 = 124.0
+    impact(t, False, "D")
+    stab(t)
+    whoosh(t - 0.12, 0.4, 0.12)
+    pad(ch, t, 2.0 if k != "tempo3" else 1.5, 0.6, 0.02, 0.3)
+    note(SOLO, t, 1.9 if k != "tempo3" else 1.5, m, 0.65, 0.05, 0.3, bus="solo")
+t = H["tempo1"]
+while t < H["rajada"]:  # o relógio volta a correr
+    note(VLN_SPIC, t, 0.12, 86, 0.32, 0.002, 0.08, pan=-0.2)
+    t += B
+T0 = H["rajada"]
 for m in (74, 76, 77, 81):
-    note(VLN_TREM, t0, H["corteClimax"] - t0, m, 0.7, 0.2, 0.05, (0.15, 1.0, 2.0), pan=-0.3)
+    note(VLN_TREM, T0, H["corteClimax"] - T0, m, 0.75, 0.1, 0.03, (0.2, 1.0, 1.8), pan=-0.3)
 for m in (50, 57):
-    note(VC_TREM, t0, H["corteClimax"] - t0, m, 0.7, 0.2, 0.05, (0.15, 1.0, 2.0), pan=0.3)
-one(TIMP_ROLL[0], t0, 0.7, semis=TIMP_ROLL[1], length=H["corteClimax"] - t0)
-one(BD["roll"], t0, 0.5, length=H["corteClimax"] - t0)
-for t in (124, 125, 125.5, 126, 126.25, 126.5, 126.75, 127.0, 127.25):
-    timp(t, "D", 0.6 + 0.4 * (t - 124) / 3.25, 0.7)
-one(GONG, 0, 0.55, bus="sfx", reverse=True, end_at=H["corteClimax"])
-noise_riser(t0, H["corteClimax"], 0.35)
+    note(VC_TREM, T0, H["corteClimax"] - T0, m, 0.75, 0.1, 0.03, (0.2, 1.0, 1.8), pan=0.3)
+for t in (46.5, 46.75, 47.0, 47.125, 47.25, 47.375):
+    timp(t, "D", 0.7, 0.7)
+    tick(t, 0.05)
+one(GONG, 0, 0.5, bus="sfx", reverse=True, end_at=H["corteClimax"])
+noise_riser(T0, H["corteClimax"], 0.32)
 cut(H["corteClimax"], H["climax"] - 0.004)
 
-# ---------------------------------------------------------- ATO 4 — A REVELAÇÃO
+# ---------------------------------------------------------- REVELAÇÃO (48–60): tutti, camisa, logotipo, Ré maior
 T = H["climax"]
 impact(T, True, "D")
-CL = [("Dm", T, 4), ("Bb", T + 4, 4), ("F", T + 8, 4), ("C", T + 12, 4), ("Dm", T + 16, 4), ("Bb", T + 20, 4)]
-# 128,5–136,5: tutti forte | 136,5–144,5: respiração (Atos 3:19) | 144,5–152,5: reconstrução
-for i, (ch, t, d) in enumerate(CL):
-    vel = [0.85, 0.8, 0.5, 0.5, 0.65, 0.8][i]
-    pad(ch, t, d + 0.25, vel, 0.05 if i in (0, 4) else 0.4, 1.2)
-    if i in (2, 3):
-        harp(ch, t, d, 0.5, 0.3, 12)
-for k, (ch, t, d) in enumerate(CL):
-    if k in (0, 1):
-        ostinato(ch, t, d, 0.75, VC_SPIC, 12, pan=0.3)
-        ostinato(ch, t, d, 0.7, VLA_SPIC, 24, pan=0.05, gain=0.8)
-        for dt in (0, 1.5, 2.0, 3.0, 3.5):
-            bd(t + dt, "ff" if dt == 0 else "mp", 0.75)
-        timp(t, "D", 1.0, 0.9)
-    if k in (4, 5):
-        v = 0.55 if k == 4 else 0.8
-        ostinato(ch, t, d, v, VC_SPIC, 12, pan=0.3)
-        ostinato(ch, t, d, v * 0.9, VLA_SPIC, 24, pan=0.05, gain=0.8)
-        ostinato(ch, t, d, v * 0.8, VLN_SPIC, 36, pan=-0.3, gain=0.6)
-        for dt in (0, 1.5, 2.0, 3.0, 3.5):
-            bd(t + dt, "f" if dt == 0 else "p", 0.7)
-        timp(t, "D" if ch != "Bb" else "A", 0.9, 0.85)
-CLIMAX_THEME = [(0, 1, 81), (1, 2, 86), (3, 1, 88), (4, 3, 89), (7, 0.5, 88), (7.5, 0.5, 86),
-                (8, 2, 84), (10, 1, 81), (11, 1, 84), (12, 2, 88), (14, 1, 86), (15, 1, 84),
-                (16, 1, 81), (17, 2, 86), (19, 1, 88), (20, 2, 89), (22, 1, 91), (23, 1, 93)]
-melody([(T + t, d, m) for t, d, m in CLIMAX_THEME], SOLO, 0.8, double=(VLN, 0, 0.6), gain=1.1)
-melody([(T + t, d, m - 12) for t, d, m in CLIMAX_THEME], VLA, 0.55, "cordas", 0.1, 0.8)
-melody([(T + 8, 2, 57), (T + 10, 1, 53), (T + 11, 1, 55), (T + 12, 2, 52), (T + 14, 2, 55)], VC, 0.5, "cordas", 0.35)
-one(CRASH_MP, H["camisa"], 0.3)
-one(TIMP_ROLL[0], H["logo"] - 1.6, 0.6, semis=TIMP_ROLL[1], length=1.6)
-one(GONG, 0, 0.35, bus="sfx", reverse=True, end_at=H["logo"])
-
-# LOGO (152,5): Si bemol maior largo
+for ch, t in (("Dm", 48), ("Bb", 50), ("F", 52), ("C", 54)):
+    d = 2 if t < 54 else 0.5
+    pad(ch, t, d + 0.15, 0.8 if t < 52 else 0.7, 0.03, 0.4)
+    ostinato(ch, t, d, 0.75, VC_SPIC, 12, pan=0.3)
+    ostinato(ch, t, d, 0.7, VLA_SPIC, 24, pan=0.05, gain=0.8)
+    ostinato(ch, t, d, 0.6, VLN_SPIC, 36, pan=-0.3, gain=0.6)
+    timp(t, "D" if ch in ("Dm", "Bb") else "A", 0.9, 0.85)
+groove(48, 54.5, "ff", 0.65)
+THEME_C = [(48.0, 0.5, 81), (48.5, 1.0, 86), (49.5, 0.5, 88), (50.0, 1.5, 89), (51.5, 0.25, 88), (51.75, 0.25, 86),
+           (52.0, 1.0, 84), (53.0, 0.5, 81), (53.5, 0.5, 84), (54.0, 0.5, 88)]
+melody(THEME_C, SOLO, 0.8, double=(VLN, 0, 0.6), gain=1.1)
+melody([(t, d, m - 12) for t, d, m in THEME_C], VLA, 0.55, "cordas", 0.1, 0.8)
+one(CRASH_MP, H["camisa"], 0.25)
+one(GONG, 0, 0.3, bus="sfx", reverse=True, end_at=H["logo"])
 T = H["logo"]
 impact(T, True, "A")
-pad("Bb", T, 4.2, 0.85, 0.03, 1.5, cresc=(1.0, 0.45))
-note(CB, T, 4.2, 34, 0.9, 0.02, 1.5, (1.0, 0.4))
-note(SOLO, T, 4.0, 94, 0.75, 0.05, 1.0, (1.0, 0.5), bus="solo")
-note(VLN, T, 4.0, 82, 0.6, 0.05, 1.0, (1.0, 0.5), pan=-0.3)
-harp("Bb", T, 4.0, 0.25, 0.25, 12)
-# assinatura: Lá sus4 → Lá → Ré MAIOR (terça de Picardia)
-pad("Asus", T + 4, 2.1, 0.4, 0.6, 0.6)
-pad("A", T + 6, 2.1, 0.42, 0.4, 0.6)
-melody([(T + 4, 2, 86), (T + 6, 2, 85)], SOLO, 0.5)
-T = H["acordeFinal"]
-pad("D", T, 7.0, 0.5, 0.25, 2.5, cresc=(1.0, 0.35, 0.8))
-note(CB, T, 7.0, 38, 0.5, 0.3, 2.5, (1.0, 0.35))
-note(SOLO, T, 6.5, 90, 0.5, 0.4, 2.5, (1.0, 0.3), bus="solo")
+pad("Bb", T, 2.1, 0.85, 0.02, 0.6, cresc=(1.0, 0.5))
+note(CB, T, 2.1, 34, 0.9, 0.02, 0.6, (1.0, 0.5))
+note(SOLO, T, 2.0, 94, 0.75, 0.05, 0.5, (1.0, 0.6), bus="solo")
+harp("Bb", T, 2.0, B / 2, 0.25, 12)
+pad("A", T + 2.0, 0.6, 0.45, 0.1, 0.3)
+note(SOLO, T + 2.0, 0.5, 85, 0.5, 0.05, 0.2, bus="solo")
+T = H["assinatura"]
+pad("D", T, 2.6, 0.55, 0.1, 1.2, cresc=(1.0, 0.45))
+note(CB, T, 2.6, 38, 0.55, 0.1, 1.2, (1.0, 0.45))
+note(SOLO, T, 2.5, 90, 0.5, 0.2, 1.2, (1.0, 0.4), bus="solo")
 for i, m in enumerate([50, 57, 62, 66, 69, 74, 78, 81, 86]):
-    note(HARP, T + i * 0.09, 4.5, m, 0.38, 0.003, 3.0, bus="harpa", pan=-0.4)
+    note(HARP, T + i * 0.07, 3.0, m, 0.38, 0.003, 2.0, bus="harpa", pan=-0.4)
 timp(T, "D", 0.5, 0.6)
 one(GONG_MF, T, 0.2)
+
 
 # ------------------------------------------------------------------ mixagem
 print("mixando…")
@@ -650,7 +658,7 @@ for k, b in BUS.items():
     tgt = sfx if k in ("sfx", "sub") else musica
     tgt += dry * (1 - sends[k] * 0.5) + w
 # automação de volume da música (dB) — mais presença no ato 2, sem brigar com a narração
-AUTO = [(0, 0), (19, 0), (21, 3), (52, 3), (58, 2), (66, 3), (72, 5), (88, 4), (103, 2), (116, 2), (127, 0), (170, 0)]
+AUTO = [(0, 1), (6, 2.5), (13.8, 2.5), (14.2, 0.5), (47, 0.5), (48, 1.5), (60, 1.5)]
 ta, ga = zip(*AUTO)
 musica *= (10 ** (np.interp(np.arange(N) / SR, ta, ga) / 20))[:, None].astype(np.float32)
 for c0, c1s, c1m in CORTES:
@@ -664,7 +672,7 @@ sfx = signal.sosfilt(hp, sfx, axis=0).astype(np.float32)
 # fim: fade de 2 s e corte em DUR
 for x in (musica, sfx):
     e = int(DUR * SR)
-    f = int(2.5 * SR)
+    f = int(1.6 * SR)
     x[e - f : e] *= np.linspace(1, 0, f)[:, None] ** 1.5
     x[e:] = 0
 

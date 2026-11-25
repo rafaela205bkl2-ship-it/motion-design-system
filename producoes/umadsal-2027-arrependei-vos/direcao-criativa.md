@@ -1,5 +1,43 @@
 # Direção criativa — UMADSAL 2027 | ARREPENDEI-VOS
 
+> **Versão atual: v2 (60 s, 120 BPM).** Ela foi refeita a partir do retorno da cliente: mais curta, muito mais dinâmica,
+> com a pegada das duas referências, mais uso do PDF e das cores, e nenhuma nudez. A v1 (170 s) está registrada no
+> fim deste documento e no histórico do git.
+
+## v2 — o que mudou e por quê
+
+| Pedido | Resposta na v2 |
+| --- | --- |
+| 1 minuto | 60 s exatos, em 8 blocos; narração com frases literais do roteiro selecionadas (`guia-de-narracao.md`) |
+| dinamismo, pegada das referências | ~1 evento a cada 0,5 s (120 BPM); cortes secos no tempo da música; montagem que acelera até o clímax |
+| objetos como no vídeo de referência | 12 objetos históricos recortados (The Met, CC0) entram pela direita a cada batida, com rótulo fixo de categoria (ARTE · CIÊNCIA · HISTÓRIA) e etiqueta técnica, como os objetos sobre fundo azul da ref-003 |
+| letterings dinâmicos | tipografia gigante cortada pelas bordas (DEUS, HUMANIDADE, ENTREGA., RENÚNCIA., VOLTAR. …), riscos que corrigem a frase, strobe com fragmentos do lettering oficial |
+| trabalhar mais o PDF e as cores | campos de cor chapada com a paleta oficial (Mystic Navy, Red Inferno, Golden Yellow, Black C, creme do lettering) mudando a cada bloco; transições `PaletteWipe` com faixas dessas cores; mãos da estampa 2027 recortadas como objetos; Atos 3:19, camisa, símbolo e logotipo |
+| sem nudez | só mãos, rostos, figuras vestidas e objetos; enquadramentos conferidos quadro a quadro; a *Expulsão* de Michelangelo e o corpo do *Homem Vitruviano* saíram |
+
+## Estrutura v2 (fonte: `cues.json`)
+
+| Bloco | Tempo | O que acontece |
+| --- | --- | --- |
+| Abertura | 0–6 s | UMADSAL 2027 → strobe de fragmentos do lettering sobre as cores do PDF → silêncio → impacto ARREPENDEI-VOS |
+| Objetos | 6–14 s | cabeça de mármore, lira, cálices · astrolábios, relógio, globo · elmos, espada, moeda; "O QUE NOS TRANSCENDE" |
+| Mãos | 14–24 s | Criação de Adão com caixas técnicas (ref-004) → diagrama dos fragmentos (pintura × gravura 2027) → espelho 1512 / 2027 → DEUS / HUMANIDADE |
+| Interrompida | 24–28 s | as mãos se separam com falhas digitais; rachadura; silêncio |
+| Chamado | 28–34 s | a mão gravada da estampa desce sobre o dourado → mosaico de rostos → UMA GERAÇÃO. |
+| Pares | 34–41 s | APARÊNCIAS riscada → ENTREGA. · CONVENIÊNCIA riscada → RENÚNCIA. |
+| É tempo | 41–48 s | ampulheta que vira a cada golpe: VOLTAR. RECONHECER. ARREPENDER. → rajada → silêncio |
+| Revelação | 48–60 s | lettering na luz → camisa → símbolo e logotipo → assinatura |
+
+## Créditos dos objetos (The Met Open Access, CC0)
+
+Lista completa com títulos, datas e números de objeto em `public/producoes/umadsal-2027-arrependei-vos/objetos/creditos.json`.
+Recorte de fundo automático (rembg, modelo isnet-general-use).
+
+---
+
+# Registro da v1 (170 s)
+
+
 ## Conceito: "o vão entre os dedos"
 
 O filme parte da imagem que a própria identidade 2027 escolheu: a estampa da camisa traz **duas mãos que quase

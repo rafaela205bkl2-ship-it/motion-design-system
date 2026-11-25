@@ -93,3 +93,7 @@ export { Flash } from "./cinema/Flash";
 export type { FlashProps } from "./cinema/Flash";
 export { TextStrike } from "./cinema/TextStrike";
 export type { TextStrikeProps } from "./cinema/TextStrike";
+export { PaletteWipe } from "./cinema/PaletteWipe";
+export type { PaletteWipeProps } from "./cinema/PaletteWipe";
+export { TechBox } from "./cinema/TechBox";
+export type { TechBoxProps } from "./cinema/TechBox";

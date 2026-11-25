@@ -1,358 +1,333 @@
 {
-  "_comentario": "Fonte única de tempo (segundos absolutos). Lida por Producao.tsx e por scripts/trilha-umadsal-2027.py. Mude aqui e regere a trilha.",
+  "_comentario": "Versão 2 (60 s, 120 BPM). Fonte única de tempo em segundos absolutos, lida por Producao.tsx e por scripts/trilha-umadsal-2027.py. A versão 1 (170 s) está no histórico do git.",
   "fps": 30,
-  "bpm": 60,
-  "duracao": 170,
-  "atos": [
+  "bpm": 120,
+  "duracao": 60,
+  "blocos": [
     {
-      "id": "ato1",
-      "nome": "O Chamado",
+      "id": "abertura",
       "inicio": 0,
-      "fim": 19.8
+      "fim": 6
     },
     {
-      "id": "ato2",
-      "nome": "A Mensagem",
-      "inicio": 19.8,
-      "fim": 103.5
+      "id": "objetos",
+      "inicio": 6,
+      "fim": 14
     },
     {
-      "id": "ato3",
-      "nome": "A Identidade",
-      "inicio": 103.5,
-      "fim": 128.5
-    },
-    {
-      "id": "ato4",
-      "nome": "A Revelação",
-      "inicio": 128.5,
-      "fim": 170
-    }
-  ],
-  "planos": [
-    {
-      "id": "escuridao",
-      "inicio": 0,
-      "fim": 5
-    },
-    {
-      "id": "identificacao",
-      "inicio": 5,
-      "fim": 9
-    },
-    {
-      "id": "silencio",
-      "inicio": 9,
-      "fim": 11
-    },
-    {
-      "id": "arrependei",
-      "inicio": 11,
-      "fim": 19.8
-    },
-    {
-      "id": "imperios",
-      "inicio": 19.8,
-      "fim": 30
-    },
-    {
-      "id": "arte-ciencia",
-      "inicio": 30,
-      "fim": 37.5
-    },
-    {
-      "id": "michelangelo",
-      "inicio": 37.5,
-      "fim": 53.5
+      "id": "maos",
+      "inicio": 14,
+      "fim": 24
     },
     {
       "id": "interrompida",
-      "inicio": 53.5,
-      "fim": 58
+      "inicio": 24,
+      "fim": 28
     },
     {
-      "id": "eden",
-      "inicio": 58,
-      "fim": 66
+      "id": "chamado",
+      "inicio": 28,
+      "fim": 34
     },
     {
-      "id": "chamar",
-      "inicio": 66,
-      "fim": 72
+      "id": "pares",
+      "inicio": 34,
+      "fim": 41
     },
     {
-      "id": "geracao",
-      "inicio": 72,
-      "fim": 84
-    },
-    {
-      "id": "nao-e-sobre",
-      "inicio": 84,
-      "fim": 103.5
-    },
-    {
-      "id": "ecoa",
-      "inicio": 103.5,
-      "fim": 108
-    },
-    {
-      "id": "voltar",
-      "inicio": 108,
-      "fim": 116
-    },
-    {
-      "id": "e-tempo",
-      "inicio": 116,
-      "fim": 128.5
+      "id": "tempo",
+      "inicio": 41,
+      "fim": 48
     },
     {
       "id": "revelacao",
-      "inicio": 128.5,
-      "fim": 136.5
-    },
-    {
-      "id": "atos319",
-      "inicio": 136.5,
-      "fim": 144.5
-    },
-    {
-      "id": "camisa",
-      "inicio": 144.5,
-      "fim": 152.5
-    },
-    {
-      "id": "umadsal",
-      "inicio": 152.5,
-      "fim": 158.5
-    },
-    {
-      "id": "assinatura",
-      "inicio": 158.5,
-      "fim": 170
+      "inicio": 48,
+      "fim": 60
     }
   ],
   "impactos": {
-    "identificacao": 5.0,
-    "corteSilencio": 10.75,
-    "arrependei": 11.0,
-    "rachadura": 56.6,
-    "luzVolta": 66.0,
-    "ostinato": 72.0,
-    "par1": 90.25,
-    "par2": 94.75,
-    "par3": 99.5,
-    "tempo1": 117.0,
-    "tempo2": 120.0,
-    "tempo3": 123.0,
-    "corteClimax": 127.5,
-    "climax": 128.5,
-    "camisa": 144.5,
-    "logo": 152.5,
-    "acordeFinal": 160.5
+    "nome": 0.3,
+    "strobe": 2.0,
+    "corteAbertura": 3.45,
+    "arrependei": 3.5,
+    "objetos": 6.0,
+    "ciencia": 8.0,
+    "historia": 10.0,
+    "transcende": 12.0,
+    "maos": 14.0,
+    "caixas": 15.0,
+    "diagrama": 16.0,
+    "espelho": 19.0,
+    "deus": 21.25,
+    "humanidade": 22.5,
+    "interrompida": 24.0,
+    "rachadura": 27.0,
+    "chamado": 28.0,
+    "mosaico": 30.5,
+    "geracao": 32.5,
+    "par1a": 34.0,
+    "risco1": 35.3,
+    "par1b": 35.75,
+    "par2a": 37.5,
+    "risco2": 38.8,
+    "par2b": 39.25,
+    "tempo1": 41.0,
+    "tempo2": 43.0,
+    "tempo3": 45.0,
+    "rajada": 46.5,
+    "corteClimax": 47.5,
+    "climax": 48.0,
+    "camisa": 51.0,
+    "logo": 54.5,
+    "assinatura": 57.0,
+    "fim": 60.0
   },
+  "objetos": [
+    {
+      "arquivo": "cabeca-marmore",
+      "rotulo": "CABEÇA DE MÁRMORE · SÉC. IV a.C.",
+      "t": 6.0
+    },
+    {
+      "arquivo": "lira",
+      "rotulo": "LIRA · c. 1805",
+      "t": 6.5
+    },
+    {
+      "arquivo": "calice-1230",
+      "rotulo": "CÁLICE · c. 1230",
+      "t": 7.0
+    },
+    {
+      "arquivo": "calice-1460",
+      "rotulo": "CÁLICE · c. 1460",
+      "t": 7.5
+    },
+    {
+      "arquivo": "astrolabio-1462",
+      "rotulo": "ASTROLÁBIO · 1462",
+      "t": 8.0
+    },
+    {
+      "arquivo": "relogio-1565",
+      "rotulo": "RELÓGIO · c. 1565",
+      "t": 8.5
+    },
+    {
+      "arquivo": "globo-celeste",
+      "rotulo": "GLOBO CELESTE · 1621",
+      "t": 9.0
+    },
+    {
+      "arquivo": "astrolabio-1654",
+      "rotulo": "ASTROLÁBIO · 1654",
+      "t": 9.5
+    },
+    {
+      "arquivo": "elmo-1535",
+      "rotulo": "ELMO · c. 1535",
+      "t": 10.0
+    },
+    {
+      "arquivo": "espada-1400",
+      "rotulo": "ESPADA · c. 1400",
+      "t": 10.5
+    },
+    {
+      "arquivo": "moeda-ouro",
+      "rotulo": "MOEDA DE OURO · SÉC. II a.C.",
+      "t": 11.0
+    },
+    {
+      "arquivo": "elmo-dourado",
+      "rotulo": "ELMO · SÉC. XVII",
+      "t": 11.5
+    }
+  ],
   "textos": [
     {
       "id": "umadsal2027",
       "texto": "UMADSAL 2027",
-      "inicio": 5.2,
-      "fim": 8.9
+      "inicio": 0.3,
+      "fim": 1.95
+    },
+    {
+      "id": "arte",
+      "texto": "ARTE",
+      "inicio": 6.0,
+      "fim": 8.0
+    },
+    {
+      "id": "ciencia",
+      "texto": "CIÊNCIA",
+      "inicio": 8.0,
+      "fim": 10.0
+    },
+    {
+      "id": "historia",
+      "texto": "HISTÓRIA",
+      "inicio": 10.0,
+      "fim": 12.0
+    },
+    {
+      "id": "transcende",
+      "texto": "O QUE NOS TRANSCENDE",
+      "inicio": 12.0,
+      "fim": 14.0
+    },
+    {
+      "id": "deus",
+      "texto": "DEUS",
+      "inicio": 21.25,
+      "fim": 22.5
+    },
+    {
+      "id": "humanidade",
+      "texto": "HUMANIDADE",
+      "inicio": 22.5,
+      "fim": 24.0
+    },
+    {
+      "id": "interrompida",
+      "texto": "INTERROMPIDA",
+      "inicio": 24.4,
+      "fim": 27.0
     },
     {
       "id": "geracao",
       "texto": "UMA GERAÇÃO.",
-      "inicio": 70.6,
-      "fim": 74.4
+      "inicio": 32.5,
+      "fim": 34.0
     },
     {
       "id": "par1a",
       "texto": "APARÊNCIAS",
-      "inicio": 88.0,
-      "risco": 89.6,
-      "fim": 90.1
+      "inicio": 34.0,
+      "risco": 35.3,
+      "fim": 35.75
     },
     {
       "id": "par1b",
       "texto": "ENTREGA.",
-      "inicio": 90.25,
-      "fim": 92.4
+      "inicio": 35.75,
+      "fim": 37.5
     },
     {
       "id": "par2a",
       "texto": "CONVENIÊNCIA",
-      "inicio": 92.5,
-      "risco": 94.1,
-      "fim": 94.6
+      "inicio": 37.5,
+      "risco": 38.8,
+      "fim": 39.25
     },
     {
       "id": "par2b",
       "texto": "RENÚNCIA.",
-      "inicio": 94.75,
-      "fim": 96.9
-    },
-    {
-      "id": "par3a",
-      "texto": "DIANTE DOS HOMENS",
-      "inicio": 97.0,
-      "risco": 98.9,
-      "fim": 99.4
-    },
-    {
-      "id": "par3b",
-      "texto": "DIANTE DE DEUS.",
-      "inicio": 99.5,
-      "fim": 103.2
+      "inicio": 39.25,
+      "fim": 41.0
     },
     {
       "id": "tempo1",
       "texto": "VOLTAR.",
-      "inicio": 117.0,
-      "fim": 119.7
+      "inicio": 41.0,
+      "fim": 43.0
     },
     {
       "id": "tempo2",
       "texto": "RECONHECER.",
-      "inicio": 120.0,
-      "fim": 122.7
+      "inicio": 43.0,
+      "fim": 45.0
     },
     {
       "id": "tempo3",
       "texto": "ARREPENDER.",
-      "inicio": 123.0,
-      "fim": 124.5
+      "inicio": 45.0,
+      "fim": 46.5
     },
     {
       "id": "versiculo",
-      "texto": "ARREPENDEI-VOS, POIS, E CONVERTEI-VOS, PARA QUE SEJAM APAGADOS OS VOSSOS PECADOS, E VENHAM, ASSIM, OS TEMPOS DO REFRIGÉRIO PELA PRESENÇA DO SENHOR.",
-      "inicio": 137.2,
-      "fim": 144.2
-    },
-    {
-      "id": "referencia",
       "texto": "ATOS 3:19",
-      "inicio": 141.6,
-      "fim": 144.2
+      "inicio": 53.35,
+      "fim": 54.4
     },
     {
       "id": "ano",
       "texto": "2027",
-      "inicio": 155.0,
-      "fim": 158.4
+      "inicio": 55.6,
+      "fim": 57.0
     },
     {
       "id": "assinatura",
       "texto": "O CHAMADO PARA VOLTAR AO PRINCÍPIO.",
-      "inicio": 161.2,
-      "fim": 168.6
+      "inicio": 57.6,
+      "fim": 59.5
     }
   ],
   "narracao": [
     {
-      "id": "N01",
-      "inicio": 21.0,
-      "fim": 29.6,
-      "texto": "Ao longo dos anos, a humanidade construiu impérios, atravessou gerações e produziu algumas das mais extraordinárias expressões de sua existência."
-    },
-    {
-      "id": "N02",
-      "inicio": 30.4,
-      "fim": 37.2,
+      "id": "N1",
+      "inicio": 6.3,
+      "fim": 13.3,
       "texto": "Na arte, na ciência e na história, sempre buscamos representar aquilo que transcende a nossa compreensão."
     },
     {
-      "id": "N03",
-      "inicio": 38.2,
-      "fim": 53.0,
-      "texto": "Michelangelo eternizou em suas pinturas o encontro entre o Criador e a criação. Mas, entre os dedos que quase se tocam, existe a representação de algo muito maior: a relação entre Deus e a humanidade."
+      "id": "N2",
+      "inicio": 14.3,
+      "fim": 23.4,
+      "texto": "Mas, entre os dedos que quase se tocam, existe a representação de algo muito maior: a relação entre Deus e a humanidade."
     },
     {
-      "id": "N04",
-      "inicio": 53.6,
-      "fim": 56.4,
+      "id": "N3",
+      "inicio": 24.2,
+      "fim": 26.9,
       "texto": "Uma relação que, em algum momento, foi interrompida."
     },
     {
-      "id": "N05",
-      "inicio": 58.6,
-      "fim": 64.8,
-      "texto": "Desde o Éden, o homem conhece a distância que o pecado é capaz de produzir."
-    },
-    {
-      "id": "N06",
-      "inicio": 66.3,
-      "fim": 69.0,
+      "id": "N4",
+      "inicio": 28.2,
+      "fim": 30.4,
       "texto": "Mas Deus nunca deixou de chamar."
     },
     {
-      "id": "N07",
-      "inicio": 69.4,
-      "fim": 72.2,
+      "id": "N5",
+      "inicio": 30.8,
+      "fim": 33.6,
       "texto": "O Senhor continua chamando uma geração."
     },
     {
-      "id": "N08",
-      "inicio": 73.0,
-      "fim": 83.4,
-      "texto": "Uma geração que não se conforme com o pecado, que não negocie a verdade e que não tente maquiar o Evangelho para torná-lo conveniente."
+      "id": "N6",
+      "inicio": 34.2,
+      "fim": 40.6,
+      "texto": "Não é sobre aparências, mas sobre entrega. Não é sobre conveniência, mas sobre renúncia."
     },
     {
-      "id": "N09",
-      "inicio": 84.2,
-      "fim": 103.0,
-      "texto": "Uma geração que compreenda que seguir a Cristo não é sobre aparências, mas sobre entrega. Não é sobre conveniência, mas sobre renúncia. Não é sobre parecer santo diante dos homens, mas sobre viver uma vida de sinceridade diante de Deus."
-    },
-    {
-      "id": "N10",
-      "inicio": 104.2,
-      "fim": 107.4,
-      "texto": "E hoje, esse chamado continua ecoando."
-    },
-    {
-      "id": "N11",
-      "inicio": 108.4,
-      "fim": 115.6,
-      "texto": "Não é sobre encontrar um novo caminho. É sobre voltar para Aquele de quem nunca deveríamos ter nos afastado."
-    },
-    {
-      "id": "N12a",
-      "inicio": 116.6,
-      "fim": 118.4,
+      "id": "N7a",
+      "inicio": 41.1,
+      "fim": 42.7,
       "texto": "É tempo de voltar."
     },
     {
-      "id": "N12b",
-      "inicio": 119.6,
-      "fim": 121.4,
+      "id": "N7b",
+      "inicio": 43.1,
+      "fim": 44.7,
       "texto": "É tempo de reconhecer."
     },
     {
-      "id": "N12c",
-      "inicio": 122.6,
-      "fim": 124.8,
+      "id": "N7c",
+      "inicio": 45.1,
+      "fim": 46.8,
       "texto": "É tempo de se arrepender."
     },
     {
-      "id": "N13",
-      "inicio": 128.5,
-      "fim": 130.2,
+      "id": "N8",
+      "inicio": 48.0,
+      "fim": 49.4,
       "texto": "ARREPENDEI-VOS."
     },
     {
-      "id": "N14",
-      "inicio": 144.8,
-      "fim": 152.0,
-      "texto": "Porque o arrependimento não é apenas reconhecer o caminho errado. É decidir voltar para Aquele que sempre foi o caminho."
-    },
-    {
-      "id": "N15",
-      "inicio": 152.8,
-      "fim": 154.6,
-      "texto": "UMADSAL 2027."
-    },
-    {
-      "id": "N16",
-      "inicio": 156.4,
-      "fim": 159.6,
-      "texto": "O chamado para voltar ao princípio."
+      "id": "N9",
+      "inicio": 54.7,
+      "fim": 58.8,
+      "texto": "UMADSAL 2027. O chamado para voltar ao princípio."
     }
   ]
 }
