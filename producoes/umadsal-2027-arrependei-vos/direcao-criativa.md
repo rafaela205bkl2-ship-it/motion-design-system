@@ -1,5 +1,21 @@
 # Direção criativa — UMADSAL 2027 | ARREPENDEI-VOS
 
+> **Versão atual: v3 (60 s, com a narração gravada).** Ajustes pedidos sobre a v2, mantendo o filme e a trilha.
+
+## v3 — o que mudou
+
+| Pedido | Resposta |
+| --- | --- |
+| colocar a narração do Drive | gravação original (`audio/narracao-original.m4a`) recortada nas frases do guia de 1 minuto, com cada frase alinhada aos impactos (`scripts/narracao-umadsal-2027.py`, tempos em `cues.json → narracao[].origem`); a frase N4 ficou como gravada: "Mas Deus nunca deixou de nos convidar ao retorno." |
+| mixagem | `filme-final.mp3`: voz na frente, música −10 dB e efeitos −9 dB sob a voz (ducking pelo envelope da voz), −14 LUFS, pico −1,5 dBTP; inteligibilidade conferida por transcrição automática; o golpe de RENÚNCIA passou para logo depois da palavra |
+| usar o novo PDF | paleta com os HEX novos (#4e0000, #142840, #c89236, #0e0e0e); camisa nova (símbolo na gola); no final o lettering vira o **telão do palco**, depois **crachás**, camisa, logotipo, **cartaz com moldura** e **logo vermelho** com a assinatura |
+| objetos mais cinematográficos | match cuts por forma (perfil → perfil → perfil; círculo → círculo → esfera; cúpula → cúpula), giro contínuo através dos cortes, uma câmera que avança sem parar, cone de luz, poeira, bokeh, brilho de recorte e vinheta |
+| match cut de palavras | ENTREGA e RENÚNCIA nascem de uma página diagramada como Bíblia de estudo: a câmera mergulha na palavra marcada em dourado e ela vira o letreiro gigante (o texto da página é o próprio roteiro — nenhum versículo inventado) |
+| mão mais cinematográfica | a mão do Criador surge do escuro num feixe de luz e, por match cut, vira a mão gravada da estampa entre nuvens douradas |
+
+---
+
+
 > **Versão atual: v2 (60 s, 120 BPM).** Ela foi refeita a partir do retorno da cliente: mais curta, muito mais dinâmica,
 > com a pegada das duas referências, mais uso do PDF e das cores, e nenhuma nudez. A v1 (170 s) está registrada no
 > fim deste documento e no histórico do git.

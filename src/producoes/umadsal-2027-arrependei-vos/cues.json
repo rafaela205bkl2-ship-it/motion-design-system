@@ -1,5 +1,5 @@
 {
-  "_comentario": "Versão 2 (60 s, 120 BPM). Fonte única de tempo em segundos absolutos, lida por Producao.tsx e por scripts/trilha-umadsal-2027.py. A versão 1 (170 s) está no histórico do git.",
+  "_comentario": "Versão 3 (60 s, 120 BPM, com a narração gravada). Fonte única de tempo em segundos absolutos, lida por Producao.tsx, scripts/trilha-umadsal-2027.py e scripts/narracao-umadsal-2027.py. Versões anteriores no histórico do git.",
   "fps": 30,
   "bpm": 120,
   "duracao": 60,
@@ -64,23 +64,28 @@
     "rachadura": 27.0,
     "chamado": 28.0,
     "mosaico": 30.5,
-    "geracao": 32.5,
-    "par1a": 34.0,
-    "risco1": 35.3,
-    "par1b": 35.75,
-    "par2a": 37.5,
-    "risco2": 38.8,
-    "par2b": 39.25,
+    "geracao": 33.3,
+    "par1a": 34.2,
+    "risco1": 35.7,
+    "par1b": 36.2,
+    "par2a": 37.85,
+    "risco2": 39.15,
+    "par2b": 39.4,
     "tempo1": 41.0,
     "tempo2": 43.0,
     "tempo3": 45.0,
     "rajada": 46.5,
     "corteClimax": 47.5,
     "climax": 48.0,
-    "camisa": 51.0,
+    "camisa": 53.0,
     "logo": 54.5,
     "assinatura": 57.0,
-    "fim": 60.0
+    "fim": 60.0,
+    "maoGravura": 29.4,
+    "palco": 50.2,
+    "crachas": 51.7,
+    "logoFinal": 57.9,
+    "par2bGolpe": 39.95
   },
   "objetos": [
     {
@@ -196,33 +201,33 @@
     {
       "id": "geracao",
       "texto": "UMA GERAÇÃO.",
-      "inicio": 32.5,
-      "fim": 34.0
+      "inicio": 33.3,
+      "fim": 34.2
     },
     {
       "id": "par1a",
       "texto": "APARÊNCIAS",
-      "inicio": 34.0,
-      "risco": 35.3,
-      "fim": 35.75
+      "inicio": 34.2,
+      "risco": 35.7,
+      "fim": 36.2
     },
     {
       "id": "par1b",
       "texto": "ENTREGA.",
-      "inicio": 35.75,
-      "fim": 37.5
+      "inicio": 36.2,
+      "fim": 37.85
     },
     {
       "id": "par2a",
       "texto": "CONVENIÊNCIA",
-      "inicio": 37.5,
-      "risco": 38.8,
-      "fim": 39.25
+      "inicio": 37.85,
+      "risco": 39.15,
+      "fim": 39.4
     },
     {
       "id": "par2b",
       "texto": "RENÚNCIA.",
-      "inicio": 39.25,
+      "inicio": 39.4,
       "fim": 41.0
     },
     {
@@ -258,76 +263,109 @@
     {
       "id": "assinatura",
       "texto": "O CHAMADO PARA VOLTAR AO PRINCÍPIO.",
-      "inicio": 57.6,
-      "fim": 59.5
+      "inicio": 58.05,
+      "fim": 59.6
     }
   ],
   "narracao": [
     {
       "id": "N1",
-      "inicio": 6.3,
-      "fim": 13.3,
+      "inicio": 6.5,
+      "fim": 12.36,
+      "origem": [11.64, 17.5],
       "texto": "Na arte, na ciência e na história, sempre buscamos representar aquilo que transcende a nossa compreensão."
     },
     {
-      "id": "N2",
-      "inicio": 14.3,
-      "fim": 23.4,
-      "texto": "Mas, entre os dedos que quase se tocam, existe a representação de algo muito maior: a relação entre Deus e a humanidade."
+      "id": "N2a",
+      "inicio": 14.45,
+      "fim": 19.85,
+      "origem": [23.36, 28.76],
+      "texto": "Mas, entre os dedos que quase se tocam, existe a representação de algo muito maior."
+    },
+    {
+      "id": "N2b",
+      "inicio": 20.75,
+      "fim": 22.97,
+      "origem": [29.32, 31.54],
+      "texto": "A relação entre Deus e a humanidade."
     },
     {
       "id": "N3",
-      "inicio": 24.2,
-      "fim": 26.9,
+      "inicio": 24.25,
+      "fim": 26.95,
+      "origem": [32.08, 34.78],
       "texto": "Uma relação que, em algum momento, foi interrompida."
     },
     {
       "id": "N4",
-      "inicio": 28.2,
-      "fim": 30.4,
-      "texto": "Mas Deus nunca deixou de chamar."
+      "inicio": 28.05,
+      "fim": 31.39,
+      "origem": [40.34, 43.68],
+      "texto": "Mas Deus nunca deixou de nos convidar ao retorno."
     },
     {
       "id": "N5",
-      "inicio": 30.8,
-      "fim": 33.6,
+      "inicio": 31.45,
+      "fim": 34.15,
+      "origem": [44.16, 46.86],
       "texto": "O Senhor continua chamando uma geração."
     },
     {
-      "id": "N6",
-      "inicio": 34.2,
-      "fim": 40.6,
-      "texto": "Não é sobre aparências, mas sobre entrega. Não é sobre conveniência, mas sobre renúncia."
+      "id": "N6a",
+      "inicio": 34.25,
+      "fim": 36.89,
+      "origem": [57.92, 60.56],
+      "texto": "Não é sobre aparências, mas sobre entrega."
+    },
+    {
+      "id": "N6b",
+      "inicio": 37.95,
+      "fim": 39.91,
+      "origem": [60.98, 62.94],
+      "texto": "Não é sobre conveniência, mas sobre renúncia."
     },
     {
       "id": "N7a",
-      "inicio": 41.1,
-      "fim": 42.7,
+      "inicio": 41.05,
+      "fim": 42.97,
+      "origem": [80.58, 82.5],
       "texto": "É tempo de voltar."
     },
     {
       "id": "N7b",
-      "inicio": 43.1,
-      "fim": 44.7,
+      "inicio": 43.05,
+      "fim": 44.15,
+      "origem": [83.52, 84.62],
       "texto": "É tempo de reconhecer."
     },
     {
       "id": "N7c",
-      "inicio": 45.1,
-      "fim": 46.8,
+      "inicio": 45.05,
+      "fim": 46.67,
+      "origem": [85.34, 86.96],
       "texto": "É tempo de se arrepender."
     },
     {
       "id": "N8",
       "inicio": 48.0,
-      "fim": 49.4,
+      "fim": 48.86,
+      "origem": [87.84, 88.7],
       "texto": "ARREPENDEI-VOS."
     },
     {
-      "id": "N9",
-      "inicio": 54.7,
-      "fim": 58.8,
-      "texto": "UMADSAL 2027. O chamado para voltar ao princípio."
+      "id": "N9a",
+      "inicio": 55.0,
+      "fim": 56.1,
+      "origem": [97.86, 98.96],
+      "texto": "UMADSAL 2027."
+    },
+    {
+      "id": "N9b",
+      "inicio": 57.35,
+      "fim": 59.33,
+      "origem": [100.06, 102.04],
+      "texto": "O chamado para voltar ao princípio."
     }
-  ]
+  ],
+  "narracaoArquivo": "audio/narracao-original.m4a"
 }

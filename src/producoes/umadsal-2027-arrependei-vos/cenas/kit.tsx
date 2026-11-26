@@ -210,3 +210,139 @@ export const Janela: React.FC<{
   const abs = useAbs();
   return abs >= de && abs < ate ? <>{children}</> : null;
 };
+
+/** Texto da página: o próprio roteiro de narração (nunca um versículo inventado). */
+const TEXTO_PAGINA =
+  "Ao longo dos anos, a humanidade construiu impérios, atravessou gerações e produziu algumas das mais extraordinárias expressões de sua existência. Na arte, na ciência e na história, sempre buscamos representar aquilo que transcende a nossa compreensão. Uma geração que não se conforme com o pecado, que não negocie a verdade. Uma geração que compreenda que seguir a Cristo não é sobre aparências, mas sobre entrega. Não é sobre conveniência, mas sobre renúncia. Não é sobre parecer santo diante dos homens, mas sobre viver uma vida de sinceridade diante de Deus. Não é sobre encontrar um novo caminho. É sobre voltar para Aquele de quem nunca deveríamos ter nos afastado. ";
+
+/**
+ * Página impressa (diagramação de Bíblia de estudo) com uma palavra marcada no centro exato;
+ * a câmera mergulha na palavra (match cut para o letreiro gigante — ref-003, 69,5–72,5 s).
+ */
+export const PaginaLivro: React.FC<{
+  palavra: string;
+  de: number;
+  ate: number;
+}> = ({ palavra, de, ate }) => {
+  const abs = useAbs();
+  const { px } = useLayout();
+  const d = Math.max(0.2, ate - de);
+  const k = interpolate(abs, [de, ate], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const zoom = 1.25 + 8.5 * k ** 2.4; // acelera até a palavra encher a tela
+  const marca = interpolate(
+    abs,
+    [de + 0.02, de + Math.min(0.18, d * 0.4)],
+    [0, 1],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+  );
+  const linha = (i: number) => {
+    const off = (i * 37) % TEXTO_PAGINA.length;
+    return (TEXTO_PAGINA + TEXTO_PAGINA).slice(off, off + 140);
+  };
+  const estilo: React.CSSProperties = {
+    fontFamily: FONTES.filme,
+    fontWeight: 500,
+    fontSize: px(30),
+    lineHeight: `${px(46)}px`,
+    color: "#2A2420",
+    whiteSpace: "nowrap",
+  };
+  const N = 9;
+  // a linha central é a frase real do roteiro, com a palavra no centro exato
+  const idx = Math.max(0, TEXTO_PAGINA.indexOf(palavra));
+  const antes = TEXTO_PAGINA.slice(Math.max(0, idx - 90), idx);
+  const depois = TEXTO_PAGINA.slice(
+    idx + palavra.length,
+    idx + palavra.length + 90,
+  );
+  return (
+    <AbsoluteFill style={{ background: "#F4EBDD", overflow: "hidden" }}>
+      <AbsoluteFill
+        style={{
+          transform: `scale(${zoom})`,
+          filter: k > 0.55 ? `blur(${px((k - 0.55) * 3)}px)` : undefined,
+        }}
+      >
+        <AbsoluteFill
+          style={{ justifyContent: "center", alignItems: "center" }}
+        >
+          <div
+            style={{ display: "flex", flexDirection: "column", width: "100%" }}
+          >
+            {Array.from({ length: N }, (_, i) =>
+              i === Math.floor(N / 2) ? (
+                <div
+                  key={i}
+                  style={{
+                    ...estilo,
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <span
+                    style={{
+                      flex: 1,
+                      textAlign: "right",
+                      overflow: "hidden",
+                      direction: "rtl",
+                    }}
+                  >
+                    <bdi>{antes}</bdi>
+                  </span>
+                  <span
+                    style={{
+                      position: "relative",
+                      padding: `0 ${px(4)}px`,
+                      margin: `0 ${px(9)}px`,
+                    }}
+                  >
+                    <span
+                      style={{
+                        position: "absolute",
+                        left: 0,
+                        top: "18%",
+                        height: "70%",
+                        width: `${marca * 100}%`,
+                        background: COR.ouro,
+                        opacity: 0.75,
+                      }}
+                    />
+                    <span style={{ position: "relative", fontWeight: 600 }}>
+                      {palavra}
+                    </span>
+                  </span>
+                  <span
+                    style={{ flex: 1, textAlign: "left", overflow: "hidden" }}
+                  >
+                    {depois}
+                  </span>
+                </div>
+              ) : (
+                <div
+                  key={i}
+                  style={{
+                    ...estilo,
+                    textAlign: "center",
+                    overflow: "hidden",
+                    opacity: 0.85,
+                  }}
+                >
+                  {linha(i)}
+                </div>
+              ),
+            )}
+          </div>
+        </AbsoluteFill>
+      </AbsoluteFill>
+      <AbsoluteFill
+        style={{
+          background:
+            "radial-gradient(ellipse at 50% 50%, transparent 35%, rgba(60,30,10,0.35) 100%)",
+        }}
+      />
+    </AbsoluteFill>
+  );
+};

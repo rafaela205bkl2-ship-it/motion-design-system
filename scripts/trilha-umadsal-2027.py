@@ -550,15 +550,21 @@ pad("Dm", H["geracao"], 1.6, 0.7, 0.02, 0.4, cresc=(1.0, 0.6))
 for pa, pr, pb, chA, chB in (("par1a", "risco1", "par1b", "Dm", "Bb"), ("par2a", "risco2", "par2b", "Gm", "C")):
     pad(chA, H[pa], H[pb] - H[pa] + 0.1, 0.35, 0.1, 0.2, ("cb", "vc", "vla"))
     ostinato(chA if chA != "Gm" else "Gm", H[pa], H[pb] - H[pa], 0.4, VC_SPIC, 12, step=B / 2, pan=0.3)
+    hb = H["par2bGolpe"] if pb == "par2b" else H[pb]  # em RENÚNCIA o golpe vem depois da palavra
     one(TIMP_ROLL[0], H[pr] - 0.6, 0.45, semis=TIMP_ROLL[1], length=H[pb] - H[pr] + 0.6)
     whoosh(H[pr] + 0.1, 0.45, 0.14)
-    impact(H[pb], False, "D" if chB == "Bb" else "A")
-    stab(H[pb])
-    pad(chB, H[pb], 1.7, 0.75, 0.02, 0.3, cresc=(1.0, 0.5))
-    note(SOLO, H[pb], 1.6, 86 if chB == "Bb" else 84, 0.65, 0.05, 0.3, bus="solo")
-    ostinato(chB, H[pb], 1.75, 0.6, VC_SPIC, 12, pan=0.3)
-    ostinato(chB, H[pb], 1.75, 0.55, VLA_SPIC, 24, pan=0.05, gain=0.8)
-    groove(H[pb], H[pb] + 1.75, "f", 0.55)
+    if pb == "par2b":  # golpe sem gongo/prato: a palavra "renúncia" é curta e precisa de espaço
+        timp(hb, "A", 1.0, 1.1)
+        bd(hb, "ff", 1.0)
+        sub_boom(hb, gain=0.6)
+    else:
+        impact(H[pb], False, "D" if chB == "Bb" else "A")
+    stab(hb)
+    pad(chB, hb, 1.7 - (hb - H[pb]), 0.75, 0.02, 0.3, cresc=(1.0, 0.5))
+    note(SOLO, hb, 1.6 - (hb - H[pb]), 86 if chB == "Bb" else 84, 0.65, 0.05, 0.3, bus="solo")
+    ostinato(chB, hb, 1.75 - (hb - H[pb]), 0.6, VC_SPIC, 12, pan=0.3)
+    ostinato(chB, hb, 1.75 - (hb - H[pb]), 0.55, VLA_SPIC, 24, pan=0.05, gain=0.8)
+    groove(hb, H[pb] + 1.75, "f", 0.55)
 
 # ---------------------------------------------------------- É TEMPO (41–48): ampulheta, três golpes, rajada, silêncio
 for k, ch, m in (("tempo1", "Dm", 81), ("tempo2", "Bb", 84), ("tempo3", "Gm", 86)):

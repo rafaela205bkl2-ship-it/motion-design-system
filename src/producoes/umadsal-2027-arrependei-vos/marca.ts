@@ -1,7 +1,7 @@
 /**
  * Identidade UMADSAL 2027 aplicada ao filme.
  *
- * Cores: paleta oficial do PDF "ID 2027" (pág. 3) + as duas cores medidas no lettering oficial
+ * Cores: paleta oficial do PDF "ARREPENDEI-VOS" (pág. 5) + as duas cores medidas no lettering oficial
  * (pág. 1): o vermelho do topo do gradiente e o creme do fundo. Nada aqui é inventado.
  * Tipografia de apoio: grotesca bold itálica com espaçamento largo, como nos textos da camisa
  * (equivalente livre: Archivo). Os títulos narrativos do filme usam Cormorant Garamond
@@ -29,14 +29,14 @@ export const FONTES = {
 };
 
 export const COR = {
-  /** Pantone Black C "Armor Wash" — #030303 */
-  preto: "#030303",
-  /** Pantone 7546C "Mystic Navy" — #13273F */
-  navy: "#13273F",
-  /** Pantone 4975C "Red Inferno" — #4E0000 */
+  /** Preto da paleta (PDF "ARREPENDEI-VOS", pág. 5: #0e0e0e) */
+  preto: "#0E0E0E",
+  /** Azul da paleta (PDF "ARREPENDEI-VOS", pág. 5: #142840) */
+  navy: "#142840",
+  /** Vinho da paleta (PDF "ARREPENDEI-VOS", pág. 5: #4e0000) */
   vinho: "#4E0000",
-  /** Pantone 15-0953 TCX "Golden Yellow" — #CB8E16 */
-  ouro: "#CB8E16",
+  /** Dourado da paleta (PDF "ARREPENDEI-VOS", pág. 5: #c89236) */
+  ouro: "#C89236",
   /** Vermelho do topo do gradiente do lettering oficial (medido: 223, 18, 35). */
   vermelho: "#DF1223",
   /** Creme do fundo da apresentação oficial do lettering (medido: 255, 245, 236). */
@@ -106,6 +106,23 @@ export const IMG = {
   masaccio: {
     src: asset("imagens/expulsao-masaccio.jpg"),
     size: [914, 1312] as const,
+  },
+  cartazVinho: {
+    src: asset("imagens/cartaz-vinho.jpg"),
+    size: [3840, 2160] as const,
+  },
+  cartazCreme: {
+    src: asset("imagens/cartaz-creme.jpg"),
+    size: [3840, 2160] as const,
+  },
+  palco: { src: asset("imagens/palco-2027.jpg"), size: [3840, 2160] as const },
+  crachas: {
+    src: asset("imagens/crachas-2027.jpg"),
+    size: [3840, 2160] as const,
+  },
+  logoVermelho: {
+    src: asset("imagens/logo-vermelho.jpg"),
+    size: [3840, 2160] as const,
   },
   prodigo: {
     src: asset("imagens/filho-prodigo.jpg"),
@@ -192,4 +209,5 @@ export const OBJ = {
 };
 export type ObjNome = keyof typeof OBJ;
 
-export const TRILHA = asset("audio/filme-mix.mp3");
+/** Mixagem final (música + efeitos + narração), gerada por scripts/narracao-umadsal-2027.py. */
+export const TRILHA = asset("audio/filme-final.mp3");

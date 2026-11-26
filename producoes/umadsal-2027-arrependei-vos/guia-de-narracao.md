@@ -1,5 +1,7 @@
 # Guia de narração — UMADSAL 2027 | ARREPENDEI-VOS (versão de 1 minuto)
 
+> **v3:** a narração gravada já está no filme (`audio/filme-final.mp3`). A tabela abaixo é a versão de referência; os tempos exatos usados estão em `cues.json → narracao`. Para trocar uma frase, ajuste `origem`/`inicio` lá e rode `python3 scripts/narracao-umadsal-2027.py`.
+
 A narração usa **frases literais do seu roteiro**, selecionadas para caber em 60 s. Cada bloco tem a janela
 em que a frase deve entrar e sair para casar com a imagem e a música (fonte: `cues.json` → `narracao`).
 

@@ -41,7 +41,7 @@ const Filme: React.FC = () => (
     <Plano de={HIT.interrompida} ate={HIT.chamado} nome="interrompida">
       <Interrompida />
     </Plano>
-    <Plano de={HIT.chamado} ate={34.3} nome="chamado">
+    <Plano de={HIT.chamado} ate={HIT.par1a} nome="chamado">
       <Chamado />
     </Plano>
     <Plano de={HIT.par1a} ate={HIT.tempo1} nome="pares">
