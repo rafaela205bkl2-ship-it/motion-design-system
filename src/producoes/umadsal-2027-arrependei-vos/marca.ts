@@ -209,5 +209,5 @@ export const OBJ = {
 };
 export type ObjNome = keyof typeof OBJ;
 
-/** Mixagem final (música + efeitos + narração), gerada por scripts/narracao-umadsal-2027.py. */
-export const TRILHA = asset("audio/filme-final.mp3");
+/** Trilha sem narração (música + efeitos), gerada por scripts/trilha-umadsal-2027.py. A versão com voz é audio/filme-final.mp3. */
+export const TRILHA = asset("audio/filme-mix.mp3");
