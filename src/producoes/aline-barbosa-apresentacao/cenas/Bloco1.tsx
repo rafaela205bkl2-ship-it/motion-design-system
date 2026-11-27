@@ -35,8 +35,8 @@ export const Cena1Abertura: React.FC<CenaProps> = () => (
       <Pos x={90} y={820} w={900}>
         <TypeOn
           text={"Sua empresa travada\npor causa de *papel?*"}
-          delay={1.0}
-          cps={30}
+          delay={0.3}
+          cps={23}
           size={96}
           font="body"
           weight={600}
@@ -49,9 +49,9 @@ export const Cena1Abertura: React.FC<CenaProps> = () => (
       </Pos>
       {/* papéis que caem e "travam" a tela */}
       {[
-        { x: 640, y: 1250, r: 9, d: 2.35 },
-        { x: 170, y: 1330, r: -12, d: 2.55 },
-        { x: 470, y: 1420, r: 4, d: 2.75 },
+        { x: 640, y: 1250, r: 9, d: 1.45 },
+        { x: 170, y: 1330, r: -12, d: 1.6 },
+        { x: 470, y: 1420, r: 4, d: 1.75 },
       ].map((p, i) => (
         <Pos key={i} x={p.x} y={p.y}>
           <ObjectEnter motion="fall" delay={p.d} distance={900} rotateFrom={p.r * 3} rotate={p.r} impact={0.06}>
@@ -68,11 +68,11 @@ const LogoGirando: React.FC = () => {
   const m = useMotion();
   const t = frame / m.fps;
   // gira 1,5 volta desacelerando até parar de frente (1,1 s)
-  const giro = progressAt(frame, m.fps, 0, 1.1, "enterStrong");
+  const giro = progressAt(frame, m.fps, 0, 0.75, "enterStrong");
   const rotY = -540 * (1 - giro);
-  const entra = progressAt(frame, m.fps, 0, 0.45, "enterStrong");
+  const entra = progressAt(frame, m.fps, 0, 0.35, "enterStrong");
   // depois sobe e encolhe para dar lugar à frase
-  const sobe = progressAt(frame, m.fps, 1.0, 0.45, "camera");
+  const sobe = progressAt(frame, m.fps, 0.35, 0.4, "camera");
   const y = interpolate(sobe, [0, 1], [900, 470]);
   const s = interpolate(entra, [0, 1], [0.35, 1]) * interpolate(sobe, [0, 1], [1, 0.62]);
   return (
@@ -82,7 +82,7 @@ const LogoGirando: React.FC = () => {
         radius={420}
         tilt={0.5}
         turns={0.55}
-        hideAt={1.15}
+        hideAt={0.7}
         size={42}
         fontFamily={FONTE_TEXTO}
         weight={500}
@@ -95,7 +95,7 @@ const LogoGirando: React.FC = () => {
             opacity: entra,
           }}
         >
-          <div style={{ transform: `rotateY(${rotY}deg)`, filter: t < 0.9 ? `drop-shadow(0 0 ${m.px(30)}px rgba(167,193,218,.35))` : undefined }}>
+          <div style={{ transform: `rotateY(${rotY}deg)`, filter: t < 0.6 ? `drop-shadow(0 0 ${m.px(30)}px rgba(167,193,218,.35))` : undefined }}>
             <Monograma altura={430} />
           </div>
         </div>
@@ -131,18 +131,18 @@ const Folha: React.FC = () => {
 
 /* ------------------------------------------------------------------ Cena 2 */
 const DOCS = [
-  { t: "ALVARÁ", y: 470, r: -4, d: 0.12, icone: "predio" },
-  { t: "CNPJ", y: 690, r: 3, d: 0.72, icone: "id" },
-  { t: "CONTRATO SOCIAL", y: 910, r: -2, d: 1.3, icone: "doc" },
+  { t: "ALVARÁ", y: 470, r: -4, d: 0.0, icone: "predio" },
+  { t: "CNPJ", y: 690, r: 3, d: 0.4, icone: "id" },
+  { t: "CONTRATO SOCIAL", y: 910, r: -2, d: 1.35, icone: "doc" },
 ] as const;
 
 const PENDENCIAS = [
-  { x: 120, y: 1170, d: 2.05 },
-  { x: 610, y: 1120, d: 2.15 },
-  { x: 360, y: 1230, d: 2.25 },
-  { x: 700, y: 1290, d: 2.35 },
-  { x: 90, y: 1320, d: 2.45 },
-  { x: 430, y: 1360, d: 2.55 },
+  { x: 120, y: 1170, d: 3.05 },
+  { x: 610, y: 1120, d: 3.15 },
+  { x: 360, y: 1230, d: 3.25 },
+  { x: 700, y: 1290, d: 3.35 },
+  { x: 90, y: 1320, d: 3.45 },
+  { x: 430, y: 1360, d: 3.55 },
 ];
 
 /** "Alvará, CNPJ, contrato social… pendência atrás de pendência." */
@@ -180,7 +180,7 @@ export const Cena2Burocracia: React.FC<CenaProps> = () => (
         <TextReveal
           text={"Pendência atrás\nde *pendência.*"}
           by="word"
-          delay={2.2}
+          delay={3.1}
           size={104}
           align="left"
           lineHeight={1.02}
@@ -310,7 +310,7 @@ const ChipPendencia: React.FC = () => {
 export const Cena3Prazer: React.FC<CenaProps> = ({ slug }) => {
   const frame = useCurrentFrame();
   const m = useMotion();
-  const zoom = interpolate(frame / m.fps, [0, 4.3], [1, 1.05]);
+  const zoom = interpolate(frame / m.fps, [0, 2.6], [1, 1.04]);
   return (
     <MotionProvider theme={temaClaro}>
       <Cena>
@@ -326,19 +326,19 @@ export const Cena3Prazer: React.FC<CenaProps> = ({ slug }) => {
           </ObjectEnter>
         </Pos>
         <Pos x={95} y={330}>
-          <TextReveal text="Prazer," delay={0.2} size={168} align="left" color={COR.tinta} lineHeight={1} />
+          <TextReveal text="Prazer," delay={0.05} size={168} align="left" color={COR.tinta} lineHeight={1} />
           <TextReveal
             text="eu sou,"
-            delay={0.55}
+            delay={0.8}
             size={168}
             align="left"
             color={COR.tinta}
             lineHeight={1}
             style={{ fontStyle: "italic" }}
           />
-          <TextReveal text="Aline." delay={0.9} size={168} align="left" color={COR.tinta} lineHeight={1} />
+          <TextReveal text="Aline." delay={1.1} size={168} align="left" color={COR.tinta} lineHeight={1} />
         </Pos>
-        <Cantoneira x={130} y={860} w={190} h={130} delay={1.2} />
+        <Cantoneira x={130} y={860} w={190} h={130} delay={1.3} />
       </Cena>
     </MotionProvider>
   );
@@ -372,9 +372,9 @@ const PalavraFantasma: React.FC<{ readonly texto: string; readonly y: number }> 
 
 /* ------------------------------------------------------------------ Cena 4 */
 const TAGS = [
-  { t: "Contadora", y: 560, d: 0.15, estilo: "cheio" },
-  { t: "Paulista de\nnascimento", y: 760, d: 1.0, estilo: "claro" },
-  { t: "Baiana de\ncoração ♥", y: 1030, d: 2.1, estilo: "contorno" },
+  { t: "Contadora", y: 560, d: 0.05, estilo: "cheio" },
+  { t: "Paulista de\nnascimento", y: 760, d: 0.92, estilo: "claro" },
+  { t: "Baiana de\ncoração ♥", y: 1030, d: 2.2, estilo: "contorno" },
 ] as const;
 
 /** "Contadora, paulista de nascimento e baiana de coração." */

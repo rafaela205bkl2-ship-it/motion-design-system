@@ -1,683 +1,778 @@
 {
- "_sobre": "Trilha original sintetizada por scripts/gerar-trilha-producao.py. 123 BPM medido em ref-005 (confiança alta); bumbo em todos os tempos como nas três referências. Âncora: o 'drop' em 4,0 s (início da cena 2).",
+ "_sobre": "Trilha cinematográfica original (scripts/gerar-trilha-producao.py, estilo 'cinematico'). Ré menor, 120 BPM; drone, ostinato de cordas, taiko, braams nos momentos-chave. Efeitos e seções relativos às cenas (seguem o timeline.json, que está alinhado à locução).",
  "musica": {
-  "bpm": 123,
-  "ancora": 4.0,
-  "ganho_efeitos": 0.8,
+  "estilo": "cinematico",
+  "bpm": 120,
+  "ancora": "cena-2",
+  "ganho_efeitos": 0.75,
   "fade_saida": 2.5,
   "acordes": [
    [
-    57,
-    60,
-    64,
-    69
-   ],
-   [
+    50,
     53,
     57,
-    60,
-    65
+    62
    ],
    [
-    55,
-    60,
-    64,
-    67
+    46,
+    50,
+    53,
+    58
    ],
    [
+    48,
+    53,
+    57,
+    60
+   ],
+   [
+    48,
+    52,
     55,
-    59,
-    62,
-    67
+    60
    ]
   ],
   "raizes": [
-   45,
+   38,
+   34,
    41,
-   48,
-   43
+   36
   ],
   "secoes": [
    {
     "de": 0.0,
-    "ate": 4.0,
-    "pluck": true,
-    "pad": true,
-    "filtro": 1400
+    "ate": "cena-2",
+    "drone": true,
+    "piano": true,
+    "cordas": true
    },
    {
-    "de": 4.0,
-    "ate": 27.0,
-    "kick": true,
-    "clap": true,
-    "hats": true,
-    "baixo": true,
-    "pluck": true
+    "de": "cena-2",
+    "ate": "cena-5",
+    "drone": true,
+    "ostinato": true,
+    "cordas": true,
+    "taiko": true
    },
    {
-    "de": 27.0,
-    "ate": 40.0,
-    "kick": true,
-    "clap": true,
-    "hats": true,
-    "baixo": true,
-    "pluck": true,
-    "arp": true
+    "de": "cena-5",
+    "ate": "cena-9",
+    "drone": true,
+    "ostinato": true,
+    "cordas": true,
+    "taiko": "cheio",
+    "caixa": true,
+    "toms": true
    },
    {
-    "de": 40.0,
-    "ate": 43.02,
-    "pluck": true,
-    "pad": true,
-    "filtro": 1600
+    "de": "cena-9",
+    "ate": "cena-9+3.45",
+    "drone": true,
+    "cordas": true,
+    "piano": true
    },
    {
-    "de": 43.02,
-    "ate": 56.195,
-    "kick": true,
-    "clap": true,
-    "hats": true,
-    "baixo": true,
-    "pluck": true,
-    "arp": true
+    "de": "cena-9+3.45",
+    "ate": "cena-12+0.2",
+    "drone": true,
+    "ostinato": "alto",
+    "cordas": true,
+    "taiko": "cheio",
+    "caixa": true,
+    "toms": true
    },
    {
-    "de": 56.195,
-    "ate": 62.5,
-    "pad": true
+    "de": "cena-12+0.2",
+    "ate": 70,
+    "drone": true,
+    "cordas": true
    }
   ]
  },
  "efeitos": [
   {
-   "t": 0.05,
+   "cena": "cena-1",
+   "t": 0.02,
    "sfx": "whoosh",
-   "ganho": 0.8
-  },
-  {
-   "t": 1.05,
-   "sfx": "brilho",
-   "ganho": 0.6
-  },
-  {
-   "t": 1.0,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 1.058,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 1.116,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 1.174,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 1.232,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 1.29,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 1.348,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 1.406,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 1.464,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 1.522,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 1.58,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 1.638,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 1.696,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 1.754,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 1.812,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 1.87,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 1.928,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 1.986,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 2.043,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 2.101,
-   "sfx": "tique",
-   "ganho": 0.55
-  },
-  {
-   "t": 2.81,
-   "sfx": "pouso",
-   "ganho": 0.55
-  },
-  {
-   "t": 3.01,
-   "sfx": "pouso",
-   "ganho": 0.55
-  },
-  {
-   "t": 3.21,
-   "sfx": "pouso",
-   "ganho": 0.55
-  },
-  {
-   "t": 4.0,
-   "sfx": "riser",
    "ganho": 0.7
   },
   {
-   "t": 4.58,
-   "sfx": "pouso",
-   "ganho": 1.0
-  },
-  {
-   "t": 5.18,
-   "sfx": "pouso",
-   "ganho": 1.0
-  },
-  {
-   "t": 5.76,
-   "sfx": "pouso",
-   "ganho": 1.0
-  },
-  {
-   "t": 6.15,
-   "sfx": "pop",
-   "ganho": 0.45
-  },
-  {
-   "t": 6.25,
-   "sfx": "pop",
-   "ganho": 0.45
-  },
-  {
-   "t": 6.35,
-   "sfx": "pop",
-   "ganho": 0.45
-  },
-  {
-   "t": 6.45,
-   "sfx": "pop",
-   "ganho": 0.45
-  },
-  {
-   "t": 6.55,
-   "sfx": "pop",
-   "ganho": 0.45
-  },
-  {
-   "t": 6.65,
-   "sfx": "pop",
-   "ganho": 0.45
-  },
-  {
-   "t": 8.25,
-   "sfx": "brilho",
-   "ganho": 0.45
-  },
-  {
-   "t": 12.25,
-   "sfx": "pop",
-   "ganho": 0.7
-  },
-  {
-   "t": 13.1,
-   "sfx": "pop",
-   "ganho": 0.7
-  },
-  {
-   "t": 14.2,
-   "sfx": "pop",
-   "ganho": 0.7
-  },
-  {
-   "t": 17.1,
-   "sfx": "whoosh",
-   "ganho": 0.6
-  },
-  {
-   "t": 17.75,
-   "sfx": "clique",
-   "ganho": 0.6
-  },
-  {
-   "t": 18.6,
-   "sfx": "clique",
-   "ganho": 0.6
-  },
-  {
-   "t": 19.45,
-   "sfx": "clique",
-   "ganho": 0.6
-  },
-  {
-   "t": 22.527,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 22.745,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 22.913,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 23.054,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 23.179,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 23.291,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 23.394,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 23.491,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 23.581,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 23.667,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 23.748,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 23.826,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 23.9,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 23.972,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.041,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.108,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.173,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.236,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.297,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.357,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.415,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.472,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.528,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.582,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.635,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.687,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.739,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.789,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.838,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.887,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.934,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 24.981,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 25.028,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 25.073,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 25.118,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 25.162,
-   "sfx": "relogio",
-   "ganho": 0.55
-  },
-  {
-   "t": 25.25,
-   "sfx": "confirma",
-   "ganho": 0.9
-  },
-  {
-   "t": 28.28,
-   "sfx": "pouso",
-   "ganho": 0.45
-  },
-  {
-   "t": 29.43,
-   "sfx": "pouso",
-   "ganho": 0.45
-  },
-  {
-   "t": 30.48,
-   "sfx": "pouso",
-   "ganho": 0.45
-  },
-  {
-   "t": 31.48,
-   "sfx": "pouso",
-   "ganho": 0.45
-  },
-  {
-   "t": 33.6,
-   "sfx": "whoosh",
-   "ganho": 0.8
-  },
-  {
-   "t": 33.95,
-   "sfx": "clique",
-   "ganho": 1.0
-  },
-  {
-   "t": 35.0,
-   "sfx": "clique",
-   "ganho": 1.0
-  },
-  {
-   "t": 36.65,
-   "sfx": "clique",
-   "ganho": 1.0
-  },
-  {
-   "t": 38.15,
-   "sfx": "clique",
-   "ganho": 1.0
-  },
-  {
-   "t": 33.65,
-   "sfx": "pop",
-   "ganho": 0.35
-  },
-  {
-   "t": 34.7,
-   "sfx": "pop",
-   "ganho": 0.35
-  },
-  {
-   "t": 36.35,
-   "sfx": "pop",
-   "ganho": 0.35
-  },
-  {
-   "t": 37.85,
-   "sfx": "pop",
-   "ganho": 0.35
-  },
-  {
-   "t": 34.78,
-   "sfx": "whoosh",
-   "ganho": 0.35
-  },
-  {
-   "t": 36.43,
-   "sfx": "whoosh",
-   "ganho": 0.35
-  },
-  {
-   "t": 37.93,
-   "sfx": "whoosh",
-   "ganho": 0.35
-  },
-  {
-   "t": 38.83,
-   "sfx": "whoosh",
-   "ganho": 0.8
-  },
-  {
-   "t": 39.05,
-   "sfx": "pop",
-   "ganho": 0.7
-  },
-  {
-   "t": 42.55,
-   "sfx": "risco",
-   "ganho": 0.9
-  },
-  {
-   "t": 43.05,
-   "sfx": "pop",
-   "ganho": 0.8
-  },
-  {
-   "t": 43.4,
-   "sfx": "pop",
-   "ganho": 0.3
-  },
-  {
-   "t": 43.51,
-   "sfx": "pop",
-   "ganho": 0.3
-  },
-  {
-   "t": 43.62,
-   "sfx": "pop",
-   "ganho": 0.3
-  },
-  {
-   "t": 43.73,
-   "sfx": "pop",
-   "ganho": 0.3
-  },
-  {
-   "t": 43.84,
-   "sfx": "pop",
-   "ganho": 0.3
-  },
-  {
-   "t": 44.45,
+   "cena": "cena-1",
+   "t": 0.6,
    "sfx": "brilho",
    "ganho": 0.5
   },
   {
-   "t": 46.2,
+   "cena": "cena-1",
+   "t": 0.3,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 0.376,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 0.451,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 0.527,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 0.602,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 0.678,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 0.754,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 0.829,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 0.905,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 0.981,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 1.056,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 1.132,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 1.207,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 1.283,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 1.359,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 1.434,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 1.51,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 1.585,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 1.661,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 1.737,
+   "sfx": "tique",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 1.91,
+   "sfx": "pouso",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 2.06,
+   "sfx": "pouso",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-1",
+   "t": 2.21,
+   "sfx": "pouso",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-2",
+   "t": 0.0,
+   "sfx": "riser",
+   "ganho": 0.6
+  },
+  {
+   "cena": "cena-2",
+   "t": 0.0,
+   "sfx": "braam",
+   "ganho": 0.75
+  },
+  {
+   "cena": "cena-2",
+   "t": 0.0,
+   "sfx": "impacto",
+   "ganho": 0.45
+  },
+  {
+   "cena": "cena-2",
+   "t": 0.46,
+   "sfx": "pouso",
+   "ganho": 0.9
+  },
+  {
+   "cena": "cena-2",
+   "t": 0.86,
+   "sfx": "pouso",
+   "ganho": 0.9
+  },
+  {
+   "cena": "cena-2",
+   "t": 1.81,
+   "sfx": "pouso",
+   "ganho": 0.9
+  },
+  {
+   "cena": "cena-2",
+   "t": 3.15,
+   "sfx": "pop",
+   "ganho": 0.4
+  },
+  {
+   "cena": "cena-2",
+   "t": 3.25,
+   "sfx": "pop",
+   "ganho": 0.4
+  },
+  {
+   "cena": "cena-2",
+   "t": 3.35,
+   "sfx": "pop",
+   "ganho": 0.4
+  },
+  {
+   "cena": "cena-2",
+   "t": 3.45,
+   "sfx": "pop",
+   "ganho": 0.4
+  },
+  {
+   "cena": "cena-2",
+   "t": 3.55,
+   "sfx": "pop",
+   "ganho": 0.4
+  },
+  {
+   "cena": "cena-2",
+   "t": 3.65,
+   "sfx": "pop",
+   "ganho": 0.4
+  },
+  {
+   "cena": "cena-3",
+   "t": 0.1,
    "sfx": "brilho",
    "ganho": 0.4
   },
   {
-   "t": 47.0,
+   "cena": "cena-4",
+   "t": 0.15,
    "sfx": "pop",
+   "ganho": 0.6
+  },
+  {
+   "cena": "cena-4",
+   "t": 1.02,
+   "sfx": "pop",
+   "ganho": 0.6
+  },
+  {
+   "cena": "cena-4",
+   "t": 2.3,
+   "sfx": "pop",
+   "ganho": 0.6
+  },
+  {
+   "cena": "cena-5",
+   "t": 0.05,
+   "sfx": "whoosh",
    "ganho": 0.5
   },
   {
-   "t": 47.25,
-   "sfx": "pop",
+   "cena": "cena-5",
+   "t": 0.5,
+   "sfx": "clique",
    "ganho": 0.5
   },
   {
-   "t": 47.5,
-   "sfx": "pop",
+   "cena": "cena-5",
+   "t": 1.4,
+   "sfx": "clique",
    "ganho": 0.5
   },
   {
-   "t": 47.75,
-   "sfx": "pop",
+   "cena": "cena-5",
+   "t": 2.25,
+   "sfx": "clique",
    "ganho": 0.5
   },
   {
-   "t": 48.0,
-   "sfx": "pop",
+   "cena": "cena-6",
+   "t": 0.527,
+   "sfx": "relogio",
    "ganho": 0.5
   },
   {
-   "t": 56.6,
+   "cena": "cena-6",
+   "t": 0.745,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 0.913,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 1.054,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 1.179,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 1.291,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 1.394,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 1.491,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 1.581,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 1.667,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 1.748,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 1.826,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 1.9,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 1.972,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 2.041,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 2.108,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 2.173,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 2.236,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 2.297,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 2.357,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 2.415,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 2.472,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 2.528,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 2.582,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 2.635,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 2.687,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 2.739,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 2.789,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 2.838,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 2.887,
+   "sfx": "relogio",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-6",
+   "t": 2.95,
+   "sfx": "confirma",
+   "ganho": 0.85
+  },
+  {
+   "cena": "cena-7",
+   "t": 0.73,
+   "sfx": "pouso",
+   "ganho": 0.4
+  },
+  {
+   "cena": "cena-7",
+   "t": 2.23,
+   "sfx": "pouso",
+   "ganho": 0.4
+  },
+  {
+   "cena": "cena-7",
+   "t": 3.38,
+   "sfx": "pouso",
+   "ganho": 0.4
+  },
+  {
+   "cena": "cena-7",
+   "t": 4.68,
+   "sfx": "pouso",
+   "ganho": 0.4
+  },
+  {
+   "cena": "cena-8",
+   "t": 0.0,
+   "sfx": "braam",
+   "ganho": 0.55
+  },
+  {
+   "cena": "cena-8",
+   "t": 0.5,
+   "sfx": "whoosh",
+   "ganho": 0.7
+  },
+  {
+   "cena": "cena-8",
+   "t": 0.85,
+   "sfx": "clique",
+   "ganho": 0.9
+  },
+  {
+   "cena": "cena-8",
+   "t": 0.55,
+   "sfx": "pop",
+   "ganho": 0.3
+  },
+  {
+   "cena": "cena-8",
+   "t": 2.0,
+   "sfx": "clique",
+   "ganho": 0.9
+  },
+  {
+   "cena": "cena-8",
+   "t": 1.7,
+   "sfx": "pop",
+   "ganho": 0.3
+  },
+  {
+   "cena": "cena-8",
+   "t": 4.0,
+   "sfx": "clique",
+   "ganho": 0.9
+  },
+  {
+   "cena": "cena-8",
+   "t": 3.7,
+   "sfx": "pop",
+   "ganho": 0.3
+  },
+  {
+   "cena": "cena-8",
+   "t": 5.5,
+   "sfx": "clique",
+   "ganho": 0.9
+  },
+  {
+   "cena": "cena-8",
+   "t": 5.2,
+   "sfx": "pop",
+   "ganho": 0.3
+  },
+  {
+   "cena": "cena-8",
+   "t": 1.72,
+   "sfx": "whoosh",
+   "ganho": 0.3
+  },
+  {
+   "cena": "cena-8",
+   "t": 3.72,
+   "sfx": "whoosh",
+   "ganho": 0.3
+  },
+  {
+   "cena": "cena-8",
+   "t": 5.22,
+   "sfx": "whoosh",
+   "ganho": 0.3
+  },
+  {
+   "cena": "cena-8",
+   "t": 6.0,
+   "sfx": "whoosh",
+   "ganho": 0.7
+  },
+  {
+   "cena": "cena-8",
+   "t": 6.25,
+   "sfx": "pop",
+   "ganho": 0.6
+  },
+  {
+   "cena": "cena-9",
+   "t": 3.0,
+   "sfx": "risco",
+   "ganho": 0.8
+  },
+  {
+   "cena": "cena-9",
+   "t": 3.45,
+   "sfx": "riser",
+   "ganho": 0.6
+  },
+  {
+   "cena": "cena-9",
+   "t": 3.45,
+   "sfx": "braam",
+   "ganho": 0.8
+  },
+  {
+   "cena": "cena-9",
+   "t": 3.45,
+   "sfx": "impacto",
+   "ganho": 0.5
+  },
+  {
+   "cena": "cena-9",
+   "t": 3.6,
+   "sfx": "pop",
+   "ganho": 0.25
+  },
+  {
+   "cena": "cena-9",
+   "t": 3.71,
+   "sfx": "pop",
+   "ganho": 0.25
+  },
+  {
+   "cena": "cena-9",
+   "t": 3.82,
+   "sfx": "pop",
+   "ganho": 0.25
+  },
+  {
+   "cena": "cena-9",
+   "t": 3.93,
+   "sfx": "pop",
+   "ganho": 0.25
+  },
+  {
+   "cena": "cena-9",
+   "t": 4.04,
+   "sfx": "pop",
+   "ganho": 0.25
+  },
+  {
+   "cena": "cena-10",
+   "t": 0.1,
+   "sfx": "brilho",
+   "ganho": 0.4
+  },
+  {
+   "cena": "cena-10",
+   "t": 1.0,
+   "sfx": "pop",
+   "ganho": 0.4
+  },
+  {
+   "cena": "cena-10",
+   "t": 1.25,
+   "sfx": "pop",
+   "ganho": 0.4
+  },
+  {
+   "cena": "cena-10",
+   "t": 1.5,
+   "sfx": "pop",
+   "ganho": 0.4
+  },
+  {
+   "cena": "cena-10",
+   "t": 1.75,
+   "sfx": "pop",
+   "ganho": 0.4
+  },
+  {
+   "cena": "cena-10",
+   "t": 2.0,
+   "sfx": "pop",
+   "ganho": 0.4
+  },
+  {
+   "cena": "cena-12",
+   "t": 0.2,
    "sfx": "reverso",
    "ganho": 0.8
   },
   {
-   "t": 56.6,
-   "sfx": "impacto",
-   "ganho": 1.0
+   "cena": "cena-12",
+   "t": 0.2,
+   "sfx": "braam",
+   "ganho": 0.9
   },
   {
-   "t": 57.0,
+   "cena": "cena-12",
+   "t": 0.2,
+   "sfx": "impacto",
+   "ganho": 0.8
+  },
+  {
+   "cena": "cena-12",
+   "t": 0.6,
    "sfx": "brilho",
-   "ganho": 0.6
-  },
-  {
-   "t": 27.0,
-   "sfx": "riser",
    "ganho": 0.5
-  },
-  {
-   "t": 43.02,
-   "sfx": "riser",
-   "ganho": 0.75
-  },
-  {
-   "t": 43.02,
-   "sfx": "impacto",
-   "ganho": 0.45
   }
  ]
 }

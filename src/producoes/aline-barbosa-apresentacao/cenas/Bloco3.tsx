@@ -18,8 +18,8 @@ import { COR, FONTE_TEXTO, temaClaro, temaMarinho } from "../marca/tema";
 export const Cena9Objetivo: React.FC<CenaProps> = () => {
   const frame = useCurrentFrame();
   const m = useMotion();
-  const apaga = progressAt(frame, m.fps, 2.75, 0.4, "enter");
-  const caixa = progressAt(frame, m.fps, 3.05, 0.4, "enterStrong");
+  const apaga = progressAt(frame, m.fps, 3.2, 0.35, "enter");
+  const caixa = progressAt(frame, m.fps, 3.3, 0.35, "enterStrong");
   return (
     <MotionProvider theme={temaClaro}>
       <Cena>
@@ -41,14 +41,14 @@ export const Cena9Objetivo: React.FC<CenaProps> = () => {
         </Pos>
         <Pos x={90} y={470}>
           <div style={{ position: "relative", opacity: 1 - apaga * 0.55 }}>
-            <TextReveal text="menos burocracia," delay={1.75} size={104} align="left" color={COR.tinta} lineHeight={1.05} style={{ whiteSpace: "nowrap" }} />
+            <TextReveal text="menos burocracia," delay={2.05} size={104} align="left" color={COR.tinta} lineHeight={1.05} style={{ whiteSpace: "nowrap" }} />
             <svg
               width={m.px(960)}
               height={m.px(140)}
               viewBox="0 0 960 140"
               style={{ position: "absolute", left: m.px(-20), top: m.px(0), overflow: "visible" }}
             >
-              <DrawPath d="M0 72 C 280 62, 560 80, 880 52" delay={2.55} duration={0.35} stroke={COR.marinho} strokeWidth={10} />
+              <DrawPath d="M0 72 C 280 62, 560 80, 880 52" delay={3.0} duration={0.3} stroke={COR.marinho} strokeWidth={10} />
             </svg>
           </div>
         </Pos>
@@ -63,10 +63,10 @@ export const Cena9Objetivo: React.FC<CenaProps> = () => {
               transformOrigin: "0 50%",
             }}
           >
-            <TextReveal text="mais crescimento." delay={3.2} size={108} align="left" color={COR.gelo} lineHeight={1.05} style={{ whiteSpace: "nowrap" }} />
+            <TextReveal text="mais crescimento." delay={3.4} size={108} align="left" color={COR.gelo} lineHeight={1.05} style={{ whiteSpace: "nowrap" }} />
           </div>
         </Pos>
-        <Grafico inicio={3.35} />
+        <Grafico inicio={3.55} />
       </Cena>
     </MotionProvider>
   );
@@ -122,7 +122,7 @@ export const Cena10SemFronteiras: React.FC<CenaProps> = () => (
       <Fundo tipo="marinho" />
       <Pos x={90} y={260} w={900}>
         <TextReveal text="Atendimento" delay={0.1} size={140} align="left" color={COR.gelo} lineHeight={1} />
-        <TextReveal text="sem *fronteiras*" delay={0.45} size={140} align="left" color={COR.gelo} highlightColor={COR.azul} lineHeight={1.05} />
+        <TextReveal text="sem *fronteiras*" delay={0.85} size={140} align="left" color={COR.gelo} highlightColor={COR.azul} lineHeight={1.05} />
       </Pos>
       <Pos x={540} y={1060} centro>
         <Globo />
@@ -131,7 +131,7 @@ export const Cena10SemFronteiras: React.FC<CenaProps> = () => (
         <TextReveal
           text="Te atendo onde *você estiver.*"
           by="word"
-          delay={2.15}
+          delay={2.05}
           size={60}
           font="body"
           weight={500}
@@ -203,7 +203,7 @@ const Globo: React.FC = () => {
 export const Cena11Fecho: React.FC<CenaProps> = ({ slug }) => {
   const frame = useCurrentFrame();
   const m = useMotion();
-  const zoom = interpolate(frame / m.fps, [0, 5.3], [1.02, 1.08]);
+  const zoom = interpolate(frame / m.fps, [0, 5.0], [1.02, 1.08]);
   return (
     <MotionProvider theme={temaClaro}>
       <Cena>
@@ -221,7 +221,7 @@ export const Cena11Fecho: React.FC<CenaProps> = ({ slug }) => {
           <TextSwap
             items={[
               { text: "Eu cuido da\n*burocracia.*", at: 0.15 },
-              { text: "Você foca no\n*seu negócio.*", at: 2.2 },
+              { text: "Você foca no\n*seu negócio.*", at: 1.95 },
             ]}
             align="left"
             size={128}
@@ -242,13 +242,13 @@ export const Cena12Assinatura: React.FC<CenaProps> = () => {
   const frame = useCurrentFrame();
   const m = useMotion();
   // brilho que atravessa a logo depois de pronta
-  const brilho = progressAt(frame, m.fps, 2.4, 0.9, "camera");
+  const brilho = progressAt(frame, m.fps, 2.2, 0.9, "camera");
   return (
     <MotionProvider theme={temaMarinho}>
       <Cena>
         <Fundo tipo="marinho" />
         <Pos x={540} y={930} centro>
-          <LogoCompleta altura={440} desenharEm={0.15} />
+          <LogoCompleta altura={440} desenharEm={-0.25} />
         </Pos>
         {brilho > 0 && brilho < 1 ? (
           <div

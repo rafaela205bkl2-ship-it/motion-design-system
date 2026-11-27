@@ -3,20 +3,20 @@
   "slug": "aline-barbosa-apresentacao",
   "fps": 30,
   "estilo": "base",
-  "trilha": "audio/trilha.mp3",
+  "trilha": "audio/mix-final.mp3",
   "cenas": [
     {
       "id": "cena-1",
-      "nome": "Abertura (0:00–0:04)",
-      "duracao": 4.1667,
+      "nome": "Abertura (0:00.00–0:02.41)",
+      "duracao": 2.5767,
       "transicao": "radial-rapido",
       "texto": "Sua empresa travada\npor causa de *papel?*",
       "visual": "monograma AB gira em 3D com ALINE BARBOSA orbitando; frase digitada"
     },
     {
       "id": "cena-2",
-      "nome": "Burocracia (0:04–0:08)",
-      "duracao": 4.2333,
+      "nome": "Burocracia (0:02.41–0:07.53)",
+      "duracao": 5.3533,
       "transicao": "radial-suave",
       "texto": "Pendência atrás de *pendência*",
       "apoio": "Alvará · CNPJ · Contrato social",
@@ -24,8 +24,8 @@
     },
     {
       "id": "cena-3",
-      "nome": "Prazer (0:08–0:12)",
-      "duracao": 4.3,
+      "nome": "Prazer (0:07.53–0:09.79)",
+      "duracao": 2.56,
       "transicao": "dissolve",
       "texto": "Prazer,\neu sou Aline.",
       "imagem": "imagens/aline-retrato.png",
@@ -33,8 +33,8 @@
     },
     {
       "id": "cena-4",
-      "nome": "Quem sou (0:12–0:17)",
-      "duracao": 5.4,
+      "nome": "Quem sou (0:09.79–0:13.49)",
+      "duracao": 4.1,
       "transicao": "faixa-diagonal",
       "texto": "Contadora",
       "apoio": "Paulista de nascimento · Baiana de coração",
@@ -43,16 +43,16 @@
     },
     {
       "id": "cena-5",
-      "nome": "Trajetória (0:17–0:22)",
-      "duracao": 5.1667,
+      "nome": "Trajetória (0:13.49–0:16.73)",
+      "duracao": 3.4067,
       "transicao": "radial-rapido",
       "texto": "Passei pelo contábil,\nfiscal e societário",
       "visual": "cartão marinho inclinado em 3D, palavras uma a uma"
     },
     {
       "id": "cena-6",
-      "nome": "Horas (0:22–0:27)",
-      "duracao": 5.4,
+      "nome": "Horas (0:16.73–0:21.29)",
+      "duracao": 4.96,
       "transicao": "faixa-diagonal",
       "texto": "Perdendo *horas*\ncom burocracias",
       "apoio": "que poderiam ser simples.",
@@ -60,8 +60,8 @@
     },
     {
       "id": "cena-7",
-      "nome": "Como trabalho (0:27–0:33)",
-      "duracao": 6.2333,
+      "nome": "Como trabalho (0:21.29–0:27.45)",
+      "duracao": 6.3933,
       "transicao": "radial-suave",
       "texto": "Por *isso*, eu:",
       "apoio": "Descomplico processos · Organizo etapas · Resolvo pendências · Faço as coisas andarem",
@@ -69,8 +69,8 @@
     },
     {
       "id": "cena-8",
-      "nome": "Serviços (0:33–0:40)",
-      "duracao": 7.1667,
+      "nome": "Serviços (0:27.45–0:34.27)",
+      "duracao": 6.9867,
       "transicao": "radial-rapido",
       "texto": "Serviços",
       "apoio": "Legalização · Alterações e regularizações · Organização societária · Serviços contábeis",
@@ -78,16 +78,16 @@
     },
     {
       "id": "cena-9",
-      "nome": "Objetivo (0:40–0:46)",
-      "duracao": 6.3,
+      "nome": "Objetivo (0:34.27–0:39.13)",
+      "duracao": 5.16,
       "transicao": "dissolve",
       "texto": "Menos burocracia,\n*mais crescimento.*",
       "visual": "\"menos burocracia\" riscado; gráfico sobe"
     },
     {
       "id": "cena-10",
-      "nome": "Sem fronteiras (0:46–0:51)",
-      "duracao": 5.2333,
+      "nome": "Sem fronteiras (0:39.13–0:43.35)",
+      "duracao": 4.4533,
       "transicao": "radial-suave",
       "texto": "Atendimento\nsem *fronteiras*",
       "apoio": "Te atendo onde você estiver.",
@@ -95,8 +95,8 @@
     },
     {
       "id": "cena-11",
-      "nome": "Fecho (0:51–0:56)",
-      "duracao": 5.3,
+      "nome": "Fecho (0:43.35–0:48.09)",
+      "duracao": 5.04,
       "transicao": "fade-branco",
       "texto": "Eu cuido da *burocracia*.",
       "apoio": "Você foca no crescimento do seu negócio.",
@@ -105,8 +105,8 @@
     },
     {
       "id": "cena-12",
-      "nome": "Assinatura (0:56–1:02)",
-      "duracao": 6,
+      "nome": "Assinatura (0:48.09–0:54.50)",
+      "duracao": 6.41,
       "texto": "Aline Barbosa",
       "apoio": "Contabilidade e legalização de empresas",
       "visual": "logo se desenha (moldura, arcos, AB) e o nome entra letra a letra"

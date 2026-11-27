@@ -29,9 +29,9 @@ import { Icone } from "./Bloco1";
 
 /* ------------------------------------------------------------------ Cena 5 */
 const ETAPAS = [
-  { t: "contábil,", d: 0.75 },
-  { t: "fiscal", d: 1.6 },
-  { t: "e societário", d: 2.45 },
+  { t: "contábil,", d: 0.45 },
+  { t: "fiscal", d: 1.35 },
+  { t: "e societário", d: 2.2 },
 ];
 
 /** "Passei pelo contábil, pelo fiscal e pelo societário." */
@@ -68,7 +68,7 @@ export const Cena5Trajetoria: React.FC<CenaProps> = () => {
                 <TextReveal
                   text="*Passei* pelo"
                   by="word"
-                  delay={0.25}
+                  delay={0.1}
                   size={70}
                   font="body"
                   weight={400}
@@ -85,7 +85,7 @@ export const Cena5Trajetoria: React.FC<CenaProps> = () => {
                 viewBox="0 0 60 760"
                 style={{ position: "absolute", left: m.px(70), top: m.px(220), overflow: "visible" }}
               >
-                <DrawPath d="M30 20 L30 740" delay={0.4} duration={2.3} stroke={COR.azul} strokeWidth={3} />
+                <DrawPath d="M30 20 L30 740" delay={0.3} duration={2.0} stroke={COR.azul} strokeWidth={3} />
                 {ETAPAS.map((e, i) => {
                   const p = progressAt(frame, m.fps, e.d, 0.3, "enterStrong");
                   return (
@@ -131,14 +131,14 @@ export const Cena6Horas: React.FC<CenaProps> = () => (
     <Cena>
       <Fundo tipo="marinho" />
       <Pos x={540} y={680} centro>
-        <Relogio para={3.2} />
+        <Relogio para={2.9} />
       </Pos>
       <Pos x={540} y={1360} centro w={940}>
         <TextSwap
           items={[
-            { text: "Muita gente\nperdendo *horas*", at: 0.25 },
-            { text: "com\nburocracias", at: 2.05 },
-            { text: "que poderiam\nser *simples.*", at: 3.2 },
+            { text: "Muita gente\nperdendo *horas*", at: 0.15 },
+            { text: "com\nburocracias", at: 1.92 },
+            { text: "que poderiam\nser *simples.*", at: 2.8 },
           ]}
           size={128}
           lineHeight={1.02}
@@ -206,10 +206,10 @@ const Relogio: React.FC<{ readonly para: number }> = ({ para }) => {
 
 /* ------------------------------------------------------------------ Cena 7 */
 const ACOES = [
-  { t: "Descomplico processos", d: 0.85 },
-  { t: "Organizo etapas", d: 2.0 },
-  { t: "Resolvo pendências", d: 3.05 },
-  { t: "Faço as coisas *andarem*", d: 4.05 },
+  { t: "Descomplico processos", d: 0.3 },
+  { t: "Organizo etapas", d: 1.8 },
+  { t: "Resolvo pendências", d: 2.95 },
+  { t: "Faço as coisas *andarem*", d: 4.25 },
 ];
 
 /** "Por isso eu descomplico processos, organizo etapas, resolvo pendências e faço as coisas andarem." */
@@ -233,7 +233,7 @@ export const Cena7ComoTrabalho: React.FC<CenaProps> = ({ slug }) => {
         <Tilt3D
           from={{ rotateY: -30, rotateX: 12, opacity: 1 }}
           to={{ rotateY: -16, rotateX: 8 }}
-          delay={0.6}
+          delay={0.2}
           duration={1.2}
           sway={2.5}
           swayPeriod={5}
@@ -299,10 +299,10 @@ const Barra: React.FC<{ readonly texto: string; readonly forte: boolean; readonl
  * vira e o último cartão se solta da tela em direção a quem assiste.
  */
 const SERVICOS = [
-  { t: "Legalização\nde empresas", icone: "predio", at: 0.95 },
+  { t: "Legalização\nde empresas", icone: "predio", at: 0.85 },
   { t: "Alterações e\nregularizações", icone: "editar", at: 2.0 },
-  { t: "Organização\nsocietária", icone: "organograma", at: 3.65 },
-  { t: "Serviços\ncontábeis", icone: "calculadora", at: 5.15 },
+  { t: "Organização\nsocietária", icone: "organograma", at: 4.0 },
+  { t: "Serviços\ncontábeis", icone: "calculadora", at: 5.5 },
 ] as const;
 
 // geometria da tela do celular (px de design)
@@ -310,21 +310,21 @@ const TELA = { w: 520, h: 1060, bezel: 22, linhaY: 330, linhaH: 150, gap: 22 };
 const centroLinha = (i: number) => TELA.linhaY + i * (TELA.linhaH + TELA.gap) + TELA.linhaH / 2;
 // deslocamento da linha em relação ao centro do aparelho
 const focoLinha = (i: number) => centroLinha(i) + TELA.bezel - (TELA.h + TELA.bezel * 2) / 2;
-const SOLTA = 6.0; // o cartão de "Serviços contábeis" sai da tela
+const SOLTA = 6.2; // o cartão de "Serviços contábeis" sai da tela
 
 const CAMERA = [
   { t: 0.0, s: 0.5, y: 0, ry: -62, rx: 26, z: 0 },
-  { t: 0.6, s: 1.05, y: 0, ry: -24, rx: 10, z: 0 },
-  { t: 0.95, s: 2.0, y: focoLinha(0), ry: -9, rx: 5, z: 0 },
-  { t: 1.6, s: 2.0, y: focoLinha(0), ry: -6, rx: 4, z: 0 },
-  { t: 1.95, s: 2.0, y: focoLinha(1), ry: -9, rx: 5, z: 0 },
-  { t: 3.25, s: 2.0, y: focoLinha(1), ry: -6, rx: 4, z: 0 },
-  { t: 3.6, s: 2.0, y: focoLinha(2), ry: -9, rx: 5, z: 0 },
-  { t: 4.75, s: 2.0, y: focoLinha(2), ry: -6, rx: 4, z: 0 },
-  { t: 5.1, s: 2.0, y: focoLinha(3), ry: -9, rx: 5, z: 0 },
-  { t: 5.55, s: 2.0, y: focoLinha(3), ry: -6, rx: 4, z: 0 },
-  { t: 6.1, s: 1.08, y: 40, ry: 24, rx: 8, z: 0 },
-  { t: 7.3, s: 1.02, y: 40, ry: 30, rx: 6, z: 0 },
+  { t: 0.45, s: 1.05, y: 0, ry: -24, rx: 10, z: 0 },
+  { t: 0.75, s: 2.0, y: focoLinha(0), ry: -9, rx: 5, z: 0 },
+  { t: 1.55, s: 2.0, y: focoLinha(0), ry: -6, rx: 4, z: 0 },
+  { t: 1.9, s: 2.0, y: focoLinha(1), ry: -9, rx: 5, z: 0 },
+  { t: 3.55, s: 2.0, y: focoLinha(1), ry: -6, rx: 4, z: 0 },
+  { t: 3.9, s: 2.0, y: focoLinha(2), ry: -9, rx: 5, z: 0 },
+  { t: 5.05, s: 2.0, y: focoLinha(2), ry: -6, rx: 4, z: 0 },
+  { t: 5.4, s: 2.0, y: focoLinha(3), ry: -9, rx: 5, z: 0 },
+  { t: 5.75, s: 2.0, y: focoLinha(3), ry: -6, rx: 4, z: 0 },
+  { t: 6.25, s: 1.08, y: 40, ry: 24, rx: 8, z: 0 },
+  { t: 7.1, s: 1.02, y: 40, ry: 30, rx: 6, z: 0 },
 ];
 
 /** "Legalização de empresas, alterações e regularizações, organização societária e serviços contábeis." */
@@ -507,8 +507,8 @@ const TelaServicos: React.FC = () => {
       <div style={{ position: "absolute", inset: 0, transform: `translateZ(${m.px(40)}px)` }}>
         <TapCursor
           points={SERVICOS.map((s, i) => ({ x: 330 + (i % 2) * 30, y: centroLinha(i) + 12, at: s.at }))}
-          appearAt={0.75}
-          hideAt={5.6}
+          appearAt={0.55}
+          hideAt={5.85}
           travel={0.38}
           variant="arrow"
           size={58}

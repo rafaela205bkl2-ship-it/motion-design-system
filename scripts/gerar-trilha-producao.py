@@ -51,13 +51,26 @@ for i, c in enumerate(tl["cenas"][:-1]):
     tf = FRAMES_TRANSICAO.get(t, 9)
     if tf:
         eventos.append((inicio[i + 1] + tf / FPS / 2, "whoosh", 1.0))
+ids = [c["id"] for c in tl["cenas"]]
+
+
+def tempo(v):
+    """Número (s absolutos) ou "cena-N" / "cena-N+0.5" (relativo ao início da cena)."""
+    if isinstance(v, (int, float)):
+        return float(v)
+    nome, _, off = v.partition("+")
+    return inicio[ids.index(nome.strip())] + (float(off) if off else 0.0)
+
+
 for e in cfg.get("efeitos", []):
-    eventos.append((e["t"], e["sfx"], e.get("ganho", 1.0)))
+    t = e["t"] + (inicio[ids.index(e["cena"])] if "cena" in e else 0.0)
+    eventos.append((t, e["sfx"], e.get("ganho", 1.0)))
 
 mus = cfg["musica"]
 BPM = mus["bpm"]
 BEAT = 60.0 / BPM
-ANCORA = mus["ancora"]  # tempo (s) de um tempo forte: a grade é alinhada a ele
+ANCORA = tempo(mus["ancora"])
+CINE = mus.get("estilo") == "cinematico"  # tempo (s) de um tempo forte: a grade é alinhada a ele
 
 N = int((TOTAL + 0.8) * SR)
 L = np.zeros(N)
@@ -208,11 +221,30 @@ def sfx(kind):
         n = int(0.04 * SR)
         t = np.arange(n) / SR
         return np.sin(2 * np.pi * 3200 * t) * np.exp(-t * 200) * 0.25, 0.0
+    if kind == "braam":
+        # metal grave cinematográfico: serras desafinadas em Ré grave com filtro que abre
+        n = int(3.2 * SR)
+        t = np.arange(n) / SR
+        sig = np.zeros(n)
+        for f in (note(26), note(38), note(45), note(50)):
+            for d in (-0.12, 0.0, 0.11):
+                sig += sum(np.sin(2 * np.pi * f * (1 + d / 100) * k * t) / k for k in range(1, 14))
+        sig = np.tanh(sig * 0.12)
+        cut = 300 + 2400 * np.minimum(1, t / 0.25) * np.exp(-t * 0.9)
+        out = np.zeros(n)
+        for b in range(16):
+            a, z = b * n // 16, (b + 1) * n // 16
+            out[a:z] = fft_filter(sig[max(0, a - 1024) : z + 1024], None, float(cut[(a + z) // 2]))[a - max(0, a - 1024) : a - max(0, a - 1024) + (z - a)]
+        env = np.minimum(1, t / 0.03) * np.exp(-t * 0.85)
+        return reverb(out * env, 2.6, 0.35) * 0.9, 0.0
     raise ValueError(kind)
 
 
 # ---------------------------------------------------------------- música
-secoes = mus["secoes"]  # [{de, ate, kick, clap, hats, baixo, pluck, arp, pad, filtro}]
+secoes = mus["secoes"]  # [{de, ate, kick, clap, hats, baixo, pluck, arp, pad, filtro} | cinemático: taiko, caixa, toms, ostinato, cordas, drone, piano]
+for sec in secoes:
+    sec["de"] = tempo(sec["de"])
+    sec["ate"] = tempo(sec["ate"])
 
 
 def secao(t):
@@ -225,6 +257,56 @@ def secao(t):
 acordes = [[note(m) for m in a] for a in mus["acordes"]]  # um acorde por compasso
 raizes = [note(m) for m in mus["raizes"]]
 k_s, c_s, h_s, ho_s = kick(), clap(), hat(), hat(True)
+
+
+def taiko():
+    n = int(0.9 * SR)
+    t = np.arange(n) / SR
+    body = np.sin(2 * np.pi * np.cumsum(62 + 55 * np.exp(-t * 20)) / SR) * np.exp(-t * 4.5)
+    skin = fft_filter(rng.standard_normal(n), 200, 2500) * np.exp(-t * 35) * 0.5
+    return np.tanh((body + skin) * 1.6)
+
+
+def caixa_cine():
+    n = int(0.5 * SR)
+    t = np.arange(n) / SR
+    body = np.sin(2 * np.pi * 185 * t) * np.exp(-t * 22)
+    wire = fft_filter(rng.standard_normal(n), 1500, 9000) * np.exp(-t * 12)
+    return reverb((body * 0.6 + wire * 0.55), 2.2, 0.45)
+
+
+def tom(f):
+    n = int(0.45 * SR)
+    t = np.arange(n) / SR
+    return np.sin(2 * np.pi * np.cumsum(f * (1 + 0.6 * np.exp(-t * 30))) / SR) * np.exp(-t * 8)
+
+
+def corda(f, dur, ataque=0.6):
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    sig = np.zeros(n)
+    for d in (-0.15, 0.0, 0.14):
+        sig += sum(np.sin(2 * np.pi * f * (1 + d / 100) * k * t + k) / k for k in range(1, 8))
+    env = np.minimum(1, t / ataque) * np.minimum(1, (dur - t) / 0.6)
+    return fft_filter(sig * env, None, 2200)
+
+
+def ostinato_nota(f, dur):
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    sig = sum(np.sin(2 * np.pi * f * k * t) / k for k in range(1, 10)) + 0.5 * sum(np.sin(2 * np.pi * f * 1.003 * k * t) / k for k in range(1, 10))
+    env = np.minimum(1, t / 0.006) * np.exp(-t * 11)
+    return fft_filter(sig * env, None, 3000)
+
+
+def piano(f):
+    n = int(2.2 * SR)
+    t = np.arange(n) / SR
+    sig = sum(np.sin(2 * np.pi * f * k * (1 + 0.0004 * k * k) * t) * np.exp(-t * (1.6 + k * 0.9)) / k**1.4 for k in range(1, 8))
+    return sig * np.minimum(1, t / 0.003)
+
+
+tk_s, cx_s = taiko(), caixa_cine()
 pump = np.ones(N)  # ducking (sidechain) do bumbo
 music_L = np.zeros(N)
 music_R = np.zeros(N)
@@ -254,6 +336,40 @@ while True:
     idx = int(round((tb - ANCORA) / BEAT))  # índice do tempo relativo à âncora
     pos = idx % 4  # posição no compasso
     comp = (idx // 4) % len(acordes)
+    if CINE:
+        if s.get("taiko") and pos in (0, 2):
+            madd(tk_s, tb, 0.95 if pos == 0 else 0.75)
+            if s.get("taiko") == "cheio":
+                madd(tk_s, tb + BEAT * 0.75, 0.4, 0.2)
+            i0 = int(tb * SR)
+            n = int(BEAT * SR)
+            env = 1 - 0.35 * np.exp(-np.arange(n) / SR * 7)
+            pump[i0 : i0 + n] = np.minimum(pump[i0 : i0 + n], env[: max(0, min(n, N - i0))])
+        if s.get("caixa") and pos in (1, 3):
+            madd(cx_s, tb, 0.55, 0.05)
+        if s.get("toms") and (idx // 4) % 4 == 3 and pos == 3:
+            for k, f in enumerate((220, 180, 150, 120)):
+                madd(tom(f), tb + k * BEAT / 4, 0.55, -0.4 + k * 0.25)
+        if s.get("drone") and pos == 0:
+            madd(corda(raizes[comp] / 2, BEAT * 4.2, 0.8), tb, 0.10)
+            n = int(BEAT * 4 * SR)
+            tt = np.arange(n) / SR
+            madd(np.sin(2 * np.pi * raizes[comp] / 2 * tt) * np.minimum(1, tt / 0.3) * np.minimum(1, (BEAT * 4 - tt) / 0.3), tb, 0.35)
+        if s.get("cordas") and pos == 0:
+            for m_, f in enumerate(acordes[comp]):
+                madd(corda(f, BEAT * 4.3), tb, 0.045, (m_ - 1.5) * 0.4)
+        if s.get("ostinato"):
+            notas = acordes[comp]
+            padrao = [0, 2, 1, 2]
+            oit = 2 if s.get("ostinato") == "alto" else 1
+            for k in range(2):
+                f = notas[padrao[(pos * 2 + k) % 4] % len(notas)] * oit
+                madd(ostinato_nota(f, BEAT * 0.48), tb + k * BEAT / 2, 0.11, 0.35 if k else -0.35)
+        if s.get("piano") and pos in (0, 2):
+            motivo = acordes[comp]
+            f = motivo[(idx // 2) % len(motivo)] * 2
+            madd(piano(f), tb, 0.16, 0.15)
+        continue
     if s.get("kick"):
         madd(k_s, tb, 0.95)
         i0 = int(tb * SR)
@@ -293,8 +409,9 @@ for s in secoes:
         music_L[a:z] = fft_filter(music_L[a:z], None, s["filtro"])
         music_R[a:z] = fft_filter(music_R[a:z], None, s["filtro"])
 
-music_L = reverb(music_L, 1.2, 0.12) * pump
-music_R = reverb(music_R, 1.2, 0.12) * pump
+rv = (2.4, 0.22) if CINE else (1.2, 0.12)
+music_L = reverb(music_L, *rv) * pump
+music_R = reverb(music_R, *rv) * pump
 L += music_L
 R += music_R
 
