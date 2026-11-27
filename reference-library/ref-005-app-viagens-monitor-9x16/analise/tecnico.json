@@ -1,0 +1,23 @@
+{
+  "arquivo": "ref3.mp4",
+  "conteiner": "mov,mp4,m4a,3gp,3g2,mj2",
+  "duracao_s": 29.964,
+  "tamanho_bytes": 48991334,
+  "video": {
+    "codec": "hevc",
+    "perfil": "Main",
+    "largura": 1284,
+    "altura": 2778,
+    "fps": 59.629,
+    "pix_fmt": "yuvj420p",
+    "bitrate": "12948694"
+  },
+  "audio": {
+    "codec": "aac",
+    "perfil": "LC",
+    "taxa": "44100",
+    "canais": 2,
+    "bitrate": "127923"
+  },
+  "decodificacao_ok": true
+}

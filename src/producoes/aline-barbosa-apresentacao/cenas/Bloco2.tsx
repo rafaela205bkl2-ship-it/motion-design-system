@@ -11,9 +11,11 @@ import {
   DrawPath,
   MotionProvider,
   ObjectEnter,
+  Device3D,
   TapCursor,
   TextReveal,
   TextSwap,
+  keyframes,
   Tilt3D,
   progressAt,
   tapPulse,
@@ -211,7 +213,9 @@ const ACOES = [
 ];
 
 /** "Por isso eu descomplico processos, organizo etapas, resolvo pendências e faço as coisas andarem." */
-export const Cena7ComoTrabalho: React.FC<CenaProps> = ({ slug }) => (
+export const Cena7ComoTrabalho: React.FC<CenaProps> = ({ slug }) => {
+  const m = useMotion();
+  return (
   <MotionProvider theme={temaClaro}>
     <Cena>
       <Fundo tipo="claro" />
@@ -224,16 +228,33 @@ export const Cena7ComoTrabalho: React.FC<CenaProps> = ({ slug }) => (
       <Pos x={90} y={330}>
         <TextReveal text="Por *isso*, eu:" delay={0.05} size={140} align="left" color={COR.tinta} highlightColor="#2F5D86" />
       </Pos>
-      {ACOES.map((a, i) => (
-        <Pos key={a.t} x={60} y={560 + i * 160}>
-          <ObjectEnter motion="glide" from="left" distance={700} delay={a.d} duration={0.5}>
-            <Barra texto={a.t} forte={i === 3} delay={a.d} />
-          </ObjectEnter>
-        </Pos>
-      ))}
+      {/* barras num plano inclinado em perspectiva, com balanço lento */}
+      <Pos x={60} y={560}>
+        <Tilt3D
+          from={{ rotateY: -30, rotateX: 12, opacity: 1 }}
+          to={{ rotateY: -16, rotateX: 8 }}
+          delay={0.6}
+          duration={1.2}
+          sway={2.5}
+          swayPeriod={5}
+          perspective={1300}
+          style={{ width: m.px(960), height: m.px(620) }}
+        >
+          <div style={{ position: "relative", width: m.px(960), height: m.px(620), transformStyle: "preserve-3d" }}>
+            {ACOES.map((a, i) => (
+              <Pos key={a.t} x={0} y={i * 160}>
+                <ObjectEnter motion="glide" from="left" distance={700} delay={a.d} duration={0.5}>
+                  <Barra texto={a.t} forte={i === 3} delay={a.d} />
+                </ObjectEnter>
+              </Pos>
+            ))}
+          </div>
+        </Tilt3D>
+      </Pos>
     </Cena>
   </MotionProvider>
 );
+};
 
 const Barra: React.FC<{ readonly texto: string; readonly forte: boolean; readonly delay: number }> = ({ texto, forte, delay }) => {
   const frame = useCurrentFrame();
@@ -271,132 +292,227 @@ const Barra: React.FC<{ readonly texto: string; readonly forte: boolean; readonl
 };
 
 /* ------------------------------------------------------------------ Cena 8 */
+/*
+ * Celular no estilo de ref-aline-03 (6,0–12,0 s): o aparelho entra girando e mostra a
+ * lateral metálica; a câmera mergulha na tela e passeia de serviço em serviço enquanto o
+ * cursor clica; etiquetas em caixa nomeiam cada serviço; no fim a câmera afasta, o celular
+ * vira e o último cartão se solta da tela em direção a quem assiste.
+ */
 const SERVICOS = [
-  { t: "Legalização\nde empresas", icone: "predio", at: 0.35 },
-  { t: "Alterações e\nregularizações", icone: "editar", at: 1.95 },
-  { t: "Organização\nsocietária", icone: "organograma", at: 3.6 },
-  { t: "Serviços\ncontábeis", icone: "calculadora", at: 5.1 },
+  { t: "Legalização\nde empresas", icone: "predio", at: 0.95 },
+  { t: "Alterações e\nregularizações", icone: "editar", at: 2.0 },
+  { t: "Organização\nsocietária", icone: "organograma", at: 3.65 },
+  { t: "Serviços\ncontábeis", icone: "calculadora", at: 5.15 },
 ] as const;
 
 // geometria da tela do celular (px de design)
-const TELA = { w: 520, h: 1000, linhaY: 300, linhaH: 150, gap: 22 };
+const TELA = { w: 520, h: 1060, bezel: 22, linhaY: 330, linhaH: 150, gap: 22 };
+const centroLinha = (i: number) => TELA.linhaY + i * (TELA.linhaH + TELA.gap) + TELA.linhaH / 2;
+// deslocamento da linha em relação ao centro do aparelho
+const focoLinha = (i: number) => centroLinha(i) + TELA.bezel - (TELA.h + TELA.bezel * 2) / 2;
+const SOLTA = 6.0; // o cartão de "Serviços contábeis" sai da tela
+
+const CAMERA = [
+  { t: 0.0, s: 0.5, y: 0, ry: -62, rx: 26, z: 0 },
+  { t: 0.6, s: 1.05, y: 0, ry: -24, rx: 10, z: 0 },
+  { t: 0.95, s: 2.0, y: focoLinha(0), ry: -9, rx: 5, z: 0 },
+  { t: 1.6, s: 2.0, y: focoLinha(0), ry: -6, rx: 4, z: 0 },
+  { t: 1.95, s: 2.0, y: focoLinha(1), ry: -9, rx: 5, z: 0 },
+  { t: 3.25, s: 2.0, y: focoLinha(1), ry: -6, rx: 4, z: 0 },
+  { t: 3.6, s: 2.0, y: focoLinha(2), ry: -9, rx: 5, z: 0 },
+  { t: 4.75, s: 2.0, y: focoLinha(2), ry: -6, rx: 4, z: 0 },
+  { t: 5.1, s: 2.0, y: focoLinha(3), ry: -9, rx: 5, z: 0 },
+  { t: 5.55, s: 2.0, y: focoLinha(3), ry: -6, rx: 4, z: 0 },
+  { t: 6.1, s: 1.08, y: 40, ry: 24, rx: 8, z: 0 },
+  { t: 7.3, s: 1.02, y: 40, ry: 30, rx: 6, z: 0 },
+];
 
 /** "Legalização de empresas, alterações e regularizações, organização societária e serviços contábeis." */
-export const Cena8Servicos: React.FC<CenaProps> = () => (
-  <MotionProvider theme={temaMarinho}>
-    <Cena>
-      <Fundo tipo="marinho" />
-      <EtiquetaTopo />
-      <Pos x={540} y={420} centro w={980}>
-        <TextSwap
-          items={SERVICOS.map((s) => ({ text: s.t, at: s.at - 0.15 }))}
-          size={104}
-          lineHeight={1.0}
-          color={COR.gelo}
-        />
-      </Pos>
-      <Pos x={540} y={1180} centro>
-        <Tilt3D
-          from={{ rotateX: 24, rotateY: -42, scale: 0.75, opacity: 0, y: 200 }}
-          to={{ rotateX: 8, rotateY: -12 }}
-          delay={0.0}
-          duration={0.7}
-          sway={2.2}
-          swayPeriod={4.5}
-          perspective={1800}
-        >
-          <Celular />
-        </Tilt3D>
-      </Pos>
-    </Cena>
-  </MotionProvider>
-);
-
-const Celular: React.FC = () => {
+export const Cena8Servicos: React.FC<CenaProps> = () => {
   const frame = useCurrentFrame();
   const m = useMotion();
   const t = frame / m.fps;
-  const borda = 26;
-  const centroLinha = (i: number) => TELA.linhaY + i * (TELA.linhaH + TELA.gap) + TELA.linhaH / 2;
+  const cam = keyframes(t, CAMERA, "camera");
   return (
-    <div
-      style={{
-        width: m.px(TELA.w + borda * 2),
-        height: m.px(TELA.h + borda * 2),
-        borderRadius: m.px(90),
-        background: "#08151F",
-        padding: m.px(borda),
-        boxShadow: `0 ${m.px(50)}px ${m.px(110)}px rgba(0,0,0,.55), inset 0 0 0 ${m.px(3)}px #2A4660`,
-      }}
-    >
-      <div
-        style={{
-          position: "relative",
-          width: m.px(TELA.w),
-          height: m.px(TELA.h),
-          borderRadius: m.px(66),
-          background: COR.gelo,
-          overflow: "hidden",
-        }}
-      >
-        {/* ilha */}
-        <div style={{ position: "absolute", top: m.px(22), left: "50%", transform: "translateX(-50%)", width: m.px(150), height: m.px(40), borderRadius: m.px(20), background: "#08151F" }} />
-        {/* topo do app */}
-        <div style={{ position: "absolute", top: m.px(100), left: m.px(40), right: m.px(40), display: "flex", alignItems: "center", gap: m.px(18) }}>
-          <div style={{ width: m.px(84), height: m.px(84), borderRadius: m.px(24), background: COR.marinho, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <LetrasAB altura={52} cor={COR.gelo} />
-          </div>
-          <div>
-            <div style={{ fontFamily: FONTE_SERIFADA, fontSize: m.px(38), color: COR.tinta, lineHeight: 1 }}>Aline Barbosa</div>
-            <div style={{ fontFamily: FONTE_TEXTO, fontSize: m.px(22), color: "#4B6782", letterSpacing: "0.12em", marginTop: m.px(6) }}>CONTABILIDADE</div>
-          </div>
-        </div>
-        <div style={{ position: "absolute", top: m.px(220), left: m.px(40), fontFamily: FONTE_TEXTO, fontWeight: 700, fontSize: m.px(40), color: COR.tinta }}>Serviços</div>
-        {SERVICOS.map((s, i) => {
-          const entra = progressAt(frame, m.fps, 0.3 + i * 0.08, 0.35, "enterStrong");
-          const ativo = progressAt(frame, m.fps, s.at, 0.18, "enter");
-          const pulso = tapPulse(t, s.at);
-          const cheio = ativo > 0.5;
-          return (
+    <MotionProvider theme={temaMarinho}>
+      <Cena>
+        <Fundo tipo="marinho" />
+        <FaixasDeLuz />
+        <Pos x={540} y={1000} centro>
+          <div style={{ transform: `scale(${cam.s}) translateY(${m.px(-cam.y)}px)` }}>
             <div
-              key={s.t}
               style={{
                 position: "absolute",
-                left: m.px(30),
-                right: m.px(30),
-                top: m.px(TELA.linhaY + i * (TELA.linhaH + TELA.gap)),
-                height: m.px(TELA.linhaH),
-                borderRadius: m.px(30),
-                background: cheio ? COR.marinho : "#FFFFFF",
-                border: `${m.px(3)}px solid ${cheio ? COR.marinho : COR.azulCaixa}`,
-                display: "flex",
-                alignItems: "center",
-                gap: m.px(22),
-                padding: `0 ${m.px(24)}px`,
-                opacity: entra,
-                transform: `translateY(${m.px((1 - entra) * 40)}px) scale(${1 - pulso * 0.05})`,
+                left: "8%",
+                right: "8%",
+                top: "10%",
+                bottom: "-4%",
+                borderRadius: m.px(120),
+                background: "rgba(0,0,0,.5)",
+                filter: `blur(${m.px(50)}px)`,
+                transform: `translateX(${m.px(cam.ry * 2.2)}px) translateY(${m.px(40)}px)`,
               }}
-            >
-              <div style={{ width: m.px(92), height: m.px(92), borderRadius: m.px(24), background: cheio ? COR.azul : COR.marinho, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                <Icone tipo={s.icone} cor={cheio ? COR.marinho : COR.gelo} tam={56} />
+            />
+            <div style={{ perspective: m.px(1700) }}>
+              <div
+                style={{
+                  transformStyle: "preserve-3d",
+                  transform: `rotateX(${cam.rx}deg) rotateY(${cam.ry}deg)`,
+                }}
+              >
+                <Device3D width={TELA.w} height={TELA.h} bezel={TELA.bezel} rotateY={cam.ry} screenColor={COR.gelo}>
+                  <TelaServicos />
+                </Device3D>
               </div>
-              <div style={{ fontFamily: FONTE_TEXTO, fontWeight: 600, fontSize: m.px(31), lineHeight: 1.15, color: cheio ? COR.gelo : COR.tinta, whiteSpace: "pre", flex: 1 }}>
-                {s.t}
-              </div>
-              <svg width={m.px(40)} height={m.px(40)} viewBox="0 0 40 40" style={{ opacity: ativo }}>
-                <circle cx={20} cy={20} r={18} fill={COR.azul} />
-                <path d="M11 20 l6 6 12-12" fill="none" stroke={COR.marinho} strokeWidth={4.5} strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
             </div>
-          );
-        })}
+          </div>
+        </Pos>
+        <EtiquetaTopo />
+        {SERVICOS.map((s, i) => (
+          <EtiquetaCaixa
+            key={s.t}
+            texto={s.t}
+            entra={s.at - 0.3}
+            sai={i < SERVICOS.length - 1 ? SERVICOS[i + 1].at - 0.42 : undefined}
+          />
+        ))}
+      </Cena>
+    </MotionProvider>
+  );
+};
+
+/** Faixas diagonais de luz atrás do aparelho (a faixa azul de ref-aline-03, 10–11 s). */
+const FaixasDeLuz: React.FC = () => {
+  const frame = useCurrentFrame();
+  const m = useMotion();
+  const t = frame / m.fps;
+  return (
+    <>
+      {[
+        { y: 520, w: 260, v: 260, o: 0.12, c: COR.azul },
+        { y: 1250, w: 120, v: -380, o: 0.1, c: COR.gelo },
+      ].map((f, i) => (
+        <div
+          key={i}
+          style={{
+            position: "absolute",
+            left: m.px(-600 + ((t * f.v) % 2400) + (f.v < 0 ? 2400 : 0) - 600),
+            top: m.px(f.y),
+            width: m.px(2600),
+            height: m.px(f.w),
+            background: `linear-gradient(90deg, transparent, ${f.c}, transparent)`,
+            opacity: f.o,
+            transform: "rotate(-28deg)",
+          }}
+        />
+      ))}
+    </>
+  );
+};
+
+/** Rótulo em duas caixas (como "Tudo num / lugar só." de ref-aline-03), com saída rápida. */
+const EtiquetaCaixa: React.FC<{ readonly texto: string; readonly entra: number; readonly sai?: number }> = ({ texto, entra, sai }) => {
+  const frame = useCurrentFrame();
+  const m = useMotion();
+  const linhas = texto.split("\n");
+  const saida = sai === undefined ? 0 : progressAt(frame, m.fps, sai, 0.18, "exit");
+  if (frame / m.fps < entra - 0.05 || saida >= 1) return null;
+  return (
+    <div style={{ position: "absolute", left: m.px(70), top: m.px(1460), display: "flex", flexDirection: "column", alignItems: "flex-start", gap: m.px(10), opacity: 1 - saida, transform: `translateX(${m.px(-saida * 80)}px)` }}>
+      {linhas.map((l, i) => {
+        const p = progressAt(frame, m.fps, entra + i * 0.1, 0.28, "enterStrong");
+        const escuro = i === 0;
+        return (
+          <div
+            key={l}
+            style={{
+              background: escuro ? COR.marinhoFundo : COR.azul,
+              borderRadius: m.px(14),
+              padding: `${m.px(6)}px ${m.px(26)}px ${m.px(12)}px`,
+              transform: `scaleX(${p})`,
+              transformOrigin: "0 50%",
+              boxShadow: `0 ${m.px(16)}px ${m.px(40)}px rgba(0,0,0,.35)`,
+            }}
+          >
+            <span style={{ display: "inline-block", fontFamily: FONTE_TEXTO, fontWeight: 700, fontSize: m.px(66), lineHeight: 1.1, letterSpacing: "-0.02em", color: escuro ? COR.gelo : COR.marinho, opacity: p, whiteSpace: "nowrap" }}>
+              {l}
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+const TelaServicos: React.FC = () => {
+  const frame = useCurrentFrame();
+  const m = useMotion();
+  const t = frame / m.fps;
+  return (
+    <div style={{ position: "absolute", inset: 0, transformStyle: "preserve-3d" }}>
+      {/* topo do app */}
+      <div style={{ position: "absolute", top: m.px(100), left: m.px(36), right: m.px(36), display: "flex", alignItems: "center", gap: m.px(18) }}>
+        <div style={{ width: m.px(84), height: m.px(84), borderRadius: m.px(24), background: COR.marinho, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <LetrasAB altura={52} cor={COR.gelo} />
+        </div>
+        <div>
+          <div style={{ fontFamily: FONTE_SERIFADA, fontSize: m.px(38), color: COR.tinta, lineHeight: 1 }}>Aline Barbosa</div>
+          <div style={{ fontFamily: FONTE_TEXTO, fontSize: m.px(22), color: "#4B6782", letterSpacing: "0.12em", marginTop: m.px(6) }}>CONTABILIDADE</div>
+        </div>
+      </div>
+      <div style={{ position: "absolute", top: m.px(225), left: m.px(36), right: m.px(36), height: m.px(76), borderRadius: m.px(38), background: "#E3EBF3", display: "flex", alignItems: "center", padding: `0 ${m.px(28)}px`, fontFamily: FONTE_TEXTO, fontWeight: 700, fontSize: m.px(34), color: COR.tinta }}>
+        Serviços
+      </div>
+      {SERVICOS.map((s, i) => {
+        const entra = progressAt(frame, m.fps, 0.25 + i * 0.07, 0.35, "enterStrong");
+        const ativo = progressAt(frame, m.fps, s.at, 0.18, "enter");
+        const pulso = tapPulse(t, s.at);
+        const cheio = ativo > 0.5;
+        const solta = i === SERVICOS.length - 1 ? progressAt(frame, m.fps, SOLTA, 0.7, "enterStrong") : 0;
+        return (
+          <div
+            key={s.t}
+            style={{
+              position: "absolute",
+              left: m.px(26),
+              right: m.px(26),
+              top: m.px(TELA.linhaY + i * (TELA.linhaH + TELA.gap)),
+              height: m.px(TELA.linhaH),
+              borderRadius: m.px(30),
+              background: cheio ? COR.marinho : "#FFFFFF",
+              border: `${m.px(3)}px solid ${cheio ? COR.marinho : COR.azulCaixa}`,
+              display: "flex",
+              alignItems: "center",
+              gap: m.px(20),
+              padding: `0 ${m.px(22)}px`,
+              opacity: entra,
+              // o item clicado "salta" da tela; o último se solta de vez no fim
+              transform: `translateY(${m.px((1 - entra) * 40 - solta * 160)}px) translateZ(${m.px(pulso * 30 + solta * 300)}px) rotateY(${-solta * 14}deg) scale(${1 - pulso * 0.04 + solta * 0.12})`,
+              boxShadow: solta > 0 ? `0 ${m.px(30 * solta)}px ${m.px(60 * solta)}px rgba(0,0,0,${0.4 * solta})` : undefined,
+            }}
+          >
+            <div style={{ width: m.px(92), height: m.px(92), borderRadius: m.px(24), background: cheio ? COR.azul : COR.marinho, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <Icone tipo={s.icone} cor={cheio ? COR.marinho : COR.gelo} tam={56} />
+            </div>
+            <div style={{ fontFamily: FONTE_TEXTO, fontWeight: 600, fontSize: m.px(30), lineHeight: 1.15, color: cheio ? COR.gelo : COR.tinta, whiteSpace: "pre", flex: 1 }}>
+              {s.t}
+            </div>
+            <svg width={m.px(40)} height={m.px(40)} viewBox="0 0 40 40" style={{ opacity: ativo }}>
+              <circle cx={20} cy={20} r={18} fill={COR.azul} />
+              <path d="M11 20 l6 6 12-12" fill="none" stroke={COR.marinho} strokeWidth={4.5} strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+        );
+      })}
+      <div style={{ position: "absolute", inset: 0, transform: `translateZ(${m.px(40)}px)` }}>
         <TapCursor
-          points={SERVICOS.map((s, i) => ({ x: 300 + (i % 2) * 40, y: centroLinha(i) + 10, at: s.at }))}
-          appearAt={0.05}
-          travel={0.4}
-          variant="dot"
-          size={78}
-          color={COR.azulProfundo}
+          points={SERVICOS.map((s, i) => ({ x: 330 + (i % 2) * 30, y: centroLinha(i) + 12, at: s.at }))}
+          appearAt={0.75}
+          hideAt={5.6}
+          travel={0.38}
+          variant="arrow"
+          size={58}
+          color={COR.gelo}
           rippleColor={COR.azulProfundo}
         />
       </div>

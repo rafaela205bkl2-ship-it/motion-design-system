@@ -2,7 +2,7 @@
 titulo: Aline Barbosa Apresentacao
 estilo: base
 formatos: 9x16
-trilha:
+trilha: audio/trilha.mp3
 ---
 
 <!-- Durações = tempo da narração + a sobreposição da transição de saída,

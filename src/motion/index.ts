@@ -17,6 +17,8 @@ export {
   progressAt,
 } from "./MotionProvider";
 export type { TimeValue } from "./MotionProvider";
+export { keyframes } from "./keyframes";
+export type { Keyframe } from "./keyframes";
 
 // Presets nomeados
 export {
@@ -62,6 +64,8 @@ export { Tilt3D } from "./object/Tilt3D";
 export type { Tilt3DProps, TiltState } from "./object/Tilt3D";
 export { TapCursor, tapPulse } from "./object/TapCursor";
 export type { TapCursorProps, TapPoint } from "./object/TapCursor";
+export { Device3D } from "./object/Device3D";
+export type { Device3DProps } from "./object/Device3D";
 
 // Transições
 export { radialReveal } from "./transitions/radialReveal";

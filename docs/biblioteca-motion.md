@@ -214,6 +214,14 @@ Observados nas referências da cliente (veja `producoes/aline-barbosa-apresentac
 | `Tilt3D` | plano que entra girado em perspectiva e pousa com mola; balanço lento; saída 3D | ref-aline-01 e ref-aline-03, 6,0–9,5 s |
 | `TapCursor` + `tapPulse` | cursor (seta ou ponto) que viaja entre pontos e clica com onda; o alvo reage com `tapPulse` | ref-aline-03, 7,5–9,0 s |
 | `DrawPath` | traço SVG que se desenha e se apaga (molduras, cantoneiras, riscos) | ref-aline-01 (2º trecho), 4,0 s |
+| `Device3D` | celular com espessura real (lateral metálica em camadas Z), reflexo que segue o giro; a interface pode sair da tela com `translateZ` | ref-aline-03, 6,0–12,0 s |
+| `keyframes` | interpola vários valores entre quadros-chave (câmera que aproxima, desliza e afasta) | ref-aline-03, 6,0–9,5 s |
+
+> Cuidado com 3D: `filter` (ex.: `drop-shadow`) ou `overflow: hidden` num contêiner com `preserve-3d` achatam a profundidade. Faça a sombra num elemento separado.
+
+Os ids `ref-aline-01/02/03` citados no código são `ref-003`, `ref-004` e `ref-005` da reference-library.
+
+Trilha de produção: `npm run trilha-producao -- <slug>` lê `timeline.json` (whoosh em cada transição) e `sons.json` (música e efeitos com tempo).
 
 ```tsx
 <TypeOn text={"Sua empresa travada\npor causa de *papel?*"} delay={1} cps={30} size={96} font="body" />

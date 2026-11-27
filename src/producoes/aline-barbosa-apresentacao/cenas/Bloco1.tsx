@@ -13,6 +13,7 @@ import {
   ObjectEnter,
   OrbitText,
   TextReveal,
+  Tilt3D,
   TypeOn,
   progressAt,
   useMotion,
@@ -153,7 +154,18 @@ export const Cena2Burocracia: React.FC<CenaProps> = () => (
       {DOCS.map((doc) => (
         <Pos key={doc.t} x={540} y={doc.y} style={{ transform: "translateX(-50%)" }}>
           <ObjectEnter motion="fall" delay={doc.d} distance={1100} rotateFrom={doc.r * 4} rotate={doc.r} impact={0.07}>
-            <CartaoDoc titulo={doc.t} icone={doc.icone} />
+            {/* gira em X enquanto cai: chega "de pé" com leve inclinação em perspectiva */}
+            <Tilt3D
+              from={{ rotateX: -75, rotateY: -30, opacity: 1 }}
+              to={{ rotateX: 10, rotateY: doc.r > 0 ? 12 : -12 }}
+              delay={doc.d}
+              duration={0.6}
+              sway={1.5}
+              swayPeriod={3.5}
+              perspective={1200}
+            >
+              <CartaoDoc titulo={doc.t} icone={doc.icone} />
+            </Tilt3D>
           </ObjectEnter>
         </Pos>
       ))}

@@ -209,7 +209,7 @@ export const Cena11Fecho: React.FC<CenaProps> = ({ slug }) => {
       <Cena>
         <Fundo tipo="claro" />
         <Cabecalho />
-        <Pos x={230} y={700} w={780}>
+        <Pos x={330} y={680} w={820}>
           <ObjectEnter motion="rise" from="bottom" distance={200} delay={0.05} duration={0.7}>
             <Img
               src={staticFile(`producoes/${slug}/imagens/aline-tablet.png`)}

@@ -3,7 +3,7 @@
   "slug": "aline-barbosa-apresentacao",
   "fps": 30,
   "estilo": "base",
-  "trilha": null,
+  "trilha": "audio/trilha.mp3",
   "cenas": [
     {
       "id": "cena-1",

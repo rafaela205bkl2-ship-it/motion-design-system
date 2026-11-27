@@ -38,6 +38,7 @@
     "catalogo": "tsx scripts/catalogo.ts",
     "validar": "eslint src && tsc && tsx scripts/catalogo.ts --validar",
     "trilha-demo": "python3 scripts/gerar-trilha.py",
+    "trilha-producao": "python3 scripts/gerar-trilha-producao.py",
     "analisar-referencia": "python3 scripts/analisar-referencia.py"
   },
   "allowScripts": {

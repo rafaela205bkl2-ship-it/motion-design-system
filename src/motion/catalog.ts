@@ -408,6 +408,23 @@ export const catalog: CatalogEntry[] = [
     example: '<OrbitText text="ALINE BARBOSA · " radius={380}><Logo /></OrbitText>',
   },
   {
+    name: "Device3D",
+    kind: "componente",
+    file: "src/motion/object/Device3D.tsx",
+    description:
+      "Celular com espessura real (lateral metálica em camadas Z), reflexo que segue o giro e tela sem recorte 3D (a interface pode sair da tela) — ref-aline-01/03.",
+    props: ["width", "height", "bezel", "radius", "depth", "metal", "screenColor", "rotateY", "island", "children"],
+    example: "<div style={{ perspective: 1800 }}><div style={{ transformStyle: 'preserve-3d', transform: 'rotateY(-20deg)' }}><Device3D rotateY={-20}>…tela…</Device3D></div></div>",
+  },
+  {
+    name: "keyframes",
+    kind: "utilitário",
+    file: "src/motion/keyframes.ts",
+    description:
+      "Interpola vários valores entre quadros-chave em segundos (câmeras: zoom, pan, rotação que passam por vários pontos).",
+    example: 'const cam = keyframes(t, [{ t: 0, scale: 1, y: 0 }, { t: 0.8, scale: 2, y: -120 }], "camera");',
+  },
+  {
     name: "Tilt3D",
     kind: "componente",
     file: "src/motion/object/Tilt3D.tsx",

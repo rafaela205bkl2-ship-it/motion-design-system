@@ -1,0 +1,39 @@
+{
+  "aviso": "Métricas automáticas — confirme nos quadros antes de usar como padrão.",
+  "duracao_s": 25.82,
+  "mudancas_bruscas_s": [
+    4.63,
+    8.13,
+    10.17
+  ],
+  "mudancas_bruscas_nota": "Inclui cortes secos E transições muito rápidas (≤ 5 quadros, ex.: radiais). Confirme nos quadros.",
+  "eventos_visuais_s": [
+    0.37,
+    0.57,
+    2.7,
+    3.63,
+    4.63,
+    7.23,
+    8.13,
+    10.17,
+    10.37,
+    10.83,
+    11.03,
+    13.23,
+    14.03,
+    15.07,
+    19.3
+  ],
+  "intervalo_mediano_eventos_s": 0.97,
+  "brilho_medio": 101.3,
+  "saturacao_media": 18.0,
+  "saturacao_desvio": 14.2,
+  "bpm_estimado": 143.6,
+  "bpm_confianca": "baixa",
+  "sincronia": {
+    "eventos_a_100ms_da_batida_pct": 67,
+    "aleatorio_pct": 33,
+    "leitura": "sincronizado"
+  },
+  "loudness_lufs": -14.2
+}
