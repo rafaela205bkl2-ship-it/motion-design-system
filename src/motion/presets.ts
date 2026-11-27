@@ -16,6 +16,7 @@ import type {
 import type { ObjectEnterProps } from "./object/ObjectEnter";
 import type { TextRevealProps } from "./text/TextReveal";
 import { blurDissolve } from "./transitions/blurDissolve";
+import { diagonalWipe } from "./transitions/diagonalWipe";
 import { radialReveal } from "./transitions/radialReveal";
 import { motionTiming } from "./transitions/timing";
 
@@ -78,6 +79,7 @@ export const TRANSITION_PRESETS = [
   "radial-suave",
   "dissolve",
   "fade-branco",
+  "faixa-diagonal",
 ] as const;
 export type TransitionPresetName = (typeof TRANSITION_PRESETS)[number];
 
@@ -93,6 +95,7 @@ export type PresetTransition = {
  * - radial-suave:  7 q, acelera e desacelera (radial de A)
  * - dissolve:      9 q, dissolve com desfoque
  * - fade-branco:   9 q, dissolve passando pelo branco
+ * - faixa-diagonal: 12 q, faixa na cor do anel cruza a tela na diagonal (ref-aline-03)
  */
 export const transitionPreset = (
   name: TransitionPresetName,
@@ -153,6 +156,11 @@ export const transitionPreset = (
           duration: "dissolve",
           easing: "wipeSmooth",
         }),
+      );
+    case "faixa-diagonal":
+      return out(
+        diagonalWipe({ bandColor: ringColor ?? through, bandWidth: 240, angle: 125 }),
+        motionTiming({ fps, duration: "wipe", easing: "wipeSmooth" }),
       );
   }
 };

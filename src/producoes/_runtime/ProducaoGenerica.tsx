@@ -37,6 +37,7 @@ const FRAMES_TRANSICAO: Record<string, string> = {
   "radial-suave": "base",
   dissolve: "dissolve",
   "fade-branco": "dissolve",
+  "faixa-diagonal": "wipe",
 };
 
 /** Duração total em quadros (cenas − sobreposição das transições). */
@@ -177,10 +178,14 @@ export const ProducaoGenerica: React.FC<{
   readonly timeline: TimelineProducao;
   /** Substituições: id da cena → componente próprio. */
   readonly cenas?: Record<string, React.FC<CenaProps>>;
-}> = ({ timeline: tl, cenas = {} }) => {
+  /** Tema da marca: substitui o tema do estilo em todas as cenas (opcional). */
+  readonly tema?: Theme;
+  /** Cor da transição que SAI de cada cena (anel/faixa), por id. Padrão: destaque da próxima cena. */
+  readonly corDaTransicao?: Record<string, string>;
+}> = ({ timeline: tl, cenas = {}, tema: temaMarca, corDaTransicao = {} }) => {
   const items: React.ReactNode[] = [];
   tl.cenas.forEach((cena, i) => {
-    const tema = temaDoEstilo(cena.estilo ?? tl.estilo);
+    const tema = temaMarca ?? temaDoEstilo(cena.estilo ?? tl.estilo);
     const Comp = cenas[cena.id] ?? CenaGenerica;
     items.push(
       <TransitionSeries.Sequence
@@ -193,10 +198,10 @@ export const ProducaoGenerica: React.FC<{
     );
     const t = cena.transicao ?? "dissolve";
     if (i < tl.cenas.length - 1 && t !== "corte") {
-      const next = temaDoEstilo(tl.cenas[i + 1].estilo ?? tl.estilo);
+      const next = temaMarca ?? temaDoEstilo(tl.cenas[i + 1].estilo ?? tl.estilo);
       const tr = transitionPreset(t, {
         fps: tl.fps,
-        ringColor: next.palette.accent,
+        ringColor: corDaTransicao[cena.id] ?? next.palette.accent,
       });
       items.push(
         <TransitionSeries.Transition

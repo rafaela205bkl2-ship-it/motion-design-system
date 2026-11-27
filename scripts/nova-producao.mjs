@@ -21,7 +21,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const FORMATOS = { "9x16": [1080, 1920], "16x9": [1920, 1080], "1x1": [1080, 1080] };
 const ESTILOS = ["base", "calmo", "vibrante", "misto"];
-const TRANSICOES = ["radial-rapido", "radial-suave", "dissolve", "fade-branco", "corte"];
+const TRANSICOES = ["radial-rapido", "radial-suave", "dissolve", "fade-branco", "faixa-diagonal", "corte"];
 
 // ------------------------------------------------------------------ argumentos
 const argv = process.argv.slice(2);

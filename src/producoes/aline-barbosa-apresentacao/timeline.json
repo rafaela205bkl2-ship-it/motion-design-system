@@ -1,0 +1,115 @@
+{
+  "titulo": "Aline Barbosa Apresentacao",
+  "slug": "aline-barbosa-apresentacao",
+  "fps": 30,
+  "estilo": "base",
+  "trilha": null,
+  "cenas": [
+    {
+      "id": "cena-1",
+      "nome": "Abertura (0:00–0:04)",
+      "duracao": 4.1667,
+      "transicao": "radial-rapido",
+      "texto": "Sua empresa travada\npor causa de *papel?*",
+      "visual": "monograma AB gira em 3D com ALINE BARBOSA orbitando; frase digitada"
+    },
+    {
+      "id": "cena-2",
+      "nome": "Burocracia (0:04–0:08)",
+      "duracao": 4.2333,
+      "transicao": "radial-suave",
+      "texto": "Pendência atrás de *pendência*",
+      "apoio": "Alvará · CNPJ · Contrato social",
+      "visual": "cartões de documentos caem e empilham; etiquetas de pendência pipocam"
+    },
+    {
+      "id": "cena-3",
+      "nome": "Prazer (0:08–0:12)",
+      "duracao": 4.3,
+      "transicao": "dissolve",
+      "texto": "Prazer,\neu sou Aline.",
+      "imagem": "imagens/aline-retrato.png",
+      "visual": "fundo azul-claro do carrossel, retrato sobe, texto serifado"
+    },
+    {
+      "id": "cena-4",
+      "nome": "Quem sou (0:12–0:17)",
+      "duracao": 5.4,
+      "transicao": "faixa-diagonal",
+      "texto": "Contadora",
+      "apoio": "Paulista de nascimento · Baiana de coração",
+      "imagem": "imagens/aline-tablet.png",
+      "visual": "etiquetas surgem uma a uma ao lado da foto"
+    },
+    {
+      "id": "cena-5",
+      "nome": "Trajetória (0:17–0:22)",
+      "duracao": 5.1667,
+      "transicao": "radial-rapido",
+      "texto": "Passei pelo contábil,\nfiscal e societário",
+      "visual": "cartão marinho inclinado em 3D, palavras uma a uma"
+    },
+    {
+      "id": "cena-6",
+      "nome": "Horas (0:22–0:27)",
+      "duracao": 5.4,
+      "transicao": "faixa-diagonal",
+      "texto": "Perdendo *horas*\ncom burocracias",
+      "apoio": "que poderiam ser simples.",
+      "visual": "relógio com ponteiros disparando"
+    },
+    {
+      "id": "cena-7",
+      "nome": "Como trabalho (0:27–0:33)",
+      "duracao": 6.2333,
+      "transicao": "radial-suave",
+      "texto": "Por *isso*, eu:",
+      "apoio": "Descomplico processos · Organizo etapas · Resolvo pendências · Faço as coisas andarem",
+      "visual": "4 barras marinho com asterisco entram da esquerda"
+    },
+    {
+      "id": "cena-8",
+      "nome": "Serviços (0:33–0:40)",
+      "duracao": 7.1667,
+      "transicao": "radial-rapido",
+      "texto": "Serviços",
+      "apoio": "Legalização · Alterações e regularizações · Organização societária · Serviços contábeis",
+      "visual": "celular em 3D, cursor clica em cada serviço"
+    },
+    {
+      "id": "cena-9",
+      "nome": "Objetivo (0:40–0:46)",
+      "duracao": 6.3,
+      "transicao": "dissolve",
+      "texto": "Menos burocracia,\n*mais crescimento.*",
+      "visual": "\"menos burocracia\" riscado; gráfico sobe"
+    },
+    {
+      "id": "cena-10",
+      "nome": "Sem fronteiras (0:46–0:51)",
+      "duracao": 5.2333,
+      "transicao": "radial-suave",
+      "texto": "Atendimento\nsem *fronteiras*",
+      "apoio": "Te atendo onde você estiver.",
+      "visual": "globo de linhas com pinos e arcos"
+    },
+    {
+      "id": "cena-11",
+      "nome": "Fecho (0:51–0:56)",
+      "duracao": 5.3,
+      "transicao": "fade-branco",
+      "texto": "Eu cuido da *burocracia*.",
+      "apoio": "Você foca no crescimento do seu negócio.",
+      "imagem": "imagens/aline-tablet.png",
+      "visual": "foto sorrindo com o tablet"
+    },
+    {
+      "id": "cena-12",
+      "nome": "Assinatura (0:56–1:02)",
+      "duracao": 6,
+      "texto": "Aline Barbosa",
+      "apoio": "Contabilidade e legalização de empresas",
+      "visual": "logo se desenha (moldura, arcos, AB) e o nome entra letra a letra"
+    }
+  ]
+}

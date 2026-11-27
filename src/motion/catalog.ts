@@ -39,7 +39,7 @@ export const catalog: CatalogEntry[] = [
     kind: "token",
     file: "src/motion/tokens.ts",
     description:
-      "Durações em segundos: micro 3q, fast 5q, swap 6q, base 7q, dissolve 9q, reveal 10q, enter 16q, hold 1s, scene 2.5s, outro 4s.",
+      "Durações em segundos: micro 3q, fast 5q, swap 6q, base 7q, dissolve 9q, reveal 10q, wipe 12q, enter 16q, hold 1s, scene 2.5s, outro 4s.",
   },
   {
     name: "stagger",
@@ -197,7 +197,7 @@ export const catalog: CatalogEntry[] = [
     kind: "preset",
     file: "src/motion/presets.ts",
     description:
-      "Transição pronta por nome: radial-rapido, radial-suave, dissolve, fade-branco.",
+      "Transição pronta por nome: radial-rapido, radial-suave, dissolve, fade-branco, faixa-diagonal.",
     example:
       'const t = transitionPreset("radial-rapido", { fps, origin: [0.5, 0.6] })',
   },
@@ -372,6 +372,81 @@ export const catalog: CatalogEntry[] = [
     file: "src/motion/layers/ColorBloom.tsx",
     description: "Ciclo de cores dentro da cena por expansões radiais.",
     props: ["steps[{color, at}]", "origin", "duration", "easing", "softness"],
+  },
+  // ------------------------------------------------------------ novos (produção Aline Barbosa)
+  {
+    name: "TypeOn",
+    kind: "componente",
+    file: "src/motion/text/TypeOn.tsx",
+    description:
+      "Texto digitado letra a letra com cursor em barra que pisca (ref-aline-03, 3,0–3,5 s).",
+    props: ["text", "delay", "cps", "cursor", "cursorColor", "cursorHideAt", "size", "font", "fontFamily", "weight", "color", "highlightColor", "align", "maxWidth"],
+    example: '<TypeOn text="Pra onde *você* vai?" delay={0.2} cps={24} size={110} />',
+  },
+  {
+    name: "getTypeOnDuration",
+    kind: "utilitário",
+    file: "src/motion/text/TypeOn.tsx",
+    description: "Duração da digitação em segundos (texto, cps, velocidade).",
+  },
+  {
+    name: "CountUp",
+    kind: "componente",
+    file: "src/motion/text/CountUp.tsx",
+    description:
+      "Número que dispara até o valor final (easeOutExpo), com prefixo/sufixo e formatação pt-BR (ref-aline-01/02).",
+    props: ["to", "from", "delay", "duration", "easing", "decimals", "locale", "prefix", "suffix", "size", "font", "weight", "color"],
+    example: '<CountUp to={9870} prefix="R$ " decimals={2} delay={0.3} />',
+  },
+  {
+    name: "OrbitText",
+    kind: "componente",
+    file: "src/motion/text/OrbitText.tsx",
+    description:
+      "Letras em órbita elíptica em perspectiva ao redor de um objeto central (frente/atrás com escala e desfoque) — ref-aline-01.",
+    props: ["text", "radius", "tilt", "turns", "delay", "hideAt", "size", "fontFamily", "weight", "color", "children"],
+    example: '<OrbitText text="ALINE BARBOSA · " radius={380}><Logo /></OrbitText>',
+  },
+  {
+    name: "Tilt3D",
+    kind: "componente",
+    file: "src/motion/object/Tilt3D.tsx",
+    description:
+      "Plano (cartão/celular) que entra girado em perspectiva e pousa com mola; balanço lento opcional; saída 3D.",
+    props: ["from{rotateX,rotateY,rotateZ,scale,x,y,opacity}", "to", "delay", "duration", "overshoot", "sway", "swayPeriod", "perspective", "exitAt", "exitTo"],
+    example: "<Tilt3D from={{ rotateX: 30, rotateY: -35, scale: 0.8, opacity: 0 }} to={{ rotateY: -8 }} sway={2}>…</Tilt3D>",
+  },
+  {
+    name: "TapCursor",
+    kind: "componente",
+    file: "src/motion/object/TapCursor.tsx",
+    description:
+      "Cursor (seta ou ponto) que viaja entre pontos e clica, com afundamento e onda (ref-aline-03, 7,5–9,0 s).",
+    props: ["points[{x, y, at, tap}]", "travel", "appearAt", "hideAt", "variant", "size", "color", "rippleColor"],
+    example: "<TapCursor points={[{ x: 300, y: 900, at: 1 }, { x: 700, y: 900, at: 1.6 }]} />",
+  },
+  {
+    name: "tapPulse",
+    kind: "utilitário",
+    file: "src/motion/object/TapCursor.tsx",
+    description: "Pulso 0→1→0 de um clique em `at` (para o alvo reagir junto com o TapCursor).",
+  },
+  {
+    name: "DrawPath",
+    kind: "camada",
+    file: "src/motion/layers/DrawPath.tsx",
+    description:
+      "Traço SVG que se desenha e (opcionalmente) se apaga; para linhas finas de marca, molduras e cantoneiras.",
+    props: ["d", "delay", "duration", "easing", "exitAt", "exitDuration", "stroke", "strokeWidth", "linecap"],
+    example: '<svg viewBox="0 0 100 100"><DrawPath d="M10 10 L10 90 L60 90" delay={0.2} /></svg>',
+  },
+  {
+    name: "diagonalWipe",
+    kind: "transição",
+    file: "src/motion/transitions/diagonalWipe.tsx",
+    description:
+      "Faixa colorida cruza a tela na diagonal e revela a nova cena atrás (ref-aline-03, 5,0–5,4 s).",
+    props: ["bandColor", "bandWidth", "angle", "push"],
   },
   // ------------------------------------------------------------ layout
   {

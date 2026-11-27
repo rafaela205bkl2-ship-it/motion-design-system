@@ -18,6 +18,8 @@ export const duration = {
   base: 7 / 30,
   /** Dissolve com desfoque entre cenas. */
   dissolve: 9 / 30,
+  /** Faixa diagonal que limpa a tela (≈ 12 q medidos em ref-aline-03, 5,0–5,4 s). */
+  wipe: 12 / 30,
   /** Revelação de uma unidade de texto (letra/palavra). */
   reveal: 10 / 30,
   /** Entrada de objeto (queda e barras: 16 q). */

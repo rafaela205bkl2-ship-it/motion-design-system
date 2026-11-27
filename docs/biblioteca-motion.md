@@ -199,7 +199,27 @@ Props: `from` (`top`, `bottom`, `left`, `right`, `none`), `distance`, `delay`, `
 
 - `radialReveal`: círculo a partir de um ponto, com borda suave, anel opcional correndo à frente, zoom de entrada e leve recuo da cena que sai.
 - `blurDissolve`: a cena que sai desfoca e cresce, a que entra nasce desfocada. Com `through`, passa por uma cor (o fade para branco das referências).
+- `diagonalWipe`: uma faixa colorida cruza a tela na diagonal e revela a nova cena atrás dela (ref-aline-03, 5,0–5,4 s). Preset `faixa-diagonal` (token `wipe`, 12 q).
 - `transitionFrames(fps, token)`: quadros da transição, para calcular a duração total.
+
+### Componentes adicionados na produção Aline Barbosa
+
+Observados nas referências da cliente (veja `producoes/aline-barbosa-apresentacao/referencias.md`).
+
+| Componente | Função | Origem |
+| --- | --- | --- |
+| `TypeOn` | texto digitado letra a letra, com cursor em barra que pisca por quadro | ref-aline-03, 3,0–3,5 s |
+| `CountUp` | número que dispara até o valor (easeOutExpo), com prefixo/sufixo e formato pt-BR | ref-aline-01, 2,5–3,5 s; ref-aline-02, 0,5–1,5 s |
+| `OrbitText` | letras em órbita elíptica em volta de um objeto central, com profundidade | ref-aline-01 (2º trecho), 0,4–1,4 s |
+| `Tilt3D` | plano que entra girado em perspectiva e pousa com mola; balanço lento; saída 3D | ref-aline-01 e ref-aline-03, 6,0–9,5 s |
+| `TapCursor` + `tapPulse` | cursor (seta ou ponto) que viaja entre pontos e clica com onda; o alvo reage com `tapPulse` | ref-aline-03, 7,5–9,0 s |
+| `DrawPath` | traço SVG que se desenha e se apaga (molduras, cantoneiras, riscos) | ref-aline-01 (2º trecho), 4,0 s |
+
+```tsx
+<TypeOn text={"Sua empresa travada\npor causa de *papel?*"} delay={1} cps={30} size={96} font="body" />
+<Tilt3D from={{ rotateX: 26, rotateY: -38, scale: 0.78, opacity: 0 }} to={{ rotateY: -9 }} sway={1.6}>…</Tilt3D>
+<TapCursor points={[{ x: 300, y: 450, at: 0.35 }, { x: 340, y: 620, at: 1.95 }]} variant="dot" />
+```
 
 ### Camadas
 
